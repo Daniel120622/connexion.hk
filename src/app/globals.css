@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  /* Light theme variables */
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme variables */
+    --background: #3ac9d9;
+    --foreground: #aca39c;
+    --foreground-secondary: #ede9e9;
+    --thirdary-foreground: #3e352d;
+  }
+}
+
+body {
+  /* Base styles */
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.testimonials-carousel .swiper {
+  padding-left: 60px;   /* ← space on the left */
+  padding-right: 60px;  /* ← space on the right */
+}
+
+/* Optional: push arrows even further out (beyond the padding) */
+.testimonials-carousel .swiper-button-prev { 
+  left: +10px !important;   /* negative value moves it leftward */
+}
+
+.testimonials-carousel .swiper-button-next {
+  right: +10px !important;  /* negative value moves it rightward */
+}
+
+/* Optional: make arrows larger / more visible */
+.testimonials-carousel .swiper-button-prev,
+.testimonials-carousel .swiper-button-next {
+  --swiper-navigation-size: 50px;   /* Swiper CSS var – controls arrow size */
+  color: #2563eb;                   /* or your brand color */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-carousel .swiper-button-prev:after,
+.testimonials-carousel .swiper-button-next:after {
+  font-size: 24px;   /* bigger chevron icons */
+}
+
+/* Make arrows appear above everything else on the page */
+.swiper-button-prev,
+.swiper-button-next {
+  z-index: 50 !important;          /* ← higher than most page elements (headers often ~10–20) */
+  --swiper-navigation-size: 50px;  /* bigger arrows — adjust as needed */
+  --swiper-navigation-color: #2563eb; /* or your brand color */
+  --swiper-navigation-top-offset: 50%; /* center vertically */
+  --swiper-navigation-sides-offset: 20px; /* distance from edge — increase if needed */
+}
+
+/* Optional: nicer look + make sure they are clickable */
+.swiper-button-prev,
+.swiper-button-next {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 60px;
+  height: 60px;
+  transition: all 0.2s;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 28px;   /* larger chevrons */
+}
+
+/* globals.css */
+
+nav {
+  /* optional: better shadow when visible */
+  @apply transition-all duration-300;
+}
+
+/* If you want a little shadow only when visible */
+nav.translate-y-0 {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
