@@ -62,15 +62,15 @@ export default function Header() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top bar – logo + social + language */}
-      <div className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <a href="/">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 md:h-20 items-center justify-between">
+          {/* Logo */}
+          <a href="/" className="flex-shrink-0">
             <img
-              src="/images/connecxions-hk.png"
+              src="/images/connecxions-hk-en.png"
               alt="Connexions HK Logo"
-              className="h-10 md:h-12"
+              className="h-10 md:h-14 w-auto object-contain"
             />
           </a>
 

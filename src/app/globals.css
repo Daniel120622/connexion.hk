@@ -1,21 +1,21 @@
 @import "tailwindcss";
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   /* Light theme variables */
   --background: #ffffff;
   --foreground: #171717;
+  --fa-style-family-brands: 'Font Awesome 6 Brands';
+  --fa-font-brands: normal 400 1em / 1 'Font Awesome 6 Brands';
+  --fa-style-family-classic: 'Font Awesome 6 Free';
+  --fa-font-regular: normal 400 1em / 1 'Font Awesome 6 Free';
+  --fa-font-solid: normal 900 1em / 1 'Font Awesome 6 Free';
 }
 
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark theme variables */
-    --background: #3ac9d9;
-    --foreground: #aca39c;
-    --foreground-secondary: #ede9e9;
-    --thirdary-foreground: #3e352d;
-  }
-}
 
 body {
   /* Base styles */
@@ -83,16 +83,4 @@ body {
 .swiper-button-prev:after,
 .swiper-button-next:after {
   font-size: 28px;   /* larger chevrons */
-}
-
-/* globals.css */
-
-nav {
-  /* optional: better shadow when visible */
-  @apply transition-all duration-300;
-}
-
-/* If you want a little shadow only when visible */
-nav.translate-y-0 {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
