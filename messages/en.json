@@ -1,0 +1,26 @@
+{
+  "Header": {
+    "logoAlt": "Connexions HK Logo",
+    "social": {
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    },
+    "home": "Home",
+    "aboutUs": "About Us",
+    "localImmigration": "Local Immigration",
+    "overseaImmigration": "Oversea Immigration",
+    "services": "Services",
+    "services.localCompany": "HK Limited Company",
+    "services.bviCompany": "BVI & Oversea Company",
+    "services.companySecretary": "Company Secretary",
+    "wealthInheritance": "Wealth Inheritance",
+    "contact": "Contact"
+    },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "backToHome": "Back to Home",
+    "hint": "If you think this is an error, please contact us."
+  }
+}

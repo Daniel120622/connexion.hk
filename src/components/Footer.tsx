@@ -50,19 +50,19 @@ export default function Footer() {
               </li>
 
               <li>
-                <a href="services/company-secretary" className="hover:text-[#3ac9d9] transition">
+                <a href="/services/company-secretary" className="hover:text-[#3ac9d9] transition">
                   Company Secretary
                 </a>
               </li>
 
               <li>
-                <a href="/overseas-bvi-immigration" className="hover:text-[#3ac9d9] transition">
+                <a href="/services/local-company" className="hover:text-[#3ac9d9] transition">
                   HK Limited Company
                 </a>
               </li>
 
               <li>
-                <a href="/overseas-bvi-immigration" className="hover:text-[#3ac9d9] transition">
+                <a href="/services/BVI-company" className="hover:text-[#3ac9d9] transition">
                   BVI & Oversea Immigration
                 </a>
               </li>
@@ -83,26 +83,26 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-400">
               <li>
                 <a href="https://incorp-hk.com/hk-shelf-comp/" className="hover:text-[#3ac9d9] transition">
-                  Buying Hong Kong Company
+                (Optional)
                 </a>
               </li>
               <li>
                 <a href="https://incorp-hk.com/accounting-auditing/" className="hover:text-[#3ac9d9] transition">
-                  Accounding and Auditing
+                  (Optional)
                 </a>
               </li>
               <li>
                 <a href="https://incorp-hk.com/terms-and-conditions/" className="hover:text-[#3ac9d9] transition">
-                  Conditional Terms
+                  (Optional)
                 </a>
               </li>
               <li>
-                <a href="https://incorp-hk.com/about-us/" className="hover:text-[#3ac9d9] transition">
+                <a href="/about-us" className="hover:text-[#3ac9d9] transition">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="https://incorp-hk.com/contact-us/" className="hover:text-[#3ac9d9] transition">
+                <a href="/contact" className="hover:text-[#3ac9d9] transition">
                   Contact Us
                 </a>
               </li>

@@ -1,0 +1,26 @@
+{
+  "Header": {
+    "logoAlt": "Connexions HK 標誌",
+    "social": {
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram"
+    },
+    "home": "首頁",
+    "aboutUs": "關於我們",
+    "localImmigration": "本地移民",
+    "overseaImmigration": "海外移民",
+    "services": "服務",
+    "services.localCompany": "香港有限公司",
+    "services.bviCompany": "BVI 及海外公司",
+    "services.companySecretary": "公司秘書",
+    "wealthInheritance": "財富傳承",
+    "contact": "聯絡我們"
+  },
+    "NotFound": {
+        "title": "頁面未找到",
+        "description": "抱歉，您正在尋找的頁面不存在或已被移動。",
+        "backToHome": "返回首頁",
+        "hint": "如果您認為這是錯誤，請與我們聯繫。"
+    }
+}

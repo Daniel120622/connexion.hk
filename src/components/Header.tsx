@@ -3,30 +3,55 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { useTranslations, useLocale } from "next-intl";
 
 export default function Header() {
-  //const t = useTranslations("Header"); // ← prepare for i18n if needed
-  const pathname = usePathname();
   const router = useRouter();
-  //const currentLocale = useLocale();
+  const pathname = usePathname();
 
-  // ── Scroll hide/show logic ────────────────────────────────
-  
-  /*
+  // ── Language state (persisted in localStorage) ──────────────────
+  const [currentLang, setCurrentLang] = useState<"en" | "cn">("en");
+
+  useEffect(() => {
+    // Load saved language on mount
+    const savedLang = localStorage.getItem("lang") as "en" | "cn" | null;
+    if (savedLang) {
+      setCurrentLang(savedLang);
+    } else {
+      // Default to English if nothing saved
+      localStorage.setItem("lang", "en");
+    }
+  }, []);
+
+  // ── Change language & refresh page ──────────────────────────────
+  const changeLanguage = (newLang: "en" | "cn") => {
+    if (newLang === currentLang) return; // no need to refresh if same
+
+    // Save to localStorage
+    localStorage.setItem("lang", newLang);
+    setCurrentLang(newLang);
+
+    // Soft refresh current page → AboutUs will re-read localStorage
+    router.refresh();
+    // Refresh the page
+    location.reload();
+  };
+
+  // ── Scroll hide/show logic ─────────────────────────────────────
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window === "undefined") return;
+
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowNavbar(false);
-      } else {
+      } else if (currentScrollY < lastScrollY) {
         setShowNavbar(true);
       }
+
       setLastScrollY(currentScrollY);
     };
 
@@ -34,8 +59,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY]);
 
-  */
-  // ── Services dropdown ─────────────────────────────────────
+  // ── Services dropdown logic ─────────────────────────────────────
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   let timeoutId: NodeJS.Timeout;
 
@@ -47,22 +71,21 @@ export default function Header() {
   const handleMouseLeave = () => {
     timeoutId = setTimeout(() => {
       setDropdownVisible(false);
-    }, 300); // more pleasant delay
+    }, 300);
   };
 
-  // ── Language change ───────────────────────────────────────
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLocale = e.target.value;
-    // Next.js App Router + next-intl pattern
-    const newPath = pathname.replace(/^\/(en|zh-tw|zh-cn)/, `/${newLocale}`);
-    router.push(newPath || `/${newLocale}`);
+  // ── Active link helper ──────────────────────────────────────────
+  const isActive = (path: string) => {
+    if (path === "/") return pathname === "/";
+    return pathname?.startsWith(path);
   };
-
-  // ── Active link helper ────────────────────────────────────
-  const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-transform duration-300 ease-in-out ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo */}
@@ -77,51 +100,49 @@ export default function Header() {
           <div className="flex items-center gap-6">
             {/* Social icons */}
             <div className="flex gap-4">
-              <a
-                href="https://www.facebook.com/connexionshk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer">
                 <img src="/images/facebook-icon.svg" alt="Facebook" className="h-6 w-6" />
               </a>
-              <a
-                href="https://www.linkedin.com/company/connexions-hk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.linkedin.com/company/connexions-hk" target="_blank" rel="noopener noreferrer">
                 <img src="/images/linkedin-icon.webp" alt="LinkedIn" className="h-6 w-6" />
               </a>
-              <a
-                href="https://www.instagram.com/connexionshk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.instagram.com/connexionshk" target="_blank" rel="noopener noreferrer">
                 <img src="/images/instagram-icon.webp" alt="Instagram" className="h-6 w-6" />
               </a>
             </div>
 
             {/* Language selector */}
-            <select
-              //value={currentLocale}
-              onChange={handleLanguageChange}
-              className="border border-gray-300 rounded px-3 py-1.5 text-sm bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3ac9d9]"
-            >
-              <option value="en">English</option>
-              <option value="zh-tw">繁體中文</option>
-              <option value="zh-cn">簡體中文</option>
-            </select>
+            <div className="flex items-center gap-1 rounded-full px-3 py-1 border border-gray-200 bg-gray-50">
+              <button
+                onClick={() => changeLanguage("en")}
+                className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
+                  currentLang === "en"
+                    ? "bg-[#3ac9d9] text-white shadow-sm"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
+                }`}
+              >
+                EN
+              </button>
+
+              <div className="h-4 w-px bg-gray-300 mx-1" />
+
+              <button
+                onClick={() => changeLanguage("cn")}
+                className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
+                  currentLang === "cn"
+                    ? "bg-[#3ac9d9] text-white shadow-sm"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
+                }`}
+              >
+                繁
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Main navigation – hides on scroll down */}
-      <nav className="bg-white shadow-md transition-transform duration-300 ease-in-out">
-        {/*
-        className={`bg-white shadow-md transition-transform duration-300 ease-in-out ${
-          showNavbar ? "translate-y-0" : "-translate-y-full"
-        }`
-        */
-        }      
+      {/* Main navigation */}
+      <nav className="bg-white shadow-md">
         <div className="container mx-auto px-4">
           <ul className="flex justify-center items-center gap-6 md:gap-8 py-3 text-sm md:text-base font-medium">
             <li>
@@ -168,7 +189,7 @@ export default function Header() {
               </a>
             </li>
 
-            {/* Dropdown */}
+            {/* Services dropdown */}
             <li
               className="relative"
               onMouseEnter={handleMouseEnter}
