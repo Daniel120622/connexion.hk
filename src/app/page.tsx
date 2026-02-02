@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';

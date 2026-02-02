@@ -3,17 +3,18 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { button } from "framer-motion/m";
 
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
 
   // ── Language state (persisted in localStorage) ──────────────────
-  const [currentLang, setCurrentLang] = useState<"en" | "cn">("en");
+  const [currentLang, setCurrentLang] = useState<"en" | "cn" | "zh">("en");
 
   useEffect(() => {
     // Load saved language on mount
-    const savedLang = localStorage.getItem("lang") as "en" | "cn" | null;
+    const savedLang = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
     if (savedLang) {
       setCurrentLang(savedLang);
     } else {
@@ -23,7 +24,7 @@ export default function Header() {
   }, []);
 
   // ── Change language & refresh page ──────────────────────────────
-  const changeLanguage = (newLang: "en" | "cn") => {
+  const changeLanguage = (newLang: "en" | "cn" | "zh") => {
     if (newLang === currentLang) return; // no need to refresh if same
 
     // Save to localStorage
@@ -127,6 +128,17 @@ export default function Header() {
               <div className="h-4 w-px bg-gray-300 mx-1" />
 
               <button
+                onClick={() => changeLanguage("zh")}
+                className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
+                  currentLang === "zh"
+                    ? "bg-[#3ac9d9] text-white shadow-sm"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
+                }`}
+              >
+                繁
+              </button>
+              <div className="h-4 w-px bg-gray-300 mx-1" />
+              <button
                 onClick={() => changeLanguage("cn")}
                 className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
                   currentLang === "cn"
@@ -134,7 +146,7 @@ export default function Header() {
                     : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
                 }`}
               >
-                繁
+                简
               </button>
             </div>
           </div>

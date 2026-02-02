@@ -40,7 +40,7 @@ export default function AboutUs() {
       closingDesc: "We look forward to accompanying you on your journey.",
       closingCall: "Contact us today to start building your future with confidence."
     },
-    cn: {
+    zh: {
       heroTitle: "歡迎來到 Connexions",
       heroDesc: "您在香港及海外移民、居留權及商業成功的可靠夥伴。",
       intro: "Connexions 是一家擁有數十年專業服務經驗的集團，為數百位本地及國際客戶提供服務。我們深切珍惜客戶對我們的信任，並致力於提供卓越的服務品質。建立在相互信任、理解及客戶強烈推薦的基礎上，Connexions 是您在香港及海外的可靠長期夥伴。",
@@ -57,7 +57,26 @@ export default function AboutUs() {
       closingTitle: "Connexions — 您在香港生活與成功的穩定夥伴",
       closingDesc: "我們期待陪伴您走過這段旅程。",
       closingCall: "立即聯絡我們，開始建立您的未來。"
+    },
+    cn: {
+      heroTitle: "欢迎来到 Connexions",
+      heroDesc: "您在香港及海外移民、居留权及商业成功的可靠伙伴。",
+      intro: "Connexions 是一家拥有数十年专业服务经验的集团，为数百位本地及国际客户提供服务。我们深切珍惜客户对我们的信任，并致力于提供卓越的服务品质。建立在相互信任、理解及客户强烈推荐的基础上，Connexions 是您在香港及海外的可靠长期伙伴。",
+      proficiencyTitle: "我们的专业能力",
+      proficiencyText1: "我们的团队由资深会计师及移民顾问组成，熟悉移民法规、政策及最新全球趋势。",
+      proficiencyText2: "拥有超过10年经验，我们已成功服务超过一千位来自香港及全球的客户，协助他们自信地实现居留及商业目标。",
+      servicesTitle: "全方位服务",
+      servicesText1: "我们提供全面的移民及签证解决方案，根据您的个人及家庭背景量身定制，协助申请香港或海外居留身份。",
+      servicesText2: "除了移民服务，我们为您的香港或海外公司提供全方位支援，包括开设商业账户、财务报告、香港公司及个人税务，以及持续合规。服务完全根据您的公司情况、经营范围及盈利要求定制。",
+      followUpTitle: "安心跟进",
+      followUpText1: "我们尊重每位客户的个别需求，提供细心、周到的全程支援 — 包括接待服务、实地考察、文件审查及主动跟进申请进度。",
+      followUpText2: "作为您在香港的终身信赖伙伴，我们将与您共同面对每一个挑战。如在香港生活或商业旅程中出现任何问题，我们将全力提供有效解决方案。",
+      followUpGoal: "我们的目标：帮助您节省时间与精力，建立快乐、舒适、充实的香港生活。",
+      closingTitle: "Connexions — 您在香港生活与成功的稳定伙伴",
+      closingDesc: "我们期待陪伴您走过这段旅程。",
+      closingCall: "立即联络我们，开始建立您的未来。"
     }
+  
   };
 
   const current = content[lang];

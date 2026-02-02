@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 
 export default function WealthInheritancePage() {
   const [activeModal, setActiveModal] = useState<number | null>(null);
-
   const openModal = (index: number) => setActiveModal(index);
   const closeModal = () => setActiveModal(null);
 
