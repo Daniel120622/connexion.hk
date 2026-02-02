@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouse = useRef<{ x: number | null; y: number | null }>({ x: null, y: null });
+  const mouseRef = useRef<{ x: number | null; y: number | null }>({ x: null, y: null });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -26,65 +26,79 @@ export default function Hero() {
 
     // Mouse interaction
     const handleMouseMove = (e: MouseEvent) => {
-      mouse.current = { x: e.clientX, y: e.clientY };
+      mouseRef.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Particle class
-    class Particle {
+    // ── Types ────────────────────────────────────────────────
+    interface Particle {
       x: number;
       y: number;
       size: number;
       speedX: number;
       speedY: number;
-
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 0.8 - 0.4;
-        this.speedY = Math.random() * 0.8 - 0.4;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        // Bounce off edges
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-
-        // Mouse repulsion
-        if (mouse.current?.x && mouse.current?.y) {
-          const dx = this.x - mouse.current.x;
-          const dy = this.y - mouse.current.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 120) {
-            const force = (120 - distance) / 120;
-            this.x += dx * force * 0.1;
-            this.y += dy * force * 0.1;
-          }
-        }
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.fillStyle = "#3ac9d9";
-        ctx.globalAlpha = 0.6;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
+      update: () => void;
+      draw: () => void;
     }
 
     const particles: Particle[] = [];
     const particleCount = Math.min(80, Math.floor(window.innerWidth / 20)); // scale with screen size
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
+    // Particle factory (no direct canvas access)
+    function createParticle(): Particle {
+      return {
+        x: 0,  // Initial placeholder
+        y: 0,  // Initial placeholder
+        size: Math.random() * 3 + 1,
+        speedX: Math.random() * 0.8 - 0.4,
+        speedY: Math.random() * 0.8 - 0.4,
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          // Bounce off edges
+          if (this.x < 0 || this.x > canvas!.width) this.speedX *= -1;
+          if (this.y < 0 || this.y > canvas!.height) this.speedY *= -1;
+
+          // Mouse repulsion
+          const mouse = mouseRef.current;
+          if (mouse?.x && mouse?.y) {
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 120) {
+              const force = (120 - distance) / 120;
+              this.x += dx * force * 0.1;
+              this.y += dy * force * 0.1;
+            }
+          }
+        },
+
+        draw() {
+          if (!ctx) return;
+          ctx.fillStyle = "#3ac9d9";
+          ctx.globalAlpha = 0.6;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        },
+      };
+    }
+
+    // Initialize particles with valid canvas dimensions
+    function init() {
+      particles.length = 0; // clear if re-init
+      for (let i = 0; i < particleCount; i++) {
+        const p = createParticle();
+        p.x = Math.random() * canvas!.width;
+        p.y = Math.random() * canvas!.height;
+        particles.push(p);
+      }
     }
 
     function connectParticles() {
+      if (!ctx) return;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -92,12 +106,12 @@ export default function Hero() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 140) {
-            ctx!.strokeStyle = `rgba(58, 201, 217, ${1 - distance / 140})`;
-            ctx!.lineWidth = 0.8;
-            ctx!.beginPath();
-            ctx!.moveTo(particles[i].x, particles[i].y);
-            ctx!.lineTo(particles[j].x, particles[j].y);
-            ctx!.stroke();
+            ctx.strokeStyle = `rgba(58, 201, 217, ${1 - distance / 140})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
           }
         }
       }
@@ -105,7 +119,7 @@ export default function Hero() {
 
     function animate() {
       if (!ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas!.width, canvas!.height);
 
       particles.forEach((particle) => {
         particle.update();
@@ -116,6 +130,8 @@ export default function Hero() {
       animationFrameId = requestAnimationFrame(animate);
     }
 
+    // Start everything
+    init();
     animate();
 
     return () => {
@@ -135,8 +151,6 @@ export default function Hero() {
 
       {/* Dark overlay for readability */}
       <div className="absolute inset-0 bg-black/45 z-10"></div>
-
-
 
       {/* Main Content */}
       <div className="relative z-20 container mx-auto px-6 py-16 text-center max-w-5xl">
