@@ -5,36 +5,86 @@ import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { button } from "framer-motion/m";
 
+export const navContent = {
+  en: {
+    home: "Home",
+    aboutUs: "About Us",
+    localImmigration: "Local Immigration",
+    overseaImmigration: "Oversea Immigration",
+    services: "Services",
+    hkLimitedCompany: "HK Limited Company",
+    bviOverseaCompany: "BVI & Oversea Company",
+    companySecretary: "Company Secretary",
+    wealthInheritance: "Wealth Inheritance",
+    contact: "Contact",
+  },
+  zh: {
+    home: "首頁",
+    aboutUs: "關於我們",
+    localImmigration: "本地移民",
+    overseaImmigration: "海外移民",
+    services: "服務",
+    hkLimitedCompany: "香港有限公司",
+    bviOverseaCompany: "BVI 及其他海外公司",
+    companySecretary: "公司秘書",
+    wealthInheritance: "財富傳承",
+    contact: "聯絡我們",
+  },
+  cn: {
+    home: "首页",
+    aboutUs: "关于我们",
+    localImmigration: "本地移民",
+    overseaImmigration: "海外移民",
+    services: "服务",
+    hkLimitedCompany: "香港有限公司",
+    bviOverseaCompany: "BVI 及其他海外公司",
+    companySecretary: "公司秘书",
+    wealthInheritance: "财富传承",
+    contact: "联系我们",
+  },
+} as const;
+
+
+
+
 export default function Header() {
+
   const router = useRouter();
   const pathname = usePathname();
+  
 
   // ── Language state (persisted in localStorage) ──────────────────
-  const [currentLang, setCurrentLang] = useState<"en" | "cn" | "zh">("en");
+  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
 
   useEffect(() => {
-    // Load saved language on mount
-    const savedLang = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (savedLang) {
-      setCurrentLang(savedLang);
+    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
+    if (saved) {
+      setLang(saved);
     } else {
-      // Default to English if nothing saved
-      localStorage.setItem("lang", "en");
+      const browserLang = navigator.language.toLowerCase();
+      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
+      localStorage.setItem("lang", defaultLang);
+      setLang(defaultLang);
     }
   }, []);
 
   // ── Change language & refresh page ──────────────────────────────
+
   const changeLanguage = (newLang: "en" | "cn" | "zh") => {
-    if (newLang === currentLang) return; // no need to refresh if same
-
-    // Save to localStorage
+    if (newLang === lang) return;
     localStorage.setItem("lang", newLang);
-    setCurrentLang(newLang);
-
-    // Soft refresh current page → AboutUs will re-read localStorage
-    router.refresh();
-    // Refresh the page
+    setLang(newLang);
     location.reload();
+    // Or router.refresh() 
+  };
+
+  // 取得當前語言的導航文字
+  const current = navContent[lang];
+
+  // 判斷目前頁面 active（原本的邏輯）
+  const isActive = (path: string) => {
+    if (path === "/") return pathname === "/";
+    return pathname?.startsWith(path);
   };
 
   // ── Scroll hide/show logic ─────────────────────────────────────
@@ -75,11 +125,7 @@ export default function Header() {
     }, 300);
   };
 
-  // ── Active link helper ──────────────────────────────────────────
-  const isActive = (path: string) => {
-    if (path === "/") return pathname === "/";
-    return pathname?.startsWith(path);
-  };
+
 
   return (
     <header
@@ -117,7 +163,7 @@ export default function Header() {
               <button
                 onClick={() => changeLanguage("en")}
                 className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
-                  currentLang === "en"
+                  lang === "en"
                     ? "bg-[#3ac9d9] text-white shadow-sm"
                     : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
                 }`}
@@ -130,7 +176,7 @@ export default function Header() {
               <button
                 onClick={() => changeLanguage("zh")}
                 className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
-                  currentLang === "zh"
+                  lang === "zh"
                     ? "bg-[#3ac9d9] text-white shadow-sm"
                     : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
                 }`}
@@ -141,7 +187,7 @@ export default function Header() {
               <button
                 onClick={() => changeLanguage("cn")}
                 className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
-                  currentLang === "cn"
+                  lang === "cn"
                     ? "bg-[#3ac9d9] text-white shadow-sm"
                     : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
                 }`}
@@ -164,7 +210,7 @@ export default function Header() {
                   isActive("/") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
                 }`}
               >
-                Home
+                {current.home}
               </a>
             </li>
 
@@ -175,7 +221,7 @@ export default function Header() {
                   isActive("/about-us") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
                 }`}
               >
-                About Us
+                {current.aboutUs}
               </a>
             </li>
 
@@ -186,7 +232,7 @@ export default function Header() {
                   isActive("/local-immigration") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
                 }`}
               >
-                Local Immigration
+                {current.localImmigration}
               </a>
             </li>
 
@@ -197,7 +243,7 @@ export default function Header() {
                   isActive("/oversea-immigration") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
                 }`}
               >
-                Oversea Immigration
+                {current.overseaImmigration}
               </a>
             </li>
 
@@ -213,7 +259,7 @@ export default function Header() {
                   isActive("/services") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
                 }`}
               >
-                Services <span className="text-xs">▼</span>
+                {current.services} <span className="text-xs">▼</span>
               </a>
 
               <ul
@@ -230,7 +276,7 @@ export default function Header() {
                       isActive("/services/local-company") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
                     }`}
                   >
-                    HK Limited Company
+                    {current.hkLimitedCompany}
                   </a>
                 </li>
                 <li>
@@ -240,7 +286,7 @@ export default function Header() {
                       isActive("/services/BVI-company") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
                     }`}
                   >
-                    BVI & Oversea Company
+                    {current.bviOverseaCompany}
                   </a>
                 </li>
                 <li>
@@ -250,7 +296,7 @@ export default function Header() {
                       isActive("/services/company-secretary") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
                     }`}
                   >
-                    Company Secretary
+                    {current.companySecretary}
                   </a>
                 </li>
               </ul>
@@ -263,7 +309,7 @@ export default function Header() {
                   isActive("/wealth-inheritance") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
                 }`}
               >
-                Wealth Inheritance
+                {current.wealthInheritance}
               </a>
             </li>
 
@@ -274,7 +320,7 @@ export default function Header() {
                   isActive("/contact") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
                 }`}
               >
-                Contact
+                {current.contact}
               </a>
             </li>
           </ul>

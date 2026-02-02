@@ -1,10 +1,10 @@
-
+// src/components/Testimonials.tsx
 "use client";
 
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-
 import { Navigation } from "swiper/modules";
 
 const images = [
@@ -18,15 +18,33 @@ const images = [
   { src: "https://incorp-hk.com/wp-content/uploads/2025/03/SERA-support-logos-04-removebg-preview.webp", alt: "SERA Support" },
 ];
 
-
 export default function Testimonials() {
+  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
+    if (saved) {
+      setLang(saved);
+    } else {
+      const browserLang = navigator.language.toLowerCase();
+      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
+      localStorage.setItem("lang", defaultLang);
+      setLang(defaultLang);
+    }
+  }, []);
+
+  // 直接內嵌多語言標題
+  const title = {
+    en: "Our Esteemed Clients",
+    zh: "我們的尊貴客戶",
+    cn: "我们的尊贵客户",
+  }[lang] || "Our Esteemed Clients";
+
   return (
     <div className="testimonials-carousel px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10 py-12 bg-white">
-      {/* ↑ relative + z-10 creates a new stacking context — good base */}
-
       <div className="elementor-widget-container">
         <h2 className="elementor-heading-title text-center text-4xl md:text-5xl lg:text-4xl font-bold">
-          Our Esteemed Clients
+          {title}
         </h2>
         <p></p>
       </div>
@@ -41,7 +59,7 @@ export default function Testimonials() {
           640: { slidesPerView: 2, spaceBetween: 30 },
           1024: { slidesPerView: 4, spaceBetween: 50 },
         }}
-        className="!pb-12 relative"   // ← relative here helps arrows position correctly
+        className="!pb-12 relative"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
