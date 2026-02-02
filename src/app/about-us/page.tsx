@@ -5,10 +5,10 @@ import React, { useState, useEffect } from 'react';
 
 export default function AboutUs() {
   // Read language from localStorage
-  const [lang, setLang] = useState<"en" | "cn">("en");
+  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
 
   useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | null;
+    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
     if (saved) {
       setLang(saved);
     } else {
