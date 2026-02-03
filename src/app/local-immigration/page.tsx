@@ -94,20 +94,32 @@ export default function LocalImmigrationPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-indigo-600 text-white py-6">
+      <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold">{current.heroTitle}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold"></h1>
+          <p className="mt-2 text-white/90"></p>
         </div>
       </header>
-      {/* Hero Section */}
+      {/* Hero Section */} 
       <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white overflow-hidden">
+        <div className="container mx-auto py-4">
+          {null}
+        </div>
+
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/28924939/pexels-photo-28924939/free-photo-of-stunning-view-of-hong-kong-skyline-in-daylight.jpeg"
-            alt="Stunning Hong Kong skyline in daylight"
-            className="w-full h-full object-cover brightness-[0.6] scale-105 transition-transform duration-1000 hover:scale-110"
-          />
+            src="/images/local-immg.jpeg"
+            alt="Iconic Hong Kong skyline and Victoria Harbour in daylight"
+            className="
+              absolute inset-0 h-full w-full
+              object-cover
+              brightness-[0.6]
+              scale-110 md:scale-105
+              transition-transform duration-1000
+              hover:scale-115
+        "/> 
         </div>
+
         <div className="relative container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight drop-shadow-lg">
             {current.heroTitle}
@@ -116,59 +128,10 @@ export default function LocalImmigrationPage() {
             {current.heroDesc}
           </p>
         </div>
+
       </section>
 
-      {/* Introduction */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 lg:px-8 max-w-5xl text-center">
-          <p className="text-xl text-gray-700 leading-relaxed mb-12">
-            {current.intro}
-          </p>
-
-          {/* Gallery - Grouped Visuals */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">{current.galleryTitle}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://images.pexels.com/photos/6875833/pexels-photo-6875833.jpeg"
-                  alt="Modern Hong Kong business district drone view"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://day1cpt.org/hs-fs/hubfs/Imported_Blog_Media/group-four-south-asian-men-s-posed-business-meeting-cafe-indians-together-sign-important-documents-contract-study-work%20(1)-Nov-03-2023-01-49-04-3401-PM.jpg?width=2723&height=1812&name=group-four-south-asian-men-s-posed-business-meeting-cafe-indians-together-sign-important-documents-contract-study-work%20(1)-Nov-03-2023-01-49-04-3401-PM.jpg"
-                  alt="Professional team signing immigration documents"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://cdn.prod.website-files.com/646b885fb77e91869c5bb3cd/67ffc546c17f7f120c8eb2f5_shutterstock_2356901177.jpg"
-                  alt="Happy family starting new life in a new city"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://www.financestrategists.com/uploads/Hong-Kong-Monetary-Authority-HKMA-Investment-Portfolio-and-Hong-Kongs-Economy.png"
-                  alt="Hong Kong investment portfolio and financial assets"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://day1cpt.org/hs-fs/hubfs/Imported_Blog_Media/kenny-eliason-1-aA2Fadydc-unsplash%20(1)-Nov-03-2023-01-54-05-6712-PM.jpg?width=2611&height=1741&name=kenny-eliason-1-aA2Fadydc-unsplash%20(1)-Nov-03-2023-01-54-05-6712-PM.jpg"
-                  alt="Professional consultants in discussion"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-            <p className="text-sm text-gray-500 mt-4">{current.galleryDesc}</p>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Interactive Schemes Section */}
       <section className="py-20 bg-gray-50">

@@ -18,7 +18,6 @@ export default function AboutUs() {
     }
   }, []);
 
-  // 內嵌簡短的多語言內容
   const content = {
     en: {
       title: "About Connexions HK",

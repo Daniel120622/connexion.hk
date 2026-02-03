@@ -4,15 +4,15 @@
 
 import React, { useEffect, useState } from 'react';
 import { Mail, Phone, Printer, MapPin } from 'lucide-react';
-
-
-  // Content switch
+import { sendEmailAction } from '@/app/actions/sendEmail'; // Adjust the import path as necessary
 
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [responseMessage, setResponseMessage] = useState("");
   const [lang, setLang] = useState<"en" | "cn">("en");
 
-    const content = {
+  const content = {
     en: {
       title: "Contact Us",
       subtitle: "We'd love to hear from you",
@@ -28,7 +28,9 @@ export default function ContactPage() {
       namePlaceholder: "Your Name",
       emailPlaceholder: "Your Email",
       messagePlaceholder: "Your Message",
-      sendButtonLabel: "Send Message"      
+      sendButtonLabel: "Send Message",
+      success: "Thank you! Your message has been sent.",
+      error: "Something went wrong. Please try again.",     
     },
     zh: {
       title: "聯絡我們",
@@ -45,7 +47,9 @@ export default function ContactPage() {
       namePlaceholder: "您的姓名",
       emailPlaceholder: "您的電郵",
       messagePlaceholder: "您的訊息",
-      sendButtonLabel: "發送訊息"    
+      sendButtonLabel: "發送訊息",
+      success: "感謝您！您的訊息已成功發送。",
+      error: "發生錯誤，請稍後再試。",
     },
     cn:{
       title: "联系我们",
@@ -62,28 +66,46 @@ export default function ContactPage() {
       namePlaceholder: "您的姓名",
       emailPlaceholder: "您的电邮",
       messagePlaceholder: "您的讯息",
-      sendButtonLabel: "发送讯息"
+      sendButtonLabel: "发送讯息",
+      success: "感谢您！您的讯息已成功发送。",
+      error: "发生错误，请稍后再试。",
     }
 
   };
 
   const current = content[lang];
   
-    useEffect(() => {
-      const saved = localStorage.getItem("lang") as "en" | "cn" | null;
-      if (saved) {
-        setLang(saved);
-      } else {
-        // Optional: auto-detect browser language on first visit
-        const browserLang = navigator.language.toLowerCase();
-        const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-        localStorage.setItem("lang", defaultLang);
-        setLang(defaultLang);
-      }
-    }, []);
+  useEffect(() => {
+    const saved = localStorage.getItem("lang") as "en" | "cn" | null;
+    if (saved) {
+      setLang(saved);
+    } else {
+      // Optional: auto-detect browser language on first visit
+      const browserLang = navigator.language.toLowerCase();
+      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
+      localStorage.setItem("lang", defaultLang);
+      setLang(defaultLang);
+    }
+  }, []);  
+  
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("loading");
+    setResponseMessage("");
 
+    const formData = new FormData(e.currentTarget);
 
+    const result = await sendEmailAction(formData);
 
+    if (result.success) {
+      setStatus("success");
+      setResponseMessage(current.success);
+      e.currentTarget.reset(); // 清空表單
+    } else {
+      setStatus("error");
+      setResponseMessage(result.error || current.error);
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -167,34 +189,56 @@ export default function ContactPage() {
               </div>
             </section>
 
-            {/* Contact Form */}
+            
             <section className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-              <h3 className="text-xl font-semibold mb-5 text-gray-800">{current.sendMessageTitle}</h3>
-              <form className="space-y-5">
+              <h3 className="text-xl font-semibold mb-5 text-gray-800">
+                {current.sendMessageTitle}
+              </h3>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <input
                   type="text"
+                  name="name"
                   placeholder={current.namePlaceholder}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3ac9d9] focus:border-[#3ac9d9] transition"
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder={current.emailPlaceholder}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3ac9d9] focus:border-[#3ac9d9] transition"
                 />
                 <textarea
+                  name="message"
                   placeholder={current.messagePlaceholder}
                   rows={5}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3ac9d9] focus:border-[#3ac9d9] transition resize-none"
                 ></textarea>
+
                 <button
                   type="submit"
-                  className="w-full bg-[#3ac9d9] text-white font-semibold py-3.5 rounded-lg hover:bg-[#32b0c0] transition shadow-md hover:shadow-lg"
+                  disabled={status === "loading"}
+                  className={`w-full bg-[#3ac9d9] text-white font-semibold py-3.5 rounded-lg hover:bg-[#32b0c0] transition shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
-                  {current.sendButtonLabel}
+                  {status === "loading"
+                    ? current.sendButtonLabel === "Send Message"
+                      ? "Sending..."
+                      : "發送中..."
+                    : current.sendButtonLabel}
                 </button>
+
+                {responseMessage && (
+                  <p
+                    className={`text-center mt-2 ${
+                      status === "success" ? "text-green-600" : "text-red-600"
+                    }`}
+                  >
+                    {responseMessage}
+                  </p>
+                )}
               </form>
             </section>
           </div>

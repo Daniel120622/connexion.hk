@@ -211,28 +211,43 @@ export default function WealthInheritancePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
-      {/* ==================== Hero Section ==================== */}
-      <section className="relative py-32 md:py-48 bg-gradient-to-br from-blue-950 via-indigo-950 to-gray-950 text-white overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 opacity-30">
-          <img
-            src="https://images.pexels.com/photos/28924939/pexels-photo-28924939/free-photo-of-stunning-view-of-hong-kong-skyline-in-daylight.jpeg"
-            alt="Hong Kong financial skyline"
-            className="w-full h-full object-cover brightness-75"
-          />
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold"></h1>
+          <p className="mt-2 text-white/90"></p>
+        </div>
+      </header>
+      {/* Hero Section */} 
+      <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white overflow-hidden">
+        <div className="container mx-auto py-8">
+          {null}
         </div>
 
-        {/* Content */}
-        <div className="relative container mx-auto px-6 text-center z-10">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+        <div className="absolute inset-0">
+          <img
+            src="/images/Wealth-hero-banner.jpg"
+            className="
+              absolute inset-0 h-full w-full
+              object-cover
+              brightness-[0.6]
+              scale-110 md:scale-105
+              transition-transform duration-1000
+              hover:scale-115
+        "/> 
+        </div>
+
+        <div className="relative container mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight drop-shadow-lg">
             {current.heroTitle}
           </h1>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light opacity-90">
+          <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light opacity-95">
             {current.heroDesc}
           </p>
         </div>
+
       </section>
+
 
       {/* ==================== Introduction ==================== */}
       <section className="py-16 md:py-20 bg-white">

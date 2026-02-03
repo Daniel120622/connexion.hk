@@ -115,19 +115,34 @@ export default function OverseasImmigrationPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold"></h1>
+          <p className="mt-2 text-white/90"></p>
+        </div>
+      </header>
       {/* Hero Section */}
       <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white overflow-hidden">
         <div className="container mx-auto py-4">
           {null}
         </div>
-        <div className="absolute inset-0">
-          <img
-            src="https://images.pexels.com/photos/12921445/pexels-photo-12921445.jpeg"
-            alt="Aerial view of tropical paradise island in Vanuatu"
-            className="w-full h-full object-cover brightness-[0.6] scale-105 transition-transform duration-1000 hover:scale-110"
-          />
-        </div>
-        <div className="relative container mx-auto px-6 text-center">
+      
+      <div className="absolute inset-0">
+      
+      <div className="relative w-full pt-[50%]" />  {/* 2:1 ratio → pt-[50%], 3:2 → pt-[66.67%], etc. */}
+        <img src="/images/oversea-immg.jpg" 
+          className="
+              absolute inset-0 h-full w-full
+              object-cover object-top    ← Tailwind has object-top utility
+              brightness-[0.6]
+              scale-110 md:scale-105
+              transition-transform duration-1000
+              hover:scale-115
+        "/> 
+      </div>
+
+
+      <div className="relative container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight drop-shadow-lg">
             {current.heroTitle}
           </h1>

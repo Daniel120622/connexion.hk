@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 
 
-
-
 export default function LocalCompanyPage() {
     const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
   
@@ -129,23 +127,41 @@ export default function LocalCompanyPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <section className="relative py-32 md:py-48 bg-gradient-to-r from-teal-900/70 to-blue-900/60 text-white overflow-hidden">
+      <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold"></h1>
+          <p className="mt-2 text-white/90"></p>
+        </div>
+      </header>
+      {/* Hero Section */} 
+      <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white overflow-hidden">
+        <div className="container mx-auto py-4">
+          {null}
+        </div>
+
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1554224155-6726b3ff3f36"
-            alt="Hong Kong business district skyline"
-            className="w-full h-full object-cover brightness-50 scale-105"
-          />
+            src="/images/hk-limited-company.jpg"
+            alt="Iconic Hong Kong skyline and Victoria Harbour in daylight"
+            className="
+              absolute inset-0 h-full w-full
+              object-cover
+              brightness-[0.5]
+              scale-110 md:scale-105
+              transition-transform duration-1000
+              hover:scale-115
+        "/> 
         </div>
+
         <div className="relative container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight drop-shadow-lg">
             {current.heroTitle}
           </h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light opacity-95">
             {current.heroDesc}
           </p>
         </div>
+
       </section>
 
       {/* Content */}

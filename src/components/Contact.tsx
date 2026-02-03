@@ -1,8 +1,8 @@
 // src/components/Contact.tsx 或 src/app/contact/page.tsx
 "use client";
 
-import { useState, FormEvent, useEffect} from "react";
-// import { sendEmailAction } from "@/app/actions/sendEmail";  // 如果有 Server Action，請自行保留
+import { useState, FormEvent, useEffect } from "react";
+import { sendEmailAction } from "@/app/actions/sendEmail"; // 調整路徑，如果在 app/ 資料夾下
 
 export default function Contact() {
   const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
@@ -34,7 +34,7 @@ export default function Contact() {
       messagePlaceholder: "Tell us how we can help...",
       sendButton: "Send Message",
       sending: "Sending...",
-      success: "Thank you! Your message has been sent.",
+      success: "Thank you! Your message has been sent. (Check Resend dashboard if in dev mode)",
       error: "Something went wrong. Please try again.",
     },
     zh: {
@@ -51,7 +51,7 @@ export default function Contact() {
       messagePlaceholder: "請告訴我們如何幫您...",
       sendButton: "發送訊息",
       sending: "傳送中...",
-      success: "感謝您！您的訊息已成功發送。",
+      success: "感謝您！您的訊息已成功發送。（開發模式請檢查 Resend dashboard）",
       error: "發生錯誤，請稍後再試。",
     },
     cn: {
@@ -68,7 +68,7 @@ export default function Contact() {
       messagePlaceholder: "请告诉我们如何帮您...",
       sendButton: "发送信息",
       sending: "发送中...",
-      success: "感谢您！您的信息已成功发送。",
+      success: "感谢您！您的信息已成功发送。（开发模式请检查 Resend dashboard）",
       error: "发生错误，请稍后再试。",
     },
   };
@@ -77,22 +77,24 @@ export default function Contact() {
 
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState<Record<string, string[]> | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-    setErrors(null);
+    setMessage("");
 
-    // const formData = new FormData(e.currentTarget);
-    // const response = await sendEmailAction(formData);  // 如果有 Server Action，請自行處理
+    const formData = new FormData(e.currentTarget);
 
-    // 這裡模擬成功（請替換成實際邏輯）
-    setTimeout(() => {
+    const result = await sendEmailAction(formData);
+
+    if (result.success) {
       setStatus("success");
       setMessage(t.success);
-      e.currentTarget.reset();
-    }, 1500);
+      e.currentTarget.reset(); // 清空表單
+    } else {
+      setStatus("error");
+      setMessage(result.error || t.error);
+    }
   };
 
   return (
@@ -183,11 +185,11 @@ export default function Contact() {
                 {status === "loading" ? t.sending : t.sendButton}
               </button>
 
-              {status === "success" && (
-                <p className="text-green-600 text-center mt-4 font-medium">{t.success}</p>
+              {status === "success" && message && (
+                <p className="text-green-600 text-center mt-4 font-medium">{message}</p>
               )}
-              {status === "error" && (
-                <p className="text-red-600 text-center mt-4 font-medium">{t.error}</p>
+              {status === "error" && message && (
+                <p className="text-red-600 text-center mt-4 font-medium">{message}</p>
               )}
             </form>
           </div>

@@ -1,6 +1,7 @@
 // src/app/about-us/page.tsx  (or components/about-us.tsx if you use it as component)
 "use client";
 
+import { h1 } from 'framer-motion/client';
 import React, { useState, useEffect } from 'react';
 
 export default function AboutUs() {
@@ -83,11 +84,17 @@ export default function AboutUs() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+            <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold"></h1>
+          <p className="mt-2 text-white/90"></p>
+        </div>
+      </header>
       {/* Hero Section */}
       <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/33394570/pexels-photo-33394570.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            src="/images/about-us-hero-banner.png"
             alt="Hong Kong Victoria Harbour skyline at dusk"
             className="w-full h-full object-cover brightness-[0.6]"
           />
