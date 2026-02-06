@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export const navContent = {
   en: {
@@ -44,7 +44,6 @@ export const navContent = {
 } as const;
 
 export default function Header() {
-  const router = useRouter();
   const pathname = usePathname();
 
   // Language
@@ -73,29 +72,12 @@ export default function Header() {
 
   const isActive = (path: string) => {
     if (path === "/") return pathname === "/";
-    return pathname?.startsWith(path);
+    return pathname?.startsWith(path) ?? false;
   };
 
-  // Scroll hide/show
+  // Scroll behavior
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const controlNavbar = () => {
-      if (typeof window === "undefined") return;
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setShowNavbar(false);
-      } else if (currentScrollY < lastScrollY) {
-        setShowNavbar(true);
-      }
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", controlNavbar);
-    return () => window.removeEventListener("scroll", controlNavbar);
-  }, [lastScrollY]);
 
   // Mobile menu
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -107,6 +89,39 @@ export default function Header() {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
   };
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window === "undefined") return;
+
+      // When mobile menu is open → keep header always visible
+      if (isMobileMenuOpen) {
+        setShowNavbar(true);
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+
+      // Normal scroll behavior only when menu is closed
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else if (currentScrollY < lastScrollY) {
+        setShowNavbar(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY, isMobileMenuOpen]); // Depend on menu state
+
+  // Optional: ensure header is visible right when menu opens
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setShowNavbar(true);
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <header
@@ -176,7 +191,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Mobile: Hamburger + Language (compact) */}
+          {/* Mobile: Language (compact) + Hamburger */}
           <div className="flex md:hidden items-center gap-4">
             {/* Language - smaller on mobile */}
             <div className="flex items-center gap-1 rounded-full px-2 py-1 border border-gray-200 bg-gray-50 text-xs">
@@ -356,7 +371,7 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile Menu - full width dropdown */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t shadow-lg">
           <div className="container mx-auto px-4 py-4">
