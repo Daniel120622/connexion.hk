@@ -3,7 +3,6 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { button } from "framer-motion/m";
 
 export const navContent = {
   en: {
@@ -44,16 +43,11 @@ export const navContent = {
   },
 } as const;
 
-
-
-
 export default function Header() {
-
   const router = useRouter();
   const pathname = usePathname();
-  
 
-  // ── Language state (persisted in localStorage) ──────────────────
+  // Language
   const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
 
   useEffect(() => {
@@ -68,33 +62,27 @@ export default function Header() {
     }
   }, []);
 
-  // ── Change language & refresh page ──────────────────────────────
-
   const changeLanguage = (newLang: "en" | "cn" | "zh") => {
     if (newLang === lang) return;
     localStorage.setItem("lang", newLang);
     setLang(newLang);
-    location.reload();
-    // Or router.refresh() 
+    window.location.reload();
   };
 
-  // 取得當前語言的導航文字
   const current = navContent[lang];
 
-  // 判斷目前頁面 active（原本的邏輯）
   const isActive = (path: string) => {
     if (path === "/") return pathname === "/";
     return pathname?.startsWith(path);
   };
 
-  // ── Scroll hide/show logic ─────────────────────────────────────
+  // Scroll hide/show
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window === "undefined") return;
-
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -102,7 +90,6 @@ export default function Header() {
       } else if (currentScrollY < lastScrollY) {
         setShowNavbar(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
@@ -110,22 +97,16 @@ export default function Header() {
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY]);
 
-  // ── Services dropdown logic ─────────────────────────────────────
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
-  let timeoutId: NodeJS.Timeout;
+  // Mobile menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleMouseEnter = () => {
-    clearTimeout(timeoutId);
-    setDropdownVisible(true);
+  // Services accordion in mobile menu
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsServicesOpen(false);
   };
-
-  const handleMouseLeave = () => {
-    timeoutId = setTimeout(() => {
-      setDropdownVisible(false);
-    }, 300);
-  };
-
-
 
   return (
     <header
@@ -133,6 +114,7 @@ export default function Header() {
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
+      {/* Top bar - Logo + Hamburger + Language */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo */}
@@ -144,8 +126,8 @@ export default function Header() {
             />
           </a>
 
-          <div className="flex items-center gap-6">
-            {/* Social icons */}
+          {/* Desktop: Social + Language */}
+          <div className="hidden md:flex items-center gap-6">
             <div className="flex gap-4">
               <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer">
                 <img src="/images/facebook-icon.svg" alt="Facebook" className="h-6 w-6" />
@@ -158,7 +140,6 @@ export default function Header() {
               </a>
             </div>
 
-            {/* Language selector */}
             <div className="flex items-center gap-1 rounded-full px-3 py-1 border border-gray-200 bg-gray-50">
               <button
                 onClick={() => changeLanguage("en")}
@@ -170,9 +151,7 @@ export default function Header() {
               >
                 EN
               </button>
-
               <div className="h-4 w-px bg-gray-300 mx-1" />
-
               <button
                 onClick={() => changeLanguage("zh")}
                 className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
@@ -196,13 +175,77 @@ export default function Header() {
               </button>
             </div>
           </div>
+
+          {/* Mobile: Hamburger + Language (compact) */}
+          <div className="flex md:hidden items-center gap-4">
+            {/* Language - smaller on mobile */}
+            <div className="flex items-center gap-1 rounded-full px-2 py-1 border border-gray-200 bg-gray-50 text-xs">
+              <button
+                onClick={() => changeLanguage("en")}
+                className={`px-2 py-0.5 font-medium rounded-full ${
+                  lang === "en" ? "bg-[#3ac9d9] text-white" : "text-gray-600"
+                }`}
+              >
+                EN
+              </button>
+              <div className="h-3 w-px bg-gray-300 mx-0.5" />
+              <button
+                onClick={() => changeLanguage("zh")}
+                className={`px-2 py-0.5 font-medium rounded-full ${
+                  lang === "zh" ? "bg-[#3ac9d9] text-white" : "text-gray-600"
+                }`}
+              >
+                繁
+              </button>
+              <div className="h-3 w-px bg-gray-300 mx-0.5" />
+              <button
+                onClick={() => changeLanguage("cn")}
+                className={`px-2 py-0.5 font-medium rounded-full ${
+                  lang === "cn" ? "bg-[#3ac9d9] text-white" : "text-gray-600"
+                }`}
+              >
+                简
+              </button>
+            </div>
+
+            {/* Hamburger */}
+            <button
+              className="text-gray-700 focus:outline-none"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Main navigation */}
-      <nav className="bg-white shadow-md">
+      {/* Desktop Navigation */}
+      <nav className="hidden md:block bg-white shadow-md">
         <div className="container mx-auto px-4">
-          <ul className="flex justify-center items-center gap-6 md:gap-8 py-3 text-sm md:text-base font-medium">
+          <ul className="flex justify-center items-center gap-6 lg:gap-8 py-3 text-sm lg:text-base font-medium">
             <li>
               <a
                 href="/"
@@ -213,7 +256,6 @@ export default function Header() {
                 {current.home}
               </a>
             </li>
-
             <li>
               <a
                 href="/about-us"
@@ -224,7 +266,6 @@ export default function Header() {
                 {current.aboutUs}
               </a>
             </li>
-
             <li>
               <a
                 href="/local-immigration"
@@ -235,7 +276,6 @@ export default function Header() {
                 {current.localImmigration}
               </a>
             </li>
-
             <li>
               <a
                 href="/oversea-immigration"
@@ -247,12 +287,8 @@ export default function Header() {
               </a>
             </li>
 
-            {/* Services dropdown */}
-            <li
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
+            {/* Services dropdown (desktop) */}
+            <li className="relative group">
               <a
                 href="/services"
                 className={`flex items-center gap-1 px-2 py-1 rounded transition-colors ${
@@ -262,13 +298,7 @@ export default function Header() {
                 {current.services} <span className="text-xs">▼</span>
               </a>
 
-              <ul
-                className={`absolute left-0 top-full mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 text-base transition-opacity duration-150 ${
-                  isDropdownVisible
-                    ? "opacity-100 visible"
-                    : "opacity-0 invisible pointer-events-none"
-                }`}
-              >
+              <ul className="absolute left-0 top-full mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 text-base opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-150 pointer-events-none group-hover:pointer-events-auto">
                 <li>
                   <a
                     href="/services/local-company"
@@ -312,7 +342,6 @@ export default function Header() {
                 {current.wealthInheritance}
               </a>
             </li>
-
             <li>
               <a
                 href="/contact"
@@ -326,6 +355,153 @@ export default function Header() {
           </ul>
         </div>
       </nav>
+
+      {/* Mobile Menu - full width dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t shadow-lg">
+          <div className="container mx-auto px-4 py-4">
+            <ul className="flex flex-col gap-3 text-base font-medium">
+              <li>
+                <a
+                  href="/"
+                  onClick={closeMobileMenu}
+                  className={`block px-4 py-3 rounded ${
+                    isActive("/") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
+                  }`}
+                >
+                  {current.home}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/about-us"
+                  onClick={closeMobileMenu}
+                  className={`block px-4 py-3 rounded ${
+                    isActive("/about-us") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
+                  }`}
+                >
+                  {current.aboutUs}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/local-immigration"
+                  onClick={closeMobileMenu}
+                  className={`block px-4 py-3 rounded ${
+                    isActive("/local-immigration") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
+                  }`}
+                >
+                  {current.localImmigration}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/oversea-immigration"
+                  onClick={closeMobileMenu}
+                  className={`block px-4 py-3 rounded ${
+                    isActive("/oversea-immigration") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
+                  }`}
+                >
+                  {current.overseaImmigration}
+                </a>
+              </li>
+
+              {/* Services - accordion style */}
+              <li>
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className={`w-full text-left px-4 py-3 rounded flex justify-between items-center ${
+                    isActive("/services") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
+                  }`}
+                >
+                  {current.services}
+                  <span>{isServicesOpen ? "▲" : "▼"}</span>
+                </button>
+
+                {isServicesOpen && (
+                  <ul className="pl-6 mt-1 flex flex-col gap-1">
+                    <li>
+                      <a
+                        href="/services/local-company"
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/local-company")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.hkLimitedCompany}
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/services/BVI-company"
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/BVI-company")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.bviOverseaCompany}
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/services/company-secretary"
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/company-secretary")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.companySecretary}
+                      </a>
+                    </li>
+                  </ul>
+                )}
+              </li>
+
+              <li>
+                <a
+                  href="/wealth-inheritance"
+                  onClick={closeMobileMenu}
+                  className={`block px-4 py-3 rounded ${
+                    isActive("/wealth-inheritance") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
+                  }`}
+                >
+                  {current.wealthInheritance}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  onClick={closeMobileMenu}
+                  className={`block px-4 py-3 rounded ${
+                    isActive("/contact") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
+                  }`}
+                >
+                  {current.contact}
+                </a>
+              </li>
+            </ul>
+
+            {/* Optional: Social icons in mobile menu */}
+            <div className="flex gap-6 mt-6 px-4">
+              <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer">
+                <img src="/images/facebook-icon.svg" alt="Facebook" className="h-7 w-7" />
+              </a>
+              <a href="https://www.linkedin.com/company/connexions-hk" target="_blank" rel="noopener noreferrer">
+                <img src="/images/linkedin-icon.webp" alt="LinkedIn" className="h-7 w-7" />
+              </a>
+              <a href="https://www.instagram.com/connexionshk" target="_blank" rel="noopener noreferrer">
+                <img src="/images/instagram-icon.webp" alt="Instagram" className="h-7 w-7" />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
