@@ -14,6 +14,9 @@ export const navContent = {
     hkLimitedCompany: "HK Limited Company",
     bviOverseaCompany: "BVI & Oversea Company",
     companySecretary: "Company Secretary",
+    businessAdvisory: "Business Advisory",
+    accountingServices: "Accounting Services",
+    taxConsulting: "Tax Consulting",
     wealthInheritance: "Wealth Inheritance",
     contact: "Contact",
   },
@@ -28,6 +31,9 @@ export const navContent = {
     companySecretary: "公司秘書",
     wealthInheritance: "財富傳承",
     contact: "聯絡我們",
+    accountingServices: "會計服務",
+    businessAdvisory: "商業諮詢",
+    taxConsulting: "稅務諮詢",
   },
   cn: {
     home: "首页",
@@ -40,6 +46,9 @@ export const navContent = {
     companySecretary: "公司秘书",
     wealthInheritance: "财富传承",
     contact: "联系我们",
+    accountingServices: "会计服务",
+    businessAdvisory: "商业咨询",
+    taxConsulting: "税务咨询",
   },
 } as const;
 
@@ -131,13 +140,13 @@ export default function Header() {
     >
       {/* Top bar - Logo + Hamburger + Language */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 md:h-20 items-center justify-between">
+        <div className="flex h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex-shrink-0">
             <img
-              src="/images/connexions-hk-en.png"
+              src="/images/connexions-hk.png"
               alt="Connexions HK Logo"
-              className="h-10 md:h-14 w-auto object-contain"
+              className="h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto object-contain"
             />
           </a>
 
@@ -344,6 +353,48 @@ export default function Header() {
                     {current.companySecretary}
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/services/Business-Advisory"
+                      onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/Business-Advisory")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.businessAdvisory}
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="/services/Accounting-Services"
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/Accounting-Services")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.accountingServices}
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="/services/Tax-Consulting"
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/Tax-Consulting")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.taxConsulting}
+                      </a>
+                    </li>      
+                
               </ul>
             </li>
 
@@ -472,6 +523,48 @@ export default function Header() {
                         }`}
                       >
                         {current.companySecretary}
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="/services/Business-Advisory"
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/Business-Advisory")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.businessAdvisory}
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="/services/Accounting-Services"
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/Accounting-Services")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.accountingServices}
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="/services/Tax-Consulting"
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded ${
+                          isActive("/services/Tax-Consulting")
+                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
+                            : "hover:bg-gray-50"
+                        }`}
+                      >
+                        {current.taxConsulting}
                       </a>
                     </li>
                   </ul>

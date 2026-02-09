@@ -100,6 +100,7 @@ export default function LocalImmigrationPage() {
           <p className="mt-2 text-white/90"></p>
         </div>
       </header>
+      
       {/* Hero Section */} 
       <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white overflow-hidden">
         <div className="container mx-auto py-4">
@@ -108,7 +109,7 @@ export default function LocalImmigrationPage() {
 
         <div className="absolute inset-0">
           <img
-            src="/images/local-immg.jpeg"
+            src="/images/banner/local-immg.jpeg"
             alt="Iconic Hong Kong skyline and Victoria Harbour in daylight"
             className="
               absolute inset-0 h-full w-full
@@ -210,9 +211,12 @@ export default function LocalImmigrationPage() {
           <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-10">
             {current.ctaDesc}
           </p>
-          <button className="bg-white text-teal-700 font-bold py-4 px-10 rounded-full text-xl hover:bg-teal-50 transition-colors shadow-lg">
+          <a
+            href="/contact"
+            className="bg-white text-teal-700 font-bold py-4 px-10 rounded-full text-xl hover:bg-teal-50 transition-colors shadow-lg"
+          >
             {current.ctaButton}
-          </button>
+          </a>
         </div>
       </section>
     </div>

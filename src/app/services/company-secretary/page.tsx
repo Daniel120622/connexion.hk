@@ -101,7 +101,7 @@ export default function CompanySecretaryPage() {
 
         <div className="absolute inset-0">
           <img
-            src="/images/company-secretary-hero.jpg"
+            src="/images/services/secretary.jpg"
             className="
               absolute inset-0 h-full w-full
               object-cover

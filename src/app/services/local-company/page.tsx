@@ -141,7 +141,7 @@ export default function LocalCompanyPage() {
 
         <div className="absolute inset-0">
           <img
-            src="/images/hk-limited-company.jpg"
+            src="/images/services/hkCompany.jpg"
             alt="Iconic Hong Kong skyline and Victoria Harbour in daylight"
             className="
               absolute inset-0 h-full w-full
@@ -159,6 +159,7 @@ export default function LocalCompanyPage() {
           </h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light opacity-95">
             {current.heroDesc}
+            
           </p>
         </div>
 

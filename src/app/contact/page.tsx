@@ -155,8 +155,8 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-[#3ac9d9] mt-0.5 flex-shrink-0" />
                     <div>
                       <strong>{current.emailLabel}:</strong>{' '}
-                      <a href="mailto:sales@connexionshk.com" className="hover:text-[#3ac9d9]">
-                        sales@connexionshk.com
+                      <a href="mailto:sales@connexions.hk" className="hover:text-[#3ac9d9]">
+                        sales@connexions.hk
                       </a>
                     </div>
                   </li>

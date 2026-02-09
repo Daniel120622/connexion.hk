@@ -130,7 +130,7 @@ export default function OverseasImmigrationPage() {
       <div className="absolute inset-0">
       
       <div className="relative w-full pt-[50%]" />  {/* 2:1 ratio → pt-[50%], 3:2 → pt-[66.67%], etc. */}
-        <img src="/images/oversea-immg.jpg" 
+        <img src="/images/banner/oversea-immg.jpg" 
           className="
               absolute inset-0 h-full w-full
               object-cover object-top    ← Tailwind has object-top utility
@@ -272,9 +272,12 @@ export default function OverseasImmigrationPage() {
           <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-10">
             {current.ctaDesc}
           </p>
-          <button className="bg-white text-teal-700 font-bold py-2 px-10 rounded-full text-xl hover:bg-teal-50 transition-colors shadow-lg">
+          
+          <a 
+          href="/contact" 
+          className="bg-white text-teal-700 font-bold py-4 px-10 rounded-full text-xl hover:bg-teal-50 transition-colors shadow-lg">
             {current.ctaButton}
-          </button>
+          </a>
         </div>
       </section>
     </div>

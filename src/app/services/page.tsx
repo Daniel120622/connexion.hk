@@ -36,7 +36,13 @@ export default function ServicesOverviewPage() {
           ctaTitle: "Ready to Get Started?",
           ctaDesc: "Contact us today for a free consultation and personalized service proposal.",
           ctaButton: "Contact Us Now",
-          LearnMore: "Learn More"
+          LearnMore: "Learn More",
+          AccountingServicesTitle: "Accounting & Audit Services",
+          AccountingServicesDesc: "Comprehensive accounting, bookkeeping, and audit services to ensure your business stays compliant and financially healthy.",
+          BusinessAdvisoryTitle: "Business Advisory Services",
+          BusinessAdvisoryDesc: "Expert business consulting and advisory services to help you navigate market challenges and seize growth opportunities.",
+          TaxConsultingTitle: "Tax Consulting Services",
+          TaxConsultingDesc: "Specialized tax consulting to optimize your tax strategy, ensure compliance, and maximize savings."
         },
         zh: {
           heroTitle: "我們的專業服務",
@@ -51,7 +57,13 @@ export default function ServicesOverviewPage() {
           ctaTitle: "準備好開始了嗎？",
           ctaDesc: "立即聯繫我們，獲取免費諮詢和個性化服務方案。",
           ctaButton: "立即聯繫我們",
-          LearnMore: "了解更多"
+          LearnMore: "了解更多",
+          AccountingServicesTitle: "會計及審計服務",
+          AccountingServicesDesc: "全面的會計、記賬和審計服務，確保您的業務保持合規並財務健康。",
+          BusinessAdvisoryTitle: "商業諮詢服務",
+          BusinessAdvisoryDesc: "專業的商業諮詢和顧問服務，幫助您應對市場挑戰並抓住增長機會。",
+          TaxConsultingTitle: "稅務諮詢服務",
+          TaxConsultingDesc: "專業稅務諮詢，優化您的稅務策略，確保合規並最大化節稅效益。"
         },
   
         cn:{
@@ -67,7 +79,13 @@ export default function ServicesOverviewPage() {
           ctaTitle: "准备好开始了吗？",
           ctaDesc: "立即联系我们，获取免费咨询和个性化服务方案。",
           ctaButton: "立即联系我们",
-          LearnMore: "了解更多"
+          LearnMore: "了解更多",
+          AccountingServicesTitle: "会计及审计服务",
+          AccountingServicesDesc: "全面的会计、记账和审计服务，确保您的业务保持合规并财务健康。",
+          BusinessAdvisoryTitle: "商业咨询服务",
+          BusinessAdvisoryDesc: "专业的商业咨询和顾问服务，帮助您应对市场挑战并抓住增长机会。",
+          TaxConsultingTitle: "税务咨询服务",
+          TaxConsultingDesc: "专业税务咨询，优化您的税务策略，确保合规并最大化节税效益。"
         }
       };
     
@@ -77,16 +95,17 @@ export default function ServicesOverviewPage() {
 
 
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-indigo-600 text-white py-8 shadow-lg">
+      <header className="bg-indigo-600 text-white py-12 shadow-lg">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold">{current.heroTitle}</h1>
         </div>
       </header>
+      
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 bg-gradient-to-r from-blue-900/80 to-teal-900/70 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=2000"
+            src="/images/banner/services.jpg"
             alt="Business team discussing services"
             className="w-full h-full object-cover brightness-50"
           />
@@ -186,6 +205,77 @@ export default function ServicesOverviewPage() {
                 </div>
               </div>
             </Link>
+
+            <Link href="/services/Accounting-Services" className="group block">
+              <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="/images/accounting-serv.jpg"
+                    alt="Accounting & Audit Services"
+
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                    {current.AccountingServicesTitle}
+                  </h3>
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    {current.AccountingServicesDesc}
+                  </p>
+                  <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
+                    {current.LearnMore} <ArrowRight className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/Business-Advisory" className="group block">
+              <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="/images/Business-Advisory.jpg"
+                    alt="Business Advisory Services"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                    {current.BusinessAdvisoryTitle}
+                  </h3>
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    {current.BusinessAdvisoryDesc}
+                  </p>
+                  <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
+                    {current.LearnMore} <ArrowRight className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/services/Tax-Consulting" className="group block">
+              <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="/images/Tax-Consulting.jpg"
+                    alt="Tax Consulting Services"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                    {current.TaxConsultingTitle}
+                  </h3>
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    {current.TaxConsultingDesc}
+                  </p>
+                  <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
+                    {current.LearnMore} <ArrowRight className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          
           </div>
         </div>
       </section>

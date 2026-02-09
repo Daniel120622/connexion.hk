@@ -113,7 +113,7 @@ export default function Services() {
           {/* Service 1 */}
           <div className="service-card p-6 border rounded-lg shadow hover:shadow-lg transition">
             <img
-              src="/images/hk-limited-company.jpg"
+              src="/images/index-ourService/hk-limited-company.jpg"
               alt={current.hkLimited.title}
               className="mb-4 w-full h-40 object-cover rounded"
             />
@@ -124,7 +124,7 @@ export default function Services() {
           {/* Service 2 */}
           <div className="service-card p-6 border rounded-lg shadow hover:shadow-lg transition">
             <img
-              src="/images/bvi-oversea-company.jpg"
+              src="/images/index-ourService/bvi-oversea-company.jpg"
               alt={current.bviOversea.title}
               className="mb-4 w-full h-40 object-cover rounded"
             />
@@ -135,7 +135,7 @@ export default function Services() {
           {/* Service 3 */}
           <div className="service-card p-6 border rounded-lg shadow hover:shadow-lg transition">
             <img
-              src="/images/company-secretary.jpg"
+              src="/images/index-ourService/company-secretary.jpg"
               alt={current.companySecretary.title}
               className="mb-4 w-full h-40 object-cover rounded"
             />
@@ -146,7 +146,7 @@ export default function Services() {
           {/* Service 4 */}
           <div className="service-card p-6 border rounded-lg shadow hover:shadow-lg transition">
             <img
-              src="/images/accounting-services.jpg"
+              src="/images/index-ourService/accounting-services.jpg"
               alt={current.accounting.title}
               className="mb-4 w-full h-40 object-cover rounded"
             />
@@ -157,7 +157,7 @@ export default function Services() {
           {/* Service 5 */}
           <div className="service-card p-6 border rounded-lg shadow hover:shadow-lg transition">
             <img
-              src="/images/tax-consulting.jpg"
+              src="/images/index-ourService/tax-consulting.jpg"
               alt={current.taxConsulting.title}
               className="mb-4 w-full h-40 object-cover rounded"
             />
@@ -168,7 +168,7 @@ export default function Services() {
           {/* Service 6 */}
           <div className="service-card p-6 border rounded-lg shadow hover:shadow-lg transition">
             <img
-              src="/images/business-advisory.jpg"
+              src="/images/index-ourService/business-advisory.jpg"
               alt={current.businessAdvisory.title}
               className="mb-4 w-full h-40 object-cover rounded"
             />

@@ -1,7 +1,6 @@
 // src/app/about-us/page.tsx  (or components/about-us.tsx if you use it as component)
 "use client";
 
-import { h1 } from 'framer-motion/client';
 import React, { useState, useEffect } from 'react';
 
 export default function AboutUs() {
@@ -94,7 +93,7 @@ export default function AboutUs() {
       <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white">
         <div className="absolute inset-0">
           <img
-            src="/images/about-us-hero-banner.png"
+            src="/images/banner/aboutUs.png"
             alt="Hong Kong Victoria Harbour skyline at dusk"
             className="w-full h-full object-cover brightness-[0.6]"
           />

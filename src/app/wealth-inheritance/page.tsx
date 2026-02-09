@@ -226,7 +226,7 @@ export default function WealthInheritancePage() {
 
         <div className="absolute inset-0">
           <img
-            src="/images/Wealth-hero-banner.jpg"
+            src="/images/banner/wealth.jpg"
             className="
               absolute inset-0 h-full w-full
               object-cover
@@ -301,9 +301,12 @@ export default function WealthInheritancePage() {
           <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-10 opacity-90">
             {current.ctaDesc}
           </p>
-          <button className="bg-white text-indigo-800 font-bold py-6 px-14 rounded-full text-2xl hover:bg-gray-100 transition-colors shadow-2xl hover:shadow-3xl transform hover:-translate-y-1">
+          <a
+            href="/contact"
+            className="bg-white text-indigo-800 font-bold py-6 px-14 rounded-full text-2xl hover:bg-gray-100 transition-colors shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
+          >
             {current.ctaButton}
-          </button>
+          </a>
         </div>
       </section>
     </div>
