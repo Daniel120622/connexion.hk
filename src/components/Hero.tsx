@@ -1,61 +1,152 @@
 // app/components/Hero.tsx
 "use client";
 
+import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Hero() {
-  const services = [
-    {
-      title: "HK Limited Company",
-      description: "We provide comprehensive services for setting up and managing HK limited companies.",
-      image: {
-        src: "/images/hero/hk.avif",
-        alt: "Modern Hong Kong office with skyline view and business professionals",
-      },
-    },
-    {
-      title: "BVI & Oversea Company",
-      description: "Establish and manage offshore companies in BVI and other jurisdictions.",
-      image: {
-        src: "/images/hero/bvi.jpg",
-        alt: "Tropical islands and documents representing offshore BVI setup",
-      },
-    },
-    {
-      title: "Company Secretary",
-      description: "Professional company secretary services to ensure compliance and smooth operations.",
-      image: {
-        src: "/images/hero/secret.avif",
-        alt: "Professional businesswoman reviewing compliance and secretary documents",
-      },
-    },
-    {
-      title: "Accounting Services",
-      description: "Comprehensive accounting services to manage your financial records effectively.",
-      image: {
-        src: "/images/hero/acc.jpg",
-        alt: "Modern financial dashboard with accounting charts and graphs",
-      },
-    },
-    {
-      title: "Tax Consulting",
-      description: "Expert tax consulting services to optimize your tax strategy and compliance.",
-      image: {
-        src: "/images/hero/tax.avif",
-        alt: "Tax professional with calculator, documents, and strategy planning",
-      },
-    },
-    {
-      title: "Business Advisory",
-      description: "Strategic business advisory services to help you achieve your goals.",
-      image: {
-        src: "/images/hero/adv.jpg",
-        alt: "Hong Kong night skyline with city lights symbolizing business growth",
-      },
-    },
-  ];
+export const navContent = {
+  en: {
+    companyName: "Connexions.HK",
+    companySlogan: "All Services in One Place",
+    button1: "Get Free Consultation",
+    button2: "View All Services",
 
+    // ── Service items ───────────────────────────────
+    services: [
+      {
+        title: "HK Limited Company",
+        description: "We provide comprehensive services for setting up and managing HK limited companies.",
+      },
+      {
+        title: "BVI & Oversea Company",
+        description: "Establish and manage offshore companies in BVI and other jurisdictions.",
+      },
+      {
+        title: "Company Secretary",
+        description: "Professional company secretary services to ensure compliance and smooth operations.",
+      },
+      {
+        title: "Accounting Services",
+        description: "Comprehensive accounting services to manage your financial records effectively.",
+      },
+      {
+        title: "Tax Consulting",
+        description: "Expert tax consulting services to optimize your tax strategy and compliance.",
+      },
+      {
+        title: "Business Advisory",
+        description: "Strategic business advisory services to help you achieve your goals.",
+      },
+    ],
+  },
+
+  zh: {
+    companyName: "宏達香港",
+    companySlogan: "為您提供一站式服务",
+    button1: "免費查詢",
+    button2: "所有服务",
+
+    services: [
+      {
+        title: "香港有限公司",
+        description: "我們提供全面的香港有限公司設立及管理服務。",
+      },
+      {
+        title: "BVI及其他海外公司",
+        description: "在英屬維爾京群島（BVI）及其他司法管轄區設立及管理離岸公司。",
+      },
+      {
+        title: "公司秘書服務",
+        description: "專業公司秘書服務，確保合規並維持公司運作順暢。",
+      },
+      {
+        title: "會計服務",
+        description: "全面的會計服務，幫助您有效管理財務記錄。",
+      },
+      {
+        title: "稅務諮詢",
+        description: "專業稅務諮詢服務，優化您的稅務策略並確保合規。",
+      },
+      {
+        title: "商業顧問服務",
+        description: "策略性商業顧問服務，協助您實現業務目標。",
+      },
+    ],
+  },
+
+  cn: {
+    companyName: "宏达香港",
+    companySlogan: "为您提供一站式服务",
+    button1: "免费查询",
+    button2: "查看所有服务",
+
+    services: [
+      {
+        title: "香港有限公司",
+        description: "我们提供全面的香港有限公司设立及管理服务。",
+      },
+      {
+        title: "BVI及其他海外公司",
+        description: "在英属维尔京群岛（BVI）及其他司法管辖区设立及管理离岸公司。",
+      },
+      {
+        title: "公司秘书服务",
+        description: "专业公司秘书服务，确保合规并维持公司运作顺畅。",
+      },
+      {
+        title: "会计服务",
+        description: "全面的会计服务，帮助您有效管理财务记录。",
+      },
+      {
+        title: "税务咨询",
+        description: "专业税务咨询服务，优化您的税务策略并确保合规。",
+      },
+      {
+        title: "商业顾问服务",
+        description: "策略性商业顾问服务，协助您实现业务目标。",
+      },
+    ],
+  },
+} as const;
+
+
+export default function Hero() {
+  const pathname = usePathname();
+    const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
+  
+    useEffect(() => {
+      const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
+      if (saved) setLang(saved);
+      else {
+        const browserLang = navigator.language.toLowerCase();
+        const defaultLang = browserLang.includes("zh") ? "cn" : "en";
+        localStorage.setItem("lang", defaultLang);
+        setLang(defaultLang);
+      }
+    }, []);
+  
+    const changeLanguage = (newLang: "en" | "cn" | "zh") => {
+      if (newLang === lang) return;
+      localStorage.setItem("lang", newLang);
+      setLang(newLang);
+      window.location.reload();
+    };
+  
+    const current = navContent[lang];
+
+    const services = current.services.map((service, index) => ({
+      title: service.title,
+      description: service.description,
+      image: [
+        { src: "/images/hero/hk.avif", alt: "Modern Hong Kong office with skyline view and business professionals" },
+        { src: "/images/hero/bvi.jpg", alt: "Tropical islands and documents representing offshore BVI setup" },
+        { src: "/images/hero/secret.avif", alt: "Professional businesswoman reviewing compliance and secretary documents" },
+        { src: "/images/hero/acc.jpg", alt: "Modern financial dashboard with accounting charts and graphs" },
+        { src: "/images/hero/tax.avif", alt: "Tax professional with calculator, documents, and strategy planning" },
+        { src: "/images/hero/adv.jpg", alt: "Hong Kong night skyline with city lights symbolizing business growth" },
+      ][index],
+    }));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -119,8 +210,8 @@ export default function Hero() {
             <div className="w-20 h-1 bg-[#3ac9d9] rounded-full mb-2"></div>
 
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              <span className="bg-gradient-to-r from-gray-300 to-blue-500 bg-clip-text text-transparent">CONNEXIONS </span> <br></br>
-              <span className="text-[#3ac9d9]">All Services in One Place</span>
+              <span className="bg-gradient-to-r from-gray-300 to-blue-500 bg-clip-text text-transparent">{/*CONNEXIONS*/} {current.companyName} </span> <br></br>
+              <span className="text-[#3ac9d9]">{current.companySlogan}</span> {/*All Services in One Place */}
               
             </h1>
 
@@ -149,7 +240,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Get Free Consultation
+                {current.button1}{/*Get Free Consultation*/}
               </motion.a>
 
               <motion.a
@@ -158,7 +249,8 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                View All Services
+                {current.button2}{/*View All Services*/}
+
               </motion.a>
             </div>
           </motion.div>
