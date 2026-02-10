@@ -95,17 +95,15 @@ export default function ServicesOverviewPage() {
 
 
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-indigo-600 text-white py-12 shadow-lg">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 ">
           <h1 className="text-3xl font-bold">{current.heroTitle}</h1>
         </div>
-      </header>
       
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 bg-gradient-to-r from-blue-900/80 to-teal-900/70 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/banner/services.jpg"
+            src="images/banner/services.jpg"
             alt="Business team discussing services"
             className="w-full h-full object-cover brightness-50"
           />
@@ -138,7 +136,7 @@ export default function ServicesOverviewPage() {
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/hk-limited-company.jpg"
+                    src="/images/services/hkCompany.jpg"
                     alt="Hong Kong Limited Company"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -163,7 +161,7 @@ export default function ServicesOverviewPage() {
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/bvi-oversea-company.jpg"
+                    src="/images/services/BVI.jpeg"
                     alt="BVI Overseas Company"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -187,7 +185,7 @@ export default function ServicesOverviewPage() {
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/company-secretary.jpg"
+                    src="/images/services/secretary.jpg"
                     alt="Company Secretary Services"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -210,7 +208,7 @@ export default function ServicesOverviewPage() {
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/accounting-serv.jpg"
+                    src="/images/services/accounting.jpg"
                     alt="Accounting & Audit Services"
 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -234,7 +232,7 @@ export default function ServicesOverviewPage() {
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/Business-Advisory.jpg"
+                    src="/images/services/businessAdv.jpg"
                     alt="Business Advisory Services"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -257,7 +255,7 @@ export default function ServicesOverviewPage() {
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/Tax-Consulting.jpg"
+                    src="/images/services/tax.jpg"
                     alt="Tax Consulting Services"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />

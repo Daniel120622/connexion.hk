@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -6,19 +5,19 @@ import { usePathname } from "next/navigation";
 
 export const navContent = {
   en: {
-    home: "Home",
-    aboutUs: "About Us",
-    localImmigration: "Local Immigration",
-    overseaImmigration: "Oversea Immigration",
-    services: "Services",
-    hkLimitedCompany: "HK Limited Company",
-    bviOverseaCompany: "BVI & Oversea Company",
-    companySecretary: "Company Secretary",
-    businessAdvisory: "Business Advisory",
-    accountingServices: "Accounting Services",
-    taxConsulting: "Tax Consulting",
-    wealthInheritance: "Wealth Inheritance",
-    contact: "Contact",
+    home: "HOME",
+    aboutUs: "ABOUT US",
+    localImmigration: "LOCAL IMMIGRATION",
+    overseaImmigration: "OVERSEA IMMIGRATION",
+    services: "SERVICES",
+    hkLimitedCompany: "HK LIMITED COMPANY",
+    bviOverseaCompany: "BVI & OVERSEA COMPANY",
+    companySecretary: "COMPANY SECRETARY",
+    businessAdvisory: "BUSINESS ADVISORY",
+    accountingServices: "ACCOUNTING SERVICES",
+    taxConsulting: "TAX CONSULTING",
+    wealthInheritance: "WEALTH INHERITANCE",
+    contact: "CONTACT",
   },
   zh: {
     home: "首頁",
@@ -54,15 +53,15 @@ export const navContent = {
 
 export default function Header() {
   const pathname = usePathname();
-
-  // Language
   const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (saved) {
-      setLang(saved);
-    } else {
+    if (saved) setLang(saved);
+    else {
       const browserLang = navigator.language.toLowerCase();
       const defaultLang = browserLang.includes("zh") ? "cn" : "en";
       localStorage.setItem("lang", defaultLang);
@@ -79,534 +78,206 @@ export default function Header() {
 
   const current = navContent[lang];
 
-  const isActive = (path: string) => {
-    if (path === "/") return pathname === "/";
-    return pathname?.startsWith(path) ?? false;
-  };
-
-  // Scroll behavior
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  // Mobile menu
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Services accordion in mobile menu
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    setIsServicesOpen(false);
-  };
+  const isActive = (path: string) => pathname === path || pathname?.startsWith(path);
 
   useEffect(() => {
     const controlNavbar = () => {
-      if (typeof window === "undefined") return;
-
-      // When mobile menu is open → keep header always visible
       if (isMobileMenuOpen) {
         setShowNavbar(true);
         return;
       }
-
       const currentScrollY = window.scrollY;
-
-      // Normal scroll behavior only when menu is closed
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setShowNavbar(false);
-      } else if (currentScrollY < lastScrollY) {
-        setShowNavbar(true);
-      }
-
+      if (currentScrollY > lastScrollY && currentScrollY > 80) setShowNavbar(false);
+      else if (currentScrollY < lastScrollY) setShowNavbar(true);
       setLastScrollY(currentScrollY);
     };
-
     window.addEventListener("scroll", controlNavbar);
     return () => window.removeEventListener("scroll", controlNavbar);
-  }, [lastScrollY, isMobileMenuOpen]); // Depend on menu state
+  }, [lastScrollY, isMobileMenuOpen]);
 
-  // Optional: ensure header is visible right when menu opens
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      setShowNavbar(true);
-    }
-  }, [isMobileMenuOpen]);
+  const servicesItems = [
+    { href: "/services/local-company", label: current.hkLimitedCompany },
+    { href: "/services/bviCompany", label: current.bviOverseaCompany },
+    { href: "/services/compSecretary", label: current.companySecretary },
+    { href: "/services/businessAdv", label: current.businessAdvisory },
+    { href: "/services/accounting", label: current.accountingServices },
+    { href: "/services/tax-consulting", label: current.taxConsulting },
+  ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      {/* Top bar - Logo + Hamburger + Language */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 items-center justify-between">
-          {/* Logo */}
-          <a href="/" className="flex-shrink-0">
-            <img
-              src="/images/connexions-hk.png"
-              alt="Connexions HK Logo"
-              className="h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto object-contain"
-            />
-          </a>
-
-          {/* Desktop: Social + Language */}
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex gap-4">
-              <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer">
-                <img src="/images/facebook-icon.svg" alt="Facebook" className="h-6 w-6" />
+      <div className="bg-[#0f1d3a] text-white">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-2xl">
+          <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
+            {/* Left: Logo and Brand */}
+            <div className="flex items-center gap-3">
+              <a href="/" className="flex items-center">
+                <img
+                  src="/images/connexions-hk-noword.png"
+                  alt="Connexions HK Logo"
+                  className="h-11 w-11 md:h-14 md:w-14 object-contain"
+                />
               </a>
-              <a href="https://www.linkedin.com/company/connexions-hk" target="_blank" rel="noopener noreferrer">
-                <img src="/images/linkedin-icon.webp" alt="LinkedIn" className="h-6 w-6" />
-              </a>
-              <a href="https://www.instagram.com/connexionshk" target="_blank" rel="noopener noreferrer">
-                <img src="/images/instagram-icon.webp" alt="Instagram" className="h-6 w-6" />
-              </a>
+             <span className="text-lg md:text-xl lg:text-2xl font-bold tracking-wide bg-gradient-to-r from-gray-300 to-blue-500 bg-clip-text text-transparent">
+              CONNEXIONS.HK
+              </span>     
             </div>
 
-            <div className="flex items-center gap-1 rounded-full px-3 py-1 border border-gray-200 bg-gray-50">
-              <button
-                onClick={() => changeLanguage("en")}
-                className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
-                  lang === "en"
-                    ? "bg-[#3ac9d9] text-white shadow-sm"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
-                }`}
-              >
-                EN
-              </button>
-              <div className="h-4 w-px bg-gray-300 mx-1" />
-              <button
-                onClick={() => changeLanguage("zh")}
-                className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
-                  lang === "zh"
-                    ? "bg-[#3ac9d9] text-white shadow-sm"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
-                }`}
-              >
-                繁
-              </button>
-              <div className="h-4 w-px bg-gray-300 mx-1" />
-              <button
-                onClick={() => changeLanguage("cn")}
-                className={`px-3 py-1 text-xs font-medium transition-all duration-200 rounded-full ${
-                  lang === "cn"
-                    ? "bg-[#3ac9d9] text-white shadow-sm"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
-                }`}
-              >
-                简
-              </button>
-            </div>
-          </div>
+            {/* Center: Navigation */}
+            <nav className="hidden md:flex gap-8 lg:gap-8 xl:gap-8 text-base font-medium justify-center items-center flex-1">
+              <a href="/" className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                {current.home}
+              </a>
+              <a href="/about-us" className={isActive("/about-us") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                {current.aboutUs}
+              </a>
+              <a href="/local-immigration" className={isActive("/local-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                {current.localImmigration}
+              </a>
+              <a href="/oversea-immigration" className={isActive("/oversea-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                {current.overseaImmigration}
+              </a>
+              
+              <div className="relative group">
+                <a
+                  href="/services"
+                  className={`flex items-center gap-1 ${isActive("/services") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}`}
+                >
+                  {current.services} ▼
+                </a>
+                <ul className="absolute left-0 top-full mt-2 w-64 bg-[#0f1d3a] border border-gray-700 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+                  {servicesItems.map((item) => (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        className={`block px-4 py-2 hover:bg-gray-800 ${isActive(item.href) ? "text-[#3ac9d9]" : ""}`}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          {/* Mobile: Language (compact) + Hamburger */}
-          <div className="flex md:hidden items-center gap-4">
-            {/* Language - smaller on mobile */}
-            <div className="flex items-center gap-1 rounded-full px-2 py-1 border border-gray-200 bg-gray-50 text-xs">
-              <button
-                onClick={() => changeLanguage("en")}
-                className={`px-2 py-0.5 font-medium rounded-full ${
-                  lang === "en" ? "bg-[#3ac9d9] text-white" : "text-gray-600"
-                }`}
-              >
-                EN
-              </button>
-              <div className="h-3 w-px bg-gray-300 mx-0.5" />
-              <button
-                onClick={() => changeLanguage("zh")}
-                className={`px-2 py-0.5 font-medium rounded-full ${
-                  lang === "zh" ? "bg-[#3ac9d9] text-white" : "text-gray-600"
-                }`}
-              >
-                繁
-              </button>
-              <div className="h-3 w-px bg-gray-300 mx-0.5" />
-              <button
-                onClick={() => changeLanguage("cn")}
-                className={`px-2 py-0.5 font-medium rounded-full ${
-                  lang === "cn" ? "bg-[#3ac9d9] text-white" : "text-gray-600"
-                }`}
-              >
-                简
-              </button>
+
+              <a href="/contact" className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                {current.contact}
+              </a>
+            </nav>
+
+            {/* Right: Language Selector and Social Media Icons */}
+            <div className="flex items-center gap-6 ml-auto">
+              {/* Social Media Icons */}
+              <div className="flex gap-4">
+                <a
+                  href="https://www.facebook.com/connexionshk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/connexionshk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/connexions-hk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+
+              {/* Language Selector */}
+              <div className="flex items-center gap-1 rounded-full px-3 py-1.5 bg-black/30 border border-gray-700">
+                <button
+                  onClick={() => changeLanguage("en")}
+                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "en" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  ENG
+                </button>
+                <div className="h-4 w-px bg-gray-600 mx-1" />
+                <button
+                  onClick={() => changeLanguage("zh")}
+                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "zh" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  繁
+                </button>
+                <div className="h-4 w-px bg-gray-600 mx-1" />
+                <button
+                  onClick={() => changeLanguage("cn")}
+                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "cn" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  简
+                </button>
+              </div>
             </div>
 
-            {/* Hamburger */}
+            {/* Mobile Menu Button */}
             <button
-              className="text-gray-700 focus:outline-none"
+              className="md:hidden text-white focus:outline-none"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {isMobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
+              <i className={`fa ${isMobileMenuOpen ? "fa-times" : "fa-bars"} text-2xl`}></i>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:block bg-white shadow-md">
-        <div className="container mx-auto px-4">
-          <ul className="flex justify-center items-center gap-6 lg:gap-8 py-3 text-sm lg:text-base font-medium">
-            <li>
-              <a
-                href="/"
-                className={`px-2 py-1 rounded transition-colors ${
-                  isActive("/") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
-                }`}
-              >
-                {current.home}
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about-us"
-                className={`px-2 py-1 rounded transition-colors ${
-                  isActive("/about-us") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
-                }`}
-              >
-                {current.aboutUs}
-              </a>
-            </li>
-            <li>
-              <a
-                href="/local-immigration"
-                className={`px-2 py-1 rounded transition-colors ${
-                  isActive("/local-immigration") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
-                }`}
-              >
-                {current.localImmigration}
-              </a>
-            </li>
-            <li>
-              <a
-                href="/oversea-immigration"
-                className={`px-2 py-1 rounded transition-colors ${
-                  isActive("/oversea-immigration") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
-                }`}
-              >
-                {current.overseaImmigration}
-              </a>
-            </li>
-
-            {/* Services dropdown (desktop) */}
-            <li className="relative group">
-              <a
-                href="/services"
-                className={`flex items-center gap-1 px-2 py-1 rounded transition-colors ${
-                  isActive("/services") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
-                }`}
-              >
-                {current.services} <span className="text-xs">▼</span>
-              </a>
-
-              <ul className="absolute left-0 top-full mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 text-base opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-150 pointer-events-none group-hover:pointer-events-auto">
-                <li>
-                  <a
-                    href="/services/local-company"
-                    className={`block px-4 py-2 hover:bg-gray-50 ${
-                      isActive("/services/local-company") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
-                    }`}
-                  >
-                    {current.hkLimitedCompany}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/services/bviCompany"
-                    className={`block px-4 py-2 hover:bg-gray-50 ${
-                      isActive("/services/bviCompany") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
-                    }`}
-                  >
-                    {current.bviOverseaCompany}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/services/compSecretary"
-                    className={`block px-4 py-2 hover:bg-gray-50 ${
-                      isActive("/services/compSecretary") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
-                    }`}
-                  >
-                    {current.companySecretary}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/services/businessAdv"
-                      onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/businessAdv")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.businessAdvisory}
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        href="/services/accounting"
-                        onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/accounting")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.accountingServices}
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        href="/services/tax-consulting"
-                        onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/tax-consulting")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.taxConsulting}
-                      </a>
-                    </li>      
-                
-              </ul>
-            </li>
-
-            <li>
-              <a
-                href="/wealth-inheritance"
-                className={`px-2 py-1 rounded transition-colors ${
-                  isActive("/wealth-inheritance") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
-                }`}
-              >
-                {current.wealthInheritance}
-              </a>
-            </li>
-            <li>
-              <a
-                href="/contact"
-                className={`px-2 py-1 rounded transition-colors ${
-                  isActive("/contact") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-100"
-                }`}
-              >
-                {current.contact}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t shadow-lg">
-          <div className="container mx-auto px-4 py-4">
-            <ul className="flex flex-col gap-3 text-base font-medium">
+        <div className="md:hidden bg-[#0f1d3a] text-white border-t border-gray-700">
+          <div className="container mx-auto px-4 py-6">
+            <ul className="flex flex-col gap-4 text-base font-medium">
               <li>
-                <a
-                  href="/"
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-3 rounded ${
-                    isActive("/") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
-                  }`}
-                >
+                <a href="/" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/") ? "text-[#3ac9d9]" : ""}>
                   {current.home}
                 </a>
               </li>
               <li>
-                <a
-                  href="/about-us"
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-3 rounded ${
-                    isActive("/about-us") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
-                  }`}
-                >
+                <a href="/about-us" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/about-us") ? "text-[#3ac9d9]" : ""}>
                   {current.aboutUs}
                 </a>
               </li>
               <li>
-                <a
-                  href="/local-immigration"
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-3 rounded ${
-                    isActive("/local-immigration") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
-                  }`}
-                >
+                <a href="/local-immigration" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/local-immigration") ? "text-[#3ac9d9]" : ""}>
                   {current.localImmigration}
                 </a>
               </li>
               <li>
-                <a
-                  href="/oversea-immigration"
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-3 rounded ${
-                    isActive("/oversea-immigration") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
-                  }`}
-                >
+                <a href="/oversea-immigration" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/oversea-immigration") ? "text-[#3ac9d9]" : ""}>
                   {current.overseaImmigration}
                 </a>
               </li>
-
-              {/* Services - accordion style */}
               <li>
-                <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className={`w-full text-left px-4 py-3 rounded flex justify-between items-center ${
-                    isActive("/services") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
-                  }`}
-                >
+                <a href="/services" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/services") ? "text-[#3ac9d9]" : ""}>
                   {current.services}
-                  <span>{isServicesOpen ? "▲" : "▼"}</span>
-                </button>
-
-                {isServicesOpen && (
-                  <ul className="pl-6 mt-1 flex flex-col gap-1">
-                    <li>
-                      <a
-                        href="/services/local-company"
-                        onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/local-company")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.hkLimitedCompany}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/services/bviCompany"
-                        onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/bviCompany")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.bviOverseaCompany}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/services/compSecretary"
-                        onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/compSecretary")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.companySecretary}
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        href="/services/businessAdv"
-                        onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/businessAdv")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.businessAdvisory}
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        href="/services/accounting"
-                        onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/accounting")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.accountingServices}
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        href="/services/tax-consulting"
-                        onClick={closeMobileMenu}
-                        className={`block px-4 py-2 rounded ${
-                          isActive("/services/tax-consulting")
-                            ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
-                            : "hover:bg-gray-50"
-                        }`}
-                      >
-                        {current.taxConsulting}
-                      </a>
-                    </li>
-                  </ul>
-                )}
-              </li>
-
-              <li>
-                <a
-                  href="/wealth-inheritance"
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-3 rounded ${
-                    isActive("/wealth-inheritance") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
-                  }`}
-                >
-                  {current.wealthInheritance}
                 </a>
               </li>
               <li>
-                <a
-                  href="/contact"
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-3 rounded ${
-                    isActive("/contact") ? "bg-[#3ac9d9] text-white" : "hover:bg-gray-50"
-                  }`}
-                >
+                <a href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/contact") ? "text-[#3ac9d9]" : ""}>
                   {current.contact}
                 </a>
               </li>
             </ul>
-
-            {/* Optional: Social icons in mobile menu */}
-            <div className="flex gap-6 mt-6 px-4">
-              <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer">
-                <img src="/images/facebook-icon.svg" alt="Facebook" className="h-7 w-7" />
-              </a>
-              <a href="https://www.linkedin.com/company/connexions-hk" target="_blank" rel="noopener noreferrer">
-                <img src="/images/linkedin-icon.webp" alt="LinkedIn" className="h-7 w-7" />
-              </a>
-              <a href="https://www.instagram.com/connexionshk" target="_blank" rel="noopener noreferrer">
-                <img src="/images/instagram-icon.webp" alt="Instagram" className="h-7 w-7" />
-              </a>
-            </div>
           </div>
         </div>
       )}

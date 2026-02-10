@@ -1,208 +1,199 @@
 // app/components/Hero.tsx
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseRef = useRef<{ x: number | null; y: number | null }>({ x: null, y: null });
+  const services = [
+    {
+      title: "HK Limited Company",
+      description: "We provide comprehensive services for setting up and managing HK limited companies.",
+      image: {
+        src: "/images/hero/hk.avif",
+        alt: "Modern Hong Kong office with skyline view and business professionals",
+      },
+    },
+    {
+      title: "BVI & Oversea Company",
+      description: "Establish and manage offshore companies in BVI and other jurisdictions.",
+      image: {
+        src: "/images/hero/bvi.jpg",
+        alt: "Tropical islands and documents representing offshore BVI setup",
+      },
+    },
+    {
+      title: "Company Secretary",
+      description: "Professional company secretary services to ensure compliance and smooth operations.",
+      image: {
+        src: "/images/hero/secret.avif",
+        alt: "Professional businesswoman reviewing compliance and secretary documents",
+      },
+    },
+    {
+      title: "Accounting Services",
+      description: "Comprehensive accounting services to manage your financial records effectively.",
+      image: {
+        src: "/images/hero/acc.jpg",
+        alt: "Modern financial dashboard with accounting charts and graphs",
+      },
+    },
+    {
+      title: "Tax Consulting",
+      description: "Expert tax consulting services to optimize your tax strategy and compliance.",
+      image: {
+        src: "/images/hero/tax.avif",
+        alt: "Tax professional with calculator, documents, and strategy planning",
+      },
+    },
+    {
+      title: "Business Advisory",
+      description: "Strategic business advisory services to help you achieve your goals.",
+      image: {
+        src: "/images/hero/adv.jpg",
+        alt: "Hong Kong night skyline with city lights symbolizing business growth",
+      },
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % services.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
-    let animationFrameId: number;
+  const prevSlide = () => {
+    setIsPaused(true);
+    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
+  };
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-
-    // ── Particle logic (unchanged from your original) ──
-    interface Particle {
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      update: () => void;
-      draw: () => void;
-    }
-
-    const particles: Particle[] = [];
-    const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
-
-    function createParticle(): Particle {
-      return {
-        x: 0,
-        y: 0,
-        size: Math.random() * 3 + 1,
-        speedX: Math.random() * 0.8 - 0.4,
-        speedY: Math.random() * 0.8 - 0.4,
-
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-
-          if (this.x < 0 || this.x > canvas!.width) this.speedX *= -1;
-          if (this.y < 0 || this.y > canvas!.height) this.speedY *= -1;
-
-          const mouse = mouseRef.current;
-          if (mouse?.x && mouse?.y) {
-            const dx = this.x - mouse.x;
-            const dy = this.y - mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 120) {
-              const force = (120 - distance) / 120;
-              this.x += dx * force * 0.1;
-              this.y += dy * force * 0.1;
-            }
-          }
-        },
-
-        draw() {
-          if (!ctx) return;
-          ctx.fillStyle = "#3ac9d9";
-          ctx.globalAlpha = 0.6;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
-        },
-      };
-    }
-
-    function init() {
-      particles.length = 0;
-      for (let i = 0; i < particleCount; i++) {
-        const p = createParticle();
-        p.x = Math.random() * canvas!.width;
-        p.y = Math.random() * canvas!.height;
-        particles.push(p);
-      }
-    }
-
-    function connectParticles() {
-      if (!ctx) return;
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 140) {
-            ctx.strokeStyle = `rgba(58, 201, 217, ${1 - distance / 140})`;
-            ctx.lineWidth = 0.8;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animate() {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, canvas!.width, canvas!.height);
-
-      particles.forEach((particle) => {
-        particle.update();
-        particle.draw();
-      });
-
-      connectParticles();
-      animationFrameId = requestAnimationFrame(animate);
-    }
-
-    init();
-    animate();
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
+  const nextSlide = () => {
+    setIsPaused(true);
+    setCurrentIndex((prev) => (prev + 1) % services.length);
+  };
 
   return (
-    
-    
-    <header className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-900 text-white overflow-hidden">
-
-      {/* Particle Canvas – keeping your signature effect */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 z-0 pointer-events-none"
-      />
-
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
-
-      {/* Hero Content – StartupBusiness-inspired: big headline, subtext, CTAs */}
-      <div className="relative z-20 container mx-auto px-6 py-20 text-center max-w-6xl">
-        {/* Optional accent bar or icon – can remove if not needed */}
-        <div className="w-20 h-1 bg-[#3ac9d9] mx-auto mb-10 rounded-full"></div>
-
-        <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 tracking-tight"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          Grow Your Business with Smart Connections
-        </motion.h1>
-
-        <motion.p
-          className="text-xl md:text-3xl font-medium mb-12 max-w-3xl mx-auto text-gray-200"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-        >
-          Recruitment, Talent Solutions, Company Setup, and Hong Kong Immigration Services
-        </motion.p>
-
-        {/* CTAs – prominent like in startup templates */}
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <motion.a
-            href="#services"
-            className="inline-block bg-[#3ac9d9] text-blue-950 font-bold text-lg py-5 px-12 rounded-full hover:bg-[#2ab8c8] transition shadow-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Explore Services
-          </motion.a>
-
-          <motion.a
-            href="#contact"
-            className="inline-block border-2 border-[#3ac9d9] text-[#3ac9d9] font-bold text-lg py-5 px-12 rounded-full hover:bg-[#3ac9d9]/10 transition"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Get in Touch
-          </motion.a>
-        </div>
-
-        {/* Optional subtle animated emphasis or tag */}
-        <motion.div
-          className="mt-16 text-lg text-gray-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.8 }}
-        >
-          Connecting talent, businesses, and opportunities in Hong Kong
-        </motion.div>
+    <header
+      className={`
+        relative flex items-center justify-center
+        bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-900
+        text-white overflow-hidden
+        min-h-[70vh] md:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8rem)]
+        pt-20 sm:pt-24 md:pt-28 lg:pt-32
+        pb-12 md:pb-16
+      `}
+    >
+      {/* Full-page subtle background images */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentIndex}
+            className="absolute inset-0 bg-cover bg-center will-change-opacity"
+            style={{
+              backgroundImage: `url(${services[currentIndex].image.src})`,
+              backgroundColor: "#0f172a",
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.35 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+          />
+        </AnimatePresence>
       </div>
+
+      {/* Narrower container → significantly less side space */}
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8 xl:px-10 relative z-10 max-w-6xl xl:max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* LEFT: Text Content */}
+          <motion.div
+            className="space-y-6 md:space-y-8 lg:space-y-10 max-w-3xl mx-auto md:mx-0"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="w-20 h-1 bg-[#3ac9d9] rounded-full mb-2"></div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+              Your Hong Kong Business Partner –{" "}
+              <span className="text-[#3ac9d9]">All Services in One Place</span>
+            </h1>
+
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="space-y-5 bg-black/55 p-6 md:p-7 lg:p-8 rounded-xl backdrop-blur-md"
+              >
+                <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-[#3ac9d9]">
+                  {services[currentIndex].title}
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-gray-200">
+                  {services[currentIndex].description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 sm:pt-6">
+              <motion.a
+                href="/contact"
+                className="inline-block bg-[#3ac9d9] text-blue-950 font-bold text-base sm:text-lg py-4 px-8 rounded-full hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl text-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Get Free Consultation
+              </motion.a>
+
+              <motion.a
+                href="/services"
+                className="inline-block border-2 border-[#3ac9d9] text-[#3ac9d9] font-bold text-base sm:text-lg py-4 px-8 rounded-full hover:bg-[#3ac9d9]/10 transition text-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                View All Services
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* RIGHT: Empty placeholder */}
+          <div className="hidden md:block" />
+        </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-3 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20
+                   bg-black/50 hover:bg-black/70 text-white p-3 sm:p-4 rounded-full
+                   transition-all duration-300 backdrop-blur-sm
+                   opacity-70 hover:opacity-100 focus:opacity-100"
+        aria-label="Previous service"
+      >
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        onClick={nextSlide}
+        
+        className="absolute right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20
+                   bg-black/50 hover:bg-black/70 text-white p-3 sm:p-4 rounded-full
+                   transition-all duration-300 backdrop-blur-sm
+                   opacity-70 hover:opacity-100 focus:opacity-100"
+        aria-label="Next service"
+      >
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
     </header>
   );
 }

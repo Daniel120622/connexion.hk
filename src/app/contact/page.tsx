@@ -95,7 +95,7 @@ export default function ContactPage() {
 
     const formData = new FormData(e.currentTarget);
 
-    const result = await sendEmailAction(formData);
+    const result = await sendEmailAction(formData);1
 
     if (result.success) {
       setStatus("success");
@@ -112,8 +112,8 @@ export default function ContactPage() {
       {/* Header */}
       <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold">{current.title}</h1>
-          <p className="mt-2 text-white/90">{current.subtitle}</p>
+          <h1 className="text-3xl md:text-4xl font-bold"></h1>
+          <p className="mt-2 text-white/90"></p>
         </div>
       </header>
 
