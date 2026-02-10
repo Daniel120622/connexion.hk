@@ -353,46 +353,6 @@ export default function Header() {
                 </a>
               </div>
             </div>
-
-            {/* Optional: Language selector in mobile menu too */}
-            <div className="mt-8">
-              <p className="text-sm text-gray-400 mb-3">Language</p>
-              <div className="flex gap-3">
-                <button
-                  onClick={() => {
-                    changeLanguage("en");
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`px-4 py-2 text-sm rounded-full transition-all ${
-                    lang === "en" ? "bg-[#3ac9d9] text-white" : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                  }`}
-                >
-                  ENG
-                </button>
-                <button
-                  onClick={() => {
-                    changeLanguage("zh");
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`px-4 py-2 text-sm rounded-full transition-all ${
-                    lang === "zh" ? "bg-[#3ac9d9] text-white" : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                  }`}
-                >
-                  繁
-                </button>
-                <button
-                  onClick={() => {
-                    changeLanguage("cn");
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`px-4 py-2 text-sm rounded-full transition-all ${
-                    lang === "cn" ? "bg-[#3ac9d9] text-white" : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                  }`}
-                >
-                  简
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       )}
