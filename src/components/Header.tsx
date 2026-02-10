@@ -335,9 +335,9 @@ export default function Header() {
                 </li>
                 <li>
                   <a
-                    href="/services/BVI-company"
+                    href="/services/bviCompany"
                     className={`block px-4 py-2 hover:bg-gray-50 ${
-                      isActive("/services/BVI-company") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
+                      isActive("/services/bviCompany") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
                     }`}
                   >
                     {current.bviOverseaCompany}
@@ -345,9 +345,9 @@ export default function Header() {
                 </li>
                 <li>
                   <a
-                    href="/services/company-secretary"
+                    href="/services/compSecretary"
                     className={`block px-4 py-2 hover:bg-gray-50 ${
-                      isActive("/services/company-secretary") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
+                      isActive("/services/compSecretary") ? "bg-[#3ac9d9]/10 text-[#3ac9d9]" : ""
                     }`}
                   >
                     {current.companySecretary}
@@ -355,10 +355,10 @@ export default function Header() {
                 </li>
                 <li>
                   <a
-                    href="/services/Business-Advisory"
+                    href="/services/businessAdv"
                       onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded ${
-                          isActive("/services/Business-Advisory")
+                          isActive("/services/businessAdv")
                             ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
                             : "hover:bg-gray-50"
                         }`}
@@ -369,10 +369,10 @@ export default function Header() {
 
                     <li>
                       <a
-                        href="/services/Accounting-Services"
+                        href="/services/accounting"
                         onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded ${
-                          isActive("/services/Accounting-Services")
+                          isActive("/services/accounting")
                             ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
                             : "hover:bg-gray-50"
                         }`}
@@ -383,10 +383,10 @@ export default function Header() {
 
                     <li>
                       <a
-                        href="/services/Tax-Consulting"
+                        href="/services/tax-consulting"
                         onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded ${
-                          isActive("/services/Tax-Consulting")
+                          isActive("/services/tax-consulting")
                             ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
                             : "hover:bg-gray-50"
                         }`}
@@ -501,10 +501,10 @@ export default function Header() {
                     </li>
                     <li>
                       <a
-                        href="/services/BVI-company"
+                        href="/services/bviCompany"
                         onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded ${
-                          isActive("/services/BVI-company")
+                          isActive("/services/bviCompany")
                             ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
                             : "hover:bg-gray-50"
                         }`}
@@ -514,10 +514,10 @@ export default function Header() {
                     </li>
                     <li>
                       <a
-                        href="/services/company-secretary"
+                        href="/services/compSecretary"
                         onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded ${
-                          isActive("/services/company-secretary")
+                          isActive("/services/compSecretary")
                             ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
                             : "hover:bg-gray-50"
                         }`}
@@ -528,10 +528,10 @@ export default function Header() {
 
                     <li>
                       <a
-                        href="/services/Business-Advisory"
+                        href="/services/businessAdv"
                         onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded ${
-                          isActive("/services/Business-Advisory")
+                          isActive("/services/businessAdv")
                             ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
                             : "hover:bg-gray-50"
                         }`}
@@ -542,10 +542,10 @@ export default function Header() {
 
                     <li>
                       <a
-                        href="/services/Accounting-Services"
+                        href="/services/accounting"
                         onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded ${
-                          isActive("/services/Accounting-Services")
+                          isActive("/services/accounting")
                             ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
                             : "hover:bg-gray-50"
                         }`}
@@ -556,10 +556,10 @@ export default function Header() {
 
                     <li>
                       <a
-                        href="/services/Tax-Consulting"
+                        href="/services/tax-consulting"
                         onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded ${
-                          isActive("/services/Tax-Consulting")
+                          isActive("/services/tax-consulting")
                             ? "bg-[#3ac9d9]/10 text-[#3ac9d9]"
                             : "hover:bg-gray-50"
                         }`}

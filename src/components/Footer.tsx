@@ -30,10 +30,14 @@ export default function Footer() {
       hkLimited: "HK Limited Company",
       bviOversea: "BVI & Oversea Company",
       wealthInheritance: "Wealth Inheritance Planning",
-      extraService: "Extra Service",
+      otherService: "Other Service",
       aboutUs: "About Us",
       contactUs: "Contact Us",
       contactTitle: "Contact US",
+      accountingService: "Accounting Service",
+      businessAdvisory: "Business Advisory",
+      localCompany: "Local Company",
+      taxConsulting: "Tax Consulting",
       address: "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
       phone: "+852 5540 3916",
       email: "sales@connecxions.hk",
@@ -49,10 +53,14 @@ export default function Footer() {
       hkLimited: "香港有限公司",
       bviOversea: "BVI 及其他海外公司",
       wealthInheritance: "財富傳承規劃",
-      extraService: "額外服務",
+      otherService: "額外服務",
       aboutUs: "關於我們",
       contactUs: "聯絡我們",
       contactTitle: "聯絡我們",
+      accountingService: "會計服務",
+      businessAdvisory: "商業諮詢",
+      localCompany: "本地公司",
+      taxConsulting: "稅務諮詢",
       address: "香港灣仔告士打道151號首都中心9樓902A室",
       phone: "+852 5540 3916",
       email: "sales@connecxions.hk",
@@ -68,10 +76,14 @@ export default function Footer() {
       hkLimited: "香港有限公司",
       bviOversea: "BVI 及其他海外公司",
       wealthInheritance: "财富传承规划",
-      extraService: "额外服务",
+      otherService: "额外服务",
       aboutUs: "关于我们",
       contactUs: "联系我们",
       contactTitle: "联系我们",
+      accountingService: "会计服务",
+      businessAdvisory: "商业咨询",
+      localCompany: "本地公司",
+      taxConsulting: "税务咨询",
       address: "香港湾仔告士打道151号首都中心9楼902A室",
       phone: "+852 5540 3916",
       email: "sales@connecxions.hk",
@@ -107,24 +119,25 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-white mb-6">{t.quickLinks}</h3>
             <ul className="space-y-3 text-gray-400">
+              <li><a href="/about-us" className="hover:text-[#3ac9d9] transition">{t.aboutUs}</a></li>
               <li><a href="/local-immigration" className="hover:text-[#3ac9d9] transition">{t.localImmigration}</a></li>
-              <li><a href="/oversea-immigration" className="hover:text-[#3ac9d9] transition">{t.overseaImmigration}</a></li>
-              <li><a href="/services/company-secretary" className="hover:text-[#3ac9d9] transition">{t.companySecretary}</a></li>
-              <li><a href="/services/local-company" className="hover:text-[#3ac9d9] transition">{t.hkLimited}</a></li>
-              <li><a href="/services/BVI-company" className="hover:text-[#3ac9d9] transition">{t.bviOversea}</a></li>
+              <li><a href="/oversea-immigration" className="hover:text-[#3ac9d9] transition">{t.overseaImmigration}</a></li>              <li><a href="/services/local-company" className="hover:text-[#3ac9d9] transition">{t.hkLimited}</a></li>
               <li><a href="/wealth-inheritance" className="hover:text-[#3ac9d9] transition">{t.wealthInheritance}</a></li>
+              <li><a href="/contact" className="hover:text-[#3ac9d9] transition">{t.contactUs}</a></li>
+
             </ul>
           </div>
 
           {/* Column 3: Extra Service */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">{t.extraService}</h3>
+            <h3 className="text-lg font-semibold text-white mb-6">{t.otherService}</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="https://incorp-hk.com/hk-shelf-comp/" className="hover:text-[#3ac9d9] transition">(Optional)</a></li>
-              <li><a href="https://incorp-hk.com/accounting-auditing/" className="hover:text-[#3ac9d9] transition">(Optional)</a></li>
-              <li><a href="https://incorp-hk.com/terms-and-conditions/" className="hover:text-[#3ac9d9] transition">(Optional)</a></li>
-              <li><a href="/about-us" className="hover:text-[#3ac9d9] transition">{t.aboutUs}</a></li>
-              <li><a href="/contact" className="hover:text-[#3ac9d9] transition">{t.contactUs}</a></li>
+              <li><a href="/services/accounting" className="hover:text-[#3ac9d9] transition">{t.accountingService}</a></li>
+              <li><a href="/services/bviCompany" className="hover:text-[#3ac9d9] transition">{t.bviOversea}</a></li>
+              <li><a href="/services/businessAdv" className="hover:text-[#3ac9d9] transition">{t.businessAdvisory}</a></li>
+              <li><a href="/services/compSecretary" className="hover:text-[#3ac9d9] transition">{t.companySecretary}</a></li>
+              <li><a href="/services/local-company" className="hover:text-[#3ac9d9] transition">{t.localCompany}</a></li>
+              <li><a href="/services/tax-consulting" className="hover:text-[#3ac9d9] transition">{t.taxConsulting}</a></li>
             </ul>
           </div>
 

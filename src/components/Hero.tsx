@@ -24,13 +24,12 @@ export default function Hero() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Mouse interaction
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    // ── Types ────────────────────────────────────────────────
+    // ── Particle logic (unchanged from your original) ──
     interface Particle {
       x: number;
       y: number;
@@ -42,13 +41,12 @@ export default function Hero() {
     }
 
     const particles: Particle[] = [];
-    const particleCount = Math.min(80, Math.floor(window.innerWidth / 20)); // scale with screen size
+    const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
 
-    // Particle factory (no direct canvas access)
     function createParticle(): Particle {
       return {
-        x: 0,  // Initial placeholder
-        y: 0,  // Initial placeholder
+        x: 0,
+        y: 0,
         size: Math.random() * 3 + 1,
         speedX: Math.random() * 0.8 - 0.4,
         speedY: Math.random() * 0.8 - 0.4,
@@ -57,11 +55,9 @@ export default function Hero() {
           this.x += this.speedX;
           this.y += this.speedY;
 
-          // Bounce off edges
           if (this.x < 0 || this.x > canvas!.width) this.speedX *= -1;
           if (this.y < 0 || this.y > canvas!.height) this.speedY *= -1;
 
-          // Mouse repulsion
           const mouse = mouseRef.current;
           if (mouse?.x && mouse?.y) {
             const dx = this.x - mouse.x;
@@ -86,9 +82,8 @@ export default function Hero() {
       };
     }
 
-    // Initialize particles with valid canvas dimensions
     function init() {
-      particles.length = 0; // clear if re-init
+      particles.length = 0;
       for (let i = 0; i < particleCount; i++) {
         const p = createParticle();
         p.x = Math.random() * canvas!.width;
@@ -130,7 +125,6 @@ export default function Hero() {
       animationFrameId = requestAnimationFrame(animate);
     }
 
-    // Start everything
     init();
     animate();
 
@@ -142,48 +136,73 @@ export default function Hero() {
   }, []);
 
   return (
+    
+    
     <header className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-900 text-white overflow-hidden">
-      {/* Particle Canvas */}
+
+      {/* Particle Canvas – keeping your signature effect */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 z-0 pointer-events-none"
       />
 
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/45 z-10"></div>
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
 
-      {/* Main Content */}
-      <div className="relative z-20 container mx-auto px-6 py-16 text-center max-w-5xl">
-        <div className="w-24 h-1 bg-[#3ac9d9] mx-auto mb-8 rounded-full"></div>
+      {/* Hero Content – StartupBusiness-inspired: big headline, subtext, CTAs */}
+      <div className="relative z-20 container mx-auto px-6 py-20 text-center max-w-6xl">
+        {/* Optional accent bar or icon – can remove if not needed */}
+        <div className="w-20 h-1 bg-[#3ac9d9] mx-auto mb-10 rounded-full"></div>
 
-        <div className="mb-6">
-          <svg className="w-16 h-16 mx-auto text-[#3ac9d9]/70" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14 17h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V7h4v2zM7 21l-4-4h4v-14h14v14h-4l-4 4z" />
-          </svg>
+        <motion.h1
+          className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 tracking-tight"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          Grow Your Business with Smart Connections
+        </motion.h1>
+
+        <motion.p
+          className="text-xl md:text-3xl font-medium mb-12 max-w-3xl mx-auto text-gray-200"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+        >
+          Recruitment, Talent Solutions, Company Setup, and Hong Kong Immigration Services
+        </motion.p>
+
+        {/* CTAs – prominent like in startup templates */}
+        <div className="flex flex-col sm:flex-row justify-center gap-6">
+          <motion.a
+            href="#services"
+            className="inline-block bg-[#3ac9d9] text-blue-950 font-bold text-lg py-5 px-12 rounded-full hover:bg-[#2ab8c8] transition shadow-lg"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Explore Services
+          </motion.a>
+
+          <motion.a
+            href="#contact"
+            className="inline-block border-2 border-[#3ac9d9] text-[#3ac9d9] font-bold text-lg py-5 px-12 rounded-full hover:bg-[#3ac9d9]/10 transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Get in Touch
+          </motion.a>
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-          Slogan goes here
-        </h1>
-
-        <h2 className="text-2xl md:text-4xl font-semibold mb-10">
-          <span className="text-[#3ac9d9] font-bold">Sub-title </span>
-          <motion.span
-            className="inline-block text-white font-bold"
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-          >
-            with animated emphasis
-          </motion.span>
-        </h2>
-
+        {/* Optional subtle animated emphasis or tag */}
+        <motion.div
+          className="mt-16 text-lg text-gray-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.8 }}
+        >
+          Connecting talent, businesses, and opportunities in Hong Kong
+        </motion.div>
       </div>
-
     </header>
   );
 }
