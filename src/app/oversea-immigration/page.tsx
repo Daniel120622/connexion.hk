@@ -152,57 +152,6 @@ export default function OverseasImmigrationPage() {
         </div>
       </section>
 
-      {/* Introduction */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 lg:px-8 max-w-5xl text-center">
-          <p className="text-xl text-gray-700 leading-relaxed mb-12">
-            {current.intro}
-          </p>
-
-          {/* Gallery - Visual Highlights */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">{current.galleryTitle}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://images.pexels.com/photos/9482126/pexels-photo-9482126.jpeg"
-                  alt="Aerial view of pristine island in Vanuatu"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://images.pexels.com/photos/5769835/pexels-photo-5769835.jpeg"
-                  alt="Stunning Caribbean coastline of St Kitts & Nevis"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/2/23/St.Kitts_and_Nevis_-Two_Islands_One_Paradise.jpg"
-                  alt="Paradise islands of St Kitts and Nevis"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://liveandletsfly.com/wp-content/uploads/2020/08/Buy-EU-Citizenship.jpg"
-                  alt="Citizenship by investment passport and documents"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="snap-center min-w-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src="https://liveandletsfly.com/wp-content/uploads/2020/07/Visa-free-US-Passport-holders.png"
-                  alt="World map showing visa-free travel access"
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-            <p className="text-sm text-gray-500 mt-4">{current.galleryDesc}</p>
-          </div>
-        </div>
-      </section>
 
       {/* Interactive Programs Section */}
       <section className="py-20 bg-gray-50">
