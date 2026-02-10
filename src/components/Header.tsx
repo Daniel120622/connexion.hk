@@ -266,9 +266,26 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <a href="/services" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/services") ? "text-[#3ac9d9]" : ""}>
-                  {current.services}
+                <div className="relative group">
+                <a
+                  href="/services"
+                  className={`flex items-center gap-1 ${isActive("/services") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}`}
+                >
+                  {current.services} ▼
                 </a>
+                <ul className="absolute left-0 top-full mt-2 w-64 bg-[#0f1d3a] border border-gray-700 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+                  {servicesItems.map((item) => (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        className={`block px-4 py-2 hover:bg-gray-800 ${isActive(item.href) ? "text-[#3ac9d9]" : ""}`}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               </li>
               <li>
                 <a href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/contact") ? "text-[#3ac9d9]" : ""}>
