@@ -55,6 +55,7 @@ export default function Header() {
   const pathname = usePathname();
   const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false); // ← new state for mobile submenu
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -122,10 +123,9 @@ export default function Header() {
                   className="h-11 w-11 md:h-14 md:w-14 object-contain"
                 />
               </a>
-  
             </div>
 
-            {/* Center: Navigation */}
+            {/* Center: Navigation (Desktop) */}
             <nav className="hidden md:flex gap-8 lg:gap-8 xl:gap-8 text-base font-medium justify-center items-center flex-1">
               <a href="/" className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
                 {current.home}
@@ -139,7 +139,7 @@ export default function Header() {
               <a href="/oversea-immigration" className={isActive("/oversea-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
                 {current.overseaImmigration}
               </a>
-              
+
               <div className="relative group">
                 <a
                   href="/services"
@@ -161,85 +161,49 @@ export default function Header() {
                 </ul>
               </div>
 
-
               <a href="/contact" className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
                 {current.contact}
               </a>
             </nav>
 
-            {/* Right: Language Selector and Social Media Icons */}
+            {/* Right: Language + Social + Mobile Button */}
             <div className="flex items-center gap-6 ml-auto">
-              {/* Social Media Icons */}
               <div className="flex gap-4">
-                <a
-                  href="https://www.facebook.com/connexionshk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#3ac9d9] transition"
-                >
+                <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a
-                  href="https://www.instagram.com/connexionshk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#3ac9d9] transition"
-                >
+                <a href="https://www.instagram.com/connexionshk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a
-                  href="https://www.linkedin.com/company/connexions-hk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#3ac9d9] transition"
-                >
+                <a href="https://www.linkedin.com/company/connexions-hk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
                   <i className="fab fa-linkedin-in"></i>
                 </a>
               </div>
 
-              {/* Language Selector */}
               <div className="flex items-center gap-1 rounded-full px-3 py-1.5 bg-black/30 border border-gray-700">
-                <button
-                  onClick={() => changeLanguage("en")}
-                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                    lang === "en" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  ENG
-                </button>
+                <button onClick={() => changeLanguage("en")} className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${lang === "en" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"}`}>ENG</button>
                 <div className="h-4 w-px bg-gray-600 mx-1" />
-                <button
-                  onClick={() => changeLanguage("zh")}
-                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                    lang === "zh" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  繁
-                </button>
+                <button onClick={() => changeLanguage("zh")} className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${lang === "zh" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"}`}>繁</button>
                 <div className="h-4 w-px bg-gray-600 mx-1" />
-                <button
-                  onClick={() => changeLanguage("cn")}
-                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                    lang === "cn" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  简
-                </button>
+                <button onClick={() => changeLanguage("cn")} className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${lang === "cn" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"}`}>简</button>
               </div>
-            </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-white focus:outline-none"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <i className={`fa ${isMobileMenuOpen ? "fa-times" : "fa-bars"} text-2xl`}></i>
-            </button>
+              <button
+                className="md:hidden text-white focus:outline-none"
+                onClick={() => {
+                  setIsMobileMenuOpen(!isMobileMenuOpen);
+                  if (isMobileMenuOpen) setServicesOpen(false); // optional: close submenu when closing main menu
+                }}
+                aria-label="Toggle menu"
+              >
+                <i className={`fa ${isMobileMenuOpen ? "fa-times" : "fa-bars"} text-2xl`}></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* ──────────────────────────────────────────────── */}
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-[#0f1d3a] text-white border-t border-gray-700">
@@ -265,20 +229,49 @@ export default function Header() {
                   {current.overseaImmigration}
                 </a>
               </li>
-              <li>
-                <div className="relative group">
+
+              {/* ─── Hybrid Services Item ──────────────────────────────── */}
+              <li className="flex items-center justify-between">
                 <a
                   href="/services"
-                  className={`flex items-center gap-1 ${isActive("/services") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex-1 ${isActive("/services") ? "text-[#3ac9d9]" : ""}`}
                 >
-                  {current.services} ▼
+                  {current.services}
                 </a>
-                <ul className="absolute left-0 top-full mt-2 w-64 bg-[#0f1d3a] border border-gray-700 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent triggering the <a> navigation
+                    setServicesOpen(!servicesOpen);
+                  }}
+                  className="p-3 -mr-3 text-lg focus:outline-none"
+                  aria-label="Toggle services submenu"
+                  aria-expanded={servicesOpen}
+                >
+                  <span className={`inline-block transition-transform duration-200 ${servicesOpen ? "rotate-180" : "rotate-0"}`}>
+                    ▼
+                  </span>
+                </button>
+              </li>
+
+              {/* Submenu – only visible when servicesOpen */}
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  servicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <ul className="pl-6 pt-2 pb-4 flex flex-col gap-3 text-[0.98rem]">
                   {servicesItems.map((item) => (
                     <li key={item.href}>
                       <a
                         href={item.href}
-                        className={`block px-4 py-2 hover:bg-gray-800 ${isActive(item.href) ? "text-[#3ac9d9]" : ""}`}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setServicesOpen(false);
+                        }}
+                        className={`block ${isActive(item.href) ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}`}
                       >
                         {item.label}
                       </a>
@@ -286,7 +279,8 @@ export default function Header() {
                   ))}
                 </ul>
               </div>
-              </li>
+              {/* ──────────────────────────────────────────────────────── */}
+
               <li>
                 <a href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/contact") ? "text-[#3ac9d9]" : ""}>
                   {current.contact}
