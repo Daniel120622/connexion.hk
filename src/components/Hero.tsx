@@ -119,8 +119,9 @@ export default function Hero() {
             <div className="w-20 h-1 bg-[#3ac9d9] rounded-full mb-2"></div>
 
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              Your Hong Kong Business Partner –{" "}
+              <span className="bg-gradient-to-r from-gray-300 to-blue-500 bg-clip-text text-transparent">CONNEXIONS </span> <br></br>
               <span className="text-[#3ac9d9]">All Services in One Place</span>
+              
             </h1>
 
             <AnimatePresence mode="wait" initial={false}>

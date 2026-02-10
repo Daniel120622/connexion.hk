@@ -111,7 +111,7 @@ export default function Header() {
       }`}
     >
       <div className="bg-[#0f1d3a] text-white">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-2xl">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-6xl">
           <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
             {/* Left: Logo and Brand */}
             <div className="flex items-center gap-3">
@@ -122,9 +122,7 @@ export default function Header() {
                   className="h-11 w-11 md:h-14 md:w-14 object-contain"
                 />
               </a>
-             <span className="text-lg md:text-xl lg:text-2xl font-bold tracking-wide bg-gradient-to-r from-gray-300 to-blue-500 bg-clip-text text-transparent">
-              CONNEXIONS.HK
-              </span>     
+  
             </div>
 
             {/* Center: Navigation */}

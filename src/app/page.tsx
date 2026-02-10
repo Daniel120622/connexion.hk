@@ -25,8 +25,6 @@ export default function HomePage() {
 
       <main>
         <Hero />
-        <Services />
-        
         <AboutUs />
         <Contact />
       </main>
