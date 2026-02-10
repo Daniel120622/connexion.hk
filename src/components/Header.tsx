@@ -55,7 +55,7 @@ export default function Header() {
   const pathname = usePathname();
   const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false); // ← new state for mobile submenu
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -114,7 +114,7 @@ export default function Header() {
       <div className="bg-[#0f1d3a] text-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-6xl">
           <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
-            {/* Left: Logo and Brand */}
+            {/* Logo */}
             <div className="flex items-center gap-3">
               <a href="/" className="flex items-center">
                 <img
@@ -125,7 +125,7 @@ export default function Header() {
               </a>
             </div>
 
-            {/* Center: Navigation (Desktop) */}
+            {/* Desktop Nav */}
             <nav className="hidden md:flex gap-8 lg:gap-8 xl:gap-8 text-base font-medium justify-center items-center flex-1">
               <a href="/" className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
                 {current.home}
@@ -166,33 +166,72 @@ export default function Header() {
               </a>
             </nav>
 
-            {/* Right: Language + Social + Mobile Button */}
+            {/* Right side: Social + Language + Hamburger */}
             <div className="flex items-center gap-6 ml-auto">
-              <div className="flex gap-4">
-                <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
+              {/* Social icons - visible on desktop and in mobile menu */}
+              <div className="hidden md:flex gap-4">
+                <a
+                  href="https://www.facebook.com/connexionshk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.instagram.com/connexionshk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
+                <a
+                  href="https://www.instagram.com/connexionshk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.linkedin.com/company/connexions-hk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
+                <a
+                  href="https://www.linkedin.com/company/connexions-hk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
               </div>
 
+              {/* Language selector */}
               <div className="flex items-center gap-1 rounded-full px-3 py-1.5 bg-black/30 border border-gray-700">
-                <button onClick={() => changeLanguage("en")} className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${lang === "en" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"}`}>ENG</button>
+                <button
+                  onClick={() => changeLanguage("en")}
+                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "en" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  ENG
+                </button>
                 <div className="h-4 w-px bg-gray-600 mx-1" />
-                <button onClick={() => changeLanguage("zh")} className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${lang === "zh" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"}`}>繁</button>
+                <button
+                  onClick={() => changeLanguage("zh")}
+                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "zh" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  繁
+                </button>
                 <div className="h-4 w-px bg-gray-600 mx-1" />
-                <button onClick={() => changeLanguage("cn")} className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${lang === "cn" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"}`}>简</button>
+                <button
+                  onClick={() => changeLanguage("cn")}
+                  className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "cn" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  简
+                </button>
               </div>
 
+              {/* Hamburger */}
               <button
                 className="md:hidden text-white focus:outline-none"
                 onClick={() => {
                   setIsMobileMenuOpen(!isMobileMenuOpen);
-                  if (isMobileMenuOpen) setServicesOpen(false); // optional: close submenu when closing main menu
+                  if (isMobileMenuOpen) setServicesOpen(false);
                 }}
                 aria-label="Toggle menu"
               >
@@ -203,12 +242,11 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ──────────────────────────────────────────────── */}
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-[#0f1d3a] text-white border-t border-gray-700">
           <div className="container mx-auto px-4 py-6">
-            <ul className="flex flex-col gap-4 text-base font-medium">
+            <ul className="flex flex-col gap-5 text-base font-medium">
               <li>
                 <a href="/" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/") ? "text-[#3ac9d9]" : ""}>
                   {current.home}
@@ -230,7 +268,7 @@ export default function Header() {
                 </a>
               </li>
 
-              {/* ─── Hybrid Services Item ──────────────────────────────── */}
+              {/* Hybrid Services */}
               <li className="flex items-center justify-between">
                 <a
                   href="/services"
@@ -239,11 +277,10 @@ export default function Header() {
                 >
                   {current.services}
                 </a>
-
                 <button
                   type="button"
                   onClick={(e) => {
-                    e.preventDefault(); // Prevent triggering the <a> navigation
+                    e.preventDefault();
                     setServicesOpen(!servicesOpen);
                   }}
                   className="p-3 -mr-3 text-lg focus:outline-none"
@@ -256,13 +293,12 @@ export default function Header() {
                 </button>
               </li>
 
-              {/* Submenu – only visible when servicesOpen */}
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
                   servicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <ul className="pl-6 pt-2 pb-4 flex flex-col gap-3 text-[0.98rem]">
+                <ul className="pl-6 pt-2 pb-4 flex flex-col gap-4 text-[0.98rem]">
                   {servicesItems.map((item) => (
                     <li key={item.href}>
                       <a
@@ -279,7 +315,6 @@ export default function Header() {
                   ))}
                 </ul>
               </div>
-              {/* ──────────────────────────────────────────────────────── */}
 
               <li>
                 <a href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/contact") ? "text-[#3ac9d9]" : ""}>
@@ -287,6 +322,77 @@ export default function Header() {
                 </a>
               </li>
             </ul>
+
+            {/* Social icons in mobile menu */}
+            <div className="mt-8 pt-6 border-t border-gray-600">
+              <p className="text-sm text-gray-400 mb-4">Follow us</p>
+              <div className="flex gap-6 text-2xl">
+                <a
+                  href="https://www.facebook.com/connexionshk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/connexionshk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/connexions-hk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Optional: Language selector in mobile menu too */}
+            <div className="mt-8">
+              <p className="text-sm text-gray-400 mb-3">Language</p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => {
+                    changeLanguage("en");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`px-4 py-2 text-sm rounded-full transition-all ${
+                    lang === "en" ? "bg-[#3ac9d9] text-white" : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                  }`}
+                >
+                  ENG
+                </button>
+                <button
+                  onClick={() => {
+                    changeLanguage("zh");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`px-4 py-2 text-sm rounded-full transition-all ${
+                    lang === "zh" ? "bg-[#3ac9d9] text-white" : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                  }`}
+                >
+                  繁
+                </button>
+                <button
+                  onClick={() => {
+                    changeLanguage("cn");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`px-4 py-2 text-sm rounded-full transition-all ${
+                    lang === "cn" ? "bg-[#3ac9d9] text-white" : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                  }`}
+                >
+                  简
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
