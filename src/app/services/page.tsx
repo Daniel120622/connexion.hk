@@ -157,7 +157,7 @@ export default function ServicesOverviewPage() {
             </Link>
 
             {/* Card 2: BVI & Overseas Company */}
-            <Link href="/services/BVI-company" className="group block">
+            <Link href="/services/bviCompany" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
@@ -181,7 +181,7 @@ export default function ServicesOverviewPage() {
             </Link>
 
             {/* Card 3: Company Secretary */}
-            <Link href="/services/company-secretary" className="group block">
+            <Link href="/services/compSecretary" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
@@ -204,7 +204,7 @@ export default function ServicesOverviewPage() {
               </div>
             </Link>
 
-            <Link href="/services/Accounting-Services" className="group block">
+            <Link href="/services/accounting" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
@@ -228,7 +228,7 @@ export default function ServicesOverviewPage() {
               </div>
             </Link>
 
-            <Link href="/services/Business-Advisory" className="group block">
+            <Link href="/services/businessAdv" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
@@ -251,7 +251,7 @@ export default function ServicesOverviewPage() {
               </div>
             </Link>
 
-            <Link href="/services/Tax-Consulting" className="group block">
+            <Link href="/services/tax-consulting" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
