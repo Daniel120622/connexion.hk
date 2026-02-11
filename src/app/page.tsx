@@ -3,7 +3,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import AboutUs from '@/components/AboutUs';
 import Contact from '@/components/Contact';
-
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'Connexions HK | Immigration & Professional Consulting',
@@ -25,6 +25,7 @@ export default function HomePage() {
 
       <main>
         <Hero />
+        <Analytics />
         <AboutUs />
         <Contact />
       </main>
