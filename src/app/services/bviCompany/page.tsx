@@ -136,7 +136,7 @@ export default function BVICompanyPage() {
 
         <div className="absolute inset-0">
           <img
-            src="/images/services/bvi.jpeg"
+            src="/images/services/BVI.jpeg"
             className="
               absolute inset-0 h-full w-full
               object-cover
