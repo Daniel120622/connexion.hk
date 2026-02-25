@@ -6,23 +6,23 @@ import { usePathname } from "next/navigation";
 export const navContent = {
   en: {
     home: "HOME",
-    aboutUs: "ABOUT US",
-    localImmigration: "LOCAL IMMIGRATION",
-    overseaImmigration: "OVERSEA IMMIGRATION",
-    services: "SERVICES",
-    hkLimitedCompany: "HK LIMITED COMPANY",
-    bviOverseaCompany: "BVI & OVERSEA COMPANY",
-    companySecretary: "COMPANY SECRETARY",
-    businessAdvisory: "BUSINESS ADVISORY",
-    accountingServices: "ACCOUNTING SERVICES",
-    taxConsulting: "TAX CONSULTING",
-    wealthInheritance: "WEALTH INHERITANCE",
-    contact: "CONTACT",
+    aboutUs: "About Us",
+    localImmigration: "Local Immigration",
+    overseaImmigration: "Oversea Immigration",
+    services: "Services",
+    hkLimitedCompany: "HK Limited Company",
+    bviOverseaCompany: "BVI & Oversea Company",
+    companySecretary: "Company Secretary",
+    businessAdvisory: "Business Advisory",
+    accountingServices: "Accounting Services",
+    taxConsulting: "Tax Consulting",
+    wealthInheritance: "Wealth Inheritance",
+    contact: "Contact",
   },
   zh: {
     home: "首頁",
     aboutUs: "關於我們",
-    localImmigration: "本地移民",
+    localImmigration: "移民香港",
     overseaImmigration: "海外移民",
     services: "服務",
     hkLimitedCompany: "香港有限公司",
@@ -37,7 +37,7 @@ export const navContent = {
   cn: {
     home: "首页",
     aboutUs: "关于我们",
-    localImmigration: "本地移民",
+    localImmigration: "移民香港",
     overseaImmigration: "海外移民",
     services: "服务",
     hkLimitedCompany: "香港有限公司",
@@ -99,7 +99,6 @@ export default function Header() {
   const servicesItems = [
     { href: "/services/local-company", label: current.hkLimitedCompany },
     { href: "/services/bviCompany", label: current.bviOverseaCompany },
-    { href: "/services/compSecretary", label: current.companySecretary },
     { href: "/services/businessAdv", label: current.businessAdvisory },
     { href: "/services/accounting", label: current.accountingServices },
     { href: "/services/tax-consulting", label: current.taxConsulting },
@@ -111,7 +110,7 @@ export default function Header() {
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="bg-[#0f1d3a] text-white">
+      <div className="bg-gray-100 text-black shadow-md">          {/* or shadow-xl for more depth */}
         <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-6xl">
           <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
             {/* Logo */}
@@ -143,16 +142,16 @@ export default function Header() {
               <div className="relative group">
                 <a
                   href="/services"
-                  className={`flex items-center gap-1 ${isActive("/services") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}`}
+                  className={`flex items-center gap-1 ${isActive("/services") ? "text-black" : "hover:text-gray-100 transition"}`}
                 >
                   {current.services} ▼
                 </a>
-                <ul className="absolute left-0 top-full mt-2 w-64 bg-[#0f1d3a] border border-gray-700 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+                <ul className="absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                   {servicesItems.map((item) => (
                     <li key={item.href}>
                       <a
                         href={item.href}
-                        className={`block px-4 py-2 hover:bg-gray-800 ${isActive(item.href) ? "text-[#3ac9d9]" : ""}`}
+                        className={`block px-4 py-2 hover:bg-gray-100 ${isActive(item.href) ? "text-black" : ""}`}
                       >
                         {item.label}
                       </a>
@@ -160,6 +159,10 @@ export default function Header() {
                   ))}
                 </ul>
               </div>
+
+              <a href="/wealth-inheritance" className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                {current.wealthInheritance}
+              </a>
 
               <a href="/contact" className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
                 {current.contact}
@@ -197,11 +200,11 @@ export default function Header() {
               </div>
 
               {/* Language selector */}
-              <div className="flex items-center gap-1 rounded-full px-3 py-1.5 bg-black/30 border border-gray-700">
+              <div className="flex items-center gap-1 rounded-full px-3 py-1.5  ">
                 <button
                   onClick={() => changeLanguage("en")}
                   className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                    lang === "en" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                    lang === "en" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-black hover:text-white hover:bg-white/10"
                   }`}
                 >
                   ENG
@@ -210,7 +213,7 @@ export default function Header() {
                 <button
                   onClick={() => changeLanguage("zh")}
                   className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                    lang === "zh" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                    lang === "zh" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-black hover:text-white hover:bg-white/10"
                   }`}
                 >
                   繁
@@ -219,7 +222,7 @@ export default function Header() {
                 <button
                   onClick={() => changeLanguage("cn")}
                   className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                    lang === "cn" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-gray-300 hover:text-white hover:bg-white/10"
+                    lang === "cn" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-black hover:text-white hover:bg-white/10"
                   }`}
                 >
                   简
@@ -315,6 +318,12 @@ export default function Header() {
                   ))}
                 </ul>
               </div>
+
+              <li>
+                <a href="/wealth-inheritance" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : ""}>
+                  {current.wealthInheritance}
+                </a>
+              </li>
 
               <li>
                 <a href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/contact") ? "text-[#3ac9d9]" : ""}>

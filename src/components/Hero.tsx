@@ -45,7 +45,7 @@ export const navContent = {
     companyName: "宏達香港",
     companySlogan: "為您提供一站式服务",
     button1: "免費查詢",
-    button2: "所有服务",
+    button2: "所有服務",
 
     services: [
       {
@@ -154,7 +154,7 @@ export default function Hero() {
     if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % services.length);
-    }, 6000);
+    }, 8000); // change this number for the speed
     return () => clearInterval(interval);
   }, [isPaused]);
 
