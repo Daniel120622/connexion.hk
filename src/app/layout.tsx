@@ -4,6 +4,7 @@ import '@/app/globals.css';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import type { Metadata } from 'next';
 
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {floatingWhatsAppButton()}
         <main>{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
