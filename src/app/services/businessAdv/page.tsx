@@ -3,56 +3,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-// ────────────────────────────────────────────────
-// Reusable fade-in component
-// ────────────────────────────────────────────────
-function FadeInSection({
-  children,
-  className = "",
-  delay = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: string; // e.g. "delay-300"
-}) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`
-        transition-all duration-900 ease-out
-        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
-        ${delay}
-        ${className}
-      `}
-    >
-      {children}
-    </div>
-  );
-}
-
-// ────────────────────────────────────────────────
-// Main Component
-// ────────────────────────────────────────────────
 export default function BusinessAdvisoryPage() {
   const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
 
@@ -72,27 +23,10 @@ export default function BusinessAdvisoryPage() {
   const content = {
     en: {
       heroTitle: "Business Advisory & Corporate Services",
-      heroDesc:
-        "Strategic business modelling, pre-IPO restructuring, M&A advisory, tax planning, profit distribution, and professional daily corporate administration.",
+      heroDesc:"Strategic business modelling, pre-IPO restructuring, M&A advisory, tax planning, profit distribution, and professional daily corporate administration.",
       benefitsTitle: "Why Choose Our Business Advisory Services?",
-      intro:
-        "In today’s dynamic and diversified commercial environment, business collaboration and corporate mergers & acquisitions are increasingly frequent. Over the years we have:",
-      benefit_1: "Participated in numerous pre-IPO restructurings and business planning",
-      benefit_2:
-        "Provided expert advice on shareholding structures, dividend policies, and tax optimization",
-      benefit_3: "Assisted with corporate takeover and transfer planning",
-      benefit_4: "Managed day-to-day corporate administration and governance",
-      benefit_5:
-        "Delivered comprehensive solutions backed by deep accounting, tax, finance, and HR expertise",
-      servicesTitle: "Our Core Business Advisory Services",
-      serviceList: [
-        "Pre-IPO reorganization and group structuring",
-        "Merger & acquisition due diligence support",
-        "Shareholding and profit distribution planning",
-        "Tax efficient structuring and compliance",
-        "Corporate secretarial and daily administration",
-        "Ongoing business modelling and strategic advisory",
-      ],
+      intro1: "Business collaboration and corporate merger and acquisition are growing in dynamic and diversified commercial society. Over the years, we have participated in pre-IPO restructuring and business modelling. We also advise on shareholding structure in corporate setup and merger and acquisition, profit distribution and tax planning in ongoing business as well as corporate takeover planning. And we are competent in corporate routine management and administration. Coupled with our immersed knowledge and experience in accounting, tax, financial and human resources, our all-rounded services are highly regarded by our clients.",
+      intro2: "",
       ctaDesc: "Contact us for a tailored consultation — most proposals sent within 24 hours.",
       ctaButton: "Get Your Business Advisory Proposal",
     },
@@ -102,22 +36,8 @@ export default function BusinessAdvisoryPage() {
       heroDesc:
         "策略性業務規劃、上市前重組、併購顧問、稅務策劃、利潤分配，以及專業的日常企業行政管理。",
       benefitsTitle: "為何選擇我們的商業顧問服務？",
-      intro:
-        "在當今靈活多元化的商業社會中，業務合作和企業併購日益頻繁。多年來，我們參與了：",
-      benefit_1: "眾多上市前重組及業務規劃項目",
-      benefit_2: "股權架構、股息政策及稅務優化方面的專業建議",
-      benefit_3: "企業收購及轉讓計劃的協助",
-      benefit_4: "日常公司管治及行政管理",
-      benefit_5: "結合會計、稅務、財務及人力資源的全面解決方案",
-      servicesTitle: "我們的核心商業顧問服務",
-      serviceList: [
-        "上市前重組及集團架構調整",
-        "併購盡職調查支援",
-        "股權結構與利潤分配規劃",
-        "稅務優化架構及合規",
-        "公司秘書及日常行政管理",
-        "持續業務模式及策略顧問",
-      ],
+      intro1:"在靈活多元化的商業社會中，業務合作和企業併購日益頻繁。多年來，我們參與了上市股前的重組和業務規劃，就公司設立和併購中的股權結構、企業紅利分配政策、稅務規劃、公司轉讓計劃等提供專業的建議，並擅長擔任公司日常管理和行政工作。基於我們在會計、稅務、財務和人力資源方面的專業知識和經驗，我們的全方位服務受到客戶的高度評價。",
+      intro2: "",
       ctaDesc: "聯絡我們獲取度身訂造的諮詢 — 大多數建議書於24小時內發送。",
       ctaButton: "獲取您的商業顧問建議書",
     },
@@ -125,25 +45,11 @@ export default function BusinessAdvisoryPage() {
     cn: {
       heroTitle: "商业顾问及企业服务",
       heroDesc:
-        "战略性业务规划、上市前重组、并购顾问、税务策划、利润分配，以及专业的日常企业行政管理。",
+      "策略性业务规划、上市前重组、并购顾问、税务策划、利润分配，以及专业的日常企业行政管理。",
       benefitsTitle: "为何选择我们的商业顾问服务？",
-      intro:
-        "在当今灵活多元化的商业社会中，业务合作和企业并购日益频繁。多年来，我们参与了：",
-      benefit_1: "众多上市前重组及业务规划项目",
-      benefit_2: "股权架构、股息政策及税务优化方面的专业建议",
-      benefit_3: "企业收购及转让计划的协助",
-      benefit_4: "日常公司治理及行政管理",
-      benefit_5: "结合会计、税务、财务及人力资源的全面解决方案",
-      servicesTitle: "我们的核心商业顾问服务",
-      serviceList: [
-        "上市前重组及集团架构调整",
-        "并购尽职调查支持",
-        "股权结构与利润分配规划",
-        "税务优化架构及合规",
-        "公司秘书及日常行政管理",
-        "持续业务模式及战略顾问",
-      ],
-      ctaDesc: "联系我们获取量身定制的咨询 — 大多数建议书于24小时内发送。",
+      intro1:"在灵活多元化的商业社会中，业务合作和企业并购日益频繁。多年来，我们参与了上市股前的重组和业务规划，就公司设立和并购中的股权结构、企业红利分配政策、税务规划、公司转让计划等提供专业的建议，并擅长担任公司日常管理和行政工作。基于我们在会计、税务、财务和人力资源方面的专业知识和经验，我们的全方位服务受到客户的高度评价。",
+      intro2: "",
+      ctaDesc: "联络我们获取度身订造的咨询 — 大多数建议书于24小时内发送。",
       ctaButton: "获取您的商业顾问建议书",
     },
   };
@@ -189,50 +95,34 @@ export default function BusinessAdvisoryPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-8 max-w-5xl">
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <FadeInSection>
               <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
                 {current.benefitsTitle}
               </h2>
 
-              <p>{current.intro}</p>
+            <p className="text-lg leading-loose">
+              {current.intro1}
+            </p>
+            <br></br>
 
-              <ul className="list-disc pl-6 space-y-3 mt-6 mb-10">
-                <li>{current.benefit_1}</li>
-                <li>{current.benefit_2}</li>
-                <li>{current.benefit_3}</li>
-                <li>{current.benefit_4}</li>
-                <li>{current.benefit_5}</li>
-              </ul>
-            </FadeInSection>
+            <p className="text-lg leading-loose">
+              {current.intro2}
+            </p>
 
-            <FadeInSection delay="delay-[400ms]">
-              <h3 className="text-2xl font-bold text-gray-900 mt-16 mb-8 text-center md:text-left">
-                {current.servicesTitle}
-              </h3>
 
-              <div className="grid md:grid-cols-2 gap-6 mt-8">
-                {current.serviceList.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
-                  >
-                    <p className="text-lg font-medium text-[#3ac9d9] mb-2">•</p>
-                    <p>{item}</p>
-                  </div>
-                ))}
-              </div>
-            </FadeInSection>
+
 
             {/* CTA */}
-            <FadeInSection delay="delay-[600ms]" className="mt-20 text-center">
+            <div className="mt-16 text-center">
               <a
                 href="/contact"
-                className="inline-block bg-[#3ac9d9] text-white font-semibold py-4 px-12 rounded-full text-lg hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl"
+                className="inline-block bg-[#3ac9d9] text-white font-semibold py-4 px-10 rounded-full text-lg hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl"
               >
                 {current.ctaButton}
               </a>
-              <p className="mt-5 text-gray-600">{current.ctaDesc}</p>
-            </FadeInSection>
+              <p className="mt-4 text-gray-600">
+                {current.ctaDesc}
+              </p>
+            </div>
           </div>
         </div>
       </section>

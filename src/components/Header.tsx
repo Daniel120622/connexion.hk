@@ -7,17 +7,21 @@ export const navContent = {
   en: {
     home: "HOME",
     aboutUs: "About Us",
-    localImmigration: "Local Immigration",
+    localImmigration: "Hong Kong Immigration",
     overseaImmigration: "Oversea Immigration",
-    services: "Services",
-    hkLimitedCompany: "HK Limited Company",
-    bviOverseaCompany: "BVI & Oversea Company",
-    companySecretary: "Company Secretary",
+  
+    services: "Corporate Services",
+    officeService: "Register Office Service",
+    hkLimitedCompany: "HK Company Incorporation",
+    bviOverseaCompany: "BVI/ Offshore Company Incorporation",
+    companySecretary: "Company Secretary Service",
     businessAdvisory: "Business Advisory",
     accountingServices: "Accounting Services",
     taxConsulting: "Tax Consulting",
     wealthInheritance: "Wealth Inheritance",
     contact: "Contact",
+    Services2: "Accountancy and Tax Services",
+
   },
   zh: {
     home: "首頁",
@@ -25,6 +29,7 @@ export const navContent = {
     localImmigration: "移民香港",
     overseaImmigration: "海外移民",
     services: "服務",
+    officeService: "公司註冊地址服務",
     hkLimitedCompany: "香港有限公司",
     bviOverseaCompany: "BVI 及其他海外公司",
     companySecretary: "公司秘書",
@@ -33,6 +38,8 @@ export const navContent = {
     accountingServices: "會計服務",
     businessAdvisory: "商業諮詢",
     taxConsulting: "稅務諮詢",
+    Services2: "會計及稅務服務",
+    
   },
   cn: {
     home: "首页",
@@ -40,6 +47,7 @@ export const navContent = {
     localImmigration: "移民香港",
     overseaImmigration: "海外移民",
     services: "服务",
+    officeService: "公司注册地址服务",
     hkLimitedCompany: "香港有限公司",
     bviOverseaCompany: "BVI 及其他海外公司",
     companySecretary: "公司秘书",
@@ -48,6 +56,7 @@ export const navContent = {
     accountingServices: "会计服务",
     businessAdvisory: "商业咨询",
     taxConsulting: "税务咨询",
+    Services2: "会计及税务服务",
   },
 } as const;
 
@@ -99,6 +108,11 @@ export default function Header() {
   const servicesItems = [
     { href: "/services/local-company", label: current.hkLimitedCompany },
     { href: "/services/bviCompany", label: current.bviOverseaCompany },
+    { href: "/services/companySecretary", label: current.companySecretary },
+    { href: "/services/office-service", label: current.officeService },
+  ];
+
+  const TaxServiceItems = [
     { href: "/services/businessAdv", label: current.businessAdvisory },
     { href: "/services/accounting", label: current.accountingServices },
     { href: "/services/tax-consulting", label: current.taxConsulting },
@@ -117,9 +131,9 @@ export default function Header() {
             <div className="flex items-center gap-3">
               <a href="/" className="flex items-center">
                 <img
-                  src="/images/connexions-hk-noword.png"
+                  src="/images/connexions-hk.png"
                   alt="Connexions HK Logo"
-                  className="h-11 w-11 md:h-14 md:w-14 object-contain"
+                  className="h-16 w-16 md:h-20 md:w-20 object-contain"
                 />
               </a>
             </div>
@@ -135,9 +149,6 @@ export default function Header() {
               <a href="/local-immigration" className={isActive("/local-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
                 {current.localImmigration}
               </a>
-              <a href="/oversea-immigration" className={isActive("/oversea-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
-                {current.overseaImmigration}
-              </a>
 
               <div className="relative group">
                 <a
@@ -148,6 +159,28 @@ export default function Header() {
                 </a>
                 <ul className="absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                   {servicesItems.map((item) => (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        className={`block px-4 py-2 hover:bg-gray-100 ${isActive(item.href) ? "text-black" : ""}`}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+
+              <div className="relative group">
+                <a
+                  href="/services2"
+                  className={`flex items-center gap-1 ${isActive("/services2") ? "text-black" : "hover:text-gray-100 transition"}`}
+                >
+                  {current.Services2} ▼
+                </a>
+                <ul className="absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+                  {TaxServiceItems.map((item) => (
                     <li key={item.href}>
                       <a
                         href={item.href}

@@ -1,8 +1,6 @@
 // src/app/local-immigration/page.tsx
 "use client";
 
-import { desc } from 'framer-motion/m';
-import { Zap } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
 export default function LocalImmigrationPage() {
@@ -44,6 +42,13 @@ export default function LocalImmigrationPage() {
         cta: "Begin Your Hong Kong Journey Today",
         ctaDesc: "Let Connexions assess your profile and guide you to the perfect immigration pathway.",
         ctaButton: "Contact Us Now",
+        ASMTP: "Admission Scheme for Mainland Talents and Professionals (ASMTP)",
+        ASMTPdesc: "Designed to attract mainland Chinese talents and professionals to work in Hong Kong. Eligibility includes holding a mainland Chinese passport, possessing skills or qualifications that are in demand in Hong Kong, and having a job offer from a Hong Kong employer. The scheme offers a streamlined application process and allows for family reunification.",
+        Visas: "Other Visa",
+        VisaDesc: "Dependents Visa. \n When the main applicant has successfully been granted with entry visa, their dependents are eligible for applying for dependent visas to enter Hong Kong. \n All kinds of Extension Applications. \n Before the expiration of visa, extension application is necessary to be submitted. We will remind you the visa renewal and assist in the visa renewal application.",
+        HKIDCard: "Verification of Eligibility for Hong Kong Permanent Identity Card",
+        HKIDDesc:"Under the Immigration Ordinance, you are eligible to enjoy the right of abode in Hong Kong under certain circumstances. The Immigration Department would consider the application of Hong Kong permanent residence verification if the applicant has held a valid visa and ordinarily resided in Hong Kong for not less than 7 consecutive years. Connexions will facilitate your application effectively in order to secure a verification."
+       
       },
       zh:{
         heroTitle: "香港本地移民計劃",
@@ -63,8 +68,14 @@ export default function LocalImmigrationPage() {
         otherSupportServicesDesc: "• 家屬簽證 – 主要簽證獲批後適用於家屬\n• 簽證續期 – 提供提醒及全面協助\n• 永久居民身份證核實 – 滿7年普通居住後",
         cta: "今天就開始您的香港之旅",
         ctaDesc: "讓Connexions評估您的資料，並引導您找到完美的移民途徑。",
-        ctaButton: "立即聯絡我們"
-      },
+        ctaButton: "立即聯絡我們",
+        ASMTP: "內地人才及專業人士入境計劃 (ASMTP)",
+        ASMTPdesc: "旨在吸引內地中國人才和專業人士來香港工作。資格包括持有內地中國護照、擁有香港需求的技能或資格，以及獲得香港雇主的工作邀請。該計劃提供簡化的申請流程，並允許家庭團聚。",
+        Visas: "其他簽證",
+        VisaDesc: "受養人來港居留 \n 主申請人獲得合資格的簽證後，其受養人需要申請獨立的受養人簽證來港。我們會協助辦理。\n 各類延長逗留期限申請 \n 簽證即將到期，您便要申請延期居留。我們會在您的簽注到期前主動提醒您準備辦理續簽，並在接下來的時間協助您準備續簽申請材料，同時規劃您的整個續簽過程，提高申請通過率。",
+        HKIDCard: "核實香港永久居民申請",
+        HKIDDesc:"香港居留權保障了您在任何情況下入境香港的權利。您持有有效簽證連續居港不少於7年，入境事務處便會考慮您的申請。香港入境處亦對核實香港永久居民申請有所要求，我們當以多年經驗準備申請，務求使您的永久居民批復順利完成。"
+      },  
 
       cn:{
         heroTitle: "香港本地移民计划",
@@ -85,7 +96,13 @@ export default function LocalImmigrationPage() {
         otherSupportServicesDesc: "• 家属签证 – 主要签证获批后适用于家属\n• 签证续期 – 提供提醒及全面协助\n• 永久居民身份证核实 – 满7年普通居住后",
         cta: "今天就开始您的香港之旅",
         ctaDesc: "让Connexions评估您的资料，并引导您找到完美的移民途径。",
-        ctaButton: "立即联系我们"
+        ctaButton: "立即联系我们",
+        ASMTP: "内地上人才及专业人士入境计划 (ASMTP)",
+        ASMTPdesc: "旨在吸引内地中国人才和专业人士来香港工作。资格包括持有内地中国护照、拥有香港需求的技能或资格，以及获得香港雇主的工作邀请。该计划提供简化的申请流程，并允许家庭团聚。",
+        Visas: "其他签证",
+        VisaDesc: "受养人来港居留 \n 主申请人获得合资格的签证后，其受养人需要申请独立的受养人签证来港。我们会协助办理。\n 各类延长逗留期限申请 \n 签证即将到期，您便要申请延期居留。我们会在您的签注到期前主动提醒您准备办理续签，并在接下来的时间协助您准备续签申请材料，同时规划您的整个续签过程，提高申请通过率。",
+        HKIDCard: "核实香港永久居民申请",
+        HKIDDesc:"香港居留权保障了您在任何情况下入境香港的权利。您持有有效签证连续居港不少于7年，入境事务处便会考虑您的申请。香港入境处亦对核实香港永久居民申请有所要求，我们当以多年经验准备申请，务求使您的永久居民批复顺利完成。"        
       },
     };
   
@@ -141,6 +158,20 @@ export default function LocalImmigrationPage() {
             {current.ContentSections}
           </h2>
 
+          <div className="space-y-3"></div>
+
+            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
+                <span>{current.newCapitalInvestmentEntrantScheme}</span>
+                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
+              </summary>
+              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
+                <p>{current.newCapitalInvestmentEntrantSchemeDesc}</p>
+              </div>
+            </details>
+          
+            
+
           <div className="space-y-3">
             <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
               <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
@@ -152,15 +183,6 @@ export default function LocalImmigrationPage() {
               </div>
             </details>
 
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.newCapitalInvestmentEntrantScheme}</span>
-                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-              </summary>
-              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>{current.newCapitalInvestmentEntrantSchemeDesc}</p>
-              </div>
-            </details>
 
             <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
               <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
@@ -185,19 +207,39 @@ export default function LocalImmigrationPage() {
             </details>
 
             {/* Other Services as a final accordion */}
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+          <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
               <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.otherSupportServices}</span>
+                <span>{current.ASMTP}</span>
                 <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
               </summary>
               <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <ul className="list-disc pl-6 space-y-3">
-                  <li><strong>Dependents Visa</strong> – For family after main visa approval</li>
-                  <li><strong>Visa Extensions</strong> – Reminders & full assistance</li>
-                  <li><strong>Permanent Identity Card Verification</strong> – After 7 years ordinary residence</li>
-                </ul>
+                <p>{current.ASMTPdesc}</p>
               </div>
             </details>
+
+
+            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
+                <span>{current.Visas}</span>
+                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
+              </summary>
+              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
+                <p>{current.VisaDesc}</p>
+              </div>
+            </details>
+
+
+            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
+                <span>{current.HKIDCard}</span>
+                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
+              </summary>
+              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
+                <p>{current.HKIDDesc}</p>
+              </div>
+            </details>
+
+
           </div>
         </div>
       </section>

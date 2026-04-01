@@ -39,8 +39,8 @@ export default function Footer() {
       localCompany: "Local Company",
       taxConsulting: "Tax Consulting",
       address: "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
-      phone: "+852 #### ####",
-      email: "sales@connecxions.hk",
+      phone: "+852 2111 2425",
+      email: "sales@connexions.hk",
       copyright: `© ${new Date().getFullYear()} Connecxions.HK Copyright. All rights reserved.`,
     },
     zh: {
@@ -62,8 +62,8 @@ export default function Footer() {
       localCompany: "本地公司",
       taxConsulting: "稅務諮詢",
       address: "香港灣仔告士打道151號首都中心9樓902A室",
-      phone: "+852 #### ####",
-      email: "sales@connecxions.hk",
+      phone: "+852 2111 2425",
+      email: "sales@connexions.hk",
       copyright: `© ${new Date().getFullYear()} Connecxions.HK 版權所有。`,
     },
     cn: {
@@ -85,8 +85,8 @@ export default function Footer() {
       localCompany: "本地公司",
       taxConsulting: "税务咨询",
       address: "香港湾仔告士打道151号首都中心9楼902A室",
-      phone: "+852 #### ####",
-      email: "sales@connecxions.hk",
+      phone: "+852 2111 2425",
+      email: "sales@connexions.hk",
       copyright: `© ${new Date().getFullYear()} Connecxions.HK 版权所有。`,
     },
   };

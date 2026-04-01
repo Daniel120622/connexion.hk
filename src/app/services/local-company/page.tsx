@@ -27,31 +27,8 @@ export default function LocalCompanyPage() {
         heroTitle: "Hong Kong Limited Company Formation",
         heroDesc: "Set up your Hong Kong company quickly, compliantly and cost-effectively.",
         BenfitsTitle: "Benefits of a Hong Kong Limited Company",
-        intro: "Hong Kong remains one of the most attractive jurisdictions for international business due to its:",
-        benfit_1: "Simple 0% tax on foreign-sourced income",
-        benfit_2: "Strong international reputation and banking system",
-        benfit_3: "English common law legal system",
-        benfit_4: "Fast incorporation (1–3 working days)",
-        benfit_5: "No minimum capital requirement",
-        benfit_6: "100% foreign ownership allowed",
-        benfit_7: "Excellent double taxation treaty network",
-        benfit_8: "Strategic location as gateway to China and Asia",
-
-        servicesTitle: "Our Hong Kong Company Formation Package Includes",
-        standardPackage: "Standard Package",
-        standardPackage_1: "Company incorporation & government fees",
-        standardPackage_2: "Business Registration Certificate",
-        standardPackage_3: "Company secretary appointment (1 year)",
-        standardPackage_4: "Registered office address (1 year)",
-        standardPackage_5: "Full corporate kit (seals, registers, certificates)",
-        standardPackage_6: "Share certificates & initial board resolutions",
-
-        completePackage: "Complete Package",
-        completePackage_1: "Everything in Standard Package",
-        completePackage_2: "Bank account opening assistance (local & international banks)",
-        completePackage_3: "Trademark registration advice",
-        completePackage_4: "First-year compliance & filing support",
-        completePackage_5: "Document apostille & legalisation (if needed)",
+        intro1: "Hong Kong, as an international financial and commercial center, equips with advanced infrastructure and sustained growth of the capital market. It has highly educated professionals and an attractive tax system. As one of the most vibrant economy centers in the world, Hong Kong not only provides entrepreneurs the most excellent developing environment in the global economic system, but also as a gateway to enter the Chinese market.",
+        intro2: "Connexions provides professional consultation, Hong Kong and offshore company incorporation, business advices on business nature, operation and strategies and offers tax-efficient solutions.",
         ctaTitle: "Start Your HK Company Today",
         ctaDesc: "Most companies are ready within 1–3 working days.",
         ctaButton: "Start Your HK Company Today"
@@ -61,29 +38,8 @@ export default function LocalCompanyPage() {
         heroTitle: "香港有限公司成立",
         heroDesc: "快速、合規且具成本效益地成立您的香港公司。",
         BenfitsTitle: "香港有限公司的優勢",
-        intro: "由於以下原因，香港仍然是國際商業最具吸引力的司法管轄區之一：",
-        benfit_1: "對外來源所得徵收簡單的0%稅率",
-        benfit_2: "強大的國際聲譽與銀行體系",
-        benfit_3: "英國普通法法律體系",
-        benfit_4: "快速成立（1-3個工作天）",
-        benfit_5: "無最低資本要求",
-        benfit_6: "允許100%外資擁有",
-        benfit_7: "優秀的雙重課稅協定網絡",
-        benfit_8: "作為通往中國和亞洲的門戶的戰略位置",
-        servicesTitle: "我們的香港公司成立套餐包括",
-        standardPackage: "標準套餐",
-        standardPackage_1: "公司註冊與政府費用",
-        standardPackage_2: "商業登記證",
-        standardPackage_3: "公司秘書任命（1年）",
-        standardPackage_4: "註冊地址（1年）",
-        standardPackage_5: "完整的公司套件（印章、登記冊、證書）",
-        standardPackage_6: "股份證書和初始董事會決議",
-        completePackage: "完整套餐",
-        completePackage_1: "標準套餐中的所有內容",
-        completePackage_2: "銀行帳戶開設協助（本地和國際銀行）",
-        completePackage_3: "商標註冊建議",
-        completePackage_4: "第一年的合規和申報支持",
-        completePackage_5: "文件認證與合法化（如有需要）",
+        intro1: "香港作為​​國際金融和商業中心，配有發展完善的基礎設施，持續增長的資本市場，高學歷的專業人士，和一個有吸引力的稅收制度。作為一個在世界上最蓬勃的經濟體系，香港不僅為企業家們提供了一個在國際經濟體系中發展最優良的環境，同時也是作為進入中國市場的門坎。宏達策略提供專業顧問意見，為到香港創業的資本家註冊香港/海外公司，提供業務運作及策劃討論，分析業務性質及節稅方案的考慮。",
+        intro2: "",
         ctaTitle: "立即開始您的香港公司",
         ctaDesc: "大多數公司可在1-3個工作天內準備就緒。",
         ctaButton: "立即開始您的香港公司"
@@ -92,29 +48,8 @@ export default function LocalCompanyPage() {
         heroTitle: "香港有限公司成立",
         heroDesc: "快速、合规且具成本效益地成立您的香港公司。",
         BenfitsTitle: "香港有限公司的优势",
-        intro: "由于以下原因，香港仍然是国际商业最具吸引力的司法管辖区之一：",
-        benfit_1: "对外来源所得征收简单的0%税率",
-        benfit_2: "强大的国际声誉与银行体系",
-        benfit_3: "英国普通法法律体系",
-        benfit_4: "快速成立（1-3个工作天）",
-        benfit_5: "无最低资本要求",
-        benfit_6: "允许100%外资拥有",
-        benfit_7: "优秀的双重课税协定网络",
-        benfit_8: "作为通往中国和亚洲的门户的战略位置",
-        servicesTitle: "我们的香港公司成立套餐包括",
-        standardPackage: "标准套餐",
-        standardPackage_1: "公司注册与政府费用",
-        standardPackage_2: "商业登记证",
-        standardPackage_3: "公司秘书任命（1年）",
-        standardPackage_4: "注册地址（1年）",
-        standardPackage_5: "完整的公司套件（印章、登记册、证书）",
-        standardPackage_6: "股份证书和初始董事会决议",
-        completePackage: "完整套餐",
-        completePackage_1: "标准套餐中的所有内容",
-        completePackage_2: "银行帐户开设协助（本地和国际银行）",
-        completePackage_3: "商标注册建议",
-        completePackage_4: "第一年的合规和申报支持",
-        completePackage_5: "文件认证与合法化（如有需要）",
+        intro1: "香港作为​​国际金融和商业中心，配有发展完善的基础设施，持续增长的资本市场，高学历的专业人士，和一个有吸引力的税收制度。作为一个在世界上最蓬勃的经济体系，香港不仅为企业家们提供了一个在国际经济体系中发展最优良的环境，同时也是作为进入中国市场的门坎。宏达策略提供专业顾问意见，为到香港创业的资本家注册香港/海外公司，提供业务运作及策划讨论，分析业务性质及节税方案的考虑。",
+        intro2: "",
         ctaTitle: "立即开始您的香港公司",
         ctaDesc: "大多数公司可在1-3个工作天内准备就绪。",
         ctaButton: "立即开始您的香港公司"
@@ -172,51 +107,16 @@ export default function LocalCompanyPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               {current.BenfitsTitle}
             </h2>
-
-            <p>
-              {current.intro}
+   
+            <p className="text-lg leading-loose">
+              {current.intro1}
             </p>
+            <br></br>
 
-            <ul className="list-disc pl-6 space-y-3 mt-6 mb-10">
-              <li>{current.benfit_1}</li>
-              <li>{current.benfit_2}</li>
-              <li>{current.benfit_3}</li>
-              <li>{current.benfit_4}</li>
-              <li>{current.benfit_5}</li>
-              <li>{current.benfit_6}</li>
-              <li>{current.benfit_7}</li>
-              <li>{current.benfit_8}</li>
-            </ul>
-
-            <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-6">
-              {current.servicesTitle}
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-8 mt-8">
-              <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                <h4 className="text-xl font-semibold mb-4 text-[#3ac9d9]">{current.standardPackage}</h4>
-                <ul className="space-y-2">
-                  <li>• {current.standardPackage_1}</li>
-                  <li>• {current.standardPackage_2}</li>
-                  <li>• {current.standardPackage_3}</li>
-                  <li>• {current.standardPackage_4}</li>
-                  <li>• {current.standardPackage_5}</li>
-                  <li>• {current.standardPackage_6}</li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                <h4 className="text-xl font-semibold mb-4 text-[#3ac9d9]">{current.completePackage}</h4>
-                <ul className="space-y-2">
-                  <li>• {current.completePackage_1}</li>
-                  <li>• {current.completePackage_2}</li>
-                  <li>• {current.completePackage_3}</li>
-                  <li>• {current.completePackage_4}</li>
-                  <li>• {current.completePackage_5}</li>
-                </ul>
-              </div>
-            </div>
-
+            <p className="text-lg leading-loose">
+              {current.intro2}
+            </p>
+           
             {/* CTA */}
             <div className="mt-16 text-center">
               <a

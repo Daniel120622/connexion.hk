@@ -42,9 +42,7 @@ export default function ServicesOverviewPage() {
           BusinessAdvisoryTitle: "Business Advisory Services",
           BusinessAdvisoryDesc: "Expert business consulting and advisory services to help you navigate market challenges and seize growth opportunities.",
           TaxConsultingTitle: "Tax Consulting Services",
-          TaxConsultingDesc: "Specialized tax consulting to optimize your tax strategy, ensure compliance, and maximize savings.",
-          OfficeServiceTitle: "Office Service",
-          OfficeServiceDesc: "Professional office solutions including virtual office, co-working space, and meeting room rentals to support your business operations."
+          TaxConsultingDesc: "Specialized tax consulting to optimize your tax strategy, ensure compliance, and maximize savings."
         },
         zh: {
           heroTitle: "我們的專業服務",
@@ -65,9 +63,7 @@ export default function ServicesOverviewPage() {
           BusinessAdvisoryTitle: "商業諮詢服務",
           BusinessAdvisoryDesc: "專業的商業諮詢和顧問服務，幫助您應對市場挑戰並抓住增長機會。",
           TaxConsultingTitle: "稅務諮詢服務",
-          TaxConsultingDesc: "專業稅務諮詢，優化您的稅務策略，確保合規並最大化節稅效益。",
-          OfficeServiceTitle: "公司註冊地址服務",
-          OfficeServiceDesc: "專業辦公解決方案，包括虛擬辦公室、共享工作空間和會議室租賃，支持您的業務運營。"
+          TaxConsultingDesc: "專業稅務諮詢，優化您的稅務策略，確保合規並最大化節稅效益。"
         },
   
         cn:{
@@ -89,9 +85,7 @@ export default function ServicesOverviewPage() {
           BusinessAdvisoryTitle: "商业咨询服务",
           BusinessAdvisoryDesc: "专业的商业咨询和顾问服务，帮助您应对市场挑战并抓住增长机会。",
           TaxConsultingTitle: "税务咨询服务",
-          TaxConsultingDesc: "专业税务咨询，优化您的税务策略，确保合规并最大化节税效益。",
-          OfficeServiceTitle: "公司注册地址服务",
-          OfficeServiceDesc: "专业办公解决方案，包括虚拟办公室、共享工作空间和会议室租赁，支持您的业务运营。"
+          TaxConsultingDesc: "专业税务咨询，优化您的税务策略，确保合规并最大化节税效益。"
         }
       };
     
@@ -135,48 +129,25 @@ export default function ServicesOverviewPage() {
       {/* Service Cards – Navigation Buttons */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* Card 1: HK Limited Company */}
-            <Link href="/services/local-company" className="group block">
-              <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src="/images/services/hkCompany.jpg"
-                    alt="Hong Kong Limited Company"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                    {current.HKLimitedCompanyTitle}
-                  </h3>
-                  <p className="text-gray-600 mb-6 flex-grow">
-                    {current.HKLimitedCompanyDesc}
-                  </p>
-                  <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
-                    {current.LearnMore} 
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-            {/* Card 2: BVI & Overseas Company */}
-            <Link href="/services/bviCompany" className="group block">
+
+            <Link href="/services/accounting" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/services/BVI.jpeg"
-                    alt="BVI Overseas Company"
+                    src="/images/services/accounting.jpg"
+                    alt="Accounting & Audit Services"
+
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                    {current.BVIOverseasCompanyTitle}
+                    {current.AccountingServicesTitle}
                   </h3>
                   <p className="text-gray-600 mb-6 flex-grow">
-                    {current.BVIOverseasCompanyDesc}
+                    {current.AccountingServicesDesc}
                   </p>
                   <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
                     {current.LearnMore} <ArrowRight className="ml-2 w-5 h-5" />
@@ -185,22 +156,21 @@ export default function ServicesOverviewPage() {
               </div>
             </Link>
 
-            {/* Card 3: Company Secretary */}
-            <Link href="/services/compSecretary" className="group block">
+            <Link href="/services/businessAdv" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/services/secretary.jpg"
-                    alt="Company Secretary Services"
+                    src="/images/services/businessAdv.jpg"
+                    alt="Business Advisory Services"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                    {current.CompanySecretaryTitle}
+                    {current.BusinessAdvisoryTitle}
                   </h3>
                   <p className="text-gray-600 mb-6 flex-grow">
-                    {current.CompanySecretaryDesc}
+                    {current.BusinessAdvisoryDesc}
                   </p>
                   <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
                     {current.LearnMore} <ArrowRight className="ml-2 w-5 h-5" />
@@ -209,22 +179,21 @@ export default function ServicesOverviewPage() {
               </div>
             </Link>
 
-            {/* Card 4: Office Service */}
-            <Link href="/services/office-service" className="group block">
+            <Link href="/services/tax-consulting" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src="/images/services/officeService.jpg"
-                    alt="Register Office Service"
+                    src="/images/services/tax.jpg"
+                    alt="Tax Consulting Services"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                    {current.OfficeServiceTitle}
+                    {current.TaxConsultingTitle}
                   </h3>
                   <p className="text-gray-600 mb-6 flex-grow">
-                    {current.OfficeServiceDesc}
+                    {current.TaxConsultingDesc}
                   </p>
                   <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
                     {current.LearnMore} <ArrowRight className="ml-2 w-5 h-5" />
@@ -237,17 +206,20 @@ export default function ServicesOverviewPage() {
         </div>
       
 
-        <div className="mt-16 py-8 text-center">
-          <a href="/contact"
-            className="inline-block bg-[#3ac9d9] text-white font-semibold py-4 px-10 rounded-full text-lg hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl"
-        >
-            {current.ctaButton}
-          </a>
-          <p className="mt-4 text-gray-600">
-            {current.ctaDesc}
-          </p>
-        </div>
-      </section>        
+      <div className="mt-16 py-8 text-center">
+        <a href="/contact"
+          className="inline-block bg-[#3ac9d9] text-white font-semibold py-4 px-10 rounded-full text-lg hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl"
+       >
+          {current.ctaButton}
+        </a>
+        <p className="mt-4 text-gray-600">
+           {current.ctaDesc}
+        </p>
+      </div>
+
+      </section>
+          
+
     </div>
   );
 }
