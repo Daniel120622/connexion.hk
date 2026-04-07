@@ -4,6 +4,7 @@
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from '@/context/LanguageContext';
 
 export const navContent = {
   en: {
@@ -113,27 +114,9 @@ export const navContent = {
 
 export default function Hero() {
   const pathname = usePathname();
-    const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
-  
-    useEffect(() => {
-      const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-      if (saved) setLang(saved);
-      else {
-        const browserLang = navigator.language.toLowerCase();
-        const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-        localStorage.setItem("lang", defaultLang);
-        setLang(defaultLang);
-      }
-    }, []);
-  
-    const changeLanguage = (newLang: "en" | "cn" | "zh") => {
-      if (newLang === lang) return;
-      localStorage.setItem("lang", newLang);
-      setLang(newLang);
-      window.location.reload();
-    };
-  
-    const current = navContent[lang];
+  const { lang } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const current = navContent[lang];
 
     const services = current.services.map((service, index) => ({
       title: service.title,
@@ -147,7 +130,6 @@ export default function Hero() {
         { src: "/images/hero/adv.jpg", alt: "Hong Kong night skyline with city lights symbolizing business growth" },
       ][index],
     }));
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {

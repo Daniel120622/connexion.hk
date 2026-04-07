@@ -2,24 +2,11 @@
 "use client";
 
 import type { Metadata } from 'next';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function BVICompanyPage() {
-
-    const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
-      
-        useEffect(() => {
-          const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-          if (saved) {
-            setLang(saved);
-          } else {
-            // Optional: auto-detect browser language on first visit
-            const browserLang = navigator.language.toLowerCase();
-            const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-            localStorage.setItem("lang", defaultLang);
-            setLang(defaultLang);
-          }
-        }, []);
+  const { lang } = useLanguage();
       
         // Content switch
         const content = {

@@ -1,7 +1,8 @@
 // src/components/Testimonials.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useLanguage } from '@/context/LanguageContext';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -19,19 +20,7 @@ const images = [
 ];
 
 export default function Testimonials() {
-  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (saved) {
-      setLang(saved);
-    } else {
-      const browserLang = navigator.language.toLowerCase();
-      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-      localStorage.setItem("lang", defaultLang);
-      setLang(defaultLang);
-    }
-  }, []);
+  const { lang } = useLanguage();
 
   // 直接內嵌多語言標題
   const title = {

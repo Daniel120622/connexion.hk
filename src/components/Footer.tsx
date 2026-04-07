@@ -1,23 +1,12 @@
 // src/components/Footer.tsx
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 import { MessageCircle, Send, Phone, Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
-  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (saved) {
-      setLang(saved);
-    } else {
-      const browserLang = navigator.language.toLowerCase();
-      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-      localStorage.setItem("lang", defaultLang);
-      setLang(defaultLang);
-    }
-  }, []);
+  const { lang } = useLanguage();
 
   const content = {
     en: {

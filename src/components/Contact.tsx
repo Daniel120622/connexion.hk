@@ -1,29 +1,16 @@
 // src/components/Contact.tsx
 "use client";
 
-import { useState, FormEvent, useEffect, useRef } from "react";
+import { useState, FormEvent, useRef } from "react";
 import { sendEmailAction } from "@/app/actions/sendEmail";
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Contact() {
-  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
+  const { lang } = useLanguage();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
   const formRef = useRef<HTMLFormElement>(null);
-
-  // Language detection & persistence
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (saved) {
-      setLang(saved);
-      return;
-    }
-
-    const browserLang = navigator.language.toLowerCase();
-    const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-    localStorage.setItem("lang", defaultLang);
-    setLang(defaultLang);
-  }, []);
 
   const content = {
     en: {

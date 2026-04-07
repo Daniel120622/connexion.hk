@@ -1,26 +1,14 @@
 // src/app/[locale]/services/Tax-Consulting/page.tsx
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-
+import { useEffect, useRef } from "react";
+import { useLanguage } from '@/context/LanguageContext';
 
 // ────────────────────────────────────────────────
 // Main Component
 // ────────────────────────────────────────────────
 export default function TaxConsultingPage() {
-  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (saved) {
-      setLang(saved);
-    } else {
-      const browserLang = navigator.language.toLowerCase();
-      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-      localStorage.setItem("lang", defaultLang);
-      setLang(defaultLang);
-    }
-  }, []);
+  const { lang } = useLanguage();
 
   // ── Content ───────────────────────────────────────
   const content = {

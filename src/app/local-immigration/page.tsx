@@ -1,24 +1,12 @@
 // src/app/local-immigration/page.tsx
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function LocalImmigrationPage() {
 
-  const [lang, setLang] = useState<"en" | "cn">("en");
-  
-    useEffect(() => {
-      const saved = localStorage.getItem("lang") as "en" | "cn" | null;
-      if (saved) {
-        setLang(saved);
-      } else {
-        // Optional: auto-detect browser language on first visit
-        const browserLang = navigator.language.toLowerCase();
-        const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-        localStorage.setItem("lang", defaultLang);
-        setLang(defaultLang);
-      }
-    }, []);
+  const { lang } = useLanguage();
   
     // Content switch
     const content = {
@@ -54,6 +42,7 @@ export default function LocalImmigrationPage() {
         heroTitle: "香港本地移民計劃",
         heroDesc: "探索通往香港居留、工作、投資和新生活的量身定制途徑。",
         intro: "了解您的背景和需求是我們第一步也是最重要的一步。透過仔細傾聽和專業分析，我們提高您的申請成功率，並為您識別最佳機會。",
+        ContentSections: "探索我們的本地移民計劃",
         galleryTitle: "香港移民的視覺洞見",
         galleryDesc: "透過我們精心策劃的見解和體驗畫廊，探索香港移民的視覺之旅。",
         topTalentPassScheme:"頂尖人才入境計劃",
@@ -81,9 +70,9 @@ export default function LocalImmigrationPage() {
         heroTitle: "香港本地移民计划",
         heroDesc: "探索通往香港居留、工作、投资和新生活的量身定制途径。",
         intro: "了解您的背景和需求是我们第一步也是最重要的一步。通过仔细倾听和专业分析，我们提高您的申请成功率，并为您识别最佳机会。",
+        ContentSections: "探索我们的本地移民计划",
         galleryTitle: "香港移民的视觉见解",
         galleryDesc: "通过我们精心策划的见解和体验画廊，探索香港移民的视觉之旅。",
-        ContentSections: "探索我们的本地移民计划",
         topTalentPassScheme:"顶尖人才入境计划",
         topTalentPassSchemeDesc: "顶尖人才入境计划吸引具有丰富工作经验或顶尖大学学位的高素质全球人才（年收入≥250万港元或符合条件的大学毕业生）。快速通道：在满足条件时，审批通常在几天到几周内完成——这是香港最快的居留途径之一。", 
         newCapitalInvestmentEntrantScheme:"新资本投资入境计划",

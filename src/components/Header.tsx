@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useLanguage } from '@/context/LanguageContext';
 
 export const navContent = {
   en: {
@@ -62,28 +63,16 @@ export const navContent = {
 
 export default function Header() {
   const pathname = usePathname();
-  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { lang, setLang } = useLanguage();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (saved) setLang(saved);
-    else {
-      const browserLang = navigator.language.toLowerCase();
-      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-      localStorage.setItem("lang", defaultLang);
-      setLang(defaultLang);
-    }
-  }, []);
+  const [headerScale, setHeaderScale] = useState(1);
 
   const changeLanguage = (newLang: "en" | "cn" | "zh") => {
     if (newLang === lang) return;
-    localStorage.setItem("lang", newLang);
     setLang(newLang);
-    window.location.reload();
   };
 
   const current = navContent[lang];
@@ -105,6 +94,29 @@ export default function Header() {
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY, isMobileMenuOpen]);
 
+  useEffect(() => {
+    const updateHeaderScale = () => {
+      const dpr = window.devicePixelRatio || 1;
+      const w = window.screen?.width || window.innerWidth;
+      let s = 1;
+      // tuned heuristic: on large screens with high DPI use 0.75 scale (user's preferred)
+      if (w >= 1800 && dpr >= 1.4) s = 0.75;
+      else if (w >= 1400 && dpr >= 1.25) s = 0.85;
+      else s = 1;
+      setHeaderScale(s);
+    };
+
+    updateHeaderScale();
+    window.addEventListener("resize", updateHeaderScale);
+    return () => window.removeEventListener("resize", updateHeaderScale);
+  }, []);
+
+  const scaledStyle: React.CSSProperties = {
+    transform: `scale(${headerScale})`,
+    transformOrigin: "top left",
+    width: `${100 / headerScale}%`,
+  };
+
   const servicesItems = [
     { href: "/services/local-company", label: current.hkLimitedCompany },
     { href: "/services/bviCompany", label: current.bviOverseaCompany },
@@ -124,7 +136,8 @@ export default function Header() {
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="bg-gray-100 text-black shadow-md">          {/* or shadow-xl for more depth */}
+      <div style={scaledStyle}>
+        <div className="bg-gray-100 text-black shadow-md">          {/* or shadow-xl for more depth */}
         <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-6xl">
           <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
             {/* Logo */}
@@ -159,10 +172,10 @@ export default function Header() {
                 </a>
                 <ul className="absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                   {servicesItems.map((item) => (
-                    <li key={item.href}>
+                    <li key={item.href} className="hover:bg-gray-200 px-4 py-2 rounded-md">
                       <a
                         href={item.href}
-                        className={`block px-4 py-2 hover:bg-gray-100 ${isActive(item.href) ? "text-black" : ""}`}
+                        className={`block ${isActive(item.href) ? "text-black font-semibold" : "text-gray-700"}`}
                       >
                         {item.label}
                       </a>
@@ -181,10 +194,10 @@ export default function Header() {
                 </a>
                 <ul className="absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
                   {TaxServiceItems.map((item) => (
-                    <li key={item.href}>
+                    <li key={item.href} className="hover:bg-gray-200 px-4 py-2 rounded-md">
                       <a
                         href={item.href}
-                        className={`block px-4 py-2 hover:bg-gray-100 ${isActive(item.href) ? "text-black" : ""}`}
+                        className={`block ${isActive(item.href) ? "text-black font-semibold" : "text-gray-700"}`}
                       >
                         {item.label}
                       </a>
@@ -276,6 +289,7 @@ export default function Header() {
             </div>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -284,82 +298,59 @@ export default function Header() {
           <div className="container mx-auto px-4 py-6">
             <ul className="flex flex-col gap-5 text-base font-medium">
               <li>
-                <a href="/" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/") ? "text-[#3ac9d9]" : ""}>
+                <a href="/" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
                   {current.home}
                 </a>
               </li>
               <li>
-                <a href="/about-us" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/about-us") ? "text-[#3ac9d9]" : ""}>
+                <a href="/about-us" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/about-us") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
                   {current.aboutUs}
                 </a>
               </li>
               <li>
-                <a href="/local-immigration" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/local-immigration") ? "text-[#3ac9d9]" : ""}>
+                <a href="/local-immigration" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/local-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
                   {current.localImmigration}
                 </a>
               </li>
               <li>
-                <a href="/oversea-immigration" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/oversea-immigration") ? "text-[#3ac9d9]" : ""}>
+                <a href="/oversea-immigration" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/oversea-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
                   {current.overseaImmigration}
                 </a>
               </li>
-
-              {/* Hybrid Services */}
-              <li className="flex items-center justify-between">
-                <a
-                  href="/services"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex-1 ${isActive("/services") ? "text-[#3ac9d9]" : ""}`}
+              <li className="relative">
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className="flex items-center justify-between w-full text-left hover:text-[#3ac9d9]"
                 >
                   {current.services}
-                </a>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setServicesOpen(!servicesOpen);
-                  }}
-                  className="p-3 -mr-3 text-lg focus:outline-none"
-                  aria-label="Toggle services submenu"
-                  aria-expanded={servicesOpen}
-                >
-                  <span className={`inline-block transition-transform duration-200 ${servicesOpen ? "rotate-180" : "rotate-0"}`}>
-                    ▼
-                  </span>
+                  <span className={`ml-2 transition-transform ${servicesOpen ? "rotate-180" : "rotate-0"}`}>▼</span>
                 </button>
+                {servicesOpen && (
+                  <ul className="pl-4 mt-2 space-y-2">
+                    {servicesItems.map((item) => (
+                      <li key={item.href}>
+                        <a
+                          href={item.href}
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            setServicesOpen(false);
+                          }}
+                          className={`block ${isActive(item.href) ? "text-[#3ac9d9] font-semibold" : "hover:text-[#3ac9d9]"}`}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  servicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                <ul className="pl-6 pt-2 pb-4 flex flex-col gap-4 text-[0.98rem]">
-                  {servicesItems.map((item) => (
-                    <li key={item.href}>
-                      <a
-                        href={item.href}
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          setServicesOpen(false);
-                        }}
-                        className={`block ${isActive(item.href) ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}`}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
               <li>
-                <a href="/wealth-inheritance" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : ""}>
+                <a href="/wealth-inheritance" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
                   {current.wealthInheritance}
                 </a>
               </li>
-
               <li>
-                <a href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/contact") ? "text-[#3ac9d9]" : ""}>
+                <a href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
                   {current.contact}
                 </a>
               </li>

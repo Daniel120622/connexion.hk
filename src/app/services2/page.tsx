@@ -1,25 +1,12 @@
 "use client";
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 
 export default function ServicesOverviewPage() {
 
-      const [lang, setLang] = useState<"en" | "cn">("en");
-    
-      useEffect(() => {
-        const saved = localStorage.getItem("lang") as "en" | "cn" | null;
-        if (saved) {
-          setLang(saved);
-        } else {
-          // Optional: auto-detect browser language on first visit
-          const browserLang = navigator.language.toLowerCase();
-          const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-          localStorage.setItem("lang", defaultLang);
-          setLang(defaultLang);
-        }
-      }, []);
+      const { lang } = useLanguage();
     
       // Content switch
       const content = {

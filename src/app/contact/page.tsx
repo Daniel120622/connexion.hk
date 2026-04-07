@@ -2,7 +2,8 @@
 "use client";
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 import { Mail, Phone, Printer, MapPin } from 'lucide-react';
 import { sendEmailAction } from '@/app/actions/sendEmail'; // Adjust the import path as necessary
 
@@ -10,7 +11,7 @@ import { sendEmailAction } from '@/app/actions/sendEmail'; // Adjust the import 
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [responseMessage, setResponseMessage] = useState("");
-  const [lang, setLang] = useState<"en" | "cn">("en");
+  const { lang } = useLanguage();
 
   const content = {
     en: {
@@ -74,19 +75,6 @@ export default function ContactPage() {
   };
 
   const current = content[lang];
-  
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | null;
-    if (saved) {
-      setLang(saved);
-    } else {
-      // Optional: auto-detect browser language on first visit
-      const browserLang = navigator.language.toLowerCase();
-      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-      localStorage.setItem("lang", defaultLang);
-      setLang(defaultLang);
-    }
-  }, []);  
   
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

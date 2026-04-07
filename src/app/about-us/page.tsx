@@ -1,24 +1,11 @@
 // src/app/about-us/page.tsx  (or components/about-us.tsx if you use it as component)
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function AboutUs() {
-  // Read language from localStorage
-  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (saved) {
-      setLang(saved);
-    } else {
-      // Optional: auto-detect browser language on first visit
-      const browserLang = navigator.language.toLowerCase();
-      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-      localStorage.setItem("lang", defaultLang);
-      setLang(defaultLang);
-    }
-  }, []);
+  const { lang } = useLanguage();
 
   // Content switch
   const content = {

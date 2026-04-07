@@ -1,22 +1,11 @@
 // src/app/services/page.tsx  或  components/Services.tsx （看你原本放哪裡）
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Services() {
-  const [lang, setLang] = useState<"en" | "cn" | "zh">("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as "en" | "cn" | "zh" | null;
-    if (saved) {
-      setLang(saved);
-    } else {
-      const browserLang = navigator.language.toLowerCase();
-      const defaultLang = browserLang.includes("zh") ? "cn" : "en";
-      localStorage.setItem("lang", defaultLang);
-      setLang(defaultLang);
-    }
-  }, []);
+  const { lang } = useLanguage();
 
   // 直接在這裡定義 Services 頁面的多語言內容
   const content = {
