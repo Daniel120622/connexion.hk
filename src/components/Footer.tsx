@@ -13,7 +13,7 @@ export default function Footer() {
       description: "Connexions HK is a professional business and immigration services company, specializing in providing clients with one-stop solutions.",
       license: "Connexions HK trust or corporate service provider license number: ######",
       quickLinks: "Quick Links",
-      localImmigration: "Local Immigration",
+      HongKongImmigration: "Hong Kong Immigration",
       overseaImmigration: "Oversea Immigration",
       companySecretary: "Company Secretary",
       hkLimited: "HK Limited Company",
@@ -36,7 +36,7 @@ export default function Footer() {
       description: "Connexions HK 是一家專業的商業及移民服務公司，專注為客戶提供一站式解決方案。",
       license: "Connexions HK 信託或企業服務提供者牌照號碼：######",
       quickLinks: "快速連結",
-      localImmigration: "本地移民",
+      HongKongImmigration: "本地移民",
       overseaImmigration: "海外移民",
       companySecretary: "公司秘書",
       hkLimited: "香港有限公司",
@@ -59,7 +59,7 @@ export default function Footer() {
       description: "Connexions HK 是一家专业的商业及移民服务公司，专注为客户提供一站式解决方案。",
       license: "Connexions HK 信托或企业服务提供者牌照号码：######",
       quickLinks: "快速链接",
-      localImmigration: "本地移民",
+      HongKongImmigration: "本地移民",
       overseaImmigration: "海外移民",
       companySecretary: "公司秘书",
       hkLimited: "香港有限公司",
@@ -109,7 +109,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-white mb-6">{t.quickLinks}</h3>
             <ul className="space-y-3 text-gray-400">
               <li><a href="/about-us" className="hover:text-[#3ac9d9] transition">{t.aboutUs}</a></li>
-              <li><a href="/local-immigration" className="hover:text-[#3ac9d9] transition">{t.localImmigration}</a></li>
+              <li><a href="/local-immigration" className="hover:text-[#3ac9d9] transition">{t.HongKongImmigration}</a></li>
               <li><a href="/oversea-immigration" className="hover:text-[#3ac9d9] transition">{t.overseaImmigration}</a></li>              <li><a href="/services/local-company" className="hover:text-[#3ac9d9] transition">{t.hkLimited}</a></li>
               <li><a href="/wealth-inheritance" className="hover:text-[#3ac9d9] transition">{t.wealthInheritance}</a></li>
               <li><a href="/contact" className="hover:text-[#3ac9d9] transition">{t.contactUs}</a></li>

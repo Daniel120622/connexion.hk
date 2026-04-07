@@ -88,12 +88,15 @@ export default function ServicesOverviewPage() {
   return (
 
     <div className="min-h-screen bg-gray-50">
-        <div className="container mx-auto px-4 ">
-          <h1 className="text-3xl font-bold">{current.heroTitle}</h1>
+      <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold"></h1>
+          <p className="mt-2 text-white/90"></p>
         </div>
+      </header>
       
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-r from-blue-900/80 to-teal-900/70 text-white overflow-hidden">
+      <section className="relative py-42 md:py-48 bg-gradient-to-r from-blue-900/80 to-teal-900/70 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="images/banner/services.jpg"

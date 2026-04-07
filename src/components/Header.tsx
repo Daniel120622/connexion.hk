@@ -294,8 +294,8 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#0f1d3a] text-white border-t border-gray-700">
-          <div className="container mx-auto px-4 py-6">
+        <div className="md:hidden bg-gray-100 text-black border-t border-gray-200">
+          <div className="mx-auto px-4 py-6">
             <ul className="flex flex-col gap-5 text-base font-medium">
               <li>
                 <a href="/" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
@@ -326,16 +326,16 @@ export default function Header() {
                   <span className={`ml-2 transition-transform ${servicesOpen ? "rotate-180" : "rotate-0"}`}>▼</span>
                 </button>
                 {servicesOpen && (
-                  <ul className="pl-4 mt-2 space-y-2">
+                  <ul className="pl-4 mt-2 space-y-2 bg-transparent">
                     {servicesItems.map((item) => (
-                      <li key={item.href}>
+                      <li key={item.href} className="hover:bg-gray-200 px-2 py-1 rounded-md">
                         <a
                           href={item.href}
                           onClick={() => {
                             setIsMobileMenuOpen(false);
                             setServicesOpen(false);
                           }}
-                          className={`block ${isActive(item.href) ? "text-[#3ac9d9] font-semibold" : "hover:text-[#3ac9d9]"}`}
+                          className={`block ${isActive(item.href) ? "text-[#3ac9d9] font-semibold" : "hover:text-[#3ac9d9] text-black"}`}
                         >
                           {item.label}
                         </a>
@@ -357,9 +357,9 @@ export default function Header() {
             </ul>
 
             {/* Social icons in mobile menu */}
-            <div className="mt-8 pt-6 border-t border-gray-600">
-              <p className="text-sm text-gray-400 mb-4">Follow us</p>
-              <div className="flex gap-6 text-2xl">
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <p className="text-sm text-gray-600 mb-4">Follow us</p>
+              <div className="flex gap-6 text-2xl text-black">
                 <a
                   href="https://www.facebook.com/connexionshk"
                   target="_blank"

@@ -116,7 +116,7 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://framerusercontent.com/images/BLcJXeIS2Hy3dyQrluThkwCo5BI.png?width=1536&height=1024"
+                src="/images/ourProficiency.png"
                 alt="Professional team collaboration and expertise in office setting"
                 className="w-full h-auto object-cover"
               />
@@ -172,7 +172,7 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://liveandletsfly.com/wp-content/uploads/2021/08/Sao-Paulo-Trip-Report.jpeg"
+                src="/images/PeaceOfMindFollowUp.jpg"
                 alt="Happy family enjoying new life and settlement success (adaptable to Hong Kong context)"
                 className="w-full h-auto object-cover"
               />

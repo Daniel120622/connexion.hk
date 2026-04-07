@@ -122,9 +122,9 @@ export default function Hero() {
       title: service.title,
       description: service.description,
       image: [
-        { src: "/images/hero/hk.avif", alt: "Modern Hong Kong office with skyline view and business professionals" },
+        { src: "/images/hero/hk.jpg", alt: "Modern Hong Kong office with skyline view and business professionals" },
         { src: "/images/hero/bvi.jpg", alt: "Tropical islands and documents representing offshore BVI setup" },
-        { src: "/images/hero/secret.avif", alt: "Professional businesswoman reviewing compliance and secretary documents" },
+        { src: "/images/hero/secret.jpg", alt: "Professional businesswoman reviewing compliance and secretary documents" },
         { src: "/images/hero/acc.jpg", alt: "Modern financial dashboard with accounting charts and graphs" },
         { src: "/images/hero/tax.avif", alt: "Tax professional with calculator, documents, and strategy planning" },
         { src: "/images/hero/adv.jpg", alt: "Hong Kong night skyline with city lights symbolizing business growth" },
