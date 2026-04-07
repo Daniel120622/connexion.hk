@@ -1,7 +1,7 @@
 // src/app/wealth-inheritance/page.tsx
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function WealthInheritancePage() {
