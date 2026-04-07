@@ -11,9 +11,9 @@ export default function ServicesOverviewPage() {
       // Content switch
       const content = {
         en: {
-          heroTitle: "Our Professional Services",
-          heroSubtitle: "Tailored solutions for company formation, compliance, immigration and global business success.",
-          intro:"Welcome to start a new start for your business in Hong Kong. Connexions offers a wide range of services and solutions to help your business meet the challenges as a trusted partner. We provide one-stop professional services, including company incorporation, company secretarial services, business management services, accounting services, to meet your business needs in Hong Kong and globally.",
+          heroTitle: "Accountancy and Tax Services",
+          heroSubtitle: "Precision-driven accountancy, tax, and corporate solutions for seamless company formation, compliance, and international success in Hong Kong.",
+          intro: "At Connexions, we help entrepreneurs and businesses establish and thrive in Hong Kong with tailored, one-stop services — from company incorporation and secretarial support to accounting, tax advisory, and immigration solutions.",
           HKLimitedCompanyTitle: "HK Limited Company",
           HKLimitedCompanyDesc: "Fast and compliant Hong Kong company registration with full setup and banking support.",
           BVIOverseasCompanyTitle: "BVI & Overseas Company",
@@ -110,7 +110,7 @@ export default function ServicesOverviewPage() {
       {/* Introduction */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-8 max-w-5xl text-center">
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-auto mx-auto">
             {current.intro}
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function ServicesOverviewPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
 
-            <Link href="/services/accounting" className="group block">
+            <Link href="/services2/accounting" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
@@ -146,7 +146,7 @@ export default function ServicesOverviewPage() {
               </div>
             </Link>
 
-            <Link href="/services/businessAdv" className="group block">
+            <Link href="/services2/businessAdv" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
@@ -169,7 +169,7 @@ export default function ServicesOverviewPage() {
               </div>
             </Link>
 
-            <Link href="/services/tax-consulting" className="group block">
+            <Link href="/services2/tax" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
                 <div className="h-48 overflow-hidden">
                   <img
@@ -178,6 +178,7 @@ export default function ServicesOverviewPage() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
+
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
                     {current.TaxConsultingTitle}

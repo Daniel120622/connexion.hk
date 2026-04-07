@@ -231,25 +231,22 @@ export default function LocalImmigrationPage() {
 
           </div>
         </div>
-      </section>
+      
 
-      {/* Closing CTA */}
-      <section className="py-20 bg-gradient-to-r from-teal-600 to-blue-700 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            {current.cta}
-          </h2>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-10">
-            {current.ctaDesc}
-          </p>
-          <a
-            href="/contact"
-            className="bg-white text-teal-700 font-bold py-4 px-10 rounded-full text-xl hover:bg-teal-50 transition-colors shadow-lg"
-          >
-            {current.ctaButton}
-          </a>
-        </div>
-      </section>
+      <div className="mt-16 py-8 text-center">
+        <a href="/contact"
+          className="inline-block bg-[#3ac9d9] text-white font-semibold py-4 px-10 rounded-full text-lg hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl"
+       >
+          {current.ctaButton}
+        </a>
+        <p className="mt-4 text-gray-600">
+           {current.ctaDesc}
+        </p>
+      </div>
+    
+    </section>
     </div>
+
+    
   );
 }

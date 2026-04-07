@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -19,7 +19,8 @@ export const navContent = {
     businessAdvisory: "Business Advisory",
     accountingServices: "Accounting Services",
     taxConsulting: "Tax Consulting",
-    wealthInheritance: "Wealth Inheritance",
+    fortuneInheritance: "Fortune Inheritance",
+    
     contact: "Contact",
     Services2: "Accountancy and Tax Services",
 
@@ -34,7 +35,7 @@ export const navContent = {
     hkLimitedCompany: "香港有限公司",
     bviOverseaCompany: "BVI 及其他海外公司",
     companySecretary: "公司秘書",
-    wealthInheritance: "財富傳承",
+    fortuneInheritance: "財富傳承",
     contact: "聯絡我們",
     accountingServices: "會計服務",
     businessAdvisory: "商業諮詢",
@@ -52,7 +53,7 @@ export const navContent = {
     hkLimitedCompany: "香港有限公司",
     bviOverseaCompany: "BVI 及其他海外公司",
     companySecretary: "公司秘书",
-    wealthInheritance: "财富传承",
+    fortuneInheritance: "财富传承",
     contact: "联系我们",
     accountingServices: "会计服务",
     businessAdvisory: "商业咨询",
@@ -66,6 +67,9 @@ export default function Header() {
   const { lang, setLang } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [taxServicesOpen, setTaxServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement | null>(null);
+  const taxRef = useRef<HTMLDivElement | null>(null);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [headerScale, setHeaderScale] = useState(1);
@@ -94,6 +98,40 @@ export default function Header() {
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY, isMobileMenuOpen]);
 
+  // Close dropdowns when clicking outside or pressing Escape
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+      if (taxRef.current && !taxRef.current.contains(e.target as Node)) {
+        setTaxServicesOpen(false);
+      }
+    }
+
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setServicesOpen(false);
+        setTaxServicesOpen(false);
+        setIsMobileMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("click", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("click", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, []);
+
+  // Close dropdowns when route changes
+  useEffect(() => {
+    setServicesOpen(false);
+    setTaxServicesOpen(false);
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     const updateHeaderScale = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -120,14 +158,14 @@ export default function Header() {
   const servicesItems = [
     { href: "/services/local-company", label: current.hkLimitedCompany },
     { href: "/services/bviCompany", label: current.bviOverseaCompany },
-    { href: "/services/companySecretary", label: current.companySecretary },
+    { href: "/services/compSecretary", label: current.companySecretary },
     { href: "/services/office-service", label: current.officeService },
   ];
 
   const TaxServiceItems = [
-    { href: "/services/businessAdv", label: current.businessAdvisory },
-    { href: "/services/accounting", label: current.accountingServices },
-    { href: "/services/tax-consulting", label: current.taxConsulting },
+    { href: "/services2/businessAdv", label: current.businessAdvisory },
+    { href: "/services2/accounting", label: current.accountingServices },
+    { href: "/services2/tax", label: current.taxConsulting },
   ];
 
   return (
@@ -163,16 +201,40 @@ export default function Header() {
                 {current.localImmigration}
               </a>
 
-              <div className="relative group">
-                <a
-                  href="/services"
-                  className={`flex items-center gap-1 ${isActive("/services") ? "text-black" : "hover:text-gray-100 transition"}`}
-                >
-                  {current.services} ▼
-                </a>
-                <ul className="absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+              <div
+                className="relative"
+                ref={servicesRef}
+                onMouseEnter={() => {
+                  if (!isMobileMenuOpen) setServicesOpen(true);
+                }}
+                onMouseLeave={() => {
+                  if (!isMobileMenuOpen) setServicesOpen(false);
+                }}
+              >
+                <div className="flex items-center gap-1">
+                  <a
+                    href="/services"
+                    className={`${isActive("/services") ? "text-black" : "hover:text-gray transition"}`}
+                  >
+                    {current.services}
+                  </a>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setServicesOpen((v) => !v);
+                    }}
+                    className="ml-2 p-1"
+                    aria-expanded={servicesOpen}
+                    aria-haspopup="true"
+                    aria-label="Toggle services menu"
+                  >
+                    <span className="ml-1">▼</span>
+                  </button>
+                </div>
+                <ul className={`absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 transition-opacity duration-200 ${servicesOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}>
                   {servicesItems.map((item) => (
-                    <li key={item.href} className="hover:bg-gray-200 px-4 py-2 rounded-md">
+                    <li key={item.href} className="hover:bg-gray px-4 py-2 rounded-md">
                       <a
                         href={item.href}
                         className={`block ${isActive(item.href) ? "text-black font-semibold" : "text-gray-700"}`}
@@ -185,14 +247,38 @@ export default function Header() {
               </div>
 
 
-              <div className="relative group">
-                <a
-                  href="/services2"
-                  className={`flex items-center gap-1 ${isActive("/services2") ? "text-black" : "hover:text-gray-100 transition"}`}
-                >
-                  {current.Services2} ▼
-                </a>
-                <ul className="absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200">
+              <div
+                className="relative"
+                ref={taxRef}
+                onMouseEnter={() => {
+                  if (!isMobileMenuOpen) setTaxServicesOpen(true);
+                }}
+                onMouseLeave={() => {
+                  if (!isMobileMenuOpen) setTaxServicesOpen(false);
+                }}
+              >
+                <div className="flex items-center gap-1">
+                  <a
+                    href="/services2"
+                    className={`${isActive("/services2") ? "text-black" : "hover:text-gray-100 transition"}`}
+                  >
+                    {current.Services2}
+                  </a>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setTaxServicesOpen((v) => !v);
+                    }}
+                    className="ml-2 p-1"
+                    aria-expanded={taxServicesOpen}
+                    aria-haspopup="true"
+                    aria-label="Toggle tax services menu"
+                  >
+                    <span className="ml-1">▼</span>
+                  </button>
+                </div>
+                <ul className={`absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 transition-opacity duration-200 ${taxServicesOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}>
                   {TaxServiceItems.map((item) => (
                     <li key={item.href} className="hover:bg-gray-200 px-4 py-2 rounded-md">
                       <a
@@ -207,7 +293,7 @@ export default function Header() {
               </div>
 
               <a href="/wealth-inheritance" className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
-                {current.wealthInheritance}
+                {current.fortuneInheritance}
               </a>
 
               <a href="/contact" className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
@@ -280,7 +366,10 @@ export default function Header() {
                 className="md:hidden text-white focus:outline-none"
                 onClick={() => {
                   setIsMobileMenuOpen(!isMobileMenuOpen);
-                  if (isMobileMenuOpen) setServicesOpen(false);
+                  if (isMobileMenuOpen) {
+                    setServicesOpen(false);
+                    setTaxServicesOpen(false);
+                  }
                 }}
                 aria-label="Toggle menu"
               >
@@ -312,11 +401,6 @@ export default function Header() {
                   {current.localImmigration}
                 </a>
               </li>
-              <li>
-                <a href="/oversea-immigration" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/oversea-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
-                  {current.overseaImmigration}
-                </a>
-              </li>
               <li className="relative">
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
@@ -344,9 +428,36 @@ export default function Header() {
                   </ul>
                 )}
               </li>
+              <li className="relative">
+                <button
+                  onClick={() => setTaxServicesOpen(!taxServicesOpen)}
+                  className="flex items-center justify-between w-full text-left hover:text-[#3ac9d9]"
+                >
+                  {current.Services2}
+                  <span className={`ml-2 transition-transform ${taxServicesOpen ? "rotate-180" : "rotate-0"}`}>▼</span>
+                </button>
+                {taxServicesOpen && (
+                  <ul className="pl-4 mt-2 space-y-2 bg-transparent">
+                    {TaxServiceItems.map((item) => (
+                      <li key={item.href} className="hover:bg-gray-200 px-2 py-1 rounded-md">
+                        <a
+                          href={item.href}
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            setTaxServicesOpen(false);
+                          }}
+                          className={`block ${isActive(item.href) ? "text-[#3ac9d9] font-semibold" : "hover:text-[#3ac9d9] text-black"}`}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
               <li>
                 <a href="/wealth-inheritance" onClick={() => setIsMobileMenuOpen(false)} className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9]"}>
-                  {current.wealthInheritance}
+                  {current.fortuneInheritance}
                 </a>
               </li>
               <li>

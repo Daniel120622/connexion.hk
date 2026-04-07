@@ -19,7 +19,10 @@ export default function Footer() {
       hkLimited: "HK Limited Company",
       bviOversea: "BVI & Oversea Company",
       wealthInheritance: "Wealth Inheritance Planning",
-      otherService: "Other Service",
+      officeService: "Office Service",
+      services: "Corporate Services",
+      services2:  "Accounting and Tax Services",
+      corporateService: "Corporate Service",
       aboutUs: "About Us",
       contactUs: "Contact Us",
       contactTitle: "Contact US",
@@ -27,25 +30,28 @@ export default function Footer() {
       businessAdvisory: "Business Advisory",
       localCompany: "Local Company",
       taxConsulting: "Tax Consulting",
+      otherService: "Accountancy and Tax Services",
       address: "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
       phone: "+852 2111 2425",
       email: "sales@connexions.hk",
       copyright: `© ${new Date().getFullYear()} Connecxions.HK Copyright. All rights reserved.`,
     },
+
     zh: {
       description: "Connexions HK 是一家專業的商業及移民服務公司，專注為客戶提供一站式解決方案。",
       license: "Connexions HK 信託或企業服務提供者牌照號碼：######",
       quickLinks: "快速連結",
-      HongKongImmigration: "本地移民",
+      HongKongImmigration: "移民香港",
       overseaImmigration: "海外移民",
       companySecretary: "公司秘書",
       hkLimited: "香港有限公司",
-      bviOversea: "BVI 及其他海外公司",
+      bviOversea: "其他海外公司",
       wealthInheritance: "財富傳承規劃",
-      otherService: "額外服務",
+      corporateService: "公司服務",
       aboutUs: "關於我們",
       contactUs: "聯絡我們",
       contactTitle: "聯絡我們",
+      otherService: "會計及稅務服務",
       accountingService: "會計服務",
       businessAdvisory: "商業諮詢",
       localCompany: "本地公司",
@@ -54,22 +60,26 @@ export default function Footer() {
       phone: "+852 2111 2425",
       email: "sales@connexions.hk",
       copyright: `© ${new Date().getFullYear()} Connecxions.HK 版權所有。`,
+      officeService: "辦公室服務",
+      services: "公司服務",
+      services2:  "會計及稅務服務",
     },
     cn: {
       description: "Connexions HK 是一家专业的商业及移民服务公司，专注为客户提供一站式解决方案。",
       license: "Connexions HK 信托或企业服务提供者牌照号码：######",
       quickLinks: "快速链接",
-      HongKongImmigration: "本地移民",
+      HongKongImmigration: "移民香港",
       overseaImmigration: "海外移民",
       companySecretary: "公司秘书",
       hkLimited: "香港有限公司",
-      bviOversea: "BVI 及其他海外公司",
+      bviOversea: "其他海外公司",
       wealthInheritance: "财富传承规划",
-      otherService: "额外服务",
+      corporateService: "公司服务",
       aboutUs: "关于我们",
       contactUs: "联系我们",
       contactTitle: "联系我们",
       accountingService: "会计服务",
+      otherService: "会计及税务服务",
       businessAdvisory: "商业咨询",
       localCompany: "本地公司",
       taxConsulting: "税务咨询",
@@ -77,6 +87,10 @@ export default function Footer() {
       phone: "+852 2111 2425",
       email: "sales@connexions.hk",
       copyright: `© ${new Date().getFullYear()} Connecxions.HK 版权所有。`,
+
+      officeService: "办公室服务",
+      services: "公司服务",
+      services2:  "会计及税务服务",
     },
   };
 
@@ -110,7 +124,8 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-400">
               <li><a href="/about-us" className="hover:text-[#3ac9d9] transition">{t.aboutUs}</a></li>
               <li><a href="/local-immigration" className="hover:text-[#3ac9d9] transition">{t.HongKongImmigration}</a></li>
-              <li><a href="/oversea-immigration" className="hover:text-[#3ac9d9] transition">{t.overseaImmigration}</a></li>              <li><a href="/services/local-company" className="hover:text-[#3ac9d9] transition">{t.hkLimited}</a></li>
+              <li><a href="/services" className="hover:text-[#3ac9d9] transition">{t.services}</a></li>     
+              <li><a href="/services2" className="hover:text-[#3ac9d9] transition">{t.services2}</a></li>    
               <li><a href="/wealth-inheritance" className="hover:text-[#3ac9d9] transition">{t.wealthInheritance}</a></li>
               <li><a href="/contact" className="hover:text-[#3ac9d9] transition">{t.contactUs}</a></li>
 
@@ -119,14 +134,21 @@ export default function Footer() {
 
           {/* Column 3: Extra Service */}
           <div>
+            <h3 className="text-lg font-semibold text-white mb-6">{t.corporateService}</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="/services/local-company" className="hover:text-[#3ac9d9] transition">{t.localCompany}</a></li>
+              <li><a href="/services/bviCompany" className="hover:text-[#3ac9d9] transition">{t.bviOversea}</a></li>
+              <li><a href="/services/compSecretary" className="hover:text-[#3ac9d9] transition">{t.companySecretary}</a></li>
+              <li><a href="/services/office-service" className="hover:text-[#3ac9d9] transition">{t.officeService}</a></li>
+            </ul>
+
+            <br></br>
+
             <h3 className="text-lg font-semibold text-white mb-6">{t.otherService}</h3>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="/services/accounting" className="hover:text-[#3ac9d9] transition">{t.accountingService}</a></li>
-              <li><a href="/services/bviCompany" className="hover:text-[#3ac9d9] transition">{t.bviOversea}</a></li>
-              <li><a href="/services/businessAdv" className="hover:text-[#3ac9d9] transition">{t.businessAdvisory}</a></li>
-              <li><a href="/services/compSecretary" className="hover:text-[#3ac9d9] transition">{t.companySecretary}</a></li>
-              <li><a href="/services/local-company" className="hover:text-[#3ac9d9] transition">{t.localCompany}</a></li>
-              <li><a href="/services/tax-consulting" className="hover:text-[#3ac9d9] transition">{t.taxConsulting}</a></li>
+              <li><a href="/services2/accounting" className="hover:text-[#3ac9d9] transition">{t.accountingService}</a></li>
+              <li><a href="/services2/businessAdv" className="hover:text-[#3ac9d9] transition">{t.businessAdvisory}</a></li>
+              <li><a href="/services2/tax" className="hover:text-[#3ac9d9] transition">{t.taxConsulting}</a></li>
             </ul>
           </div>
 

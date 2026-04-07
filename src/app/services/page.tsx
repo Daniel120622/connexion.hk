@@ -12,10 +12,9 @@ export default function ServicesOverviewPage() {
       // Content switch
       const content = {
         en: {
-          heroTitle: "Our Professional Services",
-          heroSubtitle: "Tailored solutions for company formation, compliance, immigration and global business success.",
-          intro:"Welcome to start a new start for your business in Hong Kong. Connexions offers a wide range of services and solutions to help your business meet the challenges as a trusted partner. We provide one-stop professional services, including company incorporation, company secretarial services, business management services, accounting services, to meet your business needs in Hong Kong and globally.",
-          HKLimitedCompanyTitle: "HK Limited Company",
+          heroTitle: "Corporate Services",
+          heroSubtitle: "Reliable solutions for company setup, compliance, immigration, and long-term business success in Hong Kong.",
+          intro: "Welcome to Connexions. We are your dedicated partner for launching and managing your business in Hong Kong. From company incorporation and secretarial services to accounting, tax, and business management — we offer comprehensive, one-stop support to meet all your corporate needs locally and globally.",          HKLimitedCompanyTitle: "HK Limited Company",
           HKLimitedCompanyDesc: "Fast and compliant Hong Kong company registration with full setup and banking support.",
           BVIOverseasCompanyTitle: "BVI & Overseas Company",
           BVIOverseasCompanyDesc: "Offshore company formation in BVI and other jurisdictions for asset protection & tax efficiency.",
@@ -35,7 +34,7 @@ export default function ServicesOverviewPage() {
           OfficeServiceDesc: "Professional office solutions including virtual office, co-working space, and meeting room rentals to support your business operations."
         },
         zh: {
-          heroTitle: "我們的專業服務",
+          heroTitle: "公司服務",
           heroSubtitle: "量身定制的公司成立、合規、移民和全球業務成功解決方案。",
           intro:"歡迎你到香港開展業務！宏達策略為您的企業提供各種服務和解決方案，作為值得信賴的夥伴協助您的企業迎接各種挑戰。我們提供一站式的專業服務，包括註冊成立公司、公司秘書服務、企業管理服務及會計服務等，以滿足您的商務需求。",
           HKLimitedCompanyTitle: "香港有限公司",
@@ -59,7 +58,7 @@ export default function ServicesOverviewPage() {
         },
   
         cn:{
-          heroTitle: "我们的专业服务",
+          heroTitle: "公司服务",
           heroSubtitle: "量身定制的公司成立、合规、移民和全球业务成功解决方案。",
           intro:"欢迎你到香港开展业务！宏达策略为您的企业提供各种服务和解决方案，作为值得信赖的伙伴协助您的企业迎接各种挑战。我们提供一站式的专业服务，包括注册成立公司、公司秘书服务、企业管理服务及会计服务等，以满足您的商务需求。",
           HKLimitedCompanyTitle: "香港有限公司",
@@ -117,7 +116,7 @@ export default function ServicesOverviewPage() {
       {/* Introduction */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-8 max-w-5xl text-center">
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-12 max-w-auto mx-auto">
             {current.intro}
           </p>
         </div>
