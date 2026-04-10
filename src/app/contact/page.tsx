@@ -5,7 +5,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { Mail, Phone, Printer, MapPin } from 'lucide-react';
-import { sendEmailAction } from '@/app/actions/sendEmail'; // Adjust the import path as necessary
 
 
 export default function ContactPage() {
@@ -80,18 +79,37 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus("loading");
     setResponseMessage("");
+    // Capture the form element synchronously to avoid React event pooling
+    const formEl = e.currentTarget as HTMLFormElement;
+    const formData = new FormData(formEl);
+    const payload = Object.fromEntries(formData.entries());
 
-    const formData = new FormData(e.currentTarget);
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    const result = await sendEmailAction(formData);1
+      const result = await res.json();
 
-    if (result.success) {
-      setStatus("success");
-      setResponseMessage(current.success);
-      e.currentTarget.reset(); // 清空表單
-    } else {
+      console.log("API result:", result);
+
+      if (result?.success === true) {
+        setStatus("success");
+        setResponseMessage(current.success);
+        // Use the captured form element to reset (safe after await)
+        try { formEl.reset(); } catch (err) { /* ignore if already unmounted */ }
+      } else {
+        setStatus("error");
+        setResponseMessage(result?.error || current.error);
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
       setStatus("error");
-      setResponseMessage(result.error || current.error);
+      setResponseMessage(current.error);
+    } finally {
+      setStatus((prev) => (prev === "loading" ? "idle" : prev));
     }
   }
 

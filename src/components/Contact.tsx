@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, FormEvent, useRef } from "react";
-import { sendEmailAction } from "@/app/actions/sendEmail";
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Contact() {
@@ -85,14 +84,22 @@ export default function Contact() {
     const formData = new FormData(formRef.current);
 
     try {
-      const result = await sendEmailAction(formData);
+      const payload = Object.fromEntries(formData.entries());
 
-      console.log("Server action result:", result); // for debugging
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json();
+
+      console.log("API result:", result);
 
       if (result?.success === true) {
         setStatus("success");
         setMessage(result.message || t.success);
-        formRef.current.reset(); // safe reset using ref
+        if (formRef.current) formRef.current.reset();
       } else {
         setStatus("error");
         setMessage(result?.error || t.error);
@@ -102,7 +109,7 @@ export default function Contact() {
       setStatus("error");
       setMessage(t.error);
     } finally {
-      setStatus((prev) => (prev === "loading" ? "idle" : prev)); // reset loading if stuck
+      setStatus((prev) => (prev === "loading" ? "idle" : prev));
     }
   };
 

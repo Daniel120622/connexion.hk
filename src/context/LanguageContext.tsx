@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 type Lang = "en" | "cn" | "zh";
 
@@ -12,18 +12,24 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(() => {
+  const [lang, setLangState] = useState<Lang>("en"); // Start with default to match SSR
+
+  useEffect(() => {
+    // After hydration, set the correct language based on localStorage or browser
     try {
       const saved = localStorage.getItem("lang") as Lang | null;
-      if (saved) return saved;
+      if (saved) {
+        setLangState(saved);
+        return;
+      }
       const browserLang = navigator?.language?.toLowerCase() || "";
       const defaultLang: Lang = browserLang.includes("zh") ? "cn" : "en";
       localStorage.setItem("lang", defaultLang);
-      return defaultLang;
+      setLangState(defaultLang);
     } catch (e) {
-      return "en";
+      // Fallback to en
     }
-  });
+  }, []);
 
   const setLang = (l: Lang) => {
     localStorage.setItem("lang", l);
