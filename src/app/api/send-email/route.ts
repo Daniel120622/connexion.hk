@@ -3,6 +3,7 @@ import { Resend } from "resend";
 
 export async function POST(req: Request) {
   try {
+    // Parse JSON body
     const body = await req.json();
     const name = (body.name || "未填").toString().trim();
     const userEmail = (body.email || "未填").toString().trim();
