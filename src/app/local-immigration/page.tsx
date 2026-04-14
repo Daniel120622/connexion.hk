@@ -60,7 +60,7 @@ export default function LocalImmigrationPage() {
       zh:{
         heroTitle: "香港本地移民計劃",
         heroDesc: "探索通往香港居留、工作、投資和新生活的量身定制途徑。",
-        intro: "了解您的背景和需求是我們第一步也是最重要的一步。透過仔細傾聽和專業分析，我們提高您的申請成功率，並為您識別最佳機會。",
+        intro: "傾聽客戶的背景和需求是我們工作的第一步，也是重要的一步，這意味著我們能通過聆聽與分析做出準確的判斷，使客戶申請的成功率達到最大化，並爭取到最佳投資機會。",
         ContentSections: "探索我們的本地移民計劃",
         galleryTitle: "香港移民的視覺洞見",
         galleryDesc: "透過我們精心策劃的見解和體驗畫廊，探索香港移民的視覺之旅。",
@@ -101,7 +101,7 @@ export default function LocalImmigrationPage() {
       cn:{
         heroTitle: "香港本地移民计划",
         heroDesc: "探索通往香港居留、工作、投资和新生活的量身定制途径。",
-        intro: "了解您的背景和需求是我们第一步也是最重要的一步。通过仔细倾听和专业分析，我们提高您的申请成功率，并为您识别最佳机会。",
+        intro: "倾听客户的背景和需求是我们工作的第一步，也是重要的一步，这意味着我们能通过聆听与分析做出准确的判断，使客户申请的成功率达到最大化，并争取到最佳投资机会。",
         ContentSections: "探索我们的本地移民计划",
         galleryTitle: "香港移民的视觉见解",
         galleryDesc: "通过我们精心策划的见解和体验画廊，探索香港移民的视觉之旅。",
@@ -177,6 +177,7 @@ export default function LocalImmigrationPage() {
           </h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light opacity-95">
             {current.heroDesc}
+            {current.intro}
           </p>
         </div>
 

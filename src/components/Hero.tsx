@@ -8,9 +8,9 @@ import { useLanguage } from '@/context/LanguageContext';
 
 export const navContent = {
   en: {
-    companyName: "Connexions.HK",
-    companySlogan: "All Services in One Place",
-    button1: "Get Consultation",
+    companyName: "Connexions",
+    companySlogan: "Your Trusted Partner for Comprehensive Business Solutions",
+    button1: "Contact Us",
     button2: "View All Services",
 
     // ── Service items ───────────────────────────────
@@ -43,10 +43,10 @@ export const navContent = {
   },
 
   zh: {
-    companyName: "宏達香港",
-    companySlogan: "為您提供一站式服務",
-    button1: "在線查詢",
-    button2: "所有服務",
+    companyName: "宏達策略",
+    companySlogan: "您的信賴夥伴，提供全面的商業解決方案",
+    button1: "聯絡我們",
+    button2: "查看了解更多",
 
     services: [
       {
@@ -77,10 +77,10 @@ export const navContent = {
   },
 
   cn: {
-    companyName: "宏达香港",
-    companySlogan: "为您提供一站式服务",
-    button1: "在线查询",
-    button2: "查看所有服务",
+    companyName: "宏达策略",
+    companySlogan: "您的信赖伙伴，提供全面的商业解决方案",
+    button1: "联系我们",
+    button2: "查看了解更多",
 
     services: [
       {
