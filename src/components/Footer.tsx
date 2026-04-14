@@ -11,7 +11,7 @@ export default function Footer() {
   const content = {
     en: {
       description: "Connexions HK is a professional business and immigration services company, specializing in providing clients with one-stop solutions.",
-      license: "Connexions HK trust or corporate service provider license number: ######",
+      license: "Connexions HK trust or corporate service provider license number: TC001097",
       quickLinks: "Quick Links",
       HongKongImmigration: "Hong Kong Immigration",
       overseaImmigration: "Oversea Immigration",
@@ -39,7 +39,7 @@ export default function Footer() {
 
     zh: {
       description: "Connexions HK 是一家專業的商業及移民服務公司，專注為客戶提供一站式解決方案。",
-      license: "Connexions HK 信託或企業服務提供者牌照號碼：######",
+      license: "Connexions HK 信託或企業服務提供者牌照號碼：TC001097",
       quickLinks: "快速連結",
       HongKongImmigration: "移民香港",
       overseaImmigration: "海外移民",
@@ -66,7 +66,7 @@ export default function Footer() {
     },
     cn: {
       description: "Connexions HK 是一家专业的商业及移民服务公司，专注为客户提供一站式解决方案。",
-      license: "Connexions HK 信托或企业服务提供者牌照号码：######",
+      license: "Connexions HK 信托或企业服务提供者牌照号码：TC001097",
       quickLinks: "快速链接",
       HongKongImmigration: "移民香港",
       overseaImmigration: "海外移民",

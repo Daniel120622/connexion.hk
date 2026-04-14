@@ -10,7 +10,7 @@ export const navContent = {
   en: {
     companyName: "Connexions.HK",
     companySlogan: "All Services in One Place",
-    button1: "Get Free Consultation",
+    button1: "Get Consultation",
     button2: "View All Services",
 
     // ── Service items ───────────────────────────────
@@ -44,8 +44,8 @@ export const navContent = {
 
   zh: {
     companyName: "宏達香港",
-    companySlogan: "為您提供一站式服务",
-    button1: "免費查詢",
+    companySlogan: "為您提供一站式服務",
+    button1: "在線查詢",
     button2: "所有服務",
 
     services: [
@@ -79,7 +79,7 @@ export const navContent = {
   cn: {
     companyName: "宏达香港",
     companySlogan: "为您提供一站式服务",
-    button1: "免费查询",
+    button1: "在线查询",
     button2: "查看所有服务",
 
     services: [
@@ -126,7 +126,7 @@ export default function Hero() {
         { src: "/images/hero/bvi.jpg", alt: "Tropical islands and documents representing offshore BVI setup" },
         { src: "/images/hero/secret.jpg", alt: "Professional businesswoman reviewing compliance and secretary documents" },
         { src: "/images/hero/acc.jpg", alt: "Modern financial dashboard with accounting charts and graphs" },
-        { src: "/images/hero/tax.avif", alt: "Tax professional with calculator, documents, and strategy planning" },
+        { src: "/images/hero/tax.jpg", alt: "Tax professional with calculator, documents, and strategy planning" },
         { src: "/images/hero/adv.jpg", alt: "Hong Kong night skyline with city lights symbolizing business growth" },
       ][index],
     }));

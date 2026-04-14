@@ -16,13 +16,13 @@ export default function ServicesOverviewPage() {
           heroSubtitle: "Reliable solutions for company setup, compliance, immigration, and long-term business success in Hong Kong.",
           intro: "Welcome to Connexions. We are your dedicated partner for launching and managing your business in Hong Kong. From company incorporation and secretarial services to accounting, tax, and business management — we offer comprehensive, one-stop support to meet all your corporate needs locally and globally.",          HKLimitedCompanyTitle: "HK Limited Company",
           HKLimitedCompanyDesc: "Fast and compliant Hong Kong company registration with full setup and banking support.",
-          BVIOverseasCompanyTitle: "BVI & Overseas Company",
+          BVIOverseasCompanyTitle: "BVI & Overseas Company Formation",
           BVIOverseasCompanyDesc: "Offshore company formation in BVI and other jurisdictions for asset protection & tax efficiency.",
           CompanySecretaryTitle: "Company Secretary",
-          CompanySecretaryDesc: "Professional compliance, annual filings, board support and corporate governance in Hong Kong.",
+          CompanySecretaryDesc: "Hong Kong companies must appoint a local individual or company as a company secretary to ensure compliance. Connexions serves in this professional capacity, handling regulatory and administrative matters, allowing clients to focus on their core business.",
           ctaTitle: "Ready to Get Started?",
-          ctaDesc: "Contact us today for a free consultation and personalized service proposal.",
-          ctaButton: "Contact Us Now",
+          ctaDesc: "Contact us now to Learn More",
+          ctaButton: "Contact Us",
           LearnMore: "Learn More",
           AccountingServicesTitle: "Accounting & Audit Services",
           AccountingServicesDesc: "Comprehensive accounting, bookkeeping, and audit services to ensure your business stays compliant and financially healthy.",
@@ -31,21 +31,21 @@ export default function ServicesOverviewPage() {
           TaxConsultingTitle: "Tax Consulting Services",
           TaxConsultingDesc: "Specialized tax consulting to optimize your tax strategy, ensure compliance, and maximize savings.",
           OfficeServiceTitle: "Office Service",
-          OfficeServiceDesc: "Professional office solutions including virtual office, co-working space, and meeting room rentals to support your business operations."
+          OfficeServiceDesc: "Hong Kong companies must have a local registered address. Connexions not only provides the address but also handles mail collection, serving as your reliable support."
         },
-        zh: {
+          zh: {
           heroTitle: "公司服務",
           heroSubtitle: "量身定制的公司成立、合規、移民和全球業務成功解決方案。",
           intro:"歡迎你到香港開展業務！宏達策略為您的企業提供各種服務和解決方案，作為值得信賴的夥伴協助您的企業迎接各種挑戰。我們提供一站式的專業服務，包括註冊成立公司、公司秘書服務、企業管理服務及會計服務等，以滿足您的商務需求。",
           HKLimitedCompanyTitle: "香港有限公司",
-          HKLimitedCompanyDesc: "快速且合規的香港公司註冊，提供完整的設立和銀行支持。",
-          BVIOverseasCompanyTitle: "BVI及海外公司",
+          HKLimitedCompanyDesc: "快速、合規且具成本效益地成立您的香港公司，並提供業務運作及策劃討論",
+          BVIOverseasCompanyTitle: "註冊海外公司",
           BVIOverseasCompanyDesc: "在BVI及其他司法管轄區設立離岸公司，以實現資產保護和稅務效率。",
           CompanySecretaryTitle: "公司秘書",
-          CompanySecretaryDesc: "專業的合規、年度申報、董事會支持和香港企業治理。",
+          CompanySecretaryDesc: "香港公司必須委任一名本地個人或公司擔任公司秘書以確保合規，而宏達策略正是擔任此專業秘書角色，處理法規及行政事務，讓客戶專注於其核心業務。",
           ctaTitle: "準備好開始了嗎？",
-          ctaDesc: "立即聯繫我們，獲取免費諮詢和個性化服務方案。",
-          ctaButton: "立即聯繫我們",
+          ctaDesc: "立即聯繫我們，了解更多",
+          ctaButton: "聯繫我們",
           LearnMore: "了解更多",
           AccountingServicesTitle: "會計及審計服務",
           AccountingServicesDesc: "全面的會計、記賬和審計服務，確保您的業務保持合規並財務健康。",
@@ -54,7 +54,7 @@ export default function ServicesOverviewPage() {
           TaxConsultingTitle: "稅務諮詢服務",
           TaxConsultingDesc: "專業稅務諮詢，優化您的稅務策略，確保合規並最大化節稅效益。",
           OfficeServiceTitle: "公司註冊地址服務",
-          OfficeServiceDesc: "專業辦公解決方案，包括虛擬辦公室、共享工作空間和會議室租賃，支持您的業務運營。"
+          OfficeServiceDesc: "香港公司須有本地註冊地址，宏達策略不僅提供地址，更代收信件，做您的後盾"
         },
   
         cn:{
@@ -62,14 +62,14 @@ export default function ServicesOverviewPage() {
           heroSubtitle: "量身定制的公司成立、合规、移民和全球业务成功解决方案。",
           intro:"欢迎你到香港开展业务！宏达策略为您的企业提供各种服务和解决方案，作为值得信赖的伙伴协助您的企业迎接各种挑战。我们提供一站式的专业服务，包括注册成立公司、公司秘书服务、企业管理服务及会计服务等，以满足您的商务需求。",
           HKLimitedCompanyTitle: "香港有限公司",
-          HKLimitedCompanyDesc: "快速且合规的香港公司注册，提供完整的设立和银行支持。",
-          BVIOverseasCompanyTitle: "BVI及海外公司",
+          HKLimitedCompanyDesc: "快速、合规且具成本效益地成立您的香港公司，并提供业务运作及策划讨论",
+          BVIOverseasCompanyTitle: "注册海外公司",
           BVIOverseasCompanyDesc: "在BVI及其他司法管辖区设立离岸公司，以实现资产保护和税务效率。",
           CompanySecretaryTitle: "公司秘书",
-          CompanySecretaryDesc: "专业的合规、年度申报、董事会支持和香港企业治理。",
+          CompanySecretaryDesc: "香港公司必须委任一名本地个人或公司担任公司秘书以确保合规，而宏达策略正是担任此专业秘书角色，处理法规及行政事务，让客户专注于其核心业务。",
           ctaTitle: "准备好开始了吗？",
-          ctaDesc: "立即联系我们，获取免费咨询和个性化服务方案。",
-          ctaButton: "立即联系我们",
+          ctaDesc: "立即联系我们，了解更多",
+          ctaButton: "联系我们",
           LearnMore: "了解更多",
           AccountingServicesTitle: "会计及审计服务",
           AccountingServicesDesc: "全面的会计、记账和审计服务，确保您的业务保持合规并财务健康。",
@@ -78,8 +78,8 @@ export default function ServicesOverviewPage() {
           TaxConsultingTitle: "税务咨询服务",
           TaxConsultingDesc: "专业税务咨询，优化您的税务策略，确保合规并最大化节税效益。",
           OfficeServiceTitle: "公司注册地址服务",
-          OfficeServiceDesc: "专业办公解决方案，包括虚拟办公室、共享工作空间和会议室租赁，支持您的业务运营。"
-        }
+          OfficeServiceDesc: "香港公司须有本地注册地址，宏达策略不仅提供地址，更代收信件，做您的后盾"
+     }
       };
     
       const current = content[lang];

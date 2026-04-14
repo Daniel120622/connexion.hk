@@ -11,57 +11,58 @@ export default function AboutUs() {
   const content = {
     en: {
       heroTitle: "Welcome to Connexions",
-      heroDesc: "Your trusted partner for immigration, residency, and business success in Hong Kong and beyond.",
-      intro: "Connexions is an experienced professional services group with decades of dedicated service to hundreds of domestic and international clients. We deeply value the trust placed in us by our clients and are committed to delivering exceptional service quality. Built on mutual trust, understanding, and strong recommendations from our clients, Connexions is your reliable long-term partner in Hong Kong and beyond.",
+      heroDesc: "Your Life Partner in Hong Kong",
+      intro:"Connexions is an experienced professional services group. We have served hundreds of domestic and foreign customers over the decades. Connexions treasures the entrusted relationship with clients and is dedicated to service quality. Coupled with mutual trust and understanding as well as reputation and recommendation from customers Connexoins is your stable life partner.",
       proficiencyTitle: "Our Proficiency",
-      proficiencyText1: "Our team consists of seasoned accountants and immigration consultants who are well-versed in immigration laws, policies, and the latest global trends.",
-      proficiencyText2: "With over 10 years of experience, we have successfully served more than a thousand clients from Hong Kong and around the world, helping them achieve their residency and business goals with confidence.",
+      proficiencyText1: "We have experienced accountants and consultants, familiar with immigration laws, policies and insight into the latest immigration trends. With more than 10 years of history, we have accumulated more than a thousand customers at home and abroad so far.",
+      
       servicesTitle: "All-Rounded Services",
-      servicesText1: "We offer comprehensive immigration and visa solutions tailored to your personal and family background, assisting with applications for Hong Kong or overseas residency status.",
-      servicesText2: "Beyond immigration, we provide full-spectrum support for managing your Hong Kong or overseas companies — including business account setup, financial reporting, corporate and personal taxation in Hong Kong, and ongoing compliance. Services are fully customized to your company’s circumstances, operational scope, and profitability requirements.",
+      servicesText1: "We provide a variety of immigration and visa services based on your background and prepare for your family to apply Hong Kong/overseas resident status. We help you to manage your Hong Kong/overseas companies in multiple aspects: business accounts, financial reports, corporate and personal tax in Hong Kong and compliance requirement in accordance with your company’s condition, scope of operations 1 and profitability requirements.",
       followUpTitle: "Peace of Mind Follow-up",
-      followUpText1: "We respect every client’s individual needs and provide attentive, end-to-end support — including reception services, in-person field visits, thorough document review, and proactive follow-up on application progress.",
-      followUpText2: "As your trusted life partner in Hong Kong, we stand by you through every challenge. Should any issues arise during your life or business journey here, we will do our utmost to provide effective solutions.",
-      followUpGoal: "Our goal: Help you save time and effort while building a happy, comfortable, and fulfilling life in Hong Kong.",
-      closingTitle: "Connexions — Your Stable Partner for Life and Success in Hong Kong",
-      closingDesc: "We look forward to accompanying you on your journey.",
-      closingCall: "Contact us today to start building your future with confidence."
+      followUpText1: "We respect every client’s request. We provide reception and clients’ field visit services all the way. We carefully review the application documentations and timely follow up the application progress.",
+      followUpText2: "We are your great life partners in Hong Kong. If you encounter with any problems in Hong Kong, we will try our best to provide solutions. Our services can not only help you save time and effort in adopting the life in Hong Kong but live a happy and comfortable life in Hong Kong.",
+      
+      closingTitle: "Connexions — Your Life Partner in Hong Kong",
+      closingDesc: "We look forward to being your reliable partner",
+      closingCall: "Contact us today to learn more"
     },
     zh: {
       heroTitle: "歡迎來到 Connexions",
-      heroDesc: "您在香港及海外移民、居留權及商業成功的可靠夥伴。",
+      heroDesc: "您的生活好夥伴",
       intro: "Connexions 是一家擁有數十年專業服務經驗的集團，為數百位本地及國際客戶提供服務。我們深切珍惜客戶對我們的信任，並致力於提供卓越的服務品質。建立在相互信任、理解及客戶強烈推薦的基礎上，Connexions 是您在香港及海外的可靠長期夥伴。",
+      
       proficiencyTitle: "我們的專業能力",
-      proficiencyText1: "我們的團隊由資深會計師及移民顧問組成，熟悉移民法規、政策及最新全球趨勢。",
-      proficiencyText2: "擁有超過10年經驗，我們已成功服務超過一千位來自香港及全球的客戶，協助他們自信地實現居留及商業目標。",
+      proficiencyText1: "我們擁有具備豐富經驗及專業知識的會計師和行業資深的顧問，深諳移民法規，熟知移民政策並洞悉最新移民動向。超過10年從業經驗，累計至今，接受我們專業服務的國內外客戶已超過千位。",
+      
       servicesTitle: "全方位服務",
-      servicesText1: "我們提供全面的移民及簽證解決方案，根據您的個人及家庭背景量身定制，協助申請香港或海外居留身份。",
-      servicesText2: "除了移民服務，我們為您的香港或海外公司提供全方位支援，包括開設商業賬戶、財務報告、香港公司及個人稅務，以及持續合規。服務完全根據您的公司情況、經營範圍及盈利要求定制。",
-      followUpTitle: "安心跟進",
-      followUpText1: "我們尊重每位客戶的個別需求，提供細心、周到的全程支援 — 包括接待服務、實地考察、文件審查及主動跟進申請進度。",
-      followUpText2: "作為您在香港的終身信賴夥伴，我們將與您共同面對每一個挑戰。如在香港生活或商業旅程中出現任何問題，我們將全力提供有效解決方案。",
-      followUpGoal: "我們的目標：幫助您節省時間與精力，建立快樂、舒適、充實的香港生活。",
+      servicesText1: "我們根據您的背景提供多元化移民簽證服務，並為您一家人申請香港及海外居民身份做充分的準備。我們結合您的公司狀況，營運範疇和盈利需求及法規要求，協助管理您的香港及海外的公司，企業賬務、財務報告、公司及個人稅務等各種財務服務。",
+
+      followUpTitle: "全程跟進",
+      followUpText1: "我們重視每一位客戶提出的要求，提供接待考察等全程服務支持，認真審核申請資料並及時跟進申請進度。我們是您在香港的生活好伙伴。您在香港生活碰到問題，由我們為您出謀劃策，排憂解難，解決實當中的困難。我們的服務為您省時省力，幫助您迅速地適應香​​港生活，在香港生活得舒心舒適。",
+      followUpText2: "",
+
       closingTitle: "Connexions — 您在香港生活與成功的穩定夥伴",
-      closingDesc: "我們期待陪伴您走過這段旅程。",
-      closingCall: "立即聯絡我們，開始建立您的未來。"
+      closingDesc: "我們期待成為您在香港及海外移民、居留權及商業成功的可靠夥伴。",
+      closingCall: "立即聯絡我們，了解更多"
     },
     cn: {
       heroTitle: "欢迎来到 Connexions",
-      heroDesc: "您在香港及海外移民、居留权及商业成功的可靠伙伴。",
+      heroDesc: "您的生活好伙伴",
       intro: "Connexions 是一家拥有数十年专业服务经验的集团，为数百位本地及国际客户提供服务。我们深切珍惜客户对我们的信任，并致力于提供卓越的服务品质。建立在相互信任、理解及客户强烈推荐的基础上，Connexions 是您在香港及海外的可靠长期伙伴。",
+
       proficiencyTitle: "我们的专业能力",
-      proficiencyText1: "我们的团队由资深会计师及移民顾问组成，熟悉移民法规、政策及最新全球趋势。",
-      proficiencyText2: "拥有超过10年经验，我们已成功服务超过一千位来自香港及全球的客户，协助他们自信地实现居留及商业目标。",
+      proficiencyText1: "我们拥有具备丰富经验及专业知识的会计师和行业资深的顾问，深谙移民法规，熟知移民政策并洞悉最新移民动向。超过10年从业经验，累计至今，接受我们专业服务的国内外客户已超过千位。",
+
       servicesTitle: "全方位服务",
-      servicesText1: "我们提供全面的移民及签证解决方案，根据您的个人及家庭背景量身定制，协助申请香港或海外居留身份。",
-      servicesText2: "除了移民服务，我们为您的香港或海外公司提供全方位支援，包括开设商业账户、财务报告、香港公司及个人税务，以及持续合规。服务完全根据您的公司情况、经营范围及盈利要求定制。",
-      followUpTitle: "安心跟进",
-      followUpText1: "我们尊重每位客户的个别需求，提供细心、周到的全程支援 — 包括接待服务、实地考察、文件审查及主动跟进申请进度。",
-      followUpText2: "作为您在香港的终身信赖伙伴，我们将与您共同面对每一个挑战。如在香港生活或商业旅程中出现任何问题，我们将全力提供有效解决方案。",
-      followUpGoal: "我们的目标：帮助您节省时间与精力，建立快乐、舒适、充实的香港生活。",
+      servicesText1: "我们根据您的背景提供多元化移民签证服务，并为您一家人申请香港及海外居民身份做充分的准备。我们结合您的公司状况，营运范畴和盈利需求及法规要求，协助管理您的香港及海外的公司，企业账务、财务报告、公司及个人税务等各种财务服务。",
+
+      followUpTitle: "全程跟进",
+      followUpText1: "我们重视每一位客户提出的要求，提供接待考察等全程服务支持，认真审核申请资料并及时跟进申请进度。我们是您在香港的生活好伙伴。您在香港生活碰到问题，由我们为您出谋划策，排忧解难，解决实当中的困难。我们的服务为您省时省力，帮助您迅速地适应香​​港生活，在香港生活得舒心舒适。",
+      followUpText2: "",
+
       closingTitle: "Connexions — 您在香港生活与成功的稳定伙伴",
-      closingDesc: "我们期待陪伴您走过这段旅程。",
-      closingCall: "立即联络我们，开始建立您的未来。"
+      closingDesc: "我们期待成为您在香港及海外移民、居留权及商业成功的可靠伙伴。",
+      closingCall: "立即联络我们，了解更多"
     }
   
   };
@@ -191,21 +192,24 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-      </section>
 
       {/* Closing */}
-      <section className="py-20 bg-gradient-to-r from-teal-600 to-blue-700 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            {current.closingTitle}
-          </h2>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-10">
-            {current.closingDesc}
+      <div className="mt-16 py-8 text-center">
+          <p className="mt-4 text-gray-600">
+              {current.closingTitle}
           </p>
-          <p className="text-lg opacity-90">
-            {current.closingCall}
-          </p>
-        </div>
+
+
+        <a href="/contact"
+          className="inline-block bg-[#3ac9d9] text-white font-semibold py-4 px-10 rounded-full text-lg hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl"
+       >
+
+          {current.closingCall}
+        </a>
+        <p className="mt-4 text-gray-600">
+           {current.closingDesc}
+        </p>
+      </div>
       </section>
     </div>
   );

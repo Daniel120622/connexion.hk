@@ -16,8 +16,8 @@ export default function BusinessAdvisoryPage() {
       benefitsTitle: "Why Choose Our Business Advisory Services?",
       intro1: "Business collaboration and corporate merger and acquisition are growing in dynamic and diversified commercial society. Over the years, we have participated in pre-IPO restructuring and business modelling. We also advise on shareholding structure in corporate setup and merger and acquisition, profit distribution and tax planning in ongoing business as well as corporate takeover planning. And we are competent in corporate routine management and administration. Coupled with our immersed knowledge and experience in accounting, tax, financial and human resources, our all-rounded services are highly regarded by our clients.",
       intro2: "",
-      ctaDesc: "Contact us for a tailored consultation — most proposals sent within 24 hours.",
-      ctaButton: "Get Your Business Advisory Proposal",
+      ctaDesc: "Contact Us now to learn more",
+      ctaButton: "Contact Us",
     },
 
     zh: {
@@ -27,8 +27,8 @@ export default function BusinessAdvisoryPage() {
       benefitsTitle: "為何選擇我們的商業顧問服務？",
       intro1:"在靈活多元化的商業社會中，業務合作和企業併購日益頻繁。多年來，我們參與了上市股前的重組和業務規劃，就公司設立和併購中的股權結構、企業紅利分配政策、稅務規劃、公司轉讓計劃等提供專業的建議，並擅長擔任公司日常管理和行政工作。基於我們在會計、稅務、財務和人力資源方面的專業知識和經驗，我們的全方位服務受到客戶的高度評價。",
       intro2: "",
-      ctaDesc: "聯絡我們獲取度身訂造的諮詢 — 大多數建議書於24小時內發送。",
-      ctaButton: "獲取您的商業顧問建議書",
+      ctaDesc: "立即聯絡我們，了解更多。",
+      ctaButton: "聯絡我們",
     },
 
     cn: {
@@ -38,8 +38,8 @@ export default function BusinessAdvisoryPage() {
       benefitsTitle: "为何选择我们的商业顾问服务？",
       intro1:"在灵活多元化的商业社会中，业务合作和企业并购日益频繁。多年来，我们参与了上市股前的重组和业务规划，就公司设立和并购中的股权结构、企业红利分配政策、税务规划、公司转让计划等提供专业的建议，并擅长担任公司日常管理和行政工作。基于我们在会计、税务、财务和人力资源方面的专业知识和经验，我们的全方位服务受到客户的高度评价。",
       intro2: "",
-      ctaDesc: "联络我们获取度身订造的咨询 — 大多数建议书于24小时内发送。",
-      ctaButton: "获取您的商业顾问建议书",
+      ctaDesc: "立即联系我们，了解更多。",
+      ctaButton: "联系我们",
     },
   };
 

@@ -32,8 +32,7 @@ export default function Contact() {
     },
     zh: {
       title: "聯絡我們",
-      subtitle:
-        "我們樂意協助您在香港的企業設立、銀行開戶及公司相關需求。立即聯絡我們 — 我們的團隊隨時為您服務！",
+      subtitle:"我們樂意協助您在香港的企業設立、銀行開戶及公司相關需求。立即聯絡我們 — 我們的團隊隨時為您服務！",
       email: "sales@connexions.hk",
       formTitle: "發送訊息給我們",
       formDesc: "有任何問題？請填寫下方表單，我們會盡快回覆您。",

@@ -17,8 +17,8 @@ export default function AccountingServicePage() {
       benefitsTitle: "Why Choose Our Accounting Services?",
       intro1:"According to Hong Kong laws, each Hong Kong company must keep complete business records for a period of seven years. Non-compliance may lead to an offence.",
       intro2:"Our accounting services comprise effective accounting management, developing accounting structure, arranging for annual audit.",
-      ctaDesc: "Get a personalized accounting proposal — most clients receive details within 24 hours.",
-      ctaButton: "Request Your Accounting Services Quote",
+      ctaDesc: "Contact us today to learn more.",
+      ctaButton: "Contact Us",
     },
 
     zh: {
@@ -27,8 +27,9 @@ export default function AccountingServicePage() {
       benefitsTitle: "為何選擇我們的會計服務？",
       intro1: "根據香港的法例，每家香港公司都必須保存七年內完善的商業會計記錄。不保持適當商業記錄屬違法。我們的會計服務包括有效管理賬目，協助制定會計賬目，安排年度審計等。",
       intro2: "",
-      ctaDesc: "取得個人化會計建議書 — 大多數客戶於24小時內收到詳情。",
-      ctaButton: "索取您的會計服務報價",
+      
+      ctaDesc: "立即聯絡我們，了解更多。",
+      ctaButton: "聯絡我們",
 
     },
 
@@ -38,8 +39,8 @@ export default function AccountingServicePage() {
       benefitsTitle: "为何选择我们的会计服务？",
       intro1: "根据香港的法例，每家香港公司都必须保存七年内完善的商业会计记录。不保持适当商业记录属违法。我们的会计服务包括有效管理账目，协助制定会计账目，安排年度审计等。",
       intro2: "",
-      ctaDesc: "取得个人化会计建议书 — 大多数客户于24小时内收到详情。",
-      ctaButton: "索取您的会计服务报价",
+      ctaDesc: "立即联系我们，了解更多。",
+      ctaButton: "联系我们",
     },
   };
 
