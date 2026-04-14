@@ -19,11 +19,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      {/* Example translated heading */}
-      <section className="py-8 bg-gray-50 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-        </h1>
-      </section>
 
       <main>
         <Hero />
