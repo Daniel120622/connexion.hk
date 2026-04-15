@@ -116,18 +116,12 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold"></h1>
-          <p className="mt-2 text-white/90"></p>
-        </div>
-      </header>
 
       <main className="container mx-auto px-4 py-10 max-w-7xl">
         {/* Contact Info + Form + Map Grid – SWAPPED ORDER */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
                     {/* Right Column: Contact Info + Form */}
-          <div className="space-y-8 order-1 lg:order-1">
+          <div className="space-y-8 order-1 lg:order-">
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">{current.getInTouch}</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">

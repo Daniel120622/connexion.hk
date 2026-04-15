@@ -71,12 +71,7 @@ export default function AboutUs() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-            <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold"></h1>
-          <p className="mt-2 text-white/90"></p>
-        </div>
-      </header>
+
       {/* Hero Section */}
       <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white">
         <div className="absolute inset-0">
@@ -127,9 +122,7 @@ export default function AboutUs() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 {current.proficiencyText1}
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed font-medium">
-                {current.proficiencyText2}
-              </p>
+
             </div>
           </div>
         </div>
@@ -147,9 +140,7 @@ export default function AboutUs() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 {current.servicesText1}
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {current.servicesText2}
-              </p>
+
             </div>
             
             <div className="rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
@@ -185,9 +176,6 @@ export default function AboutUs() {
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 {current.followUpText2}
-              </p>
-              <p className="text-xl font-semibold text-teal-700">
-                {current.followUpGoal}
               </p>
             </div>
           </div>

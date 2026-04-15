@@ -47,12 +47,7 @@ export default function CompanySecretaryPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-[#3ac9d9] text-white py-8 shadow-lg">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold"></h1>
-          <p className="mt-2 text-white/90"></p>
-        </div>
-      </header>
+
       {/* Hero Section */} 
       <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white overflow-hidden">
         <div className="container mx-auto py-4">

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { useLanguage } from '@/context/LanguageContext';
+import { useLanguage } from "@/context/LanguageContext";
 
 export const navContent = {
   en: {
@@ -65,46 +65,52 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [taxServicesOpen, setTaxServicesOpen] = useState(false);
-  const [headerScale, setHeaderScale] = useState(1);
 
   const servicesRef = useRef<HTMLDivElement>(null);
   const taxRef = useRef<HTMLDivElement>(null);
 
   const current = navContent[lang];
 
-  const isActive = useCallback((path: string) => 
-    pathname === path || pathname?.startsWith(path), [pathname]
+  const isActive = useCallback(
+    (path: string) => {
+      if (!pathname) return false;
+      if (path === "/") return pathname === "/";
+      return pathname === path || pathname.startsWith(path + "/");
+    },
+    [pathname]
   );
 
-  // Close all menus when route changes
   useEffect(() => {
     setServicesOpen(false);
     setTaxServicesOpen(false);
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Header scale adjustment for large high-DPI screens
   useEffect(() => {
-    const updateHeaderScale = () => {
-      const dpr = window.devicePixelRatio || 1;
-      const w = window.screen?.width || window.innerWidth;
-      let s = 1;
-      if (w >= 1800 && dpr >= 1.4) s = 0.75;
-      else if (w >= 1400 && dpr >= 1.25) s = 0.85;
-      else s = 1;
-      setHeaderScale(s);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+        setServicesOpen(false);
+      }
+      if (taxRef.current && !taxRef.current.contains(event.target as Node)) {
+        setTaxServicesOpen(false);
+      }
     };
 
-    updateHeaderScale();
-    window.addEventListener("resize", updateHeaderScale);
-    return () => window.removeEventListener("resize", updateHeaderScale);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const scaledStyle: React.CSSProperties = {
-    transform: `scale(${headerScale})`,
-    transformOrigin: "top left",
-    width: `${100 / headerScale}%`,
-  };
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setServicesOpen(false);
+        setTaxServicesOpen(false);
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
 
   const servicesItems = [
     { href: "/services/local-company", label: current.hkLimitedCompany },
@@ -113,7 +119,7 @@ export default function Header() {
     { href: "/services/office-service", label: current.officeService },
   ];
 
-  const TaxServiceItems = [
+  const taxServiceItems = [
     { href: "/services2/businessAdv", label: current.businessAdvisory },
     { href: "/services2/accounting", label: current.accountingServices },
     { href: "/services2/tax", label: current.taxConsulting },
@@ -124,211 +130,263 @@ export default function Header() {
     setLang(newLang);
   };
 
+const navTextSize =
+  lang === "en"
+    ? "text-[11px] xl:text-sm"
+    : lang === "zh" || lang === "cn"
+      ? "text-[15px] lg:text-[14px] xl:text-sm"
+      : "text-sm lg:text-base";
+    
+
   return (
     <header className="sticky top-0 z-50">
-      <div style={scaledStyle}>
-        <div className="bg-gray-100 text-black shadow-md">
-          <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-6xl">
-            <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
-              
-              {/* Logo */}
-              <div className="flex items-center gap-3">
-                <a href="/" className="flex items-center">
-                  <img
-                    src="/images/connexions-hk.png"
-                    alt="Connexions HK Logo"
-                    className="h-16 w-16 md:h-20 md:w-20 object-contain"
-                  />
-                </a>
-              </div>
+      <div className="bg-gray-100 text-black shadow-md border-b border-gray-200">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-6xl">
+          <div className="flex items-center justify-between h-16 md:h-18 lg:h-20">
+            
+            {/* Logo */}
+            <div className="flex items-center shrink-0">
+              <a href="/" className="flex items-center">
+                <img
+                  src="/images/connexions-hk.png"
+                  alt="Connexions HK Logo"
+                  className="h-14 w-14 md:h-16 md:w-16 lg:h-18 lg:w-18 object-contain"
+                />
+              </a>
+            </div>
 
-              {/* Desktop Navigation */}
-              <nav className="hidden md:flex gap-8 lg:gap-10 xl:gap-12 text-base font-medium justify-center items-center flex-1">
-                <a 
-                  href="/" 
-                  className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
-                >
-                  {current.home}
-                </a>
-                <a 
-                  href="/about-us" 
-                  className={isActive("/about-us") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
-                >
-                  {current.aboutUs}
-                </a>
-                <a 
-                  href="/local-immigration" 
-                  className={isActive("/local-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
-                >
-                  {current.localImmigration}
-                </a>
+            {/* Desktop Navigation */}
+            <nav className={`hidden md:flex flex-1 items-center justify-center min-w-0 gap-3 lg:gap-5 xl:gap-8 font-medium ${navTextSize}`}>
+              <a
+                href="/"
+                className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+              >
+                {current.home}
+              </a>
 
-                {/* Stable Corporate Services Dropdown */}
-                <div
-                  className="relative group"
-                  ref={servicesRef}
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
+              <a
+                href="/about-us"
+                className={isActive("/about-us") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+              >
+                {current.aboutUs}
+              </a>
+
+              <a
+                href="/local-immigration"
+                className={isActive("/local-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+              >
+                {current.localImmigration}
+              </a>
+
+              {/* Corporate Services Dropdown */}
+              <div className="relative" ref={servicesRef}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setServicesOpen(!servicesOpen);
+                    setTaxServicesOpen(false);
+                  }}
+                  onMouseEnter={() => {
+                    if (window.matchMedia("(pointer: fine)").matches) {
+                      setServicesOpen(true);
+                      setTaxServicesOpen(false);
+                    }
+                  }}
+                  aria-expanded={servicesOpen}
+                  aria-haspopup="menu"
+                  className="flex items-center gap-1.5 hover:text-[#3ac9d9] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3ac9d9] rounded-md px-2 py-1"
                 >
-                  <div className="flex items-center gap-1 cursor-pointer">
-                    <a
-                      href="/services"
-                      className={isActive("/services") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
-                    >
+                  <span className={isActive("/services") ? "text-[#3ac9d9]" : ""}>
+                    <a href="/services" className="hover:text-[#3ac9d9] transition-colors">
                       {current.services}
                     </a>
-                    <span className="text-sm mt-0.5">▼</span>
-                  </div>
-
-                  <ul 
-                    className={`absolute left-0 top-full mt-2 w-72 bg-white border border-gray-200 rounded-xl shadow-2xl py-2 transition-all duration-200 z-50 ${
-                      servicesOpen 
-                        ? "opacity-100 visible translate-y-0" 
-                        : "opacity-0 invisible -translate-y-1 pointer-events-none"
+                  </span>
+                  <span
+                    className={`text-xs transition-transform duration-200 ${
+                      servicesOpen ? "rotate-180" : ""
                     }`}
+                    aria-hidden="true"
                   >
-                    {servicesItems.map((item) => (
-                      <li key={item.href} className="hover:bg-gray-50">
-                        <a
-                          href={item.href}
-                          className={`block px-6 py-3 text-sm transition-colors ${
-                            isActive(item.href) 
-                              ? "text-[#3ac9d9] font-semibold" 
-                              : "text-gray-700 hover:text-black"
-                          }`}
-                        >
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    ▼
+                  </span>
+                </button>
 
-                {/* Stable Accountancy & Tax Dropdown */}
                 <div
-                  className="relative group"
-                  ref={taxRef}
-                  onMouseEnter={() => setTaxServicesOpen(true)}
-                  onMouseLeave={() => setTaxServicesOpen(false)}
+                  className={`absolute left-0 top-full mt-2 w-72 bg-white border border-gray-200 rounded-xl shadow-2xl py-2 z-50 transition-all duration-200 origin-top ${
+                    servicesOpen
+                      ? "opacity-100 visible scale-100"
+                      : "opacity-0 invisible scale-95 pointer-events-none"
+                  }`}
+                  role="menu"
                 >
-                  <div className="flex items-center gap-1 cursor-pointer">
+                  {servicesItems.map((item) => (
                     <a
-                      href="/services2"
-                      className={isActive("/services2") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+                      key={item.href}
+                      href={item.href}
+                      role="menuitem"
+                      onClick={() => setServicesOpen(false)}
+                      className={`block px-6 py-3 text-sm transition-colors hover:bg-gray-50 ${
+                        isActive(item.href)
+                          ? "text-[#3ac9d9] font-semibold"
+                          : "text-gray-700 hover:text-black"
+                      }`}
                     >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Accountancy & Tax Dropdown */}
+              <div className="relative" ref={taxRef}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTaxServicesOpen(!taxServicesOpen);
+                    setServicesOpen(false);
+                  }}
+                  onMouseEnter={() => {
+                    if (window.matchMedia("(pointer: fine)").matches) {
+                      setTaxServicesOpen(true);
+                      setServicesOpen(false);
+                    }
+                  }}
+                  aria-expanded={taxServicesOpen}
+                  aria-haspopup="menu"
+                  className="flex items-center gap-1.5 hover:text-[#3ac9d9] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3ac9d9] rounded-md px-2 py-1"
+                >
+                  <span className={isActive("/services2") ? "text-[#3ac9d9]" : ""}>
+                    <a href="/services2" className="hover:text-[#3ac9d9] transition-colors">
                       {current.Services2}
                     </a>
-                    <span className="text-sm mt-0.5">▼</span>
-                  </div>
-
-                  <ul 
-                    className={`absolute left-0 top-full mt-2 w-72 bg-white border border-gray-200 rounded-xl shadow-2xl py-2 transition-all duration-200 z-50 ${
-                      taxServicesOpen 
-                        ? "opacity-100 visible translate-y-0" 
-                        : "opacity-0 invisible -translate-y-1 pointer-events-none"
+                  </span>
+                  <span
+                    className={`text-xs transition-transform duration-200 ${
+                      taxServicesOpen ? "rotate-180" : ""
                     }`}
+                    aria-hidden="true"
                   >
-                    {TaxServiceItems.map((item) => (
-                      <li key={item.href} className="hover:bg-gray-50">
-                        <a
-                          href={item.href}
-                          className={`block px-6 py-3 text-sm transition-colors ${
-                            isActive(item.href) 
-                              ? "text-[#3ac9d9] font-semibold" 
-                              : "text-gray-700 hover:text-black"
-                          }`}
-                        >
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    ▼
+                  </span>
+                </button>
 
-                <a 
-                  href="/wealth-inheritance" 
-                  className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+                <div
+                  className={`absolute left-0 top-full mt-2 w-72 bg-white border border-gray-200 rounded-xl shadow-2xl py-2 z-50 transition-all duration-200 origin-top ${
+                    taxServicesOpen
+                      ? "opacity-100 visible scale-100"
+                      : "opacity-0 invisible scale-95 pointer-events-none"
+                  }`}
+                  role="menu"
                 >
-                  {current.fortuneInheritance}
-                </a>
+                  {taxServiceItems.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      role="menuitem"
+                      onClick={() => setTaxServicesOpen(false)}
+                      className={`block px-6 py-3 text-sm transition-colors hover:bg-gray-50 ${
+                        isActive(item.href)
+                          ? "text-[#3ac9d9] font-semibold"
+                          : "text-gray-700 hover:text-black"
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
 
-                <a 
-                  href="/contact" 
-                  className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+              <a
+                href="/wealth-inheritance"
+                className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+              >
+                {current.fortuneInheritance}
+              </a>
+
+              <a
+                href="/contact"
+                className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+              >
+                {current.contact}
+              </a>
+            </nav>
+
+            {/* Right Side */}
+            <div className="flex items-center gap-2 md:gap-3 lg:gap-4 ml-auto shrink-0">
+              
+              {/* Social Icons */}
+              <div className="hidden xl:flex gap-4 text-lg">
+                <a
+                  href="https://www.facebook.com/connexionshk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition-colors"
                 >
-                  {current.contact}
+                  <i className="fab fa-facebook-f"></i>
                 </a>
-              </nav>
+                <a
+                  href="https://www.instagram.com/connexionshk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition-colors"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/connexions-hk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#3ac9d9] transition-colors"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+              </div>
 
-              {/* Right Side: Social + Language + Hamburger */}
-              <div className="flex items-center gap-6 ml-auto">
-                {/* Social Icons */}
-                <div className="hidden md:flex gap-4 text-lg">
-                  <a
-                    href="https://www.facebook.com/connexionshk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#3ac9d9] transition-colors"
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/connexionshk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#3ac9d9] transition-colors"
-                  >
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/company/connexions-hk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#3ac9d9] transition-colors"
-                  >
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </div>
-
-                {/* Language Selector */}
-                <div className="flex items-center gap-1 rounded-full px-3 py-1.5 bg-white border border-gray-200">
-                  <button
-                    onClick={() => changeLanguage("en")}
-                    className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                      lang === "en" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-black hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    ENG
-                  </button>
-                  <div className="h-4 w-px bg-gray-600 mx-1" />
-                  <button
-                    onClick={() => changeLanguage("zh")}
-                    className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                      lang === "zh" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-black hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    繁
-                  </button>
-                  <div className="h-4 w-px bg-gray-600 mx-1" />
-                  <button
-                    onClick={() => changeLanguage("cn")}
-                    className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
-                      lang === "cn" ? "bg-[#3ac9d9] text-white shadow-sm" : "text-black hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    简
-                  </button>
-                </div>
-
-                {/* Hamburger */}
+              {/* Language Switcher */}
+              <div className="flex items-center gap-1 rounded-full px-2 py-1 bg-white border border-gray-200">
                 <button
-                  className="md:hidden text-black focus:outline-none"
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  aria-label="Toggle menu"
+                  onClick={() => changeLanguage("en")}
+                  className={`px-2.5 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "en"
+                      ? "bg-[#3ac9d9] text-white shadow-sm"
+                      : "text-black hover:bg-gray-100"
+                  }`}
                 >
-                  <i className={`fa ${isMobileMenuOpen ? "fa-times" : "fa-bars"} text-2xl`}></i>
+                  ENG
+                </button>
+                <div className="h-4 w-px bg-gray-300 mx-0.5" />
+                <button
+                  onClick={() => changeLanguage("zh")}
+                  className={`px-2.5 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "zh"
+                      ? "bg-[#3ac9d9] text-white shadow-sm"
+                      : "text-black hover:bg-gray-100"
+                  }`}
+                >
+                  繁
+                </button>
+                <div className="h-4 w-px bg-gray-300 mx-0.5" />
+                <button
+                  onClick={() => changeLanguage("cn")}
+                  className={`px-2.5 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                    lang === "cn"
+                      ? "bg-[#3ac9d9] text-white shadow-sm"
+                      : "text-black hover:bg-gray-100"
+                  }`}
+                >
+                  简
                 </button>
               </div>
+
+              {/* Hamburger */}
+              <button
+                className="md:hidden text-black focus:outline-none"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
+                aria-expanded={isMobileMenuOpen}
+              >
+                <i className={`fa ${isMobileMenuOpen ? "fa-times" : "fa-bars"} text-2xl`}></i>
+              </button>
             </div>
           </div>
         </div>
@@ -355,7 +413,6 @@ export default function Header() {
                 </a>
               </li>
 
-              {/* Mobile Services Dropdown */}
               <li className="relative">
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
@@ -384,7 +441,6 @@ export default function Header() {
                 )}
               </li>
 
-              {/* Mobile Tax Services Dropdown */}
               <li className="relative">
                 <button
                   onClick={() => setTaxServicesOpen(!taxServicesOpen)}
@@ -395,7 +451,7 @@ export default function Header() {
                 </button>
                 {taxServicesOpen && (
                   <ul className="pl-4 mt-2 space-y-2">
-                    {TaxServiceItems.map((item) => (
+                    {taxServiceItems.map((item) => (
                       <li key={item.href} className="hover:bg-gray-200 px-2 py-1 rounded-md">
                         <a
                           href={item.href}
@@ -425,15 +481,11 @@ export default function Header() {
               </li>
             </ul>
 
-            {/* Social icons in mobile menu */}
             <div className="mt-8 pt-6 border-t border-gray-200">
               <p className="text-sm text-gray-600 mb-4">Follow us</p>
               <div className="flex gap-6 text-2xl text-black">
                 <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
                   <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/connexionshk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
-                  <i className="fab fa-instagram"></i>
                 </a>
                 <a href="https://www.linkedin.com/company/connexions-hk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
                   <i className="fab fa-linkedin-in"></i>
