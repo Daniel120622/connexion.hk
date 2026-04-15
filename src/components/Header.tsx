@@ -76,14 +76,14 @@ export default function Header() {
     pathname === path || pathname?.startsWith(path), [pathname]
   );
 
-  // Close dropdowns when route changes
+  // Close all menus when route changes
   useEffect(() => {
     setServicesOpen(false);
     setTaxServicesOpen(false);
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Header scale for large high-DPI screens
+  // Header scale adjustment for large high-DPI screens
   useEffect(() => {
     const updateHeaderScale = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -142,50 +142,60 @@ export default function Header() {
                 </a>
               </div>
 
-              {/* Desktop Nav */}
-              <nav className="hidden md:flex gap-8 lg:gap-8 xl:gap-8 text-base font-medium justify-center items-center flex-1">
-                <a href="/" className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex gap-8 lg:gap-10 xl:gap-12 text-base font-medium justify-center items-center flex-1">
+                <a 
+                  href="/" 
+                  className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+                >
                   {current.home}
                 </a>
-                <a href="/about-us" className={isActive("/about-us") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                <a 
+                  href="/about-us" 
+                  className={isActive("/about-us") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+                >
                   {current.aboutUs}
                 </a>
-                <a href="/local-immigration" className={isActive("/local-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                <a 
+                  href="/local-immigration" 
+                  className={isActive("/local-immigration") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+                >
                   {current.localImmigration}
                 </a>
 
-                {/* Corporate Services Dropdown */}
+                {/* Stable Corporate Services Dropdown */}
                 <div
-                  className="relative"
+                  className="relative group"
                   ref={servicesRef}
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 cursor-pointer">
                     <a
                       href="/services"
-                      className={isActive("/services") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}
+                      className={isActive("/services") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
                     >
                       {current.services}
                     </a>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setServicesOpen((v) => !v);
-                      }}
-                      className="ml-2 p-1"
-                      aria-expanded={servicesOpen}
-                    >
-                      ▼
-                    </button>
+                    <span className="text-sm mt-0.5">▼</span>
                   </div>
-                  <ul className={`absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 transition-opacity duration-200 ${servicesOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}>
+
+                  <ul 
+                    className={`absolute left-0 top-full mt-2 w-72 bg-white border border-gray-200 rounded-xl shadow-2xl py-2 transition-all duration-200 z-50 ${
+                      servicesOpen 
+                        ? "opacity-100 visible translate-y-0" 
+                        : "opacity-0 invisible -translate-y-1 pointer-events-none"
+                    }`}
+                  >
                     {servicesItems.map((item) => (
-                      <li key={item.href} className="hover:bg-gray px-4 py-2 rounded-md">
+                      <li key={item.href} className="hover:bg-gray-50">
                         <a
                           href={item.href}
-                          className={`block ${isActive(item.href) ? "text-black font-semibold" : "text-gray-700"}`}
+                          className={`block px-6 py-3 text-sm transition-colors ${
+                            isActive(item.href) 
+                              ? "text-[#3ac9d9] font-semibold" 
+                              : "text-gray-700 hover:text-black"
+                          }`}
                         >
                           {item.label}
                         </a>
@@ -194,38 +204,39 @@ export default function Header() {
                   </ul>
                 </div>
 
-                {/* Accountancy & Tax Dropdown */}
+                {/* Stable Accountancy & Tax Dropdown */}
                 <div
-                  className="relative"
+                  className="relative group"
                   ref={taxRef}
                   onMouseEnter={() => setTaxServicesOpen(true)}
                   onMouseLeave={() => setTaxServicesOpen(false)}
                 >
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 cursor-pointer">
                     <a
                       href="/services2"
-                      className={isActive("/services2") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}
+                      className={isActive("/services2") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
                     >
                       {current.Services2}
                     </a>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setTaxServicesOpen((v) => !v);
-                      }}
-                      className="ml-2 p-1"
-                      aria-expanded={taxServicesOpen}
-                    >
-                      ▼
-                    </button>
+                    <span className="text-sm mt-0.5">▼</span>
                   </div>
-                  <ul className={`absolute left-0 top-full mt-2 w-64 bg-gray-100 border border-gray-300 rounded-md shadow-2xl py-2 transition-opacity duration-200 ${taxServicesOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}>
+
+                  <ul 
+                    className={`absolute left-0 top-full mt-2 w-72 bg-white border border-gray-200 rounded-xl shadow-2xl py-2 transition-all duration-200 z-50 ${
+                      taxServicesOpen 
+                        ? "opacity-100 visible translate-y-0" 
+                        : "opacity-0 invisible -translate-y-1 pointer-events-none"
+                    }`}
+                  >
                     {TaxServiceItems.map((item) => (
-                      <li key={item.href} className="hover:bg-gray-200 px-4 py-2 rounded-md">
+                      <li key={item.href} className="hover:bg-gray-50">
                         <a
                           href={item.href}
-                          className={`block ${isActive(item.href) ? "text-black font-semibold" : "text-gray-700"}`}
+                          className={`block px-6 py-3 text-sm transition-colors ${
+                            isActive(item.href) 
+                              ? "text-[#3ac9d9] font-semibold" 
+                              : "text-gray-700 hover:text-black"
+                          }`}
                         >
                           {item.label}
                         </a>
@@ -234,32 +245,53 @@ export default function Header() {
                   </ul>
                 </div>
 
-                <a href="/wealth-inheritance" className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                <a 
+                  href="/wealth-inheritance" 
+                  className={isActive("/wealth-inheritance") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+                >
                   {current.fortuneInheritance}
                 </a>
 
-                <a href="/contact" className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition"}>
+                <a 
+                  href="/contact" 
+                  className={isActive("/contact") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
+                >
                   {current.contact}
                 </a>
               </nav>
 
-              {/* Right side */}
+              {/* Right Side: Social + Language + Hamburger */}
               <div className="flex items-center gap-6 ml-auto">
-                {/* Social icons */}
-                <div className="hidden md:flex gap-4">
-                  <a href="https://www.facebook.com/connexionshk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
+                {/* Social Icons */}
+                <div className="hidden md:flex gap-4 text-lg">
+                  <a
+                    href="https://www.facebook.com/connexionshk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#3ac9d9] transition-colors"
+                  >
                     <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href="https://www.instagram.com/connexionshk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
+                  <a
+                    href="https://www.instagram.com/connexionshk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#3ac9d9] transition-colors"
+                  >
                     <i className="fab fa-instagram"></i>
                   </a>
-                  <a href="https://www.linkedin.com/company/connexions-hk" target="_blank" rel="noopener noreferrer" className="hover:text-[#3ac9d9] transition">
+                  <a
+                    href="https://www.linkedin.com/company/connexions-hk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#3ac9d9] transition-colors"
+                  >
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 </div>
 
-                {/* Language selector */}
-                <div className="flex items-center gap-1 rounded-full px-3 py-1.5">
+                {/* Language Selector */}
+                <div className="flex items-center gap-1 rounded-full px-3 py-1.5 bg-white border border-gray-200">
                   <button
                     onClick={() => changeLanguage("en")}
                     className={`px-3 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
@@ -323,6 +355,7 @@ export default function Header() {
                 </a>
               </li>
 
+              {/* Mobile Services Dropdown */}
               <li className="relative">
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
@@ -332,7 +365,7 @@ export default function Header() {
                   <span className={`ml-2 transition-transform ${servicesOpen ? "rotate-180" : "rotate-0"}`}>▼</span>
                 </button>
                 {servicesOpen && (
-                  <ul className="pl-4 mt-2 space-y-2 bg-transparent">
+                  <ul className="pl-4 mt-2 space-y-2">
                     {servicesItems.map((item) => (
                       <li key={item.href} className="hover:bg-gray-200 px-2 py-1 rounded-md">
                         <a
@@ -351,6 +384,7 @@ export default function Header() {
                 )}
               </li>
 
+              {/* Mobile Tax Services Dropdown */}
               <li className="relative">
                 <button
                   onClick={() => setTaxServicesOpen(!taxServicesOpen)}
@@ -360,7 +394,7 @@ export default function Header() {
                   <span className={`ml-2 transition-transform ${taxServicesOpen ? "rotate-180" : "rotate-0"}`}>▼</span>
                 </button>
                 {taxServicesOpen && (
-                  <ul className="pl-4 mt-2 space-y-2 bg-transparent">
+                  <ul className="pl-4 mt-2 space-y-2">
                     {TaxServiceItems.map((item) => (
                       <li key={item.href} className="hover:bg-gray-200 px-2 py-1 rounded-md">
                         <a
