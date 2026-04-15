@@ -132,17 +132,17 @@ export default function Header() {
 
 const navTextSize =
   lang === "en"
-    ? "text-[11px] xl:text-sm"
+    ? "text-[11px] xl:text-[12px]"
     : lang === "zh" || lang === "cn"
-      ? "text-[15px] lg:text-[14px] xl:text-sm"
-      : "text-sm lg:text-base";
+      ? "text-[12px] lg:text-sm"
+      : "text-sm";
     
 
   return (
     <header className="sticky top-0 z-50">
       <div className="bg-gray-100 text-black shadow-md border-b border-gray-200">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-6xl">
-          <div className="flex items-center justify-between h-16 md:h-18 lg:h-20">
+          <div className="flex items-center justify-between h-16 md:h-18">
             
             {/* Logo */}
             <div className="flex items-center shrink-0">
@@ -156,8 +156,7 @@ const navTextSize =
             </div>
 
             {/* Desktop Navigation */}
-            <nav className={`hidden md:flex flex-1 items-center justify-center min-w-0 gap-3 lg:gap-5 xl:gap-8 font-medium ${navTextSize}`}>
-              <a
+              <nav className={`hidden md:flex flex-1 items-center justify-center gap-3 lg:gap-4 xl:gap-6 font-medium ${navTextSize} leading-none`}>              <a
                 href="/"
                 className={isActive("/") ? "text-[#3ac9d9]" : "hover:text-[#3ac9d9] transition-colors"}
               >
