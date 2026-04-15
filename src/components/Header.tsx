@@ -140,7 +140,7 @@ const navTextSize =
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="bg-gray-100 text-black shadow-md border-b border-gray-200">
+      <div className="bg-gray-100 text-black border-b border-gray-200 shadow-[0_6px_18px_-8px_rgba(0,0,0,0.25)] transition-shadow duration-300">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 max-w-screen-6xl">
           <div className="flex items-center justify-between h-16 md:h-18">
             
