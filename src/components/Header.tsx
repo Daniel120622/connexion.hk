@@ -312,9 +312,9 @@ const navTextSize =
 
             {/* Right Side */}
             <div className="flex items-center gap-2 md:gap-3 lg:gap-4 ml-auto shrink-0">
-              
-              {/* Social Icons */}
-              <div className="flex xl:flex gap-3 text-lg">
+
+              {/* Social Icons - Smaller size */}
+              <div className="flex xl:flex gap-3 text-base md:text-lg">
                 <a
                   href="https://www.facebook.com/connexionshk"
                   target="_blank"
@@ -333,11 +333,11 @@ const navTextSize =
                 </a>
               </div>
 
-              {/* Language Switcher */}
+              {/* Language Switcher - Smaller font size */}
               <div className="flex items-center gap-1 rounded-full px-2 py-1 bg-white border border-gray-200">
                 <button
                   onClick={() => changeLanguage("en")}
-                  className={`px-2.5 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                  className={`px-2.5 py-1 text-[10px] md:text-xs font-medium rounded-full transition-all ${
                     lang === "en"
                       ? "bg-[#3ac9d9] text-white shadow-sm"
                       : "text-black hover:bg-gray-100"
@@ -348,7 +348,7 @@ const navTextSize =
                 <div className="h-3 w-px bg-gray-300 mx-0.5" />
                 <button
                   onClick={() => changeLanguage("zh")}
-                  className={`px-2.5 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                  className={`px-2.5 py-1 text-[10px] md:text-xs font-medium rounded-full transition-all ${
                     lang === "zh"
                       ? "bg-[#3ac9d9] text-white shadow-sm"
                       : "text-black hover:bg-gray-100"
@@ -359,7 +359,7 @@ const navTextSize =
                 <div className="h-3 w-px bg-gray-300 mx-0.5" />
                 <button
                   onClick={() => changeLanguage("cn")}
-                  className={`px-2.5 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
+                  className={`px-2.5 py-1 text-[10px] md:text-xs font-medium rounded-full transition-all ${
                     lang === "cn"
                       ? "bg-[#3ac9d9] text-white shadow-sm"
                       : "text-black hover:bg-gray-100"
@@ -368,7 +368,6 @@ const navTextSize =
                   简
                 </button>
               </div>
-
               {/* Hamburger */}
               <button
                 className="md:hidden text-black focus:outline-none"
