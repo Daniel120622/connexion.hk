@@ -314,7 +314,7 @@ const navTextSize =
             <div className="flex items-center gap-2 md:gap-3 lg:gap-4 ml-auto shrink-0">
               
               {/* Social Icons */}
-              <div className="hidden xl:flex gap-4 text-lg">
+              <div className="flex xl:flex gap-3 text-lg">
                 <a
                   href="https://www.facebook.com/connexionshk"
                   target="_blank"
@@ -322,14 +322,6 @@ const navTextSize =
                   className="hover:text-[#3ac9d9] transition-colors"
                 >
                   <i className="fab fa-facebook-f"></i>
-                </a>
-                <a
-                  href="https://www.instagram.com/connexionshk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#3ac9d9] transition-colors"
-                >
-                  <i className="fab fa-instagram"></i>
                 </a>
                 <a
                   href="https://www.linkedin.com/company/connexions-hk"
@@ -353,7 +345,7 @@ const navTextSize =
                 >
                   ENG
                 </button>
-                <div className="h-4 w-px bg-gray-300 mx-0.5" />
+                <div className="h-3 w-px bg-gray-300 mx-0.5" />
                 <button
                   onClick={() => changeLanguage("zh")}
                   className={`px-2.5 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
@@ -364,7 +356,7 @@ const navTextSize =
                 >
                   繁
                 </button>
-                <div className="h-4 w-px bg-gray-300 mx-0.5" />
+                <div className="h-3 w-px bg-gray-300 mx-0.5" />
                 <button
                   onClick={() => changeLanguage("cn")}
                   className={`px-2.5 py-1 text-xs md:text-sm font-medium rounded-full transition-all ${
