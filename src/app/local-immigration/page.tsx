@@ -109,7 +109,7 @@ export default function LocalImmigrationPage() {
         topTalentPassScheme:"高端人才通行证计划",
         topTalentPassSchemeDesc1: "高才通计划旨在吸引世界各地具备丰富工作经验及高学历的高端人才到香港发展，包括：高收入人士（年收入超过250万港币）和 世界顶尖大学之学士学位毕业生 ",
         topTalentPassSchemeDesc2: "。如具备相关条件，申请人需提交申请数据。视乎申请情况，申请人最快可数天至数星期便可以获得入境批准，为目前香港较快可以获得签证及居民身份的计划。",
-        topTalentPassSchemeLink: "合资格大学名单",
+        topTalentPassSchemeLink: "(合资格大学名单)",
         
 
         NCIES_title:"新资本投资者入境计划",
@@ -171,7 +171,6 @@ export default function LocalImmigrationPage() {
           </h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light opacity-95">
             {current.heroDesc}
-            {current.intro}
           </p>
         </div>
 
@@ -185,6 +184,9 @@ export default function LocalImmigrationPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
             {current.ContentSections}
           </h2>
+          <p className="text-center text-lg md:text-g text-gray-700 mb-12 max-w-3xl mx-auto">
+            {current.intro}
+          </p>
 
         
           <div className="space-y-3">
@@ -210,11 +212,18 @@ export default function LocalImmigrationPage() {
                 <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
               </summary>
               <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>{current.topTalentPassSchemeDesc1}<a href = "https://www.immd.gov.hk/pdf/aggregate_list.pdf" className="text-sm text-blue-500 hover:underline ml-2" target="_blank" rel="noopener noreferrer">
-                  {current.topTalentPassSchemeLink}
-                </a>{current.topTalentPassSchemeDesc2}</p>
-                <p></p>
-                
+                <p>
+                  {current.topTalentPassSchemeDesc1 + " "}   
+                  <a 
+                    href="https://www.immd.gov.hk/pdf/aggregate_list.pdf" 
+                    className="text-blue-700 hover:text-teal-700 underline underline-offset-4 transition-colors"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    {current.topTalentPassSchemeLink}
+                  </a>
+                  {current.topTalentPassSchemeDesc2}
+                </p>
               </div>
             </details>
 

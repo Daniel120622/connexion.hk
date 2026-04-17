@@ -30,10 +30,12 @@ export default function AboutUs() {
   return (
     <section className="about-us bg-white py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-center">{current.title}</h2>
-        <p className="text-lg mb-4 leading-relaxed">
-          {current.description}
-        </p>
+        <h2 className="text-3xl font-bold mb-6 text-center">
+          {current.title}
+        </h2>
+            <p className="text-center text-lg md:text-g text-gray-700 mb-12 mx-auto">
+              {current.description}
+            </p>    
       </div>
     </section>
   );

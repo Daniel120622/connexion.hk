@@ -9,7 +9,7 @@ import { useLanguage } from '@/context/LanguageContext';
 export const navContent = {
   en: {
     companyName: "Connexions",
-    companySlogan: "Your Trusted Partner for Comprehensive Business Solutions",
+    companySlogan: "Your Life Good Partner for Comprehensive Business Solutions",
     button1: "Contact Us",
     button2: "View All Services",
 
@@ -44,7 +44,7 @@ export const navContent = {
 
   zh: {
     companyName: "宏達策略",
-    companySlogan: "您的信賴夥伴，提供全面的商業解決方案",
+    companySlogan: "你的生活好夥伴，提供全面的商業解決方案",
     button1: "聯絡我們",
     button2: "查看了解更多",
 
@@ -78,7 +78,7 @@ export const navContent = {
 
   cn: {
     companyName: "宏达策略",
-    companySlogan: "您的信赖伙伴，提供全面的商业解决方案",
+    companySlogan: "您的生活好伙伴，提供全面的商业解决方案",
     button1: "联系我们",
     button2: "查看了解更多",
 
