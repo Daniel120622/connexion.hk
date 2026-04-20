@@ -53,7 +53,7 @@ export default function ServicesOverviewPage() {
           BusinessAdvisoryDesc: "專業的商業諮詢和顧問服務，幫助您應對市場挑戰並抓住增長機會。",
           TaxConsultingTitle: "稅務諮詢服務",
           TaxConsultingDesc: "專業稅務諮詢，優化您的稅務策略，確保合規並最大化節稅效益。",
-          OfficeServiceTitle: "公司註冊地址服務",
+          OfficeServiceTitle: "辦公室服務",
           OfficeServiceDesc: "香港公司須有本地註冊地址，宏達策略不僅提供地址，更代收信件，做您的後盾"
         },
   
@@ -77,7 +77,7 @@ export default function ServicesOverviewPage() {
           BusinessAdvisoryDesc: "专业的商业咨询和顾问服务，帮助您应对市场挑战并抓住增长机会。",
           TaxConsultingTitle: "税务咨询服务",
           TaxConsultingDesc: "专业税务咨询，优化您的税务策略，确保合规并最大化节税效益。",
-          OfficeServiceTitle: "公司注册地址服务",
+          OfficeServiceTitle: "办公室服务",
           OfficeServiceDesc: "香港公司须有本地注册地址，宏达策略不仅提供地址，更代收信件，做您的后盾"
      }
       };

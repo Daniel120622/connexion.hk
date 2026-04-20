@@ -11,7 +11,7 @@ export default function BusinessAdvisoryPage() {
   // ── Content ───────────────────────────────────────
   const content = {
     en: {
-      heroTitle: "Business Advisory & Corporate Services",
+      heroTitle: "Business Advisory",
       heroDesc:"Strategic business modelling, pre-IPO restructuring, M&A advisory, tax planning, profit distribution, and professional daily corporate administration.",
       benefitsTitle: "Why Choose Our Business Advisory Services?",
       intro1: "Business collaboration and corporate merger and acquisition are growing in dynamic and diversified commercial society. Over the years, we have participated in pre-IPO restructuring and business modelling. We also advise on shareholding structure in corporate setup and merger and acquisition, profit distribution and tax planning in ongoing business as well as corporate takeover planning. And we are competent in corporate routine management and administration. Coupled with our immersed knowledge and experience in accounting, tax, financial and human resources, our all-rounded services are highly regarded by our clients.",
@@ -21,7 +21,7 @@ export default function BusinessAdvisoryPage() {
     },
 
     zh: {
-      heroTitle: "商業顧問及企業服務",
+      heroTitle: "商業咨詢服務",
       heroDesc:
         "策略性業務規劃、上市前重組、併購顧問、稅務策劃、利潤分配，以及專業的日常企業行政管理。",
       benefitsTitle: "為何選擇我們的商業顧問服務？",
@@ -32,7 +32,7 @@ export default function BusinessAdvisoryPage() {
     },
 
     cn: {
-      heroTitle: "商业顾问及企业服务",
+      heroTitle: "商业咨询服务",
       heroDesc:
       "策略性业务规划、上市前重组、并购顾问、税务策划、利润分配，以及专业的日常企业行政管理。",
       benefitsTitle: "为何选择我们的商业顾问服务？",

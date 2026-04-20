@@ -13,7 +13,7 @@ export default function TaxConsultingPage() {
   // ── Content ───────────────────────────────────────
   const content = {
     en: {
-      heroTitle: "Tax Consulting & Advisory Services",
+      heroTitle: "Tax Services",
       heroDesc: "Strategic tax planning, offshore profit claims, profits tax compliance, international tax structuring, and dispute resolution for Hong Kong and global businesses.",
       benefitsTitle: "Why Choose Our Tax Consulting Services?",
       intro1:"Hong Kong’s tax system is simple. At present, the company’s profit tax rate is 8.25% on assessable profits for first HK$2M and 16.5% on any part of assessable profits over HK$2M. There is no capital gains tax, dividend withholding tax, consumption tax or VAT in Hong Kong. Hong Kong adopts the principle of source of income, i.e. only profits originating in Hong Kong must be taxed in Hong Kong, and profits from other places is exempted from profits tax in Hong Kong. Through the effective tax planning, the company can enjoy much tax saving.", 
@@ -24,7 +24,7 @@ export default function TaxConsultingPage() {
     },
 
     zh: {
-      heroTitle: "稅務顧問及諮詢服務",
+      heroTitle: "稅務服務",
       heroDesc: "策略性稅務規劃、離岸利潤申索、利得稅合規、國際稅務架構，以及香港及全球企業的爭議解決。",
       benefitsTitle: "為何選擇我們的稅務顧問服務？",
       intro1: "香港的稅制是全世界最簡單的。目前公司利得稅稅率首港幣200萬盈利為8.25%, 其後則為16.5％。在香港沒有資本利得稅、股息預扣稅、消費稅及增值稅。香港採用地域原則征稅，即只有源自香港的利潤才須在香港課稅，而源自其他地方的利潤，則不須在香港繳納利得稅。通過有效的稅務籌劃，公司可以享受最大的節稅。我們為您的企業管理安排詳細的稅務服務。我們擔當您的稅務代表，有效與稅務局溝通，協助您及您的公司嚴格處理稅務申報及文件。",
@@ -34,7 +34,7 @@ export default function TaxConsultingPage() {
     },
 
     cn: {
-      heroTitle: "税务顾问及咨询服务",
+      heroTitle: "税务服务",
       heroDesc: "策略性税务规划、离岸利润申索、利得税合规、国际税务架构，以及香港及全球企业的争议解决。",
       benefitsTitle: "为何选择我们的税务顾问服务？",
       intro1: "香港的税制是全世界最简单的。目前公司利得税税率首港币200万盈利为8.25%, 其后则为16.5％。在香港没有资本利得税、股息预扣税、消费税及增值税。香港采用地域原则征税，即只有源自香港的利润才须在香港课税，而源自其他地方的利润，则不须在香港缴纳利得税。通过有效的税务筹划，公司可以享受最大的节税。我们为您的企业管理安排详细的税务服务。我们担当您的税务代表，有效与税务局沟通，协助您及您的公司严格处理税务申报及文件。",
@@ -53,7 +53,7 @@ export default function TaxConsultingPage() {
       <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/services/businessAdv.jpg" // ← replace with your actual image (e.g. charts, calculator, global map, documents)
+            src="/images/services/tax.jpg" // ← replace with your actual image (e.g. charts, calculator, global map, documents)
             alt="Tax consulting background"
             className="
               absolute inset-0 h-full w-full

@@ -21,7 +21,7 @@ export default function CompanySecretaryPage() {
         },
 
         zh: {
-          heroTitle: "公司註冊地址服務",
+          heroTitle: "辦公室服務",
           heroDesc: "確保您的香港公司全面合規及順暢的公司治理。",
           MainTitle: "專業的香港公司秘書支援",
           intro1:"每一家香港公司必須維持一個香港註冊辦事處，為維持公司的法定記錄和接收政府文書。註冊地址必須是本地的實在地址，不能只是郵政信箱。",
@@ -30,7 +30,7 @@ export default function CompanySecretaryPage() {
           ctaButton: "聯絡我們"
         },
         cn: {
-          heroTitle: "公司注册地址服务",
+          heroTitle: "办公室服务",
           heroDesc: "确保您的香港公司全面合规及顺畅的公司治理。",
           MainTitle: "专业的香港公司秘书支援",
           intro1:"每一家香港公司必须维持一个香港注册办事处，为维持公司的法定记录和接收政府文书。注册地址必须是本地的实在地址，不能只是邮政信箱。",
