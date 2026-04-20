@@ -324,7 +324,7 @@ const navTextSize =
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/connexions-hk"
+                  href="https://www.linkedin.com/company/connexions-consulting-limited-hong-kong/?originalSubdomain=hk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#3ac9d9] transition-colors"
