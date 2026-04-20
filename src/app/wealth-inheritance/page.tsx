@@ -38,11 +38,8 @@ export default function WealthInheritancePage() {
             "3. Manage legal risks",
             "4. Set up overseas trust protected by oversea laws",
           ],
-
-          ctaTitle: "Start Your Wealth Inheritance Planning",
-          ctaDesc: "Most clients begin with a personalized consultation to assess their unique inheritance needs.",
-          ctaButton: "Schedule Your Consultation"
-
+          ctaDesc: "We look forward to being your reliable partner",
+          ctaButton: "Contact us today to learn more"
         },
 
         zh: {
@@ -74,10 +71,9 @@ export default function WealthInheritancePage() {
             "3. 管理法律風險",
             "4. 成立海外信託以得到海外法律保障"
           ],
-
-          ctaTitle: "開始您的財富繼承規劃",
-          ctaDesc: "大多數客戶從個人化諮詢開始，以評估其獨特的繼承需求。",
-          ctaButton: "安排您的諮詢"
+          
+          ctaDesc: "我們期待成為您在香港及海外移民、居留權及商業成功的可靠夥伴。",
+          ctaButton: "立即聯絡我們，了解更多"
         },
       
 
@@ -111,9 +107,8 @@ export default function WealthInheritancePage() {
           "4. 成立海外信托以得到海外法律保障"
           ],
 
-          ctaTitle: "开始您的财富继承规划",
-          ctaDesc: "大多数客户从个人化咨询开始，以评估其独特的继承需求。 ",
-          ctaButton: "安排您的咨询"
+          ctaDesc: "我们期待成为您在香港及海外移民、居留权及商业成功的可靠伙伴。",
+          ctaButton: "立即联络我们，了解更多",
 
         }
       };
