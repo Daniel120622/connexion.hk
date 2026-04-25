@@ -13,7 +13,7 @@ export default function ServicesOverviewPage() {
       const content = {
         en: {
           heroTitle: "Corporate Services",
-          heroSubtitle: "Reliable solutions for company setup, compliance, immigration, and long-term business success in Hong Kong.",
+          heroSubtitle: "Connexions provides your business with a comprehensive range of services and solutions.",
           intro: "Welcome to Connexions. We are your dedicated partner for launching and managing your business in Hong Kong. From company incorporation and secretarial services to accounting, tax, and business management — we offer comprehensive, one-stop support to meet all your corporate needs locally and globally.",
           HKLimitedCompanyTitle: "Hong Kong / Offshore Company Registration",
           HKLimitedCompanyDesc: "Fast and compliant Hong Kong company registration with full setup and banking support.",
