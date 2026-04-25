@@ -28,9 +28,10 @@ export default function LocalImmigrationPage() {
         // NCIES content
         NCIES_title:"New Capital Investment Entrant Scheme",
         NCIES_description: "The New Capital Investment Entrant Scheme was launched on 1 March 2024,. The Scheme aims to attract high-net-worth individuals to settle in Hong Kong and boarden the talent pool for the economic development in the territory. Coupled with the well establishment regulations as the asset and wealth management hub and an extensive investment portfolio, the Scheme offers good entry for applicants who are interested to reside in Hong Kong.", 
-        NCIESRequirements1 : "1. Applicants are required to submit relevant proof that they have absolute beneficial ownership of net assets of no less than HKD30 million or equivalent for 24 consecutive months before lodging the application",
-        NCIESRequirements2 : "2. Within the specified time limit, the applicant needs to invest a total of HK$30 million in permissible investment assets, including at least HK$27 million in financial assets such as stocks and bonds, non-residential real estate etc, while another HK$3 million in CIES Investment Portfolio which will be set up and managed by the Hong Kong Investment Corporation Limited in view to supporting the development of innovation and technology industries and others strategic industries.",
-        NCIESRequirements3 : "3. The applicants will be granted with Hong Kong residence visa to reside in Hong Kong upon the completion of the required investment.",
+        NCIESRequirements1 : "1. Applicants who are over 18 years old and have obtained a permanent resident status in a foreign country can submit an application to the Immigration Department.",
+        NCIESRequirements2 : "2. Applicants are required to submit relevant proof that they have absolute beneficial ownership of net assets of no less than HKD30 million or equivalent for 6 consecutive months before lodging the application",
+        NCIESRequirements3 : "3. Within the specified time limit, the applicant needs to invest a total of HK$30 million in permissible investment assets, including at least HK$27 million in financial assets such as stocks and bonds, non-residential real estate etc, while another HK$3 million in CIES Investment Portfolio which will be set up and managed by the Hong Kong Investment Corporation Limited in view to supporting the development of innovation and technology industries and others strategic industries.",
+        NCIESRequirements4 : "4. The applicants will be granted with Hong Kong residence visa to reside in Hong Kong upon the completion of the required investment.",
 
         // General Employment Policy content
         generalEmploymentPolicy:"General Employment Policy (GEP)",
@@ -84,23 +85,24 @@ export default function LocalImmigrationPage() {
         
         NCIES_title:"新資本投資者入境計劃",
         NCIES_description: "新投資移民計劃為政府自二零二四年三月一日重啟之入境計劃，旨於吸引高淨值人士在香港落戶，帶動香港之經濟發展。此計畫門檻具吸引力、香港作為資產及財富管理樞紐之法規完善，計劃投資組合豐富。",
-        NCIESRequirements1 : "1. 申請人需提交其在申請前連續24個月絕對實益擁有不低於等值港幣3000萬淨資產之相關證明。",
-        NCIESRequirements2 : "2. 於指定時限，申請人需投資共港幣3000萬於指定投資資產類別中，包括其中最少港幣2700萬於股票債券等金融資產、非住宅類房地產等，另其中港幣300萬於支持創新及科技行業和其他重點行業發展之「資本投資者入境計劃投資組合」, 此组合由香港投资管理有限公司成立和管理。",
-        NCIESRequirements3 : "3. 完成投資後，申請人將獲取香港簽證以在香港居住。",
+        NCIESRequirements1 : "1. 年滿18周歲而取得外地永久居民身份之申請人可向入境處遞交申請。",
+        NCIESRequirements2 : "2. 申請人需提交其在申請前連續6個月絕對實益擁有不低於等值港幣3000萬淨資產之相關證明。",
+        NCIESRequirements3 : "3. 於指定時限，申請人需投資共港幣3000萬於指定投資資產類別中，包括其中最少港幣2700萬於股票債券等金融資產、非住宅類房地產等，另其中港幣300萬於支持創新及科技行業和其他重點行業發展之「資本投資者入境計劃投資組合」, 此组合由香港投资管理有限公司成立和管理。",
+        NCIESRequirements4 : "4. 完成投資後，申請人將獲取香港簽證以在香港居住。",
 
         generalEmploymentPolicy:"一般就業政策",
         generalEmploymentPolicyDesc: "持有中華人民共和國護照而居於海外的中國公民，且已在海外擁有永久居民身份，在緊接申請前已在海外居住不少於一年，能保證申請是從海外遞交，如申請人具備香港特區所需而又缺乏的特別技能、知識或經驗，可以根據一般就業政策申請來港工作。一般就業政策並無配額限制，亦不限行業。申請人需要具備良好的教育背景，通常指持有有關範疇的學士學位，但在特殊情況下，具備良好的技術資格、經證明的專業能力或備有文件證明的有關經驗和成就，亦可予接受。同時申請人必須已確實獲得聘用而從事與其學歷或工作經驗有關的工作，且不能輕易覓得本地人擔任，薪酬福利與當時香港專才的市場薪酬福利大致相同，方可獲考慮發放簽證。",
         
-        qualityMigrantAdmissionScheme:"優質人才入境計劃",
-        qualityMigrantAdmissionSchemeDesc: "優秀人才入境計劃是一項設有配額的移民吸納計劃，旨在吸引高技術人才或優才來港定居，藉以提升香港的競爭力。獲批准的申請人毋須在來港定居前先獲得本地雇主聘任。所有申請人均必須首先符合基本資格的要求，才可根據計劃所設分數制度，“綜合申請分制”和“成就計分制”和“成就計分制。核准的申請人可帶同配偶及18歲以下未婚及受養的子女來港，惟其必須能自行負擔受養人在香港的生活和住宿，不依賴公共援助。 ",
+        qualityMigrantAdmissionScheme:"優秀人才入境計劃",
+        qualityMigrantAdmissionSchemeDesc: "優秀人才入境計劃是一項設有配額的移民吸納計劃，旨在吸引高技術人才或優才來港定居，藉以提升香港的競爭力。獲批准的申請人毋須在來港定居前先獲得本地雇主聘任。所有申請人均必須首先符合基本資格的要求，才可根據計劃所設分數制度，“綜合申請分制”和“成就計分制”和“成就計分制。核准的申請人可帶同配偶及18歲以下未婚及受養的子女來港，惟其必須能自行負擔受養人在香港的生活和住宿，不需依賴公共援助。 ",
 
-        ASMTP: "內地人才計畫",
+        ASMTP: "輸入內地人才計劃",
         ASMTPdesc: "具備香港特區所需而又缺乏的特別技能、知識或經驗的內地中國居民，可以根據輸入內地人才計劃申請來港工作。輸入內地人才計劃並無配額限制，亦不限行業。申請人需要具備良好的教育背景，通常指持有有關範疇的學士學位，但在特殊情況下，具備良好的技術資格、經證明的專業能力或備有文件證明的有關經驗和成就，亦可予接受。同時申請人必須已確實獲得聘用而從事與其學歷或工作經驗有關的工作，且不能輕易覓得本地人擔任，薪酬福利與當時香港專才的市場薪酬福利大致相同，方可獲考慮發放簽證。",
 
         Visas: "其他簽證",
         Visas_subtitle1: "受養人來港居留:",
         VisaDesc1: "主申請人獲得合資格的簽證後，其受養人需要申請獨立的受養人簽證來港。我們會協助辦理。",
-        Visas_subtitle2:  "各類延長住宿期限申請:",
+        Visas_subtitle2:  "各類延長逗留期限申請:",
         VisaDesc2: "簽證即將到期，您便要申請延期居留。我們會在您的簽注到期前主動提醒您準備辦理續簽，並在接下來的時間協助您準備續簽申請資料，同時規劃您的整個續簽過程，提高申請通過率。",
         
         
@@ -132,9 +134,10 @@ export default function LocalImmigrationPage() {
 
         NCIES_title:"新资本投资者入境计划",
         NCIES_description: "新投资移民计划为政府自二零二四年三月一日重启之入境计划，旨于吸引高净值人士在香港落户，带动香港之经济发展。此计画门槛具吸引力、香港作为资产及财富管理枢纽之法规完善，计划投资组合丰富。",
-        NCIESRequirements1 : "1. 申请人需提交其在申请前连续24个月绝对实益拥有不低于等值港币3000万净资产之相关证明。",
-        NCIESRequirements2 : "2. 于指定时限，申请人需投资共港币3000万于指定投资资产类别中，包括其中最少港币2700万于股票债券等金融资产、非住宅类房地产等，另其中港币300万于支持创新及科技行业和其他重点行业发展之「资本投资者入境计划投资组合」, 此组合由香港投资管理有限公司成立和管理。 ",
-        NCIESRequirements3 : "3. 完成投资后，申请人将获取香港签证以在香港居住。 ",
+        NCIESRequirements1 : "1. 年满18周岁而取得外地永久居民身份之申请人可向入境处递交申请。",
+        NCIESRequirements2 : "2. 申请人需提交其在申请前连续6个月绝对实益拥有不低于等值港币3000万净资产之相关证明。",
+        NCIESRequirements3 : "3. 于指定时限，申请人需投资共港币3000万于指定投资资产类别中，包括其中最少港币2700万于股票债券等金融资产、非住宅类房地产等，另其中港币300万于支持创新及科技行业和其他重点行业发展之「资本投资者入境计划投资组合」, 此组合由香港投资管理有限公司成立和管理。 ",
+        NCIESRequirements4 : "4. 完成投资后，申请人将获取香港签证以在香港居住。 ",
 
 
         generalEmploymentPolicy:"一般就业政策",
@@ -143,10 +146,9 @@ export default function LocalImmigrationPage() {
         qualityMigrantAdmissionScheme:"优秀人才入境计划",
         qualityMigrantAdmissionSchemeDesc: "优秀人才入境计划是一项设有配额的移民吸纳计划，旨在吸引高技术人才或优才来港定居，借以提升香港的竞争力。获批准的申请人毋须在来港定居前先获得本地雇主聘任。所有申请人均必须首先符合基本资格的要求，才可根据计划所设两套计分制度，「综合计分制」和「成就计分制」的其中一套获取分数，与其他申请人竞争配额。获批准的申请人可带同配偶及18岁以下未婚及受养的子女来港，惟其必须能自行负担受养人在香港的生活和住宿，不需依赖公共援助。 ",
 
- 
-        ASMTP: "內地人才計劃",
-        ASMTPdesc: "具備香港特區所需而又缺乏的特別技能、知識或經驗的內地中國居民，可以根據輸入內地人才計劃申請來港工作。輸入內地人才計劃並無配額限制，亦不限行業。申請人需要具備良好的教育背景，通常指持有有關範疇的學士學位，但在特殊情況下，具備良好的技術資格、經證明的專業能力或備有文件證明的有關經驗和成就，亦可予接受。同時申請人必須已確實獲得聘用而從事與其學歷或工作經驗有關的工作，且不能輕易覓得本地人擔任，薪酬福利與當時香港專才的市場薪酬福利大致相同，方可獲考慮發放簽證。",
-        
+        ASMTP: "输入内地人才计划",
+        ASMTPdesc: "具备香港特区所需而又缺乏的特别技能、知识或经验的内地中国居民，可以根据输入内地人才计划申请来港工作。输入内地人才计划并无配额限制，亦不限行业。申请人需要具备良好的教育背景，通常指持有有关范畴的学士学位，但在特殊情况下，具备良好的技术资格、经证明的专业能力或备有文件证明的有关经验和成就，亦可予接受。同时申请人必须已确实获得聘用而从事与其学历或工作经验有关的工作，且不能轻易觅得本地人担任，薪酬福利与当时香港专才的市场薪酬福利大致相同，方可获考虑发放签证。",  
+
         Visas: "其他签证",
         Visas_subtitle1: "受养人来港居留: ",
         VisaDesc1: "主申请人获得合资格的签证后，其受养人需要申请独立的受养人签证来港。我们会协助办理。 ",
