@@ -38,8 +38,8 @@ export default function Footer() {
     },
 
     zh: {
-      description: "Connexions HK 是一家專業的商業及移民服務公司，專注為客戶提供一站式解決方案。",
-      license: "Connexions HK 信託或企業服務提供者牌照號碼：TC001097",
+      description: "宏達策略是一家專業的商業及移民服務公司，專注為客戶提供一站式解決方案。",
+      license: "宏達策略信託或公司服務提供者牌照號碼：TC001097",
       quickLinks: "快速連結",
       HongKongImmigration: "移民香港",
       overseaImmigration: "海外移民",
@@ -65,8 +65,8 @@ export default function Footer() {
       services2:  "會計及稅務服務",
     },
     cn: {
-      description: "Connexions HK 是一家专业的商业及移民服务公司，专注为客户提供一站式解决方案。",
-      license: "Connexions HK 信托或企业服务提供者牌照号码：TC001097",
+      description: "宏达策略是一家专业的商业及移民服务公司，专注为客户提供一站式解决方案。",
+      license: "宏达策略信托或公司服务提供者牌照号码：TC001097",
       quickLinks: "快速链接",
       HongKongImmigration: "移民香港",
       overseaImmigration: "海外移民",

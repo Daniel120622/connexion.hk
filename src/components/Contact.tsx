@@ -32,7 +32,7 @@ export default function Contact() {
     },
     zh: {
       title: "聯絡我們",
-      subtitle:"我們樂意協助您在香港的企業設立、銀行開戶及公司相關需求。立即聯絡我們 — 我們的團隊隨時為您服務！",
+      subtitle:"我們樂意協助您在香港的企業設立、公司相關需求及身份規劃。立即聯絡我們 — 我們的團隊隨時為您服務！",
       email: "sales@connexions.hk",
       formTitle: "發送訊息給我們",
       formDesc: "有任何問題？請填寫下方表單，我們會盡快回覆您。",
@@ -50,7 +50,7 @@ export default function Contact() {
     cn: {
       title: "联系我们",
       subtitle:
-        "我们乐意协助您在香港的企业设立、银行开户及公司相关需求。立即联系我们 — 我们的团队随时为您服务！",
+        "我们乐意协助您在香港的企业设立、公司相关需求及身份规划。立即联系我们 — 我们的团队随时为您服务！",
       email: "sales@connexions.hk",
       formTitle: "发送信息给我们",
       formDesc: "有任何问题？请填写下方表单，我们会尽快回复您。",
