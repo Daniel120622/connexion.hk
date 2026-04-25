@@ -11,7 +11,7 @@ export default function LocalImmigrationPage() {
     // Content switch
     const content = {
       en: {
-        heroTitle: "Local Immigration Schemes in Hong Kong",
+        heroTitle: "Immigration Schemes in Hong Kong",
         heroDesc: "Discover tailored pathways to residency, work, investment, and a new life in Hong Kong.",
         intro: "Getting to know your background and needs is our first and most important step. Through careful listening and expert analysis, we enhance your application success rate and identify the best opportunities for you.",
         galleryTitle: "Visual Insights into Hong Kong Immigration",
@@ -70,7 +70,7 @@ export default function LocalImmigrationPage() {
          
               },
       zh:{
-        heroTitle: "香港本地移民計劃",
+        heroTitle: "香港移民計劃",
         heroDesc: "探索通往香港居留、工作、投資和新生活的量身定制途徑。",
         intro: "傾聽客戶的背景和需求是我們工作的第一步，也是重要的一步，這意味著我們能通過聆聽與分析做出準確的判斷，使客戶申請的成功率達到最大化，並爭取到最佳投資機會。",
         ContentSections: "探索我們的本地移民計劃",
@@ -119,7 +119,7 @@ export default function LocalImmigrationPage() {
       },  
 
       cn:{
-        heroTitle: "香港本地移民计划",
+        heroTitle: "香港移民计划",
         heroDesc: "探索通往香港居留、工作、投资和新生活的量身定制途径。",
         intro: "倾听客户的背景和需求是我们工作的第一步，也是重要的一步，这意味着我们能通过聆听与分析做出准确的判断，使客户申请的成功率达到最大化，并争取到最佳投资机会。",
         ContentSections: "探索我们的本地移民计划",
