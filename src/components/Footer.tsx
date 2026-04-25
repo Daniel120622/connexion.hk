@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { MessageCircle, Send, Phone, Facebook, Instagram } from 'lucide-react';
+import { MessageCircle, Send, Phone} from 'lucide-react';
 
 export default function Footer() {
   const { lang } = useLanguage();
@@ -34,7 +34,7 @@ export default function Footer() {
       address: "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
       phone: "+852 2111 2425",
       email: "sales@connexions.hk",
-      copyright: `© ${new Date().getFullYear()} Connecxions.HK Copyright. All rights reserved.`,
+      copyright: `© ${new Date().getFullYear()} Connexions Corporate Strategies Limited. All rights reserved.`,
     },
 
     zh: {
@@ -59,7 +59,7 @@ export default function Footer() {
       address: "香港灣仔告士打道151號首都中心9樓902A室",
       phone: "+852 2111 2425",
       email: "sales@connexions.hk",
-      copyright: `© ${new Date().getFullYear()} Connecxions.HK 版權所有。`,
+      copyright: `© ${new Date().getFullYear()} 宏達企業策略有限公司  版權所有。`,
       officeService: "辦公室服務",
       services: "公司服務",
       services2:  "會計及稅務服務",
@@ -86,7 +86,7 @@ export default function Footer() {
       address: "香港湾仔告士打道151号首都中心9楼902A室",
       phone: "+852 2111 2425",
       email: "sales@connexions.hk",
-      copyright: `© ${new Date().getFullYear()} Connecxions.HK 版权所有。`,
+      copyright: `© ${new Date().getFullYear()} 宏达企业策略有限公司  版权所有 。`,
 
       officeService: "办公室服务",
       services: "公司服务",
