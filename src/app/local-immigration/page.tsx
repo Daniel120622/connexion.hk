@@ -254,6 +254,7 @@ export default function LocalImmigrationPage() {
                   <p>{current.NCIESRequirements1}</p>
                   <p>{current.NCIESRequirements2}</p>
                   <p>{current.NCIESRequirements3}</p>
+                  <p>{current.NCIESRequirements4}</p>
                 </div>
               </details>
 
