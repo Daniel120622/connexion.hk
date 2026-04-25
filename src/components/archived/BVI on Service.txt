@@ -1,0 +1,22 @@
+            <Link href="/services/bviCompany" className="group block">
+              <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="/images/services/BVI.jpeg"
+                    alt="BVI Overseas Company"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                    {current.BVIOverseasCompanyTitle}
+                  </h3>
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    {current.BVIOverseasCompanyDesc}
+                  </p>
+                  <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
+                    {current.LearnMore} <ArrowRight className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>

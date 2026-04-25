@@ -13,7 +13,7 @@ export default function LocalCompanyPage() {
       en: {
         heroTitle: "Hong Kong Limited Company Formation",
         heroDesc: "Set up your Hong Kong company quickly, compliantly and cost-effectively.",
-        BenfitsTitle: "Benefits of a Hong Kong Limited Company",
+        BenfitsTitle: "Advantages of registering a Hong Kong/ Offshore company in Hong Kong",
         intro1: "Hong Kong, as an international financial and commercial center, equips with advanced infrastructure and sustained growth of the capital market. It has highly educated professionals and an attractive tax system. As one of the most vibrant economy centers in the world, Hong Kong not only provides entrepreneurs the most excellent developing environment in the global economic system, but also as a gateway to enter the Chinese market.",
         intro2: "Connexions provides professional consultation, Hong Kong and offshore company incorporation, business advices on business nature, operation and strategies and offers tax-efficient solutions.",
         ctaTitle: "Start Your HK Company Today",
@@ -24,7 +24,7 @@ export default function LocalCompanyPage() {
       zh: {
         heroTitle: "註冊香港有限公司",
         heroDesc: "快速、合規且具成本效益地成立您的香港公司。",
-        BenfitsTitle: "香港有限公司的優勢",
+        BenfitsTitle: "於香港註冊香港/海外有限公司的優勢",
         intro1: "香港作為​​國際金融和商業中心，配有發展完善的基礎設施，持續增長的資本市場，高學歷的專業人士，和一個有吸引力的稅收制度。作為一個在世界上最蓬勃的經濟體系，香港不僅為企業家們提供了一個在國際經濟體系中發展最優良的環境，同時也是作為進入中國市場的門坎。宏達策略提供專業顧問意見，為到香港創業的資本家註冊香港/海外公司，提供業務運作及策劃討論，分析業務性質及節稅方案的考慮。",
         intro2: "",
         ctaTitle: "立即開始您的香港公司",
@@ -34,7 +34,7 @@ export default function LocalCompanyPage() {
       cn: {
         heroTitle: "注册香港有限公司",
         heroDesc: "快速、合规且具成本效益地成立您的香港公司。",
-        BenfitsTitle: "香港有限公司的优势",
+        BenfitsTitle: "于香港注册香港/海外有限公司的优势",
         intro1: "香港作为​​国际金融和商业中心，配有发展完善的基础设施，持续增长的资本市场，高学历的专业人士，和一个有吸引力的税收制度。作为一个在世界上最蓬勃的经济体系，香港不仅为企业家们提供了一个在国际经济体系中发展最优良的环境，同时也是作为进入中国市场的门坎。宏达策略提供专业顾问意见，为到香港创业的资本家注册香港/海外公司，提供业务运作及策划讨论，分析业务性质及节税方案的考虑。",
         intro2: "",
         ctaTitle: "立即开始您的香港公司",

@@ -14,7 +14,8 @@ export default function ServicesOverviewPage() {
         en: {
           heroTitle: "Corporate Services",
           heroSubtitle: "Reliable solutions for company setup, compliance, immigration, and long-term business success in Hong Kong.",
-          intro: "Welcome to Connexions. We are your dedicated partner for launching and managing your business in Hong Kong. From company incorporation and secretarial services to accounting, tax, and business management — we offer comprehensive, one-stop support to meet all your corporate needs locally and globally.",          HKLimitedCompanyTitle: "HK Limited Company",
+          intro: "Welcome to Connexions. We are your dedicated partner for launching and managing your business in Hong Kong. From company incorporation and secretarial services to accounting, tax, and business management — we offer comprehensive, one-stop support to meet all your corporate needs locally and globally.",
+          HKLimitedCompanyTitle: "Hong Kong / Offshore Company Registration",
           HKLimitedCompanyDesc: "Fast and compliant Hong Kong company registration with full setup and banking support.",
           BVIOverseasCompanyTitle: "BVI & Overseas Company Formation",
           BVIOverseasCompanyDesc: "Offshore company formation in BVI and other jurisdictions for asset protection & tax efficiency.",
@@ -34,10 +35,10 @@ export default function ServicesOverviewPage() {
           OfficeServiceDesc: "Hong Kong companies must have a local registered address. Connexions not only provides the address but also handles mail collection, serving as your reliable support."
         },
           zh: {
-          heroTitle: "公司服務",
-          heroSubtitle: "量身定制的公司成立、合規、移民和全球業務成功解決方案。",
+          heroTitle: "企業服務",
+          heroSubtitle: "宏達策略為您的企業提供各種服務和解決方案",
           intro:"歡迎你到香港開展業務！宏達策略為您的企業提供各種服務和解決方案，作為值得信賴的夥伴協助您的企業迎接各種挑戰。我們提供一站式的專業服務，包括註冊成立公司、公司秘書服務、企業管理服務及會計服務等，以滿足您的商務需求。",
-          HKLimitedCompanyTitle: "香港有限公司",
+          HKLimitedCompanyTitle: "註冊香港/海外公司",
           HKLimitedCompanyDesc: "快速、合規且具成本效益地成立您的香港公司，並提供業務運作及策劃討論",
           BVIOverseasCompanyTitle: "註冊海外公司",
           BVIOverseasCompanyDesc: "在BVI及其他司法管轄區設立離岸公司，以實現資產保護和稅務效率。",
@@ -58,10 +59,10 @@ export default function ServicesOverviewPage() {
         },
   
         cn:{
-          heroTitle: "公司服务",
-          heroSubtitle: "量身定制的公司成立、合规、移民和全球业务成功解决方案。",
+          heroTitle: "企業服务",
+          heroSubtitle: "宏达策略为您的企业提供各种服务和解决方案",
           intro:"欢迎你到香港开展业务！宏达策略为您的企业提供各种服务和解决方案，作为值得信赖的伙伴协助您的企业迎接各种挑战。我们提供一站式的专业服务，包括注册成立公司、公司秘书服务、企业管理服务及会计服务等，以满足您的商务需求。",
-          HKLimitedCompanyTitle: "香港有限公司",
+          HKLimitedCompanyTitle: "注册香港/海外公司",
           HKLimitedCompanyDesc: "快速、合规且具成本效益地成立您的香港公司，并提供业务运作及策划讨论",
           BVIOverseasCompanyTitle: "注册海外公司",
           BVIOverseasCompanyDesc: "在BVI及其他司法管辖区设立离岸公司，以实现资产保护和税务效率。",
@@ -119,7 +120,7 @@ export default function ServicesOverviewPage() {
       {/* Service Cards – Navigation Buttons */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Card 1: HK Limited Company */}
             <Link href="/services/local-company" className="group block">
               <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
@@ -146,28 +147,7 @@ export default function ServicesOverviewPage() {
             </Link>
 
             {/* Card 2: BVI & Overseas Company */}
-            <Link href="/services/bviCompany" className="group block">
-              <div className="service-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-200 h-full flex flex-col">
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src="/images/services/BVI.jpeg"
-                    alt="BVI Overseas Company"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                    {current.BVIOverseasCompanyTitle}
-                  </h3>
-                  <p className="text-gray-600 mb-6 flex-grow">
-                    {current.BVIOverseasCompanyDesc}
-                  </p>
-                  <div className="flex items-center text-[#3ac9d9] font-medium group-hover:text-[#2ab8c8] transition-colors">
-                    {current.LearnMore} <ArrowRight className="ml-2 w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </Link>
+
 
             {/* Card 3: Company Secretary */}
             <Link href="/services/compSecretary" className="group block">
