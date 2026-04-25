@@ -87,7 +87,6 @@ export default function Footer() {
       phone: "+852 2111 2425",
       email: "sales@connexions.hk",
       copyright: `© ${new Date().getFullYear()} 宏达企业策略有限公司  版权所有 。`,
-
       officeService: "办公室服务",
       services: "公司服务",
       services2:  "会计及税务服务",
@@ -137,7 +136,6 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-white mb-6">{t.corporateService}</h3>
             <ul className="space-y-3 text-gray-400">
               <li><a href="/services/local-company" className="hover:text-[#3ac9d9] transition">{t.localCompany}</a></li>
-              <li><a href="/services/bviCompany" className="hover:text-[#3ac9d9] transition">{t.bviOversea}</a></li>
               <li><a href="/services/compSecretary" className="hover:text-[#3ac9d9] transition">{t.companySecretary}</a></li>
               <li><a href="/services/office-service" className="hover:text-[#3ac9d9] transition">{t.officeService}</a></li>
             </ul>
