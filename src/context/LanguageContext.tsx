@@ -1,6 +1,8 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext } from "react";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 type Lang = "en" | "cn" | "zh";
 
@@ -11,29 +13,19 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
+const LOCALE_COOKIE = "connexions-locale";
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en"); // Start with default to match SSR
+  const router = useRouter();
+  const locale = useLocale();
+  const lang = (locale === "cn" || locale === "zh" ? locale : "en") as Lang;
 
-  useEffect(() => {
-    // After hydration, set the correct language based on localStorage or browser
-    try {
-      const saved = localStorage.getItem("lang") as Lang | null;
-      if (saved) {
-        setLangState(saved);
-        return;
-      }
-      const browserLang = navigator?.language?.toLowerCase() || "";
-      const defaultLang: Lang = browserLang.includes("zh") ? "cn" : "en";
-      localStorage.setItem("lang", defaultLang);
-      setLangState(defaultLang);
-    } catch (e) {
-      // Fallback to en
+  const setLang = (nextLang: Lang) => {
+    if (typeof document !== "undefined") {
+      document.cookie = `${LOCALE_COOKIE}=${nextLang}; path=/; max-age=31536000; samesite=lax`;
+      localStorage.setItem("lang", nextLang);
     }
-  }, []);
-
-  const setLang = (l: Lang) => {
-    localStorage.setItem("lang", l);
-    setLangState(l);
+    router.refresh();
   };
 
   return <LanguageContext.Provider value={{ lang, setLang }}>{children}</LanguageContext.Provider>;

@@ -1,41 +1,46 @@
-// src/components/AboutUs.tsx 
 "use client";
 
-import React from "react";
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslations } from "next-intl";
 
 export default function AboutUs() {
-  const { lang } = useLanguage();
-
-  const content = {
-    en: {
-      title: "About Connexions HK",
-      description:
-        "Connexions is an experienced professional services group. We have served hundreds of domestic and foreign customers over the decades. Connexions treasures the entrusted relationship with clients and is dedicated to service quality. Coupled with mutual trust and understanding as well as reputation and recommendation from customers, Connexions is your stable life partner.",
-    },
-    zh: {
-      title: "關於宏達策略",
-      description:
-        "宏達策略是一家擁有豐富經驗的專業服務集團，數十年來已服務數百位本地及海外客戶。我們珍視與客戶的信賴關係，並致力於提供高品質服務。憑藉相互信任、理解以及客戶的口碑推薦，宏達策略是您穩定的長期生活夥伴。",
-    },
-    cn: {
-      title: "关于宏达策略",
-      description:
-        "宏达策略是一家拥有丰富经验的专业服务集团，数十年来已服务数百位本地及海外客户。我们珍视与客户的信赖关系，并致力于提供高质量服务。凭借相互信任、理解以及客户的口碑推荐，宏达策略是您稳定的长期生活伙伴。"
-    },
-  };
-
-  const current = content[lang] || content.en;
+  const t = useTranslations("About");
 
   return (
-    <section className="about-us bg-white py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          {current.title}
-        </h2>
-            <p className="text-center text-lg md:text-lg text-gray-700 mb-12 mx-auto">
-              {current.description}
-            </p>    
+    <section className="relative overflow-hidden py-20 sm:py-24">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(14,165,164,0.08),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.05),transparent_30%)]" />
+
+      <div className="section-shell">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+          <div className="space-y-6">
+            <span className="section-eyebrow">{t("eyebrow")}</span>
+            <h2 className="section-title max-w-3xl">{t("title")}</h2>
+            <p className="section-copy max-w-3xl">{t("description")}</p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_-42px_rgba(15,23,42,0.5)] sm:col-span-2">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-teal-700">
+                {t("advisoryLabel")}
+              </p>
+              <p className="mt-4 text-base leading-8 text-slate-600">{t("advisoryText")}</p>
+            </div>
+
+            <article className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-[0_20px_60px_-46px_rgba(15,23,42,0.5)]">
+              <p className="text-sm font-semibold text-slate-900">{t("cards.one.title")}</p>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{t("cards.one.text")}</p>
+            </article>
+
+            <article className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-[0_20px_60px_-46px_rgba(15,23,42,0.5)]">
+              <p className="text-sm font-semibold text-slate-900">{t("cards.two.title")}</p>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{t("cards.two.text")}</p>
+            </article>
+
+            <article className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-[0_20px_60px_-46px_rgba(15,23,42,0.5)] sm:col-span-2">
+              <p className="text-sm font-semibold text-slate-900">{t("cards.three.title")}</p>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{t("cards.three.text")}</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
   );

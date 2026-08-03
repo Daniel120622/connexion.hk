@@ -1,0 +1,459 @@
+{
+  "Common": {
+    "siteName": "Connexions HK",
+    "metaTitle": "Connexions HK | Immigration & Professional Consulting",
+    "metaDescription": "Expert immigration, visa, residency, and business consulting services in Hong Kong."
+  },
+  "Header": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "localImmigration": "Hong Kong Immigration",
+    "services": "Corporate Services",
+    "servicesOverview": "Services Overview",
+    "officeService": "Registered Office Service",
+    "hkLimitedCompany": "Hong Kong / Offshore Company Incorporation",
+    "companySecretary": "Company Secretary Service",
+    "businessAdvisory": "Business Advisory Service",
+    "accountingServices": "Accounting Service",
+    "taxConsulting": "Taxation Service",
+    "services2": "Accountancy & Tax",
+    "services2Overview": "Tax & Accounting Overview",
+    "fortuneInheritance": "Wealth Inheritance",
+    "contact": "Contact",
+    "languageLabel": "Language",
+    "language": {
+      "en": "ENG",
+      "zh": "繁",
+      "cn": "简"
+    }
+  },
+  "Hero": {
+    "eyebrow": "Hong Kong corporate advisory",
+    "companyName": "Connexions",
+    "companySlogan": "A trusted partner for corporate, immigration, and compliance solutions.",
+    "heroIntro": "We help businesses and founders establish a clear, compliant, and polished presence in Hong Kong.",
+    "button1": "Contact Us",
+    "button2": "Explore Services",
+    "badge": "One-stop support for setup, compliance, and ongoing advisory",
+    "highlights": {
+      "one": "Structured setup",
+      "two": "Compliance-first",
+      "three": "Responsive support"
+    },
+    "featuredLabel": "Featured service",
+    "focusLabel": "Current focus",
+    "statusCards": {
+      "one": "Structured",
+      "two": "Bilingual",
+      "three": "Responsive"
+    },
+    "services": {
+      "hkLimitedCompany": {
+        "title": "HK Limited Company",
+        "description": "Comprehensive support for setting up and managing Hong Kong limited companies."
+      },
+      "bviOffshoreCompany": {
+        "title": "BVI & Offshore Company",
+        "description": "Establish and manage offshore companies in BVI and other jurisdictions."
+      },
+      "companySecretary": {
+        "title": "Company Secretary",
+        "description": "Professional company secretary services to ensure compliance and smooth operations."
+      },
+      "accountingServices": {
+        "title": "Accounting Services",
+        "description": "Clear, dependable accounting support for day-to-day financial records."
+      },
+      "taxConsulting": {
+        "title": "Tax Consulting",
+        "description": "Practical tax advice to help align strategy, compliance, and planning."
+      },
+      "businessAdvisory": {
+        "title": "Business Advisory",
+        "description": "Strategic business advisory services to help you move with confidence."
+      }
+    }
+  },
+  "About": {
+    "eyebrow": "About Connexions HK",
+    "title": "Professional support built around trust, clarity, and long-term execution.",
+    "description": "Connexions is an experienced professional services group. We have served hundreds of domestic and foreign customers over the decades. Connexions treasures the entrusted relationship with clients and is dedicated to service quality. Coupled with mutual trust and understanding as well as reputation and recommendation from customers, Connexions is your stable life partner.",
+    "advisoryLabel": "Advisory mindset",
+    "advisoryText": "We keep the tone calm and the decisions practical, so the experience feels premium without becoming heavy.",
+    "cards": {
+      "one": {
+        "title": "Clear process",
+        "text": "We structure work into practical steps so every stage feels organised and easy to follow."
+      },
+      "two": {
+        "title": "Trusted relationships",
+        "text": "Our approach is built for long-term collaboration, not one-off transactions."
+      },
+      "three": {
+        "title": "Commercial advice",
+        "text": "We keep recommendations grounded in how businesses actually operate."
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "Contact",
+    "title": "Start a conversation with a team that keeps the process clear.",
+    "subtitle": "We help with company formation, banking, immigration, and ongoing corporate support in Hong Kong.",
+    "email": "sales@connexions.hk",
+    "phone": "+852 2111 2425",
+    "office": "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
+    "response": "Typical response time: within one business day",
+    "formTitle": "Send Us a Message",
+    "formDesc": "Tell us what you need and we will reply with a practical next step.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Your email",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell us how we can help...",
+    "sendButton": "Send Message",
+    "sending": "Sending...",
+    "success": "Thank you. Your message has been sent.",
+    "error": "Something went wrong. Please try again."
+  },
+  "Footer": {
+    "description": "Connexions HK is a professional business and immigration services company, specializing in providing clients with one-stop solutions.",
+    "license": "Connexions HK trust or corporate service provider license number: TC001097",
+    "quickLinks": "Quick Links",
+    "HongKongImmigration": "Hong Kong Immigration",
+    "services": "Corporate Services",
+    "services2": "Accounting and Tax Services",
+    "wealthInheritance": "Wealth Inheritance Planning",
+    "contactUs": "Contact Us",
+    "corporateService": "Corporate Service",
+    "aboutUs": "About Us",
+    "accountingService": "Accounting Service",
+    "businessAdvisory": "Business Advisory",
+    "localCompany": "Local Company",
+    "companySecretary": "Company Secretary",
+    "officeService": "Office Service",
+    "taxConsulting": "Tax Consulting",
+    "otherService": "Accountancy and Tax Services",
+    "address": "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
+    "phone": "+852 2111 2425",
+    "email": "sales@connexions.hk",
+    "contactTitle": "Contact",
+    "copyright": "© {year} Connexions Corporate Strategies Limited. All rights reserved."
+  },
+  "Pages": {
+    "AboutUs": {
+      "hero": {
+        "eyebrow": "About Connexions HK",
+        "title": "Professional support with a calm, premium tone.",
+        "subtitle": "We help clients establish, manage, and grow with confidence in Hong Kong."
+      },
+      "story": {
+        "title": "Who we are",
+        "body": "Connexions is a professional services team focused on practical execution, clear communication, and long-term client relationships."
+      },
+      "cards": [
+        {
+          "title": "Structured process",
+          "text": "Every engagement is broken into clear steps so work moves forward without confusion."
+        },
+        {
+          "title": "Trusted relationships",
+          "text": "We build partnerships designed to last beyond one project or filing cycle."
+        },
+        {
+          "title": "Commercial thinking",
+          "text": "Advice stays grounded in how businesses really operate."
+        }
+      ],
+      "closing": {
+        "title": "A dependable partner for the long run",
+        "text": "If you want support that feels polished, direct, and easy to work with, we are ready to help."
+      },
+      "cta": "Contact Us"
+    },
+    "ServicesOverview": {
+      "hero": {
+        "title": "Corporate Services",
+        "subtitle": "Everything you need to launch and run a Hong Kong business.",
+        "intro": "From company incorporation and secretarial support to office services, we provide a clear one-stop path for corporate setup and maintenance."
+      },
+      "cards": [
+        {
+          "title": "Hong Kong / Offshore Company Incorporation",
+          "text": "Fast, compliant setup with practical guidance on registration and banking."
+        },
+        {
+          "title": "Company Secretary Service",
+          "text": "Keep statutory duties and governance tasks organised and on schedule."
+        },
+        {
+          "title": "Registered Office Service",
+          "text": "A reliable Hong Kong address and support for incoming correspondence."
+        },
+        {
+          "title": "BVI & Overseas Company Formation",
+          "text": "Offshore structures for clients looking for flexibility and international reach."
+        }
+      ],
+      "cta": {
+        "title": "Ready to get started?",
+        "text": "Contact us to learn which structure fits your plans best.",
+        "button": "Contact Us"
+      }
+    },
+    "TaxOverview": {
+      "hero": {
+        "title": "Accountancy & Tax",
+        "subtitle": "Reliable finance, tax, and advisory support for growing businesses.",
+        "intro": "We help keep your books clear, your filings organised, and your decisions commercially grounded."
+      },
+      "cards": [
+        {
+          "title": "Accounting Service",
+          "text": "Day-to-day bookkeeping, reporting, and annual support."
+        },
+        {
+          "title": "Business Advisory Service",
+          "text": "Strategic guidance for growth, planning, and better operations."
+        },
+        {
+          "title": "Taxation Service",
+          "text": "Practical tax advice to help you stay compliant and efficient."
+        }
+      ],
+      "cta": {
+        "title": "Need a clear finance partner?",
+        "text": "Tell us what you are working on and we will suggest the next step.",
+        "button": "Contact Us Now"
+      }
+    },
+    "LocalCompany": {
+      "hero": {
+        "title": "Hong Kong / Offshore Company Incorporation",
+        "subtitle": "A clean starting point for new ventures in Hong Kong and abroad."
+      },
+      "intro": "We guide you through registration, setup, and the practical steps that follow incorporation.",
+      "points": [
+        "Company registration and setup support",
+        "Banking and document preparation guidance",
+        "Ongoing compliance reminders and coordination"
+      ],
+      "cta": {
+        "title": "Build the right structure from day one",
+        "text": "We can help you choose a setup that feels efficient and compliant.",
+        "button": "Contact Us"
+      }
+    },
+    "CompanySecretary": {
+      "hero": {
+        "title": "Company Secretary Service",
+        "subtitle": "Keep corporate obligations organised, timely, and compliant."
+      },
+      "intro": "We handle the routine governance work so your team can focus on running the business.",
+      "points": [
+        "Annual filing and statutory support",
+        "Board and company record coordination",
+        "Reminder management for key deadlines"
+      ],
+      "cta": {
+        "title": "Stay ahead of filing deadlines",
+        "text": "Let us help you maintain a reliable compliance rhythm.",
+        "button": "Contact Us"
+      }
+    },
+    "OfficeService": {
+      "hero": {
+        "title": "Registered Office Service",
+        "subtitle": "A dependable local address with practical mail handling support."
+      },
+      "intro": "For Hong Kong companies that need a stable registered address, we provide a simple and reliable solution.",
+      "points": [
+        "Registered address for company use",
+        "Mail collection and handling support",
+        "A professional front for your business"
+      ],
+      "cta": {
+        "title": "Keep your correspondence organised",
+        "text": "We make the administrative side feel lighter and easier to manage.",
+        "button": "Contact Us"
+      }
+    },
+    "BviCompany": {
+      "hero": {
+        "title": "BVI & Offshore Company",
+        "subtitle": "Offshore company solutions for flexibility, privacy, and international planning."
+      },
+      "intro": "We help clients set up and maintain offshore structures with a clear and practical approach.",
+      "points": [
+        "Offshore formation and administration support",
+        "Flexible structure for cross-border operations",
+        "Practical guidance for ongoing maintenance"
+      ],
+      "cta": {
+        "title": "Explore offshore structuring options",
+        "text": "We will walk you through the setup path in plain language.",
+        "button": "Contact Us"
+      }
+    },
+    "Accounting": {
+      "hero": {
+        "title": "Accounting Service",
+        "subtitle": "Clear books, timely records, and dependable financial support."
+      },
+      "intro": "Our accounting support is designed to keep your records organised and your reporting straightforward.",
+      "points": [
+        "Bookkeeping and financial record preparation",
+        "Monthly and annual reporting support",
+        "A practical rhythm that fits your business"
+      ],
+      "cta": {
+        "title": "Make reporting feel easier",
+        "text": "We can take the pressure out of day-to-day finance work.",
+        "button": "Contact Us"
+      }
+    },
+    "BusinessAdv": {
+      "hero": {
+        "title": "Business Advisory Service",
+        "subtitle": "Practical advice for strategy, growth, and execution."
+      },
+      "intro": "We help businesses think through decisions clearly, from structure and planning to market entry and growth.",
+      "points": [
+        "Strategic planning and review",
+        "Market entry and operating guidance",
+        "Support for better business decisions"
+      ],
+      "cta": {
+        "title": "Move forward with a clearer plan",
+        "text": "We will help shape the next step with a steady hand.",
+        "button": "Contact Us"
+      }
+    },
+    "Tax": {
+      "hero": {
+        "title": "Taxation Service",
+        "subtitle": "Straightforward tax support that keeps compliance and planning aligned."
+      },
+      "intro": "We provide tax advice that is practical, transparent, and built around your business reality.",
+      "points": [
+        "Tax planning and compliance guidance",
+        "Cross-border and Hong Kong tax considerations",
+        "Clear advice that supports better decisions"
+      ],
+      "cta": {
+        "title": "Keep tax decisions well organised",
+        "text": "We can help you keep pace with filing and planning needs.",
+        "button": "Contact Us"
+      }
+    },
+    "LocalImmigration": {
+      "hero": {
+        "title": "Hong Kong Immigration",
+        "subtitle": "Clear guidance across visas, residency, and supporting applications."
+      },
+      "intro": "We help applicants understand the available routes and prepare the supporting steps with confidence.",
+      "schemes": [
+        {
+          "title": "Quality Migrant Admission Scheme",
+          "text": "For individuals seeking a points-based path to live and work in Hong Kong."
+        },
+        {
+          "title": "General Employment Policy",
+          "text": "For candidates who already have a job offer or are moving through employer sponsorship."
+        },
+        {
+          "title": "Admission Scheme for Mainland Talents and Professionals",
+          "text": "For eligible professionals seeking a Hong Kong work visa."
+        },
+        {
+          "title": "Dependents and extensions",
+          "text": "Support for family visas and renewal or extension applications."
+        },
+        {
+          "title": "Permanent residency verification",
+          "text": "Support for the process of verifying eligibility for Hong Kong permanent residency."
+        }
+      ],
+      "cta": {
+        "title": "Need help choosing the right route?",
+        "text": "We will help you understand the process in simple terms.",
+        "button": "Contact Us Now"
+      }
+    },
+    "OverseasImmigration": {
+      "hero": {
+        "title": "Overseas Immigration & Citizenship",
+        "subtitle": "International immigration and citizenship options explained clearly."
+      },
+      "intro": "We assist clients exploring residence and citizenship options across selected jurisdictions.",
+      "programs": [
+        {
+          "title": "Vanuatu Citizenship by Contribution",
+          "text": "A fast-track route for clients seeking a second passport option."
+        },
+        {
+          "title": "St Kitts & Nevis Citizenship by Investment",
+          "text": "A respected citizenship-by-investment route with international mobility benefits."
+        },
+        {
+          "title": "Travel and resident visas",
+          "text": "Support for residence and travel visa planning in selected destinations."
+        }
+      ],
+      "cta": {
+        "title": "Explore global options with clarity",
+        "text": "We will help you compare the available paths and their requirements.",
+        "button": "Contact Us"
+      }
+    },
+    "WealthInheritance": {
+      "hero": {
+        "title": "Wealth Inheritance",
+        "subtitle": "Thoughtful planning for family continuity, succession, and long-term structure."
+      },
+      "intro": "We help clients consider how assets, family governance, and long-term planning can be aligned.",
+      "sections": [
+        {
+          "title": "Family planning",
+          "text": "Structure conversations and plans around the people and responsibilities involved."
+        },
+        {
+          "title": "Asset continuity",
+          "text": "Build a practical plan for continuity across generations."
+        },
+        {
+          "title": "Cross-border considerations",
+          "text": "Coordinate different jurisdictions and support a clearer overall plan."
+        }
+      ],
+      "cta": {
+        "title": "Plan with confidence",
+        "text": "We can help you shape a more organised long-term approach.",
+        "button": "Contact Us"
+      }
+    },
+    "ContactPage": {
+      "hero": {
+        "title": "Contact",
+        "subtitle": "Speak with a team that keeps the process clear and responsive."
+      },
+      "intro": "Tell us what you need, and we will suggest a practical next step.",
+      "info": {
+        "emailLabel": "Email",
+        "phoneLabel": "Phone",
+        "faxLabel": "Fax",
+        "addressLabel": "Address",
+        "address": "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
+        "response": "Typical response time: within one business day"
+      },
+      "form": {
+        "title": "Send a Message",
+        "namePlaceholder": "Your Name",
+        "emailPlaceholder": "Your Email",
+        "messagePlaceholder": "Your Message",
+        "sendButton": "Send Message"
+      },
+      "mapLabel": "Office location"
+    }
+  }
+}

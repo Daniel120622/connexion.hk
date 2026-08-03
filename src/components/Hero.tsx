@@ -1,271 +1,179 @@
-// app/components/Hero.tsx
 "use client";
 
-import { usePathname } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLanguage } from '@/context/LanguageContext';
-
-export const navContent = {
-  en: {
-    companyName: "Connexions",
-    companySlogan: "Your Life Good Partner for Comprehensive Business Solutions",
-    button1: "Contact Us",
-    button2: "View All Services",
-
-    // ── Service items ───────────────────────────────
-    services: [
-      {
-        title: "HK Limited Company",
-        description: "We provide comprehensive services for setting up and managing HK limited companies.",
-      },
-      {
-        title: "BVI & Oversea Company",
-        description: "Establish and manage offshore companies in BVI and other jurisdictions.",
-      },
-      {
-        title: "Company Secretary",
-        description: "Professional company secretary services to ensure compliance and smooth operations.",
-      },
-      {
-        title: "Accounting Services",
-        description: "Comprehensive accounting services to manage your financial records effectively.",
-      },
-      {
-        title: "Tax Consulting",
-        description: "Expert tax consulting services to optimize your tax strategy and compliance.",
-      },
-      {
-        title: "Business Advisory",
-        description: "Strategic business advisory services to help you achieve your goals.",
-      },
-    ],
-  },
-
-  zh: {
-    companyName: "宏達策略",
-    companySlogan: "你的生活好夥伴，提供全面的商業解決方案",
-    button1: "聯絡我們",
-    button2: "查看了解更多",
-
-    services: [
-      {
-        title: "香港有限公司",
-        description: "我們提供全面的香港有限公司設立及管理服務。",
-      },
-      {
-        title: "BVI及其他海外公司",
-        description: "在英屬維爾京群島（BVI）及其他司法管轄區設立及管理離岸公司。",
-      },
-      {
-        title: "公司秘書服務",
-        description: "專業公司秘書服務，確保合規並維持公司運作順暢。",
-      },
-      {
-        title: "會計服務",
-        description: "全面的會計服務，幫助您有效管理財務記錄。",
-      },
-      {
-        title: "稅務諮詢",
-        description: "專業稅務諮詢服務，優化您的稅務策略並確保合規。",
-      },
-      {
-        title: "商業顧問服務",
-        description: "策略性商業顧問服務，協助您實現業務目標。",
-      },
-    ],
-  },
-
-  cn: {
-    companyName: "宏达策略",
-    companySlogan: "您的生活好伙伴，提供全面的商业解决方案",
-    button1: "联系我们",
-    button2: "查看了解更多",
-
-    services: [
-      {
-        title: "香港有限公司",
-        description: "我们提供全面的香港有限公司设立及管理服务。",
-      },
-      {
-        title: "BVI及其他海外公司",
-        description: "在英属维尔京群岛（BVI）及其他司法管辖区设立及管理离岸公司。",
-      },
-      {
-        title: "公司秘书服务",
-        description: "专业公司秘书服务，确保合规并维持公司运作顺畅。",
-      },
-      {
-        title: "会计服务",
-        description: "全面的会计服务，帮助您有效管理财务记录。",
-      },
-      {
-        title: "税务咨询",
-        description: "专业税务咨询服务，优化您的税务策略并确保合规。",
-      },
-      {
-        title: "商业顾问服务",
-        description: "策略性商业顾问服务，协助您实现业务目标。",
-      },
-    ],
-  },
-} as const;
-
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
-  const pathname = usePathname();
-  const { lang } = useLanguage();
+  const t = useTranslations("Hero");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const current = navContent[lang];
-
-    const services = current.services.map((service, index) => ({
-      title: service.title,
-      description: service.description,
-      image: [
-        { src: "/images/hero/hk.jpg", alt: "Modern Hong Kong office with skyline view and business professionals" },
-        { src: "/images/hero/bvi.jpg", alt: "Tropical islands and documents representing offshore BVI setup" },
-        { src: "/images/hero/secret.jpg", alt: "Professional businesswoman reviewing compliance and secretary documents" },
-        { src: "/images/hero/acc.jpg", alt: "Modern financial dashboard with accounting charts and graphs" },
-        { src: "/images/hero/tax.jpg", alt: "Tax professional with calculator, documents, and strategy planning" },
-        { src: "/images/hero/adv.jpg", alt: "Hong Kong night skyline with city lights symbolizing business growth" },
-      ][index],
-    }));
   const [isPaused, setIsPaused] = useState(false);
+
+  const slides = [
+    {
+      key: "hkLimitedCompany",
+      image: "/images/hero/hk.jpg"
+    },
+    {
+      key: "bviOffshoreCompany",
+      image: "/images/hero/bvi.jpg"
+    },
+    {
+      key: "companySecretary",
+      image: "/images/hero/secret.jpg"
+    },
+    {
+      key: "accountingServices",
+      image: "/images/hero/acc.jpg"
+    },
+    {
+      key: "taxConsulting",
+      image: "/images/hero/tax.jpg"
+    },
+    {
+      key: "businessAdvisory",
+      image: "/images/hero/adv.jpg"
+    }
+  ] as const;
+
+  const currentSlide = slides[currentIndex];
+  const slideTitle = t(`services.${currentSlide.key}.title`);
+  const slideDescription = t(`services.${currentSlide.key}.description`);
 
   useEffect(() => {
     if (isPaused) return;
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % services.length);
-    }, 8000); // change this number for the speed
-    return () => clearInterval(interval);
-  }, [isPaused]);
+
+    const interval = window.setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 7200);
+
+    return () => window.clearInterval(interval);
+  }, [isPaused, slides.length]);
 
   const prevSlide = () => {
     setIsPaused(true);
-    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   const nextSlide = () => {
     setIsPaused(true);
-    setCurrentIndex((prev) => (prev + 1) % services.length);
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
   };
 
   return (
-    <header
-      className={`
-        relative flex items-center justify-center
-        bg-gradient-to-br from-blue-950 via-indigo-950 to-blue-900
-        text-white overflow-hidden
-        min-h-[70vh] md:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8rem)]
-        pt-20 sm:pt-24 md:pt-28 lg:pt-32
-        pb-12 md:pb-16
-      `}
-    >
-      {/* Full-page subtle background images */}
-      <div className="absolute inset-0 z-0">
+    <header className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#07111f_0%,#0d1b30_42%,#0f766e_125%)] text-white">
+      <div className="absolute inset-0">
         <AnimatePresence initial={false}>
           <motion.div
             key={currentIndex}
-            className="absolute inset-0 bg-cover bg-center will-change-opacity"
-            style={{
-              backgroundImage: `url(${services[currentIndex].image.src})`,
-              backgroundColor: "#0f172a",
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.35 }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${currentSlide.image})` }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 0.18, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
           />
         </AnimatePresence>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.18),transparent_28%),radial-gradient(circle_at_left,rgba(255,255,255,0.07),transparent_24%),linear-gradient(180deg,rgba(2,6,23,0.32),rgba(2,6,23,0.78))]" />
       </div>
 
-      {/* Narrower container → significantly less side space */}
-      <div className="container mx-auto px-5 sm:px-6 lg:px-8 xl:px-10 relative z-10 max-w-6xl xl:max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* LEFT: Text Content */}
+      <div className="section-shell relative z-10 py-16 sm:py-20 lg:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
           <motion.div
-            className="space-y-6 md:space-y-8 lg:space-y-10 max-w-3xl mx-auto md:mx-0"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="rounded-[34px] border border-white/15 bg-white/10 p-8 shadow-[0_30px_90px_-48px_rgba(0,0,0,0.7)] backdrop-blur-xl sm:p-10"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="w-20 h-1 bg-[#3ac9d9] rounded-full mb-2"></div>
+            <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-100/90">
+              {t("eyebrow")}
+            </span>
 
-            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              <span className="bg-gradient-to-r from-gray-300 to-blue-500 bg-clip-text text-transparent">{/*CONNEXIONS*/} {current.companyName} </span> <br></br>
-              <span className="text-[#3ac9d9]">{current.companySlogan}</span> {/*All Services in One Place */}
-              
-            </h1>
+            <div className="mt-6 space-y-5">
+              <h1 className="max-w-3xl text-4xl font-semibold leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
+                <span className="block text-white/95">{t("companyName")}</span>
+                <span className="mt-4 block text-cyan-300">{t("companySlogan")}</span>
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-slate-100/90 sm:text-xl">
+                {t("heroIntro")}
+              </p>
+            </div>
 
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="space-y-5 bg-black/55 p-6 md:p-7 lg:p-8 rounded-xl backdrop-blur-md"
-              >
-                <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-[#3ac9d9]">
-                  {services[currentIndex].title}
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-gray-200">
-                  {services[currentIndex].description}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 sm:pt-6">
-              <motion.a
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a
                 href="/contact"
-                className="inline-block bg-[#3ac9d9] text-blue-950 font-bold text-base sm:text-lg py-4 px-8 rounded-full hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl text-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-8 py-4 text-base font-semibold text-slate-950 shadow-[0_18px_40px_-22px_rgba(34,211,238,0.6)] transition hover:bg-cyan-300"
               >
-                {current.button1}{/*Get Free Consultation*/}
-              </motion.a>
-
-              <motion.a
+                {t("button1")}
+              </a>
+              <a
                 href="/services"
-                className="inline-block border-2 border-[#3ac9d9] text-[#3ac9d9] font-bold text-base sm:text-lg py-4 px-8 rounded-full hover:bg-[#3ac9d9]/10 transition text-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center rounded-full border border-cyan-200/70 bg-white/5 px-8 py-4 text-base font-semibold text-cyan-100 backdrop-blur transition hover:bg-white/12 hover:text-white"
               >
-                {current.button2}{/*View All Services*/}
-
-              </motion.a>
+                {t("button2")}
+              </a>
             </div>
           </motion.div>
 
-          {/* RIGHT: Empty placeholder */}
-          <div className="hidden md:block" />
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.12 }}
+          >
+            <div className="overflow-hidden rounded-[32px] border border-white/15 bg-white/10 p-4 shadow-[0_30px_90px_-48px_rgba(0,0,0,0.75)] backdrop-blur-xl">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[26px] bg-slate-950/40">
+                <img
+                  src={currentSlide.image}
+                  alt={slideTitle}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.05),rgba(2,6,23,0.78))]" />
+
+                <div className="absolute inset-x-0 top-0 flex items-center justify-between p-5">
+                  <span className="rounded-full border border-white/15 bg-black/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/90 backdrop-blur">
+                    {t("featuredLabel")}
+                  </span>
+                  <span className="rounded-full border border-white/15 bg-black/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-100/90 backdrop-blur">
+                    {t("focusLabel")}
+                  </span>
+                </div>
+
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-100/75">
+                    {slideTitle}
+                  </p>
+                  <h2 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">
+                    {slideTitle}
+                  </h2>
+                  <p className="mt-3 max-w-md text-sm leading-7 text-slate-200/90">
+                    {slideDescription}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+          </motion.div>
         </div>
       </div>
 
-      {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20
-                   bg-black/50 hover:bg-black/70 text-white p-3 sm:p-4 rounded-full
-                   transition-all duration-300 backdrop-blur-sm
-                   opacity-70 hover:opacity-100 focus:opacity-100"
+        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-white/10 p-3 text-white shadow-[0_14px_34px_-22px_rgba(0,0,0,0.8)] backdrop-blur transition hover:bg-white/18"
         aria-label="Previous service"
       >
-        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
       <button
         onClick={nextSlide}
-        
-        className="absolute right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20
-                   bg-black/50 hover:bg-black/70 text-white p-3 sm:p-4 rounded-full
-                   transition-all duration-300 backdrop-blur-sm
-                   opacity-70 hover:opacity-100 focus:opacity-100"
+        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-white/10 p-3 text-white shadow-[0_14px_34px_-22px_rgba(0,0,0,0.8)] backdrop-blur transition hover:bg-white/18"
         aria-label="Next service"
       >
-        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>

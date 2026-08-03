@@ -1,0 +1,459 @@
+{
+  "Common": {
+    "siteName": "Connexions HK",
+    "metaTitle": "Connexions HK | 移民及专业顾问",
+    "metaDescription": "香港专业移民、签证、居留及商业顾问服务。"
+  },
+  "Header": {
+    "home": "首页",
+    "aboutUs": "关于我们",
+    "localImmigration": "香港移民",
+    "services": "公司服务",
+    "servicesOverview": "服务总览",
+    "officeService": "注册地址服务",
+    "hkLimitedCompany": "香港／海外公司注册",
+    "companySecretary": "公司秘书服务",
+    "businessAdvisory": "商业顾问服务",
+    "accountingServices": "会计服务",
+    "taxConsulting": "税务咨询",
+    "services2": "会计及税务",
+    "services2Overview": "税务及会计总览",
+    "fortuneInheritance": "财富传承",
+    "contact": "联系我们",
+    "languageLabel": "语言",
+    "language": {
+      "en": "ENG",
+      "zh": "繁",
+      "cn": "简"
+    }
+  },
+  "Hero": {
+    "eyebrow": "香港企业顾问",
+    "companyName": "Connexions",
+    "companySlogan": "您值得信赖的企业、移民及合规方案伙伴。",
+    "heroIntro": "我们协助企业及创业者在香港建立清晰、合规而专业的形象。",
+    "button1": "立即联系",
+    "button2": "了解服务",
+    "badge": "从设立、合规到持续顾问服务，一站式支援",
+    "highlights": {
+      "one": "结构清晰",
+      "two": "合规优先",
+      "three": "响应迅速"
+    },
+    "featuredLabel": "重点服务",
+    "focusLabel": "当前焦点",
+    "statusCards": {
+      "one": "有系统",
+      "two": "双语",
+      "three": "快速响应"
+    },
+    "services": {
+      "hkLimitedCompany": {
+        "title": "香港有限公司",
+        "description": "提供香港有限公司设立及管理的一站式支援。"
+      },
+      "bviOffshoreCompany": {
+        "title": "BVI及离岸公司",
+        "description": "协助在 BVI 及其他司法管辖区成立及管理离岸公司。"
+      },
+      "companySecretary": {
+        "title": "公司秘书",
+        "description": "专业公司秘书服务，协助维持合规及流程顺畅。"
+      },
+      "accountingServices": {
+        "title": "会计服务",
+        "description": "清晰可靠的日常会计及财务记录支持。"
+      },
+      "taxConsulting": {
+        "title": "税务咨询",
+        "description": "提供实用税务建议，协助策略、合规与规划一致。"
+      },
+      "businessAdvisory": {
+        "title": "商业顾问",
+        "description": "以策略为本的商业顾问服务，助您稳步前行。"
+      }
+    }
+  },
+  "About": {
+    "eyebrow": "关于 Connexions HK",
+    "title": "以信任、清晰及长远执行为核心的专业支持。",
+    "description": "Connexions 是一支经验丰富的专业服务团队，数十年来一直服务本地及海外客户。我们重视与客户之间的委托关系，坚持服务质量。凭借互信、理解，以及客户的口碑与推荐，Connexions 是您稳健可靠的合作伙伴。",
+    "advisoryLabel": "顾问思维",
+    "advisoryText": "我们保持冷静、实际的沟通方式，让整体体验更显专业而不繁重。",
+    "cards": {
+      "one": {
+        "title": "流程清晰",
+        "text": "把工作拆分为可执行步骤，让每个阶段都清楚易跟进。"
+      },
+      "two": {
+        "title": "互信合作",
+        "text": "我们重视长期合作，而非一次性的交易。"
+      },
+      "three": {
+        "title": "商业导向",
+        "text": "建议会尽量贴近企业实际运作，务实可行。"
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "联系",
+    "title": "与一支令流程清晰的团队展开对话。",
+    "subtitle": "我们可协助公司成立、银行、移民及香港持续企业支援。",
+    "email": "sales@connexions.hk",
+    "phone": "+852 2111 2425",
+    "office": "香港湾仔告士打道151号资本中心9楼902A室",
+    "response": "一般回复时间：一个工作天内",
+    "formTitle": "发送讯息",
+    "formDesc": "告诉我们您的需要，我们会回复可行的下一步。",
+    "nameLabel": "姓名",
+    "namePlaceholder": "您的姓名",
+    "emailLabel": "电邮",
+    "emailPlaceholder": "您的电邮",
+    "messageLabel": "讯息",
+    "messagePlaceholder": "请告诉我们如何帮到您...",
+    "sendButton": "发送讯息",
+    "sending": "传送中...",
+    "success": "谢谢，您的讯息已成功送出。",
+    "error": "出现问题，请稍后再试。"
+  },
+  "Footer": {
+    "description": "Connexions HK 是一家专业商业及移民服务公司，为客户提供一站式解决方案。",
+    "license": "Connexions HK 信托或企业服务供应商牌照号码：TC001097",
+    "quickLinks": "快速链接",
+    "HongKongImmigration": "香港移民",
+    "services": "公司服务",
+    "services2": "会计及税务服务",
+    "wealthInheritance": "财富传承规划",
+    "contactUs": "联系我们",
+    "corporateService": "公司服务",
+    "aboutUs": "关于我们",
+    "accountingService": "会计服务",
+    "businessAdvisory": "商业顾问",
+    "localCompany": "本地公司",
+    "companySecretary": "公司秘书",
+    "officeService": "办公室服务",
+    "taxConsulting": "税务咨询",
+    "otherService": "会计及税务服务",
+    "address": "香港湾仔告士打道151号资本中心9楼902A室",
+    "phone": "+852 2111 2425",
+    "email": "sales@connexions.hk",
+    "contactTitle": "联系",
+    "copyright": "© {year} Connexions Corporate Strategies Limited. 保留所有权利。"
+  },
+  "Pages": {
+    "AboutUs": {
+      "hero": {
+        "eyebrow": "关于 Connexions HK",
+        "title": "以沉稳、精致的方式提供专业支持。",
+        "subtitle": "我们协助客户在香港建立、管理及扩展业务，整个过程清晰有序。"
+      },
+      "story": {
+        "title": "我们是谁",
+        "body": "Connexions 是一支专注实务执行、清楚沟通及长期客户关系的专业服务团队。"
+      },
+      "cards": [
+        {
+          "title": "流程清晰",
+          "text": "每个项目都会拆成清楚步骤，让工作推进更顺畅。"
+        },
+        {
+          "title": "互信合作",
+          "text": "我们建立的是可长期合作的伙伴关系。"
+        },
+        {
+          "title": "商业思维",
+          "text": "所有建议都尽量贴近企业实际运作。"
+        }
+      ],
+      "closing": {
+        "title": "值得长期信赖的合作伙伴",
+        "text": "如果您希望一个专业、直接又容易合作的支援团队，我们已准备好协助。"
+      },
+      "cta": "立即联系"
+    },
+    "ServicesOverview": {
+      "hero": {
+        "title": "公司服务",
+        "subtitle": "从香港公司成立到日常维护，提供您所需的一站式支援。",
+        "intro": "从公司注册、公司秘书到办公室服务，我们为企业设立及营运提供清晰而稳定的路线。"
+      },
+      "cards": [
+        {
+          "title": "香港／海外公司注册",
+          "text": "快速、合规的公司设立及银行开户支援。"
+        },
+        {
+          "title": "公司秘书服务",
+          "text": "协助整理法定责任、企业管治及重要期限。"
+        },
+        {
+          "title": "注册地址服务",
+          "text": "提供可靠的香港地址及邮件处理支援。"
+        },
+        {
+          "title": "BVI及海外公司设立",
+          "text": "适合需要弹性及国际布局的离岸架构。"
+        }
+      ],
+      "cta": {
+        "title": "准备开始了吗？",
+        "text": "欢迎联络我们，了解哪种架构最适合您的计划。",
+        "button": "联系我们"
+      }
+    },
+    "TaxOverview": {
+      "hero": {
+        "title": "会计及税务",
+        "subtitle": "为成长中的企业提供可靠的财务、税务及顾问支援。",
+        "intro": "我们协助您保持帐目清晰、申报有序，并让每个决定更贴近商业现实。"
+      },
+      "cards": [
+        {
+          "title": "会计服务",
+          "text": "日常记账、报表及年度支援。"
+        },
+        {
+          "title": "商业顾问服务",
+          "text": "策略、增长及营运方面的实用建议。"
+        },
+        {
+          "title": "税务咨询",
+          "text": "实用税务建议，兼顾合规与效率。"
+        }
+      ],
+      "cta": {
+        "title": "需要清晰的财务伙伴？",
+        "text": "告诉我们您的方向，我们会提供下一步建议。",
+        "button": "立即联系"
+      }
+    },
+    "LocalCompany": {
+      "hero": {
+        "title": "香港／海外公司注册",
+        "subtitle": "为香港及海外新业务提供清晰的起步方案。"
+      },
+      "intro": "我们会带您完成注册、设立，以及公司成立后所需的实务步骤。",
+      "points": [
+        "公司注册及设立支援",
+        "银行及文件准备指引",
+        "持续合规提醒与跟进"
+      ],
+      "cta": {
+        "title": "从第一天开始建立正确架构",
+        "text": "我们可协助您选择更合适、合规而高效的方案。",
+        "button": "立即联系"
+      }
+    },
+    "CompanySecretary": {
+      "hero": {
+        "title": "公司秘书服务",
+        "subtitle": "让企业责任、申报及文件管理保持有序合规。"
+      },
+      "intro": "我们代您处理日常管治工作，让团队可专注于业务发展。",
+      "points": [
+        "周年申报及法定支援",
+        "董事会及公司记录整理",
+        "重要期限提醒管理"
+      ],
+      "cta": {
+        "title": "保持申报节奏更稳定",
+        "text": "让我们帮您维持可靠的合规节奏。",
+        "button": "立即联系"
+      }
+    },
+    "OfficeService": {
+      "hero": {
+        "title": "注册地址服务",
+        "subtitle": "可靠的本地地址及实用邮件处理支援。"
+      },
+      "intro": "若香港公司需要稳定的注册地址，我们提供简单可靠的方案。",
+      "points": [
+        "供公司使用的注册地址",
+        "邮件收取及处理支援",
+        "为业务建立更专业的门面"
+      ],
+      "cta": {
+        "title": "让往来文件更有条理",
+        "text": "我们令行政工作更轻松、更容易管理。",
+        "button": "立即联系"
+      }
+    },
+    "BviCompany": {
+      "hero": {
+        "title": "BVI及离岸公司",
+        "subtitle": "为灵活性、私隐及国际规划而设的离岸方案。"
+      },
+      "intro": "我们以清晰、务实的方式协助客户设立及维护离岸架构。",
+      "points": [
+        "离岸成立及行政支援",
+        "适合跨境营运的灵活架构",
+        "持续维护的实务指引"
+      ],
+      "cta": {
+        "title": "了解离岸架构的可能性",
+        "text": "我们会用简单易明的方式为您说明整个流程。",
+        "button": "立即联系"
+      }
+    },
+    "Accounting": {
+      "hero": {
+        "title": "会计服务",
+        "subtitle": "保持帐目清晰、记录准时及财务支援稳定。"
+      },
+      "intro": "我们的会计支援旨在让您的记录更有条理，报表更简单。",
+      "points": [
+        "记账及财务记录整理",
+        "每月及年度报告支援",
+        "配合企业节奏的实务安排"
+      ],
+      "cta": {
+        "title": "让申报更轻松",
+        "text": "我们可为您的日常财务工作减压。",
+        "button": "立即联系"
+      }
+    },
+    "BusinessAdv": {
+      "hero": {
+        "title": "商业顾问服务",
+        "subtitle": "为策略、增长及执行提供实用建议。"
+      },
+      "intro": "从架构、规划到市场进入及增长，我们协助企业更清晰地作出决定。",
+      "points": [
+        "策略规划及检视",
+        "市场进入及营运指引",
+        "协助作出更稳健的商业决定"
+      ],
+      "cta": {
+        "title": "以更清晰的计划向前",
+        "text": "我们会以稳健方式协助您拟定下一步。",
+        "button": "立即联系"
+      }
+    },
+    "Tax": {
+      "hero": {
+        "title": "税务咨询",
+        "subtitle": "让合规与规划保持一致的直接税务支援。"
+      },
+      "intro": "我们提供贴近业务现实、清晰透明且实用的税务建议。",
+      "points": [
+        "税务规划及合规指引",
+        "香港及跨境税务考量",
+        "支持更佳决策的清晰建议"
+      ],
+      "cta": {
+        "title": "让税务安排更有条理",
+        "text": "我们可协助您掌握申报及规划需要。",
+        "button": "立即联系"
+      }
+    },
+    "LocalImmigration": {
+      "hero": {
+        "title": "香港移民",
+        "subtitle": "涵盖签证、居留及相关申请的清晰指引。"
+      },
+      "intro": "我们协助申请人了解合适路线，并有信心地准备所需文件及步骤。",
+      "schemes": [
+        {
+          "title": "优秀人才入境计划",
+          "text": "适合希望以计分制方式在香港生活及工作的人士。"
+        },
+        {
+          "title": "一般就业政策",
+          "text": "适合已有聘用机会或透过雇主安排来港的人士。"
+        },
+        {
+          "title": "输入内地人才计划",
+          "text": "为合资格专业人士申请香港工作签证。"
+        },
+        {
+          "title": "受养人及延期申请",
+          "text": "支持家庭签证，以及续签或延期申请。"
+        },
+        {
+          "title": "永久居留核实",
+          "text": "协助处理香港永久居民资格核实的流程。"
+        }
+      ],
+      "cta": {
+        "title": "不确定哪条路最合适？",
+        "text": "我们会用简单方式为您解释流程。",
+        "button": "立即联系"
+      }
+    },
+    "OverseasImmigration": {
+      "hero": {
+        "title": "海外移民及公民身份",
+        "subtitle": "以清晰方式了解国际移民及公民身份方案。"
+      },
+      "intro": "我们协助客户探索不同司法管辖区的居留及公民身份路线。",
+      "programs": [
+        {
+          "title": "瓦努阿图捐献入籍",
+          "text": "适合寻求第二护照方案的客户。"
+        },
+        {
+          "title": "圣基茨和尼维斯投资入籍",
+          "text": "广受认可的投资入籍路线，具备国际出行优势。"
+        },
+        {
+          "title": "旅游及居留签证",
+          "text": "支持特定目的地的居留及旅游签证规划。"
+        }
+      ],
+      "cta": {
+        "title": "以清晰方式了解全球选项",
+        "text": "我们会协助您比较不同方案及其要求。",
+        "button": "立即联系"
+      }
+    },
+    "WealthInheritance": {
+      "hero": {
+        "title": "财富传承",
+        "subtitle": "为家族延续、继承及长远架构作周全规划。"
+      },
+      "intro": "我们协助客户思考资产、家族治理及长远规划如何彼此配合。",
+      "sections": [
+        {
+          "title": "家族规划",
+          "text": "围绕家庭成员及责任，建立更清楚的规划。"
+        },
+        {
+          "title": "资产延续",
+          "text": "为跨代延续建立实用方案。"
+        },
+        {
+          "title": "跨境考量",
+          "text": "协调不同司法管辖区，让整体规划更完整。"
+        }
+      ],
+      "cta": {
+        "title": "以信心作规划",
+        "text": "我们可协助您建立更有条理的长远方案。",
+        "button": "立即联系"
+      }
+    },
+    "ContactPage": {
+      "hero": {
+        "title": "联系我们",
+        "subtitle": "与一支清晰、响应迅速的团队直接沟通。"
+      },
+      "intro": "告诉我们您的需要，我们会提供实际可行的下一步。",
+      "info": {
+        "emailLabel": "电邮",
+        "phoneLabel": "电话",
+        "faxLabel": "传真",
+        "addressLabel": "地址",
+        "address": "香港湾仔告士打道151号资本中心9楼902A室",
+        "response": "一般回复时间：一个工作天内"
+      },
+      "form": {
+        "title": "发送讯息",
+        "namePlaceholder": "您的姓名",
+        "emailPlaceholder": "您的电邮",
+        "messagePlaceholder": "您的讯息",
+        "sendButton": "发送讯息"
+      },
+      "mapLabel": "办公室位置"
+    }
+  }
+}
