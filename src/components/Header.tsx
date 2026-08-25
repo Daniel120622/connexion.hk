@@ -215,9 +215,12 @@ export default function Header() {
             <Link href="/wealth-inheritance" className={desktopLinkClass(isActive("/wealth-inheritance"))}>
               {t("fortuneInheritance")}
             </Link>
-            <Link href="/contact" className={desktopLinkClass(isActive("/contact"))}>
+            <Link
+              href="/contact"
+              className={`${desktopLinkClass(isActive("/contact"))} rounded-full bg-[#101b33] px-4 py-2.5 text-white shadow-[0_16px_35px_-24px_rgba(7,17,31,0.7)] ring-1 ring-[#07111f]/10 transition hover:bg-[#0f2a5c] hover:text-white hover:after:scale-x-0 active:bg-[#0d2450]`}
+            >
               {t("contact")}
-            </Link>
+</Link>
           </nav>
 
           <div className="ml-auto flex items-center gap-2 sm:gap-3">

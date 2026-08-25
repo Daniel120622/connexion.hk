@@ -134,9 +134,6 @@ export default function WealthInheritancePage() {
           ctaLabel={current.ctaButton}
           ctaHref="/contact"
           chips={[
-            { label: current.Title1, href: "#planning" },
-            { label: current.Title2, href: "#private-bank" },
-            { label: current.Title3, href: "#overseas-trust" },
           ]}
         />
 

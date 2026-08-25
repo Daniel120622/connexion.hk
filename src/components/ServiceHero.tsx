@@ -70,7 +70,7 @@ export default function ServiceHero({
             <div className="mt-8 flex flex-wrap items-center gap-6">
               <Link
                 href={ctaHref}
-                className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-[0_18px_40px_-18px_rgba(37,99,235,0.65)] transition hover:bg-blue-500"
+                className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-8 py-4 text-base font-semibold text-slate-950 shadow-[0_18px_40px_-18px_rgba(34,211,238,0.55)] transition hover:bg-cyan-300"
               >
                 {ctaLabel}
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

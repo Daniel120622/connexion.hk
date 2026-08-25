@@ -85,9 +85,7 @@ export default function AboutUs() {
         ctaLabel={current.closingCall}
         ctaHref="/contact"
         chips={[
-          { label: current.proficiencyTitle, href: "#proficiency" },
-          { label: current.servicesTitle, href: "#services" },
-          { label: current.followUpTitle, href: "#follow-up" },
+          
         ]}
       />
 

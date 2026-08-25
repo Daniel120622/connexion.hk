@@ -93,9 +93,7 @@ export default function ServicesOverviewPage() {
         ctaLabel={current.ctaButton}
         ctaHref="/contact"
         chips={[
-          { label: current.AccountingServicesTitle, href: "/accountancy-tax/accounting" },
-          { label: current.BusinessAdvisoryTitle, href: "/accountancy-tax/business-advisory" },
-          { label: current.TaxConsultingTitle, href: "/accountancy-tax/tax" },
+         
         ]}
       />
 

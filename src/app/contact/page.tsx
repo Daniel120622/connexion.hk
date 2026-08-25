@@ -124,9 +124,6 @@ export default function ContactPage() {
         imageAlt="Hong Kong Victoria Harbour skyline at dusk"
         variant="contact"
         chips={[
-          { label: current.getInTouch, href: "#get-in-touch" },
-          { label: current.sendMessageTitle, href: "#send-message" },
-          { label: current.addressLabel, href: "#map" },
         ]}
       />
 

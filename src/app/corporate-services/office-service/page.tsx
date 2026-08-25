@@ -3,12 +3,8 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import ServiceHero from '@/components/ServiceHero';
-import {
-  corporateServicesNav,
-  corporateServicesOrder,
-  corporateServicesGroupLabel,
-} from '@/lib/corporateServicesNav';
+import PageHero from '@/components/PageHero';
+import { corporateServicesNav, corporateServicesOrder } from '@/lib/corporateServicesNav';
 
 
 export default function CompanySecretaryPage() {
@@ -52,18 +48,16 @@ export default function CompanySecretaryPage() {
 
     return (
     <div className="min-h-screen bg-gray-50">
-      <ServiceHero
+      <PageHero
         icon={MapPin}
-        eyebrow={corporateServicesGroupLabel[lang]}
         title={current.heroTitle}
         description={current.heroDesc}
         imageSrc="/images/services/officeService.jpg"
         imageAlt="Registered office service"
+        variant="corporate"
         ctaLabel={current.ctaButton}
         ctaHref="/contact"
-        index={corporateServicesOrder.indexOf("office-service") + 1}
-        total={corporateServicesOrder.length}
-        siblings={corporateServicesOrder.map((slug) => ({
+        chips={corporateServicesOrder.map((slug) => ({
           label: corporateServicesNav[slug].title[lang],
           href: corporateServicesNav[slug].href,
           active: slug === "office-service",

@@ -4,12 +4,8 @@
 import React from 'react';
 import { Landmark } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import ServiceHero from '@/components/ServiceHero';
-import {
-  corporateServicesNav,
-  corporateServicesOrder,
-  corporateServicesGroupLabel,
-} from '@/lib/corporateServicesNav';
+import PageHero from '@/components/PageHero';
+import { corporateServicesNav, corporateServicesOrder } from '@/lib/corporateServicesNav';
 
 
 export default function LocalCompanyPage() {
@@ -56,18 +52,16 @@ export default function LocalCompanyPage() {
 
     return (
     <div className="min-h-screen bg-gray-50">
-      <ServiceHero
+      <PageHero
         icon={Landmark}
-        eyebrow={corporateServicesGroupLabel[lang]}
         title={current.heroTitle}
         description={current.heroDesc}
         imageSrc="/images/services/hkCompany.jpg"
         imageAlt="Iconic Hong Kong skyline and Victoria Harbour in daylight"
+        variant="corporate"
         ctaLabel={current.ctaButton}
         ctaHref="/contact"
-        index={corporateServicesOrder.indexOf("local-company") + 1}
-        total={corporateServicesOrder.length}
-        siblings={corporateServicesOrder.map((slug) => ({
+        chips={corporateServicesOrder.map((slug) => ({
           label: corporateServicesNav[slug].title[lang],
           href: corporateServicesNav[slug].href,
           active: slug === "local-company",

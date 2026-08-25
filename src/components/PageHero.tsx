@@ -11,7 +11,7 @@ export type PageHeroChip = {
   active?: boolean;
 };
 
-export type PageHeroVariant = "immigration" | "about" | "wealth" | "accountancy" | "contact";
+export type PageHeroVariant = "immigration" | "corporate" | "about" | "wealth" | "accountancy" | "contact";
 
 // Every topic page shares the same dark-navy base (see Hero.tsx) so the
 // site's chrome stays consistent; only the accent glow in the far corner
@@ -19,6 +19,7 @@ export type PageHeroVariant = "immigration" | "about" | "wealth" | "accountancy"
 // without turning the palette into a rainbow.
 const VARIANT_GRADIENT: Record<PageHeroVariant, string> = {
   immigration: "bg-[linear-gradient(135deg,#07111f_0%,#0d1b30_45%,#1d4ed8_140%)]",
+  corporate: "bg-[linear-gradient(135deg,#07111f_0%,#0d1b30_45%,#7c3aed_140%)]",
   about: "bg-[linear-gradient(135deg,#07111f_0%,#0d1b30_45%,#4f46e5_140%)]",
   wealth: "bg-[linear-gradient(135deg,#07111f_0%,#0d1b30_45%,#b45309_140%)]",
   accountancy: "bg-[linear-gradient(135deg,#07111f_0%,#0d1b30_42%,#0f766e_125%)]",
@@ -27,6 +28,7 @@ const VARIANT_GRADIENT: Record<PageHeroVariant, string> = {
 
 const VARIANT_ICON_RING: Record<PageHeroVariant, string> = {
   immigration: "border-sky-200/60 bg-sky-400/15 text-sky-100",
+  corporate: "border-violet-200/60 bg-violet-400/15 text-violet-100",
   about: "border-indigo-200/60 bg-indigo-400/15 text-indigo-100",
   wealth: "border-amber-200/60 bg-amber-400/15 text-amber-100",
   accountancy: "border-teal-200/60 bg-teal-400/15 text-teal-100",
@@ -35,6 +37,7 @@ const VARIANT_ICON_RING: Record<PageHeroVariant, string> = {
 
 const VARIANT_CHIP_ACTIVE: Record<PageHeroVariant, string> = {
   immigration: "border-sky-300/70 bg-sky-400/20 text-white",
+  corporate: "border-violet-300/70 bg-violet-400/20 text-white",
   about: "border-indigo-300/70 bg-indigo-400/20 text-white",
   wealth: "border-amber-300/70 bg-amber-400/20 text-white",
   accountancy: "border-teal-300/70 bg-teal-400/20 text-white",
@@ -108,7 +111,7 @@ export default function PageHero({
             {ctaLabel && (
               <Link
                 href={ctaHref}
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-[0_18px_40px_-18px_rgba(37,99,235,0.65)] transition hover:bg-blue-500"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-8 py-4 text-base font-semibold text-slate-950 shadow-[0_18px_40px_-18px_rgba(34,211,238,0.55)] transition hover:bg-cyan-300"
               >
                 {ctaLabel}
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

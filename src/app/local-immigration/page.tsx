@@ -184,14 +184,7 @@ export default function LocalImmigrationPage() {
         ctaLabel={current.ctaButton}
         ctaHref="/contact"
         chips={[
-          { label: current.topTalentPassScheme, href: "#top-talent-pass" },
-          { label: current.NCIES_title, href: "#ncies" },
-          { label: current.generalEmploymentPolicy, href: "#gep" },
-          { label: current.ASMTP, href: "#asmtp" },
-          { label: current.EEEN, href: "#eeen" },
-          { label: current.qualityMigrantAdmissionScheme, href: "#qmas" },
-          { label: current.Visas, href: "#other-visas" },
-          { label: current.HKIDCard, href: "#hkid-card" },
+          
         ]}
       />
 

@@ -3,12 +3,8 @@
 
 import { Building2 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import ServiceHero from '@/components/ServiceHero';
-import {
-  corporateServicesNav,
-  corporateServicesOrder,
-  corporateServicesGroupLabel,
-} from '@/lib/corporateServicesNav';
+import PageHero from '@/components/PageHero';
+import { corporateServicesNav, corporateServicesOrder } from '@/lib/corporateServicesNav';
 
 export default function BVICompanyPage() {
   const { lang } = useLanguage();
@@ -49,18 +45,16 @@ export default function BVICompanyPage() {
 
     return (
     <div className="min-h-screen bg-gray-50">
-      <ServiceHero
+      <PageHero
         icon={Building2}
-        eyebrow={corporateServicesGroupLabel[lang]}
         title={current.heroTitle}
         description={current.heroDesc}
         imageSrc="/images/services/BVI.jpeg"
         imageAlt="BVI and overseas company formation"
+        variant="corporate"
         ctaLabel={current.ctaButton}
         ctaHref="/contact"
-        index={corporateServicesOrder.indexOf("bvi-company") + 1}
-        total={corporateServicesOrder.length}
-        siblings={corporateServicesOrder.map((slug) => ({
+        chips={corporateServicesOrder.map((slug) => ({
           label: corporateServicesNav[slug].title[lang],
           href: corporateServicesNav[slug].href,
           active: slug === "bvi-company",
