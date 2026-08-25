@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -50,6 +51,18 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setServicesOpen(false);
+        setTaxServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, []);
+
   const desktopLinkClass = (active: boolean) =>
     [
       "inline-flex items-center relative whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium leading-none tracking-[0.02em] transition-colors duration-200 after:absolute after:left-2.5 after:right-2.5 after:-bottom-0.5 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-teal-700 after:transition-transform after:duration-200 hover:text-slate-900 hover:after:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/25 gap-2",
@@ -73,17 +86,18 @@ export default function Header() {
     ].join(" ");
 
   const servicesItems = [
-    { href: "/services", label: t("servicesOverview") },
-    { href: "/services/local-company", label: t("hkLimitedCompany") },
-    { href: "/services/compSecretary", label: t("companySecretary") },
-    { href: "/services/office-service", label: t("officeService") },
+    { href: "/corporate-services", label: t("servicesOverview") },
+    { href: "/corporate-services/local-company", label: t("hkLimitedCompany") },
+    { href: "/corporate-services/company-secretary", label: t("companySecretary") },
+    { href: "/corporate-services/office-service", label: t("officeService") },
+    { href: "/corporate-services/bvi-company", label: t("bviCompany") },
   ];
 
   const taxItems = [
-    { href: "/services2", label: t("services2Overview") },
-    { href: "/services2/businessAdv", label: t("businessAdvisory") },
-    { href: "/services2/accounting", label: t("accountingServices") },
-    { href: "/services2/tax", label: t("taxConsulting") },
+    { href: "/accountancy-tax", label: t("services2Overview") },
+    { href: "/accountancy-tax/business-advisory", label: t("businessAdvisory") },
+    { href: "/accountancy-tax/accounting", label: t("accountingServices") },
+    { href: "/accountancy-tax/tax", label: t("taxConsulting") },
   ];
 
   const languageLabel = (item: Lang) => t(`language.${item}` as const);
@@ -93,9 +107,12 @@ export default function Header() {
       <div className="border-b border-white/70 bg-white/88 text-slate-900 shadow-[0_14px_40px_-30px_rgba(15,23,42,0.38)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-[1680px] items-center gap-4 px-4 py-3 sm:px-6 lg:px-8 2xl:px-10">
           <Link href="/" className="flex shrink-0 items-center rounded-full bg-white/90 px-2.5 py-2 ring-1 ring-slate-200/80 transition hover:shadow-[0_16px_40px_-28px_rgba(15,23,42,0.35)]">
-            <img
+            <Image
               src="/images/connexions-hk.png"
               alt="Connexions HK Logo"
+              width={340}
+              height={382}
+              priority
               className="h-11 w-11 object-contain sm:h-12 sm:w-12"
             />
           </Link>
@@ -125,8 +142,7 @@ export default function Header() {
                   setTaxServicesOpen(false);
                 }
               }}
-              style={{ fontSize: "13px", color: "#0f172a", fontWeight: "500" }}
-              className={desktopLinkClass(isActive("/services"))}
+              className={desktopLinkClass(isActive("/corporate-services"))}
               aria-expanded={servicesOpen}
               aria-haspopup="menu"
             >
@@ -168,8 +184,7 @@ export default function Header() {
                     setServicesOpen(false);
                   }
                 }}
-                style={{ fontSize: "13px", color: "#0f172a", fontWeight: "500" }}
-                className={desktopLinkClass(isActive("/services2"))}
+                className={desktopLinkClass(isActive("/accountancy-tax"))}
                 aria-expanded={taxServicesOpen}
                 aria-haspopup="menu"
               >

@@ -22,8 +22,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const setLang = (nextLang: Lang) => {
     if (typeof document !== "undefined") {
+      // The cookie is what src/i18n/request.ts actually reads to pick a
+      // locale server-side; router.refresh() re-runs that with the new
+      // cookie value.
       document.cookie = `${LOCALE_COOKIE}=${nextLang}; path=/; max-age=31536000; samesite=lax`;
-      localStorage.setItem("lang", nextLang);
     }
     router.refresh();
   };

@@ -103,6 +103,15 @@ export default function Contact() {
               </p>
 
               <form ref={formRef} onSubmit={handleSubmit} className="mt-8 space-y-6">
+                {/* Honeypot: hidden from real visitors, catches bots that fill in every field. */}
+                <input
+                  type="text"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+                />
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
                     <label htmlFor="name" className="block text-sm font-medium text-slate-700">

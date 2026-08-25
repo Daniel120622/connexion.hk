@@ -4,7 +4,8 @@
 
 import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { Mail, Phone, Printer, MapPin } from 'lucide-react';
+import { Mail, Phone, Printer, MapPin, MessageCircle } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 
 
 export default function ContactPage() {
@@ -115,14 +116,26 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+      <PageHero
+        icon={MessageCircle}
+        title={current.title}
+        description={current.subtitle}
+        imageSrc="/images/banner/aboutUs.png"
+        imageAlt="Hong Kong Victoria Harbour skyline at dusk"
+        variant="contact"
+        chips={[
+          { label: current.getInTouch, href: "#get-in-touch" },
+          { label: current.sendMessageTitle, href: "#send-message" },
+          { label: current.addressLabel, href: "#map" },
+        ]}
+      />
 
       <main className="container mx-auto px-4 py-10 max-w-7xl">
         {/* Contact Info + Form + Map Grid – SWAPPED ORDER */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
                     {/* Right Column: Contact Info + Form */}
-          <div className="space-y-8 order-1 lg:order-">
-            <section>
+          <div className="space-y-8 order-1 lg:order-2">
+            <section id="get-in-touch" className="scroll-mt-24">
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">{current.getInTouch}</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 {current.getInTouchDescription}
@@ -170,12 +183,21 @@ export default function ContactPage() {
             </section>
 
             
-            <section className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <section id="send-message" className="scroll-mt-24 bg-white rounded-xl shadow-md p-6 border border-gray-100">
               <h3 className="text-xl font-semibold mb-5 text-gray-800">
                 {current.sendMessageTitle}
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Honeypot: hidden from real visitors, catches bots that fill in every field. */}
+                <input
+                  type="text"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+                />
                 <input
                   type="text"
                   name="name"
@@ -227,7 +249,7 @@ export default function ContactPage() {
           
           
           {/* Left Column: Google Map */}
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full min-h-[500px] lg:min-h-0 order-2 lg:order-1">
+          <div id="map" className="scroll-mt-24 bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full min-h-[500px] lg:min-h-0 order-2 lg:order-1">
             <div className="bg-gray-800 text-white px-5 py-3 font-medium">
               {current.addressLabel}
             </div>

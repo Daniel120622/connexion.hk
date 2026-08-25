@@ -1,8 +1,11 @@
 // src/app/wealth-inheritance/page.tsx
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { Gem } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import PageHero from '@/components/PageHero';
 
 export default function WealthInheritancePage() {
   const { lang } = useLanguage();
@@ -121,33 +124,21 @@ export default function WealthInheritancePage() {
 
     return (
       <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */} 
-        <section className="relative h-96 md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-          
-
-          <div className="absolute inset-0">
-            <img
-              src="/images/banner/wealth.jpg"
-              className="
-                absolute inset-0 h-full w-full
-                object-cover
-                brightness-[0.6]
-                scale-110 md:scale-105
-                transition-transform duration-1000
-                hover:scale-115
-          "/> 
-          </div>
-
-          <div className="relative container mx-auto px-6 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight drop-shadow-lg">
-              {current.heroTitle}
-            </h1>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light opacity-95">
-              {current.heroDesc}
-            </p>
-          </div>
-
-        </section>
+        <PageHero
+          icon={Gem}
+          title={current.heroTitle}
+          description={current.heroDesc}
+          imageSrc="/images/banner/wealth.jpg"
+          imageAlt="Wealth and fortune inheritance planning"
+          variant="wealth"
+          ctaLabel={current.ctaButton}
+          ctaHref="/contact"
+          chips={[
+            { label: current.Title1, href: "#planning" },
+            { label: current.Title2, href: "#private-bank" },
+            { label: current.Title3, href: "#overseas-trust" },
+          ]}
+        />
 
 
         {/* ==================== Introduction ==================== */}
@@ -168,11 +159,13 @@ export default function WealthInheritancePage() {
           <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Left Photo with Title1 */}
-              <div>
-                <img
+              <div id="planning" className="relative h-64 w-full scroll-mt-24 overflow-hidden rounded-lg shadow-lg md:h-80">
+                <Image
                   src="/images/fortuneInheritance/title1.jpg"
                   alt="Title1 Image"
-                  className="rounded-lg shadow-lg object-cover w-full h-64 md:h-80"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
                 />
               </div>
               <div>
@@ -187,11 +180,13 @@ export default function WealthInheritancePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
               {/* Right Photo with Title2 */}
-              <div className="md:order-2">
-                <img
+              <div id="private-bank" className="relative h-64 w-full scroll-mt-24 overflow-hidden rounded-lg shadow-lg md:h-80 md:order-2">
+                <Image
                   src="/images/fortuneInheritance/title2.jpg"
                   alt="Title2 Image"
-                  className="rounded-lg shadow-lg object-cover w-full h-64 md:h-80"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
                 />
               </div>
               <div>
@@ -206,11 +201,13 @@ export default function WealthInheritancePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
               {/* Left Photo with Title3 */}
-              <div>
-                <img
+              <div id="overseas-trust" className="relative h-64 w-full scroll-mt-24 overflow-hidden rounded-lg shadow-lg md:h-80">
+                <Image
                   src="/images/fortuneInheritance/title3.jpg"
                   alt="Title3 Image"
-                  className="rounded-lg shadow-lg object-cover w-full h-64 md:h-80"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
                 />
               </div>
               <div>

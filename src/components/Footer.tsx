@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle, Phone, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -13,9 +14,11 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr_0.95fr_1fr]">
           <div className="space-y-6">
             <Link href="/" className="inline-flex items-center gap-3">
-              <img
+              <Image
                 src="/images/connexions-hk.png"
                 alt="Connexions HK Logo"
+                width={340}
+                height={382}
                 className="h-14 w-14 object-contain"
               />
             </Link>
@@ -30,8 +33,8 @@ export default function Footer() {
             <ul className="mt-6 space-y-3 text-sm text-slate-400">
               <li><Link href="/about-us" className="transition hover:text-cyan-100">{t("aboutUs")}</Link></li>
               <li><Link href="/local-immigration" className="transition hover:text-cyan-100">{t("HongKongImmigration")}</Link></li>
-              <li><Link href="/services" className="transition hover:text-cyan-100">{t("services")}</Link></li>
-              <li><Link href="/services2" className="transition hover:text-cyan-100">{t("services2")}</Link></li>
+              <li><Link href="/corporate-services" className="transition hover:text-cyan-100">{t("services")}</Link></li>
+              <li><Link href="/accountancy-tax" className="transition hover:text-cyan-100">{t("services2")}</Link></li>
               <li><Link href="/wealth-inheritance" className="transition hover:text-cyan-100">{t("wealthInheritance")}</Link></li>
               <li><Link href="/contact" className="transition hover:text-cyan-100">{t("contactUs")}</Link></li>
             </ul>
@@ -42,18 +45,18 @@ export default function Footer() {
               {t("corporateService")}
             </h3>
             <ul className="mt-6 space-y-3 text-sm text-slate-400">
-              <li><Link href="/services/local-company" className="transition hover:text-cyan-100">{t("localCompany")}</Link></li>
-              <li><Link href="/services/compSecretary" className="transition hover:text-cyan-100">{t("companySecretary")}</Link></li>
-              <li><Link href="/services/office-service" className="transition hover:text-cyan-100">{t("officeService")}</Link></li>
+              <li><Link href="/corporate-services/local-company" className="transition hover:text-cyan-100">{t("localCompany")}</Link></li>
+              <li><Link href="/corporate-services/company-secretary" className="transition hover:text-cyan-100">{t("companySecretary")}</Link></li>
+              <li><Link href="/corporate-services/office-service" className="transition hover:text-cyan-100">{t("officeService")}</Link></li>
             </ul>
 
             <h3 className="mt-10 text-sm font-semibold uppercase tracking-[0.3em] text-white/85">
               {t("otherService")}
             </h3>
             <ul className="mt-6 space-y-3 text-sm text-slate-400">
-              <li><Link href="/services2/accounting" className="transition hover:text-cyan-100">{t("accountingService")}</Link></li>
-              <li><Link href="/services2/businessAdv" className="transition hover:text-cyan-100">{t("businessAdvisory")}</Link></li>
-              <li><Link href="/services2/tax" className="transition hover:text-cyan-100">{t("taxConsulting")}</Link></li>
+              <li><Link href="/accountancy-tax/accounting" className="transition hover:text-cyan-100">{t("accountingService")}</Link></li>
+              <li><Link href="/accountancy-tax/business-advisory" className="transition hover:text-cyan-100">{t("businessAdvisory")}</Link></li>
+              <li><Link href="/accountancy-tax/tax" className="transition hover:text-cyan-100">{t("taxConsulting")}</Link></li>
             </ul>
           </div>
 

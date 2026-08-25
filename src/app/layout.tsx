@@ -20,12 +20,22 @@ export const metadata: Metadata = {
 
 
 
+// "cn"/"zh" are internal locale codes used to pick a message file and are
+// not themselves valid BCP-47 language tags (in particular "cn" is a
+// country code, not a language code) -- map to a real tag for <html lang>.
+const HTML_LANG: Record<string, string> = {
+  en: 'en',
+  zh: 'zh-HK',
+  cn: 'zh-CN',
+};
+
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const htmlLang = HTML_LANG[locale] ?? 'en';
 
   return (
-    <html lang={locale}>
+    <html lang={htmlLang}>
       <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased">
         <NextIntlClientProvider messages={messages}>
           <LanguageProvider>

@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Connexions HK
 
-## Getting Started
+Marketing site for Connexions HK, built with Next.js (App Router), Tailwind CSS v4, and next-intl (English / Traditional Chinese / Simplified Chinese).
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # then fill in RESEND_API_KEY (see below)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The contact form (`/contact` and the homepage contact section) sends mail through [Resend](https://resend.com). See `.env.example` for the full list. At minimum you need:
 
-## Learn More
+- `RESEND_API_KEY` -- from the Resend dashboard.
+- `CONTACT_FROM_EMAIL` -- **must be an address on a domain verified in Resend.** The default sandbox sender (`onboarding@resend.dev`) cannot reliably deliver to a real inbox in production; see the comments in `.env.example` for how to verify a domain.
+- `CONTACT_TO_EMAIL` -- where submissions are delivered (defaults to `sales@connexions.hk`).
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/app/` -- routes (App Router).
+- `src/components/` -- shared UI used on the homepage (`Header`, `Footer`, `Hero`, `AboutUs`, `Contact`).
+- `src/context/LanguageContext.tsx` -- the language switcher's client-side state (cookie-backed).
+- `src/i18n/` + `src/messages/*.json` -- next-intl setup and translation strings for `Header`, `Footer`, `Hero`, and the homepage sections.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Note on translations:** most inner pages (About Us, Contact, the immigration pages, and the services sub-pages) currently keep their own hardcoded `{ en, zh, cn }` content object inline rather than using `src/messages/*.json`. This works but means a copy change has to be made in the right file rather than in one place, and any per-locale content gap (like an empty paragraph) won't be caught automatically. Migrating those pages onto the shared `next-intl` messages files is a worthwhile follow-up.
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploys to [Vercel](https://vercel.com); set the environment variables above in the project's Vercel settings.

@@ -2,7 +2,10 @@
 "use client";
 
 import React from 'react';
+import { Star, Landmark, Briefcase, Users, Rocket, GraduationCap, FileText, IdCard, Plane } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import PageHero from '@/components/PageHero';
+import SchemeAccordion from '@/components/SchemeAccordion';
 
 export default function LocalImmigrationPage() {
 
@@ -169,192 +172,142 @@ export default function LocalImmigrationPage() {
     const current = content[lang];
   
 
-  return (
+    return (
     <div className="min-h-screen bg-gray-50">
-      
-      {/* Hero Section */} 
-      <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white overflow-hidden">
-        <div className="container mx-auto py-4">
-          {null}
-        </div>
-
-        <div className="absolute inset-0">
-          <img
-            src="/images/banner/local-immg.jpeg"
-            alt="Iconic Hong Kong skyline and Victoria Harbour in daylight"
-            className="
-              absolute inset-0 h-full w-full
-              object-cover
-              brightness-[0.6]
-              scale-110 md:scale-105
-              transition-transform duration-1000
-              hover:scale-115
-        "/> 
-        </div>
-
-        <div className="relative container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight drop-shadow-lg">
-            {current.heroTitle}
-          </h1>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto font-light opacity-95">
-            {current.heroDesc}
-          </p>
-        </div>
-
-      </section>
-
-      
+      <PageHero
+        icon={Plane}
+        title={current.heroTitle}
+        description={current.heroDesc}
+        imageSrc="/images/banner/local-immg.jpeg"
+        imageAlt="Iconic Hong Kong skyline and Victoria Harbour in daylight"
+        variant="immigration"
+        ctaLabel={current.ctaButton}
+        ctaHref="/contact"
+        chips={[
+          { label: current.topTalentPassScheme, href: "#top-talent-pass" },
+          { label: current.NCIES_title, href: "#ncies" },
+          { label: current.generalEmploymentPolicy, href: "#gep" },
+          { label: current.ASMTP, href: "#asmtp" },
+          { label: current.EEEN, href: "#eeen" },
+          { label: current.qualityMigrantAdmissionScheme, href: "#qmas" },
+          { label: current.Visas, href: "#other-visas" },
+          { label: current.HKIDCard, href: "#hkid-card" },
+        ]}
+      />
 
       {/* Interactive Schemes Section */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+        <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-5">
             {current.ContentSections}
           </h2>
-          <p className="text-center text-lg md:text-g text-gray-700 mb-12 max-w-3xl mx-auto">
+          <p className="text-center text-lg text-gray-600 mb-14 max-w-2xl mx-auto">
             {current.intro}
           </p>
 
-        
           <div className="space-y-3">
 
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.topTalentPassScheme}</span>
-                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-              </summary>
-              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>
-                  {current.topTalentPassSchemeDesc1 + " "}   
-                  <a 
-                    href="https://www.immd.gov.hk/pdf/aggregate_list.pdf" 
-                    className="text-blue-700 hover:text-teal-700 underline underline-offset-4 transition-colors"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    {current.topTalentPassSchemeLink}
-                  </a>
-                  {current.topTalentPassSchemeDesc2}
-                </p>
-              </div>
-            </details>
+            <SchemeAccordion
+              id="top-talent-pass"
+              icon={Star}
+              title={current.topTalentPassScheme}
+              preview={current.topTalentPassSchemeDesc1}
+            >
+              <p>
+                {current.topTalentPassSchemeDesc1 + " "}
+                <a
+                  href="https://www.immd.gov.hk/pdf/aggregate_list.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {current.topTalentPassSchemeLink}
+                </a>
+                {current.topTalentPassSchemeDesc2}
+              </p>
+            </SchemeAccordion>
 
+            <SchemeAccordion
+              id="ncies"
+              icon={Landmark}
+              title={current.NCIES_title}
+              preview={current.NCIES_description}
+            >
+              <p>{current.NCIES_description}</p>
+              <p>{current.NCIESRequirements1}</p>
+              <p>{current.NCIESRequirements2}</p>
+              <p>{current.NCIESRequirements3}</p>
+              <p>{current.NCIESRequirements4}</p>
+            </SchemeAccordion>
 
+            <SchemeAccordion
+              id="gep"
+              icon={Briefcase}
+              title={current.generalEmploymentPolicy}
+              preview={current.generalEmploymentPolicyDesc}
+            >
+              <p>{current.generalEmploymentPolicyDesc}</p>
+            </SchemeAccordion>
 
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                  <span>{current.NCIES_title}</span>
-                  
-                  <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-                </summary>
-                <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-               
-                  <p>{current.NCIES_description}</p>
-                  <br></br>
-                  <p>{current.NCIESRequirements1}</p>
-                  <p>{current.NCIESRequirements2}</p>
-                  <p>{current.NCIESRequirements3}</p>
-                  <p>{current.NCIESRequirements4}</p>
-                </div>
-              </details>
+            <SchemeAccordion
+              id="asmtp"
+              icon={Users}
+              title={current.ASMTP}
+              preview={current.ASMTPdesc}
+            >
+              <p>{current.ASMTPdesc}</p>
+            </SchemeAccordion>
 
+            <SchemeAccordion
+              id="eeen"
+              icon={Rocket}
+              title={current.EEEN}
+              preview={current.EEENDesc}
+            >
+              <p>{current.EEENDesc}</p>
+            </SchemeAccordion>
 
+            <SchemeAccordion
+              id="qmas"
+              icon={GraduationCap}
+              title={current.qualityMigrantAdmissionScheme}
+              preview={current.qualityMigrantAdmissionSchemeDesc}
+            >
+              <p>{current.qualityMigrantAdmissionSchemeDesc}</p>
+            </SchemeAccordion>
 
-          
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.generalEmploymentPolicy}</span>
-                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-              </summary>
-              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>{current.generalEmploymentPolicyDesc}</p>
-              </div>
-            </details>
+            <SchemeAccordion
+              id="other-visas"
+              icon={FileText}
+              title={current.Visas}
+              preview={current.VisaDesc1}
+            >
+              <p>{current.Visas_subtitle1} {current.VisaDesc1}</p>
+              <p>{current.Visas_subtitle2} {current.VisaDesc2}</p>
+            </SchemeAccordion>
 
-
-            {/* Add similar <details> blocks for ASMTP, EEEN, QMAS, and Other Services */}
-
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.ASMTP}</span>
-                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-              </summary>
-              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>{current.ASMTPdesc}</p>
-              </div>
-            </details>
-
-
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.EEEN}</span>
-                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-              </summary>
-              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>{current.EEENDesc}</p>
-              </div>
-            </details>
-
-
-            {/* Example for QMAS */}
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.qualityMigrantAdmissionScheme}</span>
-                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-              </summary>
-              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>{current.qualityMigrantAdmissionSchemeDesc}</p>
-              </div>
-            </details>
-
-            {/* Other Services as a final accordion */}
-
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.Visas}</span>
-                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-              </summary>
-              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>{current.Visas_subtitle1} </p>
-                <p>{current.VisaDesc1}</p>
-                <br></br>
-                <p>{current.Visas_subtitle2} </p>
-                <p>{current.VisaDesc2}</p>
-
-              </div>
-            </details>
-
-
-            <details className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <summary className="flex justify-between items-center p-8 md:p-10 cursor-pointer text-2xl font-bold text-gray-900 hover:text-teal-700 transition-colors">
-                <span>{current.HKIDCard}</span>
-                <span className="text-3xl group-open:rotate-180 transition-transform">+</span>
-              </summary>
-              <div className="px-8 md:px-10 pb-10 prose prose-lg text-gray-700">
-                <p>{current.HKIDDesc}</p>
-              </div>
-            </details>
-
-
+            <SchemeAccordion
+              id="hkid-card"
+              icon={IdCard}
+              title={current.HKIDCard}
+              preview={current.HKIDDesc}
+            >
+              <p>{current.HKIDDesc}</p>
+            </SchemeAccordion>
 
           </div>
+
+          <div className="mt-16 py-8 text-center">
+            <a href="/contact"
+              className="inline-block bg-[#3ac9d9] text-white font-semibold py-4 px-10 rounded-full text-lg hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl"
+            >
+              {current.ctaButton}
+            </a>
+            <p className="mt-4 text-gray-600">
+              {current.ctaDesc}
+            </p>
+          </div>
         </div>
-      
-
-      <div className="mt-16 py-8 text-center">
-        <a href="/contact"
-          className="inline-block bg-[#3ac9d9] text-white font-semibold py-4 px-10 rounded-full text-lg hover:bg-[#2ab8c8] transition shadow-lg hover:shadow-xl"
-       >
-          {current.ctaButton}
-        </a>
-        <p className="mt-4 text-gray-600">
-           {current.ctaDesc}
-        </p>
-      </div>
-    
-    </section>
+      </section>
     </div>
-
-    
   );
 }

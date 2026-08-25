@@ -2,7 +2,10 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
+import { Handshake } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import PageHero from '@/components/PageHero';
 
 export default function AboutUs() {
   const { lang } = useLanguage();
@@ -39,7 +42,7 @@ export default function AboutUs() {
 
       followUpTitle: "全程跟進",
       followUpText1: "我們重視每一位客戶提出的要求，提供接待考察等全程服務支持，認真審核申請資料並及時跟進申請進度。我們是您在香港的生活好伙伴。您在香港生活碰到問題，由我們為您出謀劃策，排憂解難，解決實當中的困難。我們的服務為您省時省力，幫助您迅速地適應香​​港生活，在香港生活得舒心舒適。",
-      followUpText2: "",
+      followUpText2: "無論您在香港生活中遇到任何問題，我們都會竭盡所能為您提供解決方案。我們的服務不僅能為您節省時間和精力，更希望您能在香港真正安居樂業，過上愉快舒適的生活。",
 
       closingTitle: "宏達策略 — 你的生活好夥伴，提供全面的商業解決方案",
       closingDesc: "我們期待成為您在香港及海外移民、居留權及商業成功的可靠夥伴。",
@@ -58,7 +61,7 @@ export default function AboutUs() {
 
       followUpTitle: "全程跟进",
       followUpText1: "我们重视每一位客户提出的要求，提供接待考察等全程服务支持，认真审核申请资料并及时跟进申请进度。我们是您在香港的生活好伙伴。您在香港生活碰到问题，由我们为您出谋划策，排忧解难，解决实当中的困难。我们的服务为您省时省力，帮助您迅速地适应香​​港生活，在香港生活得舒心舒适。",
-      followUpText2: "",
+      followUpText2: "无论您在香港生活中遇到任何问题，我们都会竭尽所能为您提供解决方案。我们的服务不仅能为您节省时间和精力，更希望您能在香港真正安居乐业，过上愉快舒适的生活。",
 
       closingTitle: "宏达策略 — 你的生活好伙伴，提供全面的商业解决方案",
       closingDesc: "我们期待成为您在香港及海外移民、居留权及商业成功的可靠伙伴。",
@@ -72,24 +75,21 @@ export default function AboutUs() {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      {/* Hero Section */}
-      <section className="relative py-32 md:py-48 bg-gradient-to-r from-blue-900/70 to-teal-900/60 text-white">
-        <div className="absolute inset-0">
-          <img
-            src="/images/banner/aboutUs.png"
-            alt="Hong Kong Victoria Harbour skyline at dusk"
-            className="w-full h-full object-cover brightness-[0.6]"
-          />
-        </div>
-        <div className="relative container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-            {current.heroTitle}
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto font-light opacity-95">
-            {current.heroDesc}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        icon={Handshake}
+        title={current.heroTitle}
+        description={current.heroDesc}
+        imageSrc="/images/banner/aboutUs.png"
+        imageAlt="Hong Kong Victoria Harbour skyline at dusk"
+        variant="about"
+        ctaLabel={current.closingCall}
+        ctaHref="/contact"
+        chips={[
+          { label: current.proficiencyTitle, href: "#proficiency" },
+          { label: current.servicesTitle, href: "#services" },
+          { label: current.followUpTitle, href: "#follow-up" },
+        ]}
+      />
 
       {/* Introduction */}
       <section className="py-16 md:py-24">
@@ -103,7 +103,7 @@ export default function AboutUs() {
       </section>
 
       {/* Our Proficiency */}
-      <section className="py-20 bg-white">
+      <section id="proficiency" className="scroll-mt-24 py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-8 max-w-5xl">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
             {current.proficiencyTitle}
@@ -111,9 +111,12 @@ export default function AboutUs() {
           
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
+              <Image
                 src="/images/ourProficiency.png"
                 alt="Professional team collaboration and expertise in office setting"
+                width={1024}
+                height={731}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -129,7 +132,7 @@ export default function AboutUs() {
       </section>
 
       {/* All-Rounded Services */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section id="services" className="scroll-mt-24 py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6 lg:px-8 max-w-5xl">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
             {current.servicesTitle}
@@ -144,9 +147,12 @@ export default function AboutUs() {
             </div>
             
             <div className="rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
-              <img
-                src="https://universalaccountingschool.com/wp-content/uploads/2025/05/virtual-bookkeeping-1.png"
+              <Image
+                src="/images/index-ourService/accounting-services.jpg"
                 alt="Accountant reviewing financial documents for business compliance"
+                width={1280}
+                height={917}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -155,7 +161,7 @@ export default function AboutUs() {
       </section>
 
       {/* Peace of Mind Follow-up */}
-      <section className="py-20 bg-white">
+      <section id="follow-up" className="scroll-mt-24 py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-8 max-w-5xl">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
             {current.followUpTitle}
@@ -163,9 +169,12 @@ export default function AboutUs() {
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
+              <Image
                 src="/images/PeaceOfMindFollowUp.jpg"
                 alt="Happy family enjoying new life and settlement success (adaptable to Hong Kong context)"
+                width={6048}
+                height={4024}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto object-cover"
               />
             </div>

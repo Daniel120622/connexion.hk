@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export default function Hero() {
@@ -63,17 +64,6 @@ export default function Hero() {
   return (
     <header className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#07111f_0%,#0d1b30_42%,#0f766e_125%)] text-white">
       <div className="absolute inset-0">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={currentIndex}
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${currentSlide.image})` }}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 0.18, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          />
-        </AnimatePresence>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.18),transparent_28%),radial-gradient(circle_at_left,rgba(255,255,255,0.07),transparent_24%),linear-gradient(180deg,rgba(2,6,23,0.32),rgba(2,6,23,0.78))]" />
       </div>
 
@@ -107,7 +97,7 @@ export default function Hero() {
                 {t("button1")}
               </a>
               <a
-                href="/services"
+                href="/corporate-services"
                 className="inline-flex items-center justify-center rounded-full border border-cyan-200/70 bg-white/5 px-8 py-4 text-base font-semibold text-cyan-100 backdrop-blur transition hover:bg-white/12 hover:text-white"
               >
                 {t("button2")}
@@ -123,10 +113,13 @@ export default function Hero() {
           >
             <div className="overflow-hidden rounded-[32px] border border-white/15 bg-white/10 p-4 shadow-[0_30px_90px_-48px_rgba(0,0,0,0.75)] backdrop-blur-xl">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[26px] bg-slate-950/40">
-                <img
+                <Image
                   src={currentSlide.image}
                   alt={slideTitle}
-                  className="h-full w-full object-cover"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 46vw, 100vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.05),rgba(2,6,23,0.78))]" />
 

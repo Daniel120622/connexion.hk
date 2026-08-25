@@ -31,8 +31,8 @@ export default function ServicesOverviewPage() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {page.cards.map((card: { title: string; text: string }, index: number) => {
-            const links = ["/services/local-company", "/services/compSecretary", "/services/office-service", "/services"];
-            const href = links[index] ?? "/services";
+            const links = ["/corporate-services/local-company", "/corporate-services/company-secretary", "/corporate-services/office-service", "/corporate-services/bvi-company"];
+            const href = links[index] ?? "/corporate-services";
 
             return (
               <Link key={card.title} href={href} className="group block">

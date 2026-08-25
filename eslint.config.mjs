@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Staged for deletion by an audit pass -- see _to_delete/README.txt
+    "_to_delete/**",
   ]),
 ]);
 

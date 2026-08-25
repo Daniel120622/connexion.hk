@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# files staged for removal by a cleanup pass -- see _to_delete/README.txt
+_to_delete/
