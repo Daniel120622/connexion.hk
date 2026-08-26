@@ -7,6 +7,8 @@ import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import type { Metadata } from 'next';
 
@@ -43,6 +45,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <main>{children}</main>
             <Footer />
           </LanguageProvider>
+          <Analytics />
+          <SpeedInsights />
         </NextIntlClientProvider>
       </body>
     </html>

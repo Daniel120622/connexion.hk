@@ -143,34 +143,19 @@
   },
   "Pages": {
     "AboutUs": {
-      "hero": {
-        "eyebrow": "About Connexions HK",
-        "title": "Professional support with a calm, premium tone.",
-        "subtitle": "We help clients establish, manage, and grow with confidence in Hong Kong."
-      },
-      "story": {
-        "title": "Who we are",
-        "body": "Connexions is a professional services team focused on practical execution, clear communication, and long-term client relationships."
-      },
-      "cards": [
-        {
-          "title": "Structured process",
-          "text": "Every engagement is broken into clear steps so work moves forward without confusion."
-        },
-        {
-          "title": "Trusted relationships",
-          "text": "We build partnerships designed to last beyond one project or filing cycle."
-        },
-        {
-          "title": "Commercial thinking",
-          "text": "Advice stays grounded in how businesses really operate."
-        }
-      ],
-      "closing": {
-        "title": "A dependable partner for the long run",
-        "text": "If you want support that feels polished, direct, and easy to work with, we are ready to help."
-      },
-      "cta": "Contact Us"
+      "heroTitle": "Welcome to Connexions",
+      "heroDesc": "Your Life Partner in Hong Kong",
+      "intro": "Connexions is an experienced professional services group. We have served hundreds of domestic and foreign customers over the decades. Connexions treasures the entrusted relationship with clients and is dedicated to service quality. Coupled with mutual trust and understanding as well as reputation and recommendation from customers Connexoins is your stable life partner.",
+      "proficiencyTitle": "Our Proficiency",
+      "proficiencyText1": "We have experienced accountants and consultants, familiar with immigration laws, policies and insight into the latest immigration trends. With more than 10 years of history, we have accumulated more than a thousand customers at home and abroad so far.",
+      "servicesTitle": "All-Rounded Services",
+      "servicesText1": "We provide a variety of immigration and visa services based on your background and prepare for your family to apply Hong Kong/overseas resident status. We help you to manage your Hong Kong/overseas companies in multiple aspects: business accounts, financial reports, corporate and personal tax in Hong Kong and compliance requirement in accordance with your company’s condition, scope of operations 1 and profitability requirements.",
+      "followUpTitle": "Peace of Mind Follow-up",
+      "followUpText1": "We respect every client’s request. We provide reception and clients’ field visit services all the way. We carefully review the application documentations and timely follow up the application progress.",
+      "followUpText2": "We are your great life partners in Hong Kong. If you encounter with any problems in Hong Kong, we will try our best to provide solutions. Our services can not only help you save time and effort in adopting the life in Hong Kong but live a happy and comfortable life in Hong Kong.",
+      "closingTitle": "Connexions — Your Life Partner in Hong Kong",
+      "closingDesc": "We look forward to being your reliable partner",
+      "closingCall": "Contact us today to learn more"
     },
     "ServicesOverview": {
       "hero": {
@@ -203,258 +188,201 @@
       }
     },
     "TaxOverview": {
-      "hero": {
-        "title": "Accountancy & Tax",
-        "subtitle": "Reliable finance, tax, and advisory support for growing businesses.",
-        "intro": "We help keep your books clear, your filings organised, and your decisions commercially grounded."
-      },
-      "cards": [
-        {
-          "title": "Accounting Service",
-          "text": "Day-to-day bookkeeping, reporting, and annual support."
-        },
-        {
-          "title": "Business Advisory Service",
-          "text": "Strategic guidance for growth, planning, and better operations."
-        },
-        {
-          "title": "Taxation Service",
-          "text": "Practical tax advice to help you stay compliant and efficient."
-        }
-      ],
-      "cta": {
-        "title": "Need a clear finance partner?",
-        "text": "Tell us what you are working on and we will suggest the next step.",
-        "button": "Contact Us Now"
-      }
+      "heroTitle": "Accountancy and Tax Services",
+      "heroSubtitle": "Precision-driven accountancy, tax, and corporate solutions for seamless company formation, compliance, and international success in Hong Kong.",
+      "intro": "At Connexions, we help entrepreneurs and businesses establish and thrive in Hong Kong with tailored, one-stop services — from company incorporation and secretarial support to accounting, tax advisory, and immigration solutions.",
+      "HKLimitedCompanyTitle": "HK Limited Company",
+      "HKLimitedCompanyDesc": "Fast and compliant Hong Kong company registration with full setup and banking support.",
+      "BVIOverseasCompanyTitle": "BVI & Overseas Company",
+      "BVIOverseasCompanyDesc": "Offshore company formation in BVI and other jurisdictions for asset protection & tax efficiency.",
+      "CompanySecretaryTitle": "Company Secretary",
+      "CompanySecretaryDesc": "Professional compliance, annual filings, board support and corporate governance in Hong Kong.",
+      "ctaTitle": "Ready to Get Started?",
+      "ctaDesc": "Contact us today to learn more",
+      "ctaButton": "Contact Us Now",
+      "LearnMore": "Learn More",
+      "AccountingServicesTitle": "Accounting & Audit Services",
+      "AccountingServicesDesc": "Comprehensive accounting, bookkeeping, and audit services to ensure your business stays compliant and financially healthy.",
+      "BusinessAdvisoryTitle": "Business Advisory Services",
+      "BusinessAdvisoryDesc": "Expert business consulting and advisory services to help you navigate market challenges and seize growth opportunities.",
+      "TaxConsultingTitle": "Tax Consulting Services",
+      "TaxConsultingDesc": "Specialized tax consulting to optimize your tax strategy, ensure compliance, and maximize savings."
     },
     "LocalCompany": {
-      "hero": {
-        "title": "Hong Kong / Offshore Company Incorporation",
-        "subtitle": "A clean starting point for new ventures in Hong Kong and abroad."
-      },
-      "intro": "We guide you through registration, setup, and the practical steps that follow incorporation.",
-      "points": [
-        "Company registration and setup support",
-        "Banking and document preparation guidance",
-        "Ongoing compliance reminders and coordination"
-      ],
-      "cta": {
-        "title": "Build the right structure from day one",
-        "text": "We can help you choose a setup that feels efficient and compliant.",
-        "button": "Contact Us"
-      }
+      "heroTitle": "Hong Kong Limited Company Formation",
+      "heroDesc": "Set up your Hong Kong company quickly, compliantly and cost-effectively.",
+      "BenfitsTitle": "Advantages of registering a Hong Kong/ Offshore company in Hong Kong",
+      "intro1": "Hong Kong, as an international financial and commercial center, equips with advanced infrastructure and sustained growth of the capital market. It has highly educated professionals and an attractive tax system. As one of the most vibrant economy centers in the world, Hong Kong not only provides entrepreneurs the most excellent developing environment in the global economic system, but also as a gateway to enter the Chinese market.",
+      "intro2": "Connexions provides professional consultation, Hong Kong and offshore company incorporation, business advices on business nature, operation and strategies and offers tax-efficient solutions.",
+      "ctaTitle": "Start Your HK Company Today",
+      "ctaDesc": "Most companies are ready within 1–3 working days.",
+      "ctaButton": "Start Your HK Company Today"
     },
     "CompanySecretary": {
-      "hero": {
-        "title": "Company Secretary Service",
-        "subtitle": "Keep corporate obligations organised, timely, and compliant."
-      },
-      "intro": "We handle the routine governance work so your team can focus on running the business.",
-      "points": [
-        "Annual filing and statutory support",
-        "Board and company record coordination",
-        "Reminder management for key deadlines"
-      ],
-      "cta": {
-        "title": "Stay ahead of filing deadlines",
-        "text": "Let us help you maintain a reliable compliance rhythm.",
-        "button": "Contact Us"
-      }
+      "heroTitle": "Company Secretary Services",
+      "heroDesc": "Ensure full compliance and smooth corporate governance for your Hong Kong company.",
+      "MainTitle": "Professional Company Secretary Support in Hong Kong",
+      "intro1": "Each Hong Kong company should appoint a resident in Hong Kong or a Hong Kong company as the company secretary. Its primary responsibility is to ensure the company complies with the legal requirements of Hong Kong and keep records of the company’s statutory books.",
+      "intro2": "Acting as your company, Connexions helps you operate the business locally and abroad coincidently and to provide high quality solutions to resolve issues which may arise from time to time. Meanwhile, we provide updates on the latest corporate laws and regulations which may impact your company. We take care of the tax filing, respond to various government correspondence. These save your time so that you can focus on your business.",
+      "ctaDesc": "Fixed annual fee – transparent pricing with no hidden charges.",
+      "ctaButton": "Get Your Company Secretary Proposal"
     },
     "OfficeService": {
-      "hero": {
-        "title": "Registered Office Service",
-        "subtitle": "A dependable local address with practical mail handling support."
-      },
-      "intro": "For Hong Kong companies that need a stable registered address, we provide a simple and reliable solution.",
-      "points": [
-        "Registered address for company use",
-        "Mail collection and handling support",
-        "A professional front for your business"
-      ],
-      "cta": {
-        "title": "Keep your correspondence organised",
-        "text": "We make the administrative side feel lighter and easier to manage.",
-        "button": "Contact Us"
-      }
+      "heroTitle": "Register Office Service",
+      "heroDesc": "Ensure full compliance and smooth corporate governance for your Hong Kong company.",
+      "MainTitle": "",
+      "intro1": "Each Hong Kong company must have a registered office in Hong Kong. Registered address must be a local address, not just the postal mail, in order to maintain the legal records and receive government letters.",
+      "intro2": "Connexions provides personalized office services. It not only provides registered office address in Hong Kong, but also provides value-added services. We are responsible for handling letters and correspondence.",
+      "ctaDesc": "Fixed annual fee – transparent pricing with no hidden charges.",
+      "ctaButton": "Get Your Company Secretary Proposal"
     },
     "BviCompany": {
-      "hero": {
-        "title": "BVI & Offshore Company",
-        "subtitle": "Offshore company solutions for flexibility, privacy, and international planning."
-      },
-      "intro": "We help clients set up and maintain offshore structures with a clear and practical approach.",
-      "points": [
-        "Offshore formation and administration support",
-        "Flexible structure for cross-border operations",
-        "Practical guidance for ongoing maintenance"
-      ],
-      "cta": {
-        "title": "Explore offshore structuring options",
-        "text": "We will walk you through the setup path in plain language.",
-        "button": "Contact Us"
-      }
+      "heroTitle": "BVI & Overseas Company Formation",
+      "heroDesc": "Fast, confidential and cost-effective offshore company setup in the British Virgin Islands and other jurisdictions.",
+      "BenfitsTitle": "Why Choose BVI for Your Overseas Company?",
+      "intro1": "As one of the world’s most established offshore financial centers, the British Virgin Islands offers a robust common law system, strong commercial privacy protections, and a tax-neutral business environment. As the preferred jurisdiction for international capital operations, the BVI not only provides entrepreneurs with flexible holding structures and asset management platforms but also serves as a key hub for cross-border investment, overseas listings, and family wealth succession.",
+      "intro2": "We provides professional advisory services to assist global entrepreneurs and investors in incorporating BVI offshore companies. We offer structuring planning and business discussions, analyzing business nature and considering tax efficiency solutions.",
+      "ctaDesc": "Most clients receive a detailed proposal within 24 hours.",
+      "ctaButton": "Get Your BVI Company Proposal"
     },
     "Accounting": {
-      "hero": {
-        "title": "Accounting Service",
-        "subtitle": "Clear books, timely records, and dependable financial support."
-      },
-      "intro": "Our accounting support is designed to keep your records organised and your reporting straightforward.",
-      "points": [
-        "Bookkeeping and financial record preparation",
-        "Monthly and annual reporting support",
-        "A practical rhythm that fits your business"
-      ],
-      "cta": {
-        "title": "Make reporting feel easier",
-        "text": "We can take the pressure out of day-to-day finance work.",
-        "button": "Contact Us"
-      }
+      "heroTitle": "Accounting Service",
+      "heroDesc": "Accurate bookkeeping, financial reporting, tax compliance, payroll management, and audit support — tailored for Hong Kong companies and offshore structures.",
+      "benefitsTitle": "Why Choose Our Accounting Services?",
+      "intro1": "According to Hong Kong laws, each Hong Kong company must keep complete business records for a period of seven years. Non-compliance may lead to an offence.",
+      "intro2": "Our accounting services comprise effective accounting management, developing accounting structure, arranging for annual audit.",
+      "ctaDesc": "Contact us today to learn more.",
+      "ctaButton": "Contact Us"
     },
     "BusinessAdv": {
-      "hero": {
-        "title": "Business Advisory Service",
-        "subtitle": "Practical advice for strategy, growth, and execution."
-      },
-      "intro": "We help businesses think through decisions clearly, from structure and planning to market entry and growth.",
-      "points": [
-        "Strategic planning and review",
-        "Market entry and operating guidance",
-        "Support for better business decisions"
-      ],
-      "cta": {
-        "title": "Move forward with a clearer plan",
-        "text": "We will help shape the next step with a steady hand.",
-        "button": "Contact Us"
-      }
+      "heroTitle": "Business Advisory",
+      "heroDesc": "Strategic business modelling, pre-IPO restructuring, M&A advisory, tax planning, profit distribution, and professional daily corporate administration.",
+      "benefitsTitle": "Why Choose Our Business Advisory Services?",
+      "intro1": "Business collaboration and corporate merger and acquisition are growing in dynamic and diversified commercial society. Over the years, we have participated in pre-IPO restructuring and business modelling. We also advise on shareholding structure in corporate setup and merger and acquisition, profit distribution and tax planning in ongoing business as well as corporate takeover planning. And we are competent in corporate routine management and administration. Coupled with our immersed knowledge and experience in accounting, tax, financial and human resources, our all-rounded services are highly regarded by our clients.",
+      "intro2": "",
+      "ctaDesc": "Contact Us now to learn more",
+      "ctaButton": "Contact Us"
     },
     "Tax": {
-      "hero": {
-        "title": "Taxation Service",
-        "subtitle": "Straightforward tax support that keeps compliance and planning aligned."
-      },
-      "intro": "We provide tax advice that is practical, transparent, and built around your business reality.",
-      "points": [
-        "Tax planning and compliance guidance",
-        "Cross-border and Hong Kong tax considerations",
-        "Clear advice that supports better decisions"
-      ],
-      "cta": {
-        "title": "Keep tax decisions well organised",
-        "text": "We can help you keep pace with filing and planning needs.",
-        "button": "Contact Us"
-      }
+      "heroTitle": "Tax Services",
+      "heroDesc": "Strategic tax planning, profits tax compliance, and dispute resolution for Hong Kong and global businesses.",
+      "benefitsTitle": "Why Choose Our Tax Consulting Services?",
+      "intro1": "Hong Kong’s tax system is simple. At present, the company’s profit tax rate is 8.25% on assessable profits for first HK$2M and 16.5% on any part of assessable profits over HK$2M. There is no capital gains tax, dividend withholding tax, consumption tax or VAT in Hong Kong. Hong Kong adopts the principle of source of income, i.e. only profits originating in Hong Kong must be taxed in Hong Kong, and profits from other places is exempted from profits tax in Hong Kong. Through the effective tax planning, the company can enjoy much tax saving.",
+      "intro2": "We furnish comprehensive tax services for your enterprise management. We serve as your tax representative to facilitate effective communication with Hong Kong IRD, assist you and your company tax filing and establish efficient tax planning and arrangement.",
+      "ctaDesc": "Contact us today to learn more.",
+      "ctaButton": "Contact Us"
     },
     "LocalImmigration": {
-      "hero": {
-        "title": "Hong Kong Immigration",
-        "subtitle": "Clear guidance across visas, residency, and supporting applications."
-      },
-      "intro": "We help applicants understand the available routes and prepare the supporting steps with confidence.",
-      "schemes": [
-        {
-          "title": "Quality Migrant Admission Scheme",
-          "text": "For individuals seeking a points-based path to live and work in Hong Kong."
-        },
-        {
-          "title": "General Employment Policy",
-          "text": "For candidates who already have a job offer or are moving through employer sponsorship."
-        },
-        {
-          "title": "Admission Scheme for Mainland Talents and Professionals",
-          "text": "For eligible professionals seeking a Hong Kong work visa."
-        },
-        {
-          "title": "Dependents and extensions",
-          "text": "Support for family visas and renewal or extension applications."
-        },
-        {
-          "title": "Permanent residency verification",
-          "text": "Support for the process of verifying eligibility for Hong Kong permanent residency."
-        }
-      ],
-      "cta": {
-        "title": "Need help choosing the right route?",
-        "text": "We will help you understand the process in simple terms.",
-        "button": "Contact Us Now"
-      }
+      "heroTitle": "Immigration Schemes in Hong Kong",
+      "heroDesc": "Discover tailored pathways to residency, work, investment, and a new life in Hong Kong.",
+      "intro": "Getting to know your background and needs is our first and most important step. Through careful listening and expert analysis, we enhance your application success rate and identify the best opportunities for you.",
+      "galleryTitle": "Visual Insights into Hong Kong Immigration",
+      "galleryDesc": "Explore the visual journey of Hong Kong immigration through our curated gallery of insights and experiences.",
+      "ContentSections": "Explore Our Local Immigration Schemes",
+      "topTalentPassScheme": "Top Talent Pass Scheme",
+      "topTalentPassSchemeDesc1": "The Top Talent Pass Scheme aims to attract high-end talents with extensive work experience ad high academic qualifications from all over the world for their development in Hong Kong.. These include high-income individual with an annual income reaching HK$2.5 million or above and degree graduates from eligible universities",
+      "topTalentPassSchemeLink": "(list of eligible universities link)",
+      "topTalentPassSchemeDesc2": ". Depending on the application status, if the relevant conditions are met and the all required application information is furnished, the applicant can obtain an entry approval in a matter of days to weeks, This is currently a relatively fast program to obtain a visa and residence status in Hong Kong.",
+      "NCIES_title": "New Capital Investment Entrant Scheme",
+      "NCIES_description": "The New Capital Investment Entrant Scheme was launched on 1 March 2024,. The Scheme aims to attract high-net-worth individuals to settle in Hong Kong and boarden the talent pool for the economic development in the territory. Coupled with the well establishment regulations as the asset and wealth management hub and an extensive investment portfolio, the Scheme offers good entry for applicants who are interested to reside in Hong Kong.",
+      "NCIESRequirements1": "1. Applicants who are over 18 years old and have obtained a permanent resident status in a foreign country can submit an application to the Immigration Department.",
+      "NCIESRequirements2": "2. Applicants are required to submit relevant proof that they have absolute beneficial ownership of net assets of no less than HKD30 million or equivalent for 6 consecutive months before lodging the application",
+      "NCIESRequirements3": "3. Within the specified time limit, the applicant needs to invest a total of HK$30 million in permissible investment assets, including at least HK$27 million in financial assets such as stocks and bonds, non-residential real estate etc, while another HK$3 million in CIES Investment Portfolio which will be set up and managed by the Hong Kong Investment Corporation Limited in view to supporting the development of innovation and technology industries and others strategic industries.",
+      "NCIESRequirements4": "4. The applicants will be granted with Hong Kong residence visa to reside in Hong Kong upon the completion of the required investment.",
+      "generalEmploymentPolicy": "General Employment Policy (GEP)",
+      "generalEmploymentPolicyDesc": "Overseas Chinese nationals holding People’s Republic of China passports who has permanent residence overseas, and has been residing overseas for at least one year immediately before the submission of application can submit the application overseas. If the applicant possesses special skills, knowledge or experience of value to and not readily available in Hong Kong, they may apply to come to work under the GEP. The GEP is quota-free and non-sector specific. The applicant with a good education background, normally a first degree in the relevant field, but in special circumstances, good technical qualifications, proven professional abilities and/or relevant experience and achievements supported by documentary evidence are welcomed. In the meantime, the applicant must have a confirmed employment offer which is relevant to his academic qualifications or work experience that cannot be readily taken up by the local work force. The remuneration package including income, accommodation, medical and other fringe benefits should broadly commensurate with the prevailing market level for professionals in Hong Kong.",
+      "qualityMigrantAdmissionScheme": "Quality Migrant Admission Scheme (QMAS)",
+      "qualityMigrantAdmissionSchemeDesc": "The Scheme is a quota-based entrant scheme. It seeks to attract highly skilled or talented people to settle in Hong Kong in order to enhance Hong Kong’s economic competitiveness. Successful applicants are not required to have secured an offer of local employment before their entry to Hong Kong for settlement. All applicants are required to fulfill a set of prerequisites before they can be awarded points under the points-based tests, namely the General Points Test and Achievement-based Points Test, and compete for quota allocation with other applicants. Successful applicants under the Scheme may bring their spouse and unmarried dependent children under the age of 18 to Hong Kong provided that they are capable of supporting and accommodating their dependents on their own financial resources without relying on public assistance in Hong Kong.",
+      "otherSupportServices": "Other Support Services",
+      "otherSupportServicesDesc1": "Dependents Visa: When the main applicant has successfully been granted with entry visa, their dependents are eligible for applying for dependent visas to enter Hong Kong.",
+      "otherSupportServicesDesc2": "All kinds of Extension Applications: Before the expiration of visa, extension application is necessary to be submitted. We will remind you the visa renewal and assist in the visa renewal application.",
+      "ASMTP": "Admission Scheme for Mainland Talents and Professionals (ASMTP)",
+      "ASMTPdesc": "Chinese residents of the Mainland China who possess special skills, knowledge or experience of value to and not readily available in Hong Kong may apply to come to work under the ASMTP. The ASMTP is quota-free and non-sector specific. The applicant with good education background, normally a first degree in the relevant field, but in special circumstances, good technical qualifications, proven professional abilities and/or relevant experience and achievements supported by documentary evidence may be accepted. In the meantime, the applicant must have a confirmed employment offer which is relevant to his academic qualifications or work experience that cannot be readily taken up by the local work force. The remuneration package including income, accommodation, medical and other fringe benefits should broadly commensurate with the prevailing market level for professionals in Hong Kong.",
+      "Visas": "Other Visa",
+      "Visas_subtitle1": "Dependents Visa: ",
+      "VisaDesc1": "When the main applicant has successfully been granted with entry visa, their dependents are eligible for applying for dependent visas to enter Hong Kong. ",
+      "Visas_subtitle2": "All kinds of Extension Applications: ",
+      "VisaDesc2": " Before the expiration of visa, extension application is necessary to be submitted. We will remind you the visa renewal and assist in the visa renewal application.",
+      "HKIDCard": "Verification of Eligibility for Hong Kong Permanent Identity Card",
+      "HKIDDesc": "Under the Immigration Ordinance, you are eligible to enjoy the right of abode in Hong Kong under certain circumstances. The Immigration Department would consider the application of Hong Kong permanent residence verification if the applicant has held a valid visa and ordinarily resided in Hong Kong for not less than 7 consecutive years. Connexions will facilitate your application effectively in order to secure a verification.",
+      "EEEN": "Investment as Entrepreneurs (EEEN)",
+      "EEENDesc": "Overseas Chinese nationals holding People’s Republic of China passports who has permanent residence overseas, and has been residing overseas for at least one year immediately before the submission of application, can submit the application overseas. This scheme sets for people who wish to enter/stay in Hong Kong for investment as entrepreneurs under the General Employment Policy (GEP), i.e. to establish or join in business in Hong Kong. The applicant should have a good education background, normally a first degree in the relevant field, but in special circumstances, good technical qualifications, proven professional abilities and/or relevant experience and achievements supported by documentary evidence may also be accepted. The applicant should also in a position to make substantial contribution to the economy of Hong Kong, including but not limited to business plan, business turnover, financial resources, investment sum, number of jobs created locally and introduction of new technology or skills. The applicant who wishes to establish or join in a start-up business may also submit an application.",
+      "ctaDesc": "Contact us now to learn more",
+      "ctaButton": "Contact Us Now"
     },
     "OverseasImmigration": {
-      "hero": {
-        "title": "Overseas Immigration & Citizenship",
-        "subtitle": "International immigration and citizenship options explained clearly."
-      },
-      "intro": "We assist clients exploring residence and citizenship options across selected jurisdictions.",
-      "programs": [
-        {
-          "title": "Vanuatu Citizenship by Contribution",
-          "text": "A fast-track route for clients seeking a second passport option."
-        },
-        {
-          "title": "St Kitts & Nevis Citizenship by Investment",
-          "text": "A respected citizenship-by-investment route with international mobility benefits."
-        },
-        {
-          "title": "Travel and resident visas",
-          "text": "Support for residence and travel visa planning in selected destinations."
-        }
-      ],
-      "cta": {
-        "title": "Explore global options with clarity",
-        "text": "We will help you compare the available paths and their requirements.",
-        "button": "Contact Us"
-      }
+      "heroTitle": "Overseas Immigration & Citizenship by Investment",
+      "heroDesc": "Fast-track to second citizenship, tax advantages, and global mobility through trusted programs in Vanuatu and St Kitts & Nevis.",
+      "intro": "Understanding your background and needs is the crucial first step. Through attentive listening and expert analysis, we make precise recommendations to maximize your application success and secure the optimal investment or citizenship opportunity.",
+      "galleryTitle": "Visual Insights into Overseas Citizenship",
+      "galleryDesc": "Explore a visual journey of overseas citizenship through our curated insights and experience gallery.",
+      "ContentSections": "Explore Our Overseas Citizenship Solutions",
+      "vanuatuCitizenshipByContribution": "Citizenship by Contribution – Vanuatu (VCP)",
+      "vanuatuCitizenshipByContributionDesc": "Vanuatu, a member of the British Commonwealth, offers a robust legal framework and tax-friendly environment with no income tax, capital gains tax, or inheritance tax. Upon naturalization, you gain full citizenship rights, including residency, work, and living privileges in this offshore tax haven. Benefits include: Low entry threshold and straightforward process; Dual citizenship allowed; Free education and medical services; Visa-free access to approximately 125 countries (including UK, Malaysia, Hong Kong, Singapore). Fast-track: Passport in as little as 30 days. We handle assessment, application, government contribution, and naturalization support.",
+      "vanuatuCitizenshipByContributionBenefit_1": "Low entry threshold and straightforward process",
+      "vanuatuCitizenshipByContributionBenefit_2": "Dual citizenship allowed",
+      "vanuatuCitizenshipByContributionBenefit_3": "Free education and medical services",
+      "vanuatuCitizenshipByContributionBenefit_4": "Visa-free access to approximately 125 countries (including UK, Malaysia, Hong Kong, Singapore)",
+      "vanuatuCitizenshipByContributionBenefit_5": "Fast-track: Passport in as little as 30 days. We handle assessment, application, government contribution, and naturalization support.",
+      "stKittsNevisCitizenshipByInvestment": "St Kitts & Nevis Citizenship by Investment",
+      "stKittsNevisCitizenshipByInvestmentDesc": "Established in 1984, this is the world's oldest and most stable citizenship-by-investment program. Successful applicants receive citizenship, a passport, and residency rights. We guide you and your family through the full application process. Key advantages: Dual citizenship recognized; Visa-free travel to over 150 countries (including UK, Singapore, Macao); No taxes on worldwide income, capital gains, gifts, inheritance, or wealth; Offshore business opportunities and federal citizenship benefits. Timeline: Permanent residency and citizenship in approximately 3 months.",
+      "stKittsNevisCitizenshipByInvestmentBenefit_1": "Dual citizenship recognized",
+      "stKittsNevisCitizenshipByInvestmentBenefit_2": "Visa-free travel to over 150 countries (including UK, Singapore, Macao)",
+      "stKittsNevisCitizenshipByInvestmentBenefit_3": "No taxes on worldwide income, capital gains, gifts, inheritance, or wealth",
+      "stKittsNevisCitizenshipByInvestmentBenefit_4": "Offshore business opportunities and federal citizenship benefits",
+      "Timeline": "Permanent residency and citizenship in approximately 3 months.",
+      "travelResidentVisas": "Travel & Resident Visas to Other Countries",
+      "travelResidentVisasDesc": "We offer comprehensive visa services, including tourist visas, long-term resident visas, and applications to various countries worldwide. Whether for travel, business, study, or relocation, our team tailors solutions to your goals and background.",
+      "ctaTitle": "Unlock Your Global Future with Connexions",
+      "ctaDesc": "From tax optimization to second passports and visa-free travel – let us secure the best path for you and your family.",
+      "ctaButton": "Get Your Personalized Assessment Today"
     },
     "WealthInheritance": {
-      "hero": {
-        "title": "Wealth Inheritance",
-        "subtitle": "Thoughtful planning for family continuity, succession, and long-term structure."
-      },
-      "intro": "We help clients consider how assets, family governance, and long-term planning can be aligned.",
-      "sections": [
-        {
-          "title": "Family planning",
-          "text": "Structure conversations and plans around the people and responsibilities involved."
-        },
-        {
-          "title": "Asset continuity",
-          "text": "Build a practical plan for continuity across generations."
-        },
-        {
-          "title": "Cross-border considerations",
-          "text": "Coordinate different jurisdictions and support a clearer overall plan."
-        }
+      "heroTitle": "Fortune Inheritance",
+      "heroDesc": "Secure, tax-efficient, multi-generational transfer of your legacy from Hong Kong.",
+      "intro": "For the past two decades, the economy in China has boomed ample of entrepreneurs grasp the opportunities to create enormous business kingdoms. It’s time to handover both enterprises and fortune. How to effectively and safely inherit the fortune to next generation become their concerns.",
+      "intro_2": "As an ambassador in Hong Kong, the international financial center, Connexions equips with professional wealth management and financial planning team, who understand the Hong Kong laws and regulations as well as international financial system,. We assist Chinese high net wealth individuals and families and advise on wealth management and succession planning.",
+      "Title1": "Planning and Accomplishment by Connexions",
+      "Title2": "Cooperating with Private Bank of Financing for Jumbo Insurance Policy/Financial Products",
+      "Title3": "Oversea Trust",
+      "Title1List": [
+        "1. Plan future financial arrangement for individuals and families so that property and cash flow can be better managed and controlled.",
+        "2. Assist in the planning process and work closely with financial institutions and professional advisors in Hong Kong, in order to manage risks associated with assets, liabilities and tax (especially inheritance taxes in countries)",
+        "3. Set up liquid asset overseas as absolute oversea assets to provide needs which may arise any time for individual and families, to benefit inheritance for next few generations",
+        "4. To create overseas US Dollar property to effectively hedge currency risk"
       ],
-      "cta": {
-        "title": "Plan with confidence",
-        "text": "We can help you shape a more organised long-term approach.",
-        "button": "Contact Us"
-      }
+      "Title2List": [
+        "1. Leverage on relatively low interest rate of Hong Kong private banks to multiply coverage/return on investment in times.",
+        "2. Achieve relatively steady annual return.",
+        "3. Plan effectively avoid inheritance tax and capital gains tax across countries."
+      ],
+      "Title3List": [
+        "1. Asset protection with flexible distribution",
+        "2. Manage issues and risks arising from marriage, debt, investment, accident, tax and inheritance",
+        "3. Manage legal risks",
+        "4. Set up overseas trust protected by oversea laws"
+      ],
+      "ctaDesc": "We look forward to being your reliable partner",
+      "ctaButton": "Contact us today to learn more"
     },
     "ContactPage": {
-      "hero": {
-        "title": "Contact",
-        "subtitle": "Speak with a team that keeps the process clear and responsive."
-      },
-      "intro": "Tell us what you need, and we will suggest a practical next step.",
-      "info": {
-        "emailLabel": "Email",
-        "phoneLabel": "Phone",
-        "faxLabel": "Fax",
-        "addressLabel": "Address",
-        "address": "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
-        "response": "Typical response time: within one business day"
-      },
-      "form": {
-        "title": "Send a Message",
-        "namePlaceholder": "Your Name",
-        "emailPlaceholder": "Your Email",
-        "messagePlaceholder": "Your Message",
-        "sendButton": "Send Message"
-      },
-      "mapLabel": "Office location"
+      "title": "Contact Us",
+      "subtitle": "We'd love to hear from you",
+      "getInTouch": "Get in Touch",
+      "getInTouchDescription": "Have questions or need assistance? Reach out to us using the contact information below or send us a message.",
+      "contactInfoTitle": "Contact Information",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "faxLabel": "Fax",
+      "addressLabel": "Address",
+      "address": "Room 902A, 9/F, Capital Centre, 151 Gloucester Road, Wan Chai, Hong Kong",
+      "sendMessageTitle": "Send a Message",
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Your Email",
+      "messagePlaceholder": "Your Message",
+      "sendButtonLabel": "Send Message",
+      "success": "Thank you! Your message has been sent.",
+      "error": "Something went wrong. Please try again."
     }
   }
 }

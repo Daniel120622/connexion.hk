@@ -3,8 +3,6 @@ import { getTranslations } from 'next-intl/server';
 import Hero from '@/components/Hero';
 import AboutUs from '@/components/AboutUs';
 import Contact from '@/components/Contact';
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Common");
@@ -23,8 +21,6 @@ export default function HomePage() {
       <Hero />
       <AboutUs />
       <Contact />
-      <Analytics />
-      <SpeedInsights />
     </>
   );
 }

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 :root {
   --background: #f4f7fb;
@@ -14,11 +13,6 @@
   --accent-soft: rgba(14, 165, 164, 0.12);
   --shadow-elevated: 0 24px 80px -40px rgba(15, 23, 42, 0.48);
   --shadow-soft: 0 12px 40px -28px rgba(15, 23, 42, 0.28);
-  --fa-style-family-brands: 'Font Awesome 6 Brands';
-  --fa-font-brands: normal 400 1em / 1 'Font Awesome 6 Brands';
-  --fa-style-family-classic: 'Font Awesome 6 Free';
-  --fa-font-regular: normal 400 1em / 1 'Font Awesome 6 Free';
-  --fa-font-solid: normal 900 1em / 1 'Font Awesome 6 Free';
   --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue",
     "Noto Sans TC", "Noto Sans SC", "PingFang TC", "PingFang SC",
     "Microsoft YaHei", system-ui, sans-serif;

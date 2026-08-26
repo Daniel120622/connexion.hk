@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Facebook, Linkedin, Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 type Lang = "en" | "cn" | "zh";
@@ -39,6 +39,12 @@ export default function Header() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // Only a real mouse (desktop) should close the dropdown on an
+      // outside click -- on touch devices this listener must stay out of
+      // the way of the mobile accordion below, or it closes (and
+      // unmounts) the sub-links before a tap can navigate.
+      if (!window.matchMedia("(pointer: fine)").matches) return;
+
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
         setServicesOpen(false);
       }
@@ -79,7 +85,7 @@ export default function Header() {
 
   const mobileLinkClass = (active: boolean) =>
     [
-      "block rounded-2xl px-4 py-3 text-[15px] font-medium transition",
+      "block touch-manipulation rounded-2xl px-4 py-3.5 text-base font-medium transition active:scale-[0.98]",
       active
         ? "bg-teal-50 text-teal-900 ring-1 ring-inset ring-teal-200"
         : "bg-slate-50 text-slate-700 hover:bg-slate-100",
@@ -90,7 +96,6 @@ export default function Header() {
     { href: "/corporate-services/local-company", label: t("hkLimitedCompany") },
     { href: "/corporate-services/company-secretary", label: t("companySecretary") },
     { href: "/corporate-services/office-service", label: t("officeService") },
-    { href: "/corporate-services/bvi-company", label: t("bviCompany") },
   ];
 
   const taxItems = [
@@ -268,13 +273,14 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => setServicesOpen((value) => !value)}
-                  className="flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-[15px] font-medium text-slate-800"
+                  className="flex w-full touch-manipulation items-center justify-between rounded-2xl px-4 py-3.5 text-left text-base font-medium text-slate-800"
+                  aria-expanded={servicesOpen}
                 >
                   <span>{t("services")}</span>
                   <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                 </button>
                 {servicesOpen && (
-                  <div className="space-y-2 px-1 pb-1">
+                  <div className="space-y-2 px-1 pb-1 pt-1">
                     {servicesItems.map((item) => (
                       <Link
                         key={item.href}
@@ -296,13 +302,14 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => setTaxServicesOpen((value) => !value)}
-                  className="flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-[15px] font-medium text-slate-800"
+                  className="flex w-full touch-manipulation items-center justify-between rounded-2xl px-4 py-3.5 text-left text-base font-medium text-slate-800"
+                  aria-expanded={taxServicesOpen}
                 >
                   <span>{t("services2")}</span>
                   <ChevronDown className={`h-4 w-4 transition-transform ${taxServicesOpen ? "rotate-180" : ""}`} />
                 </button>
                 {taxServicesOpen && (
-                  <div className="space-y-2 px-1 pb-1">
+                  <div className="space-y-2 px-1 pb-1 pt-1">
                     {taxItems.map((item) => (
                       <Link
                         key={item.href}
@@ -346,24 +353,24 @@ export default function Header() {
                 </div>
               </div>
 
-              <div className="flex gap-4 text-lg text-slate-700">
+              <div className="flex gap-3 text-slate-700">
                 <a
                   href="https://www.facebook.com/connexionshk"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="transition hover:text-teal-700"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white transition hover:border-teal-300 hover:text-teal-700"
                 >
-                  <i className="fab fa-facebook-f" />
+                  <Facebook className="h-4 w-4" aria-hidden="true" />
                 </a>
                 <a
                   href="https://www.linkedin.com/company/connexions-consulting-limited-hong-kong/?originalSubdomain=hk"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="transition hover:text-teal-700"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white transition hover:border-teal-300 hover:text-teal-700"
                 >
-                  <i className="fab fa-linkedin-in" />
+                  <Linkedin className="h-4 w-4" aria-hidden="true" />
                 </a>
               </div>
             </div>

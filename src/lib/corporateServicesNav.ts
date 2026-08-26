@@ -5,7 +5,6 @@
 // groupLabel is copied verbatim from messages/{en,zh,cn}.json Header.services,
 // the same label already shown for this section in the site header.
 export type CorporateServiceSlug =
-  | "bvi-company"
   | "local-company"
   | "company-secretary"
   | "office-service";
@@ -20,21 +19,12 @@ export const corporateServicesOrder: CorporateServiceSlug[] = [
   "local-company",
   "company-secretary",
   "office-service",
-  "bvi-company",
 ];
 
 export const corporateServicesNav: Record<
   CorporateServiceSlug,
   { href: string; title: { en: string; zh: string; cn: string } }
 > = {
-  "bvi-company": {
-    href: "/corporate-services/bvi-company",
-    title: {
-      en: "BVI & Overseas Company Formation",
-      zh: "註冊海外公司",
-      cn: "注册海外公司",
-    },
-  },
   "local-company": {
     href: "/corporate-services/local-company",
     title: {
