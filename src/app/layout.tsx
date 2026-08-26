@@ -5,12 +5,12 @@ import '@/app/globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/context/LanguageContext';
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
+import { getLocale } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import type { Metadata } from 'next';
+import type { Locale } from '@/messages';
 
 export const metadata: Metadata = {
   title: 'Connexions HK',
@@ -32,22 +32,19 @@ const HTML_LANG: Record<string, string> = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-  const locale = await getLocale();
-  const messages = await getMessages();
+  const locale = (await getLocale()) as Locale;
   const htmlLang = HTML_LANG[locale] ?? 'en';
 
   return (
     <html lang={htmlLang}>
       <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased">
-        <NextIntlClientProvider messages={messages}>
-          <LanguageProvider>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </LanguageProvider>
+        <LanguageProvider initialLocale={locale}>
+          <Header />
+          <main>{children}</main>
+          <Footer />
           <Analytics />
           <SpeedInsights />
-        </NextIntlClientProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

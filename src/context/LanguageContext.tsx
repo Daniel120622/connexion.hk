@@ -1,10 +1,10 @@
 "use client";
 
-import React, { createContext, useContext } from "react";
-import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
+import React, { createContext, useContext, useState } from "react";
+import { NextIntlClientProvider } from "next-intl";
+import { allMessages, type Locale } from "@/messages";
 
-type Lang = "en" | "cn" | "zh";
+type Lang = Locale;
 
 type LanguageContextValue = {
   lang: Lang;
@@ -15,22 +15,38 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(undefine
 
 const LOCALE_COOKIE = "connexions-locale";
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
-  const locale = useLocale();
-  const lang = (locale === "cn" || locale === "zh" ? locale : "en") as Lang;
+export function LanguageProvider({
+  initialLocale,
+  children,
+}: {
+  initialLocale: Lang;
+  children: React.ReactNode;
+}) {
+  // Holding the active locale in client state -- instead of only deriving it
+  // from the server via useLocale() + router.refresh() -- is what makes the
+  // language switch instant. All three message bundles are already part of
+  // the client bundle (src/messages/index.ts), so flipping `lang` here
+  // re-renders NextIntlClientProvider with the new messages immediately: no
+  // network round trip, no full page refresh needed.
+  const [lang, setLangState] = useState<Lang>(initialLocale);
 
   const setLang = (nextLang: Lang) => {
+    setLangState(nextLang);
     if (typeof document !== "undefined") {
-      // The cookie is what src/i18n/request.ts actually reads to pick a
-      // locale server-side; router.refresh() re-runs that with the new
-      // cookie value.
+      // Persist the choice so the next full page load (new tab, hard
+      // refresh, or anything server-rendered, e.g. generateMetadata) also
+      // picks the same locale via src/i18n/request.ts.
       document.cookie = `${LOCALE_COOKIE}=${nextLang}; path=/; max-age=31536000; samesite=lax`;
     }
-    router.refresh();
   };
 
-  return <LanguageContext.Provider value={{ lang, setLang }}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={{ lang, setLang }}>
+      <NextIntlClientProvider locale={lang} messages={allMessages[lang]}>
+        {children}
+      </NextIntlClientProvider>
+    </LanguageContext.Provider>
+  );
 }
 
 export function useLanguage() {
